@@ -1,0 +1,71 @@
+. Colophon
+. Preface
+. Acknowledgements 
+. Foundations
+    - Getting Started With the Command Line
+    - Setup
+    - Terminal Applications
+    - The Shell
+    - Fonts and Sizing
+    - The Command Prompt
+    - The Parts of a Command
+    - Single Line and Multi-Lined Commands
+    - Command Line Interfaces are Awesome!
+    - Summary
+. Navigation Commands
+    - Getting Around in Your File System
+    - The pwd Command — Print the Working Directory (Folder)
+    - Understanding File Paths
+    - The man Command — Accessing the Manual for Any Command
+    - The clear Command — Keeping It Tidy
+    - The cd Command — Changing Directories (Folders)
+    - Understanding Tab Completion
+    - The ls Command — Listing Files and Folders
+    - Command Line Navigation is Awesome!
+    - Summary
+. File Commands
+    - Working with Files 
+    - The echo Command — Writing Text to Files 
+    - Understanding Redirection 
+    - The touch Command — Creating Files 
+    - The mv Command — Renaming Files 
+    - The cp Command — Copying Files 
+    - The rm Command — Deleting Files 
+    - Command Line File Handling is Awesome! 
+    - Summary 
+. Folder Commands 
+    - Working with Folders 
+    - The mkdir Command — Creating Directories (Folders) 
+    - Understanding Expansion 
+    - The rmdir Command — Deleting Directories (Folders) 
+    - The du Command — Viewing Disk Usage 
+    - Command Line Folder Handling is Awesome! 
+    - Summary 
+. Text Data Commands. 
+    - Working with Text Data 
+    - The cat Command — Viewing the contents of a Text File 
+    - The head Command — Previewing the Top of a File 
+    - The tail Command — Previewing the Bottom of a File 
+    - The grep Command — Filtering Text 
+    - Understanding Pipes 
+    - Command Line Text Data Handling is Awesome! 
+    - Summary 
+. Utility Commands
+    - Working with Utilities
+    - The less Command — Paging Output for Easy Viewing 
+    - The history Command — Viewing You Command History 
+    - The open Command — Opening Files and Folders 
+    - The alias Command — Creating Your Own Command Shortcuts
+    - Command Line Utilities are Awesome! 
+    - Summary 
+. Next Steps 
+    - Practice Makes Perfect!
+    - Upgrade Your Terminal Colors and Prompt
+    - Explore the Universe of Commands
+    - Congratulations!
+. Appendix A: Customizing Your Terminal. 
+. Appendix B: Using a Package Manager 
+    - Expanding the Commands Available to You 
+    - Installing Homebrew for macOS 
+    - Using Built-In Linux Package Managers
+    - Installing Chocolatey on Windows
