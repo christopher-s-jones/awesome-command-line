@@ -1,0 +1,23 @@
+[colophon, opts=notitle,noheader,nofooter,discrete]
+== {empty}
+*Awesome Command Line* +
+by {author}
+
+Copyright (C) {pubyear} {author}. All rights reserved.
+
+Printing and binding by {printername}.  Printed in the {printerlocation}.
+
+Published by {publisher}, {pubaddress}
+
+The _Awesome Command Line_ series of books may be purchased for personal, educational, or business use.  See {bookurl} for details.
+
+// Define a two column edition table, no borders, half a page wide
+[cols="1,1", frame=none, grid=none, width=50%]
+|===
+| February 2025:
+| First Edition
+|===
+
+The publisher and author have used their best efforts in preparing this book to ensure the accuracy and completeness of the information contained herein. However, they make no representation or warranty with respect to the accuracy, completeness, or suitability of the information provided. The information in this book is provided "as is" without express or implied warranty of any kind. The publisher and author disclaim any responsibility for any errors, omissions, or inaccuracies in the information contained in this book, and they shall not be liable for any damages or losses arising from the use of the instructions or information provided. By using the instructions and information in this book, you acknowledge that you are doing so at your own risk, and you release the publisher and author from any claims or liabilities that may arise from such use.
+
+This book was built using the https://asciidoc.org[Asciidoc] language, and the source code is available as a {bookurl}[free and open source software project].  The text font is EB Garamond by Georg Duffner and Octavio Pardo. The heading font is PT Sans by Alexandra Korolkova, Olga Umpeleva and Vladimir Yefimov, and released by ParaType. The fixed width code font is Adobe Source Code Pro by Paul D. Hunt.  The cover page title font is Qwitcher Grypen by Robert Leuschke, with PT Sans.  The cover illustration and logo design are by {author}.
