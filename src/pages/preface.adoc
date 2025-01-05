@@ -1,6 +1,5 @@
 [preface]
 == Preface
-
 Welcome to _Awesome Command Line_!  I am so grateful that you have found this book, and that you're interested in exploring the seemingly secret world of computing from the command line!
 
 This book is a reminder that you have superpowers at your fingertips!  We are all familiar with the ways that we interact with our computers on a daily basis -- _click_, _drag_, _drop_, _scroll_, _touch_, _tap_.  The graphical nature of our screens and applications are absolutely amazing and indispensible.  In this book, we explore the secret little gems available on all operating systems with another familiar way to interact -- _type_!  And the best part is that the magical commands we explore are largely derived from the English words that describe them, so acquainting ourselves with these commands is straight-forward with a bit of guidance.  Once you become familiar with this small set of essential commands, adding new commands to your toolbox is even easier.  With some simple dedication and practice, you will be able to enhance your computing workflow to be even more efficient and powerful.  You'll manage your projects in ways that would otherwise be labor intensive when using your mouse.  The intention of this book is to empower you in your creative journey by showing you how the _command line_ is an awesome tool to get things done!
@@ -11,7 +10,22 @@ When I first learned about the _Linux_(R)footnote:[Linux is the registered trade
 [discrete]
 === Who Should Read This Book
 
-This book is written for everyone who wants to expand their computer skills!  It's written as an introductory book to get you started with the infinite universe of text commands.  The twenty one commands that I highlight are the essentials and first steps, and the command line concepts throughout each chapter build on themselves.  It is intended as a launching point for creative people -- _writers, designers, photographers, cinematographers, scientists_, to name a few.  For instance, there are amazing commands to batch-process photographs and apply crops, effects filters, and resizing!  Also, those that are beginning their journey with computers like _students, early career engineers, software developers, system administrators, and project managers_ can learn the foundations and then pick up the commands that are specific to their course of study, craft or industry.  Likewise, those interested in joining the decentralized web by running their own Bitcoin node, Lightning node, Nostr relay, and other technologies will benefit from knowing the basics and diving into the world of freedom technology.  No matter your interests, this book is for those who love to learn!
+This book is written for everyone who wants to expand their computer skills!  It's 
+written as an introductory book to get you started with the infinite universe of 
+text commands.  The twenty one commands that I highlight are the essentials and 
+first steps, and the command line concepts throughout each chapter build on 
+themselves.  It is intended as a launching point for creative people -- _writers, 
+designers, photographers, cinematographers, scientists_, to name a few.  For 
+instance, there are amazing commands to batch-process thousands of photographs at 
+once and apply crops, effects filters, and resizing!  Also, those that are 
+beginning their journey with computers like _students_, early career _engineers_, 
+_software developers_, _system administrators_, and _project managers_, can all 
+learn the foundations and then pick up the commands that are specific to their 
+course of study, craft or industry.  Likewise, those interested in joining the 
+decentralized web by running their own Bitcoin node, Lightning node, Nostr relay, 
+and other technologies will benefit from knowing the basics and diving into the 
+world of freedom technology.  No matter your interests, this book is for those who 
+love to learn!
 
 [discrete]
 === Conventions Used in This Book
@@ -29,4 +43,6 @@ This icon indicates a time to be very careful with a command or action. It could
 
 === Getting the Command Line Examples
 
-The examples in this book are accessible for download from a link on the {bookurl}[book release page].  They, along with the entire book source code, are released as open source under the {license} license, and may be used under those terms.
+The examples in this book are accessible for download from a link on the {bookurl}
+[book release page].  The entire book source code is released as open source under
+the {license} license, and may be used under those terms.
