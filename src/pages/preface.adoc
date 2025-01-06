@@ -26,6 +26,7 @@ This icon indicates a tip, suggestion, or a point of awesomeness.
 [CAUTION]
 This icon indicates a time to be very careful with a command or action. It could be irreversible.
 
+[discrete]
 === Getting the Command Line Examples
 
 The examples in this book are accessible for download from a link on the
