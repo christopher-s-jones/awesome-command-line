@@ -1,0 +1,112 @@
+== Foundations
+
+===  Getting Started With the Command Line
+
+The _command line_ is a tool of empowerment--a magic portal to your computer that helps you navigate, create, modify, manage, automate, and refine your files, folders, tasks, and everything else that is part of your work.  At times when repeatedly clicking and choosing with your mouse becomes demanding, the command line _prompt_ allows you to free yourself and just issue a powerful command that does all that you want, quickly and with ease, so you can get back to the creative side of your work.  You can turn complex tasks that require a series of many steps into one workflow that accomplishes what was once fatiguing.  This book serves as an introduction to the the command line and how to get started with it.  We first get set up with the tools you need use the command line--a _terminal_ application that knows how to handle your commands.  But wait, you say--"What is a _command_?  What is a _terminal_? What is a _prompt_?"  In this chapter we introduce those and other concepts in a step by step manner so you have a solid understanding of the terms and lingo needed to use this magic little gem that may be unfamiliar now, but will soon be your trusty friend at your side. In the subsequent chapters we dive in with hands-on learning by highlighting twenty one essential commands that build your foundation.  Each chapter builds on the previous, and we learn a few key concepts that make using the command line ever more powerful.  
+
+When we turn on our computers, we are greeted with beautiful desktop images, icons, windows, menus, pointers, and other _graphical_ symbols that help us navigate our system and enable our digital creativity.  Collectively, these components are known as the _graphical user interface_, or _GUI_ for short.  We predominantly work with our computers in this manner, and for good reason--it works really well!  So think of the graphical user interface as an analogy, or metaphor, that helps us work with the underlying hardware of our machines--processors, storage drives, memory, etc. For instance, a _folder_ icon on your Desktop represents a collection of _files_, and a _file_ icon represent a series of data (ones and zeros) stored on your computer's drive. These metaphors are super intuitive, but there are times when graphical tools slow us down, usually when you need to work on something repeatedly, remotely, when working with complex or large amounts of data, or when there is currently no way to do what you want using the graphical interface.
+
+A _command line interface_, or _CLI_, is also a way to work with your computer by means of a metaphor, but in this case we use plain text words and other combinations of characters as symbols to indicate to the computer what you want to get done.  Sometimes they resemble English words, other times they are shortened versions of words, or acronyms of multiple words.  For example, a command that we cover in Chapter 2 is `pwd`.  This is just a three-character command that stands for "**p**rint **w**orking **d**irectory".  We'll go into the details of this command later, but you can see that it is a very simple command that shows you what directory (i.e. folder) you are currently working in.  So the combination of those three letters, when typed in an application that knows how to handle them (a _terminal_), with give you back a result that shows your current folder.
+
+- *Goals*
+- *Results*
+
+=== Setup
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+Phasellus eleifend tincidunt accumsan lacus luctus lectus cursus. Mi in mi tincidunt penatibus tempor amet ut sociosqu. Nunc suspendisse vehicula ante molestie ligula turpis? Eros fames rhoncus cubilia sit curae ex. Semper nisi aliquet tempus; facilisi rutrum praesent leo. Taciti quis aliquam aenean vivamus rhoncus pharetra orci erat. Lacinia magna accumsan suspendisse vulputate volutpat inceptos.
+
+Suscipit volutpat efficitur fringilla ullamcorper vulputate vivamus risus dictum etiam. Habitasse laoreet habitasse justo nisi laoreet luctus condimentum purus. Facilisis risus ullamcorper et potenti ridiculus ipsum lacus magnis. Nostra porta velit lectus nulla potenti pretium erat suscipit. Torquent mauris libero finibus himenaeos montes etiam tristique vel condimentum? Natoque pulvinar eget non eros sapien pretium nibh sodales. Lobortis metus rhoncus nascetur hendrerit primis lobortis curae elit. Accumsan lobortis lorem nibh feugiat, senectus consequat natoque erat. Imperdiet habitasse ad pharetra rutrum et varius facilisi urna. Lorem facilisi elementum ad sit ultrices iaculis.
+
+Porta amet fermentum pharetra fusce enim aliquam. Convallis ac ac amet eu quisque. Massa ut vulputate aliquet auctor netus ultrices euismod aptent feugiat. Etiam mollis purus scelerisque vestibulum enim accumsan. Lectus dictumst torquent elit efficitur dolor cras erat pretium. Congue venenatis elementum posuere arcu platea rhoncus ligula.
+
+Ac mauris nostra donec sem volutpat lorem. Varius commodo proin class ac vitae. Imperdiet vulputate bibendum eu sollicitudin vulputate eu bibendum iaculis congue. Parturient facilisis interdum, faucibus potenti dictumst consectetur. Torquent adipiscing ex morbi nostra metus tincidunt vulputate. Mollis ultricies amet torquent metus; hac ante. Euismod tincidunt habitasse facilisis malesuada curabitur senectus ac eleifend. Ut augue magna inceptos tincidunt fermentum quam. Pharetra aliquet ornare augue sed quis eros lobortis semper.
+
+=== Terminal Applications
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+Phasellus eleifend tincidunt accumsan lacus luctus lectus cursus. Mi in mi tincidunt penatibus tempor amet ut sociosqu. Nunc suspendisse vehicula ante molestie ligula turpis? Eros fames rhoncus cubilia sit curae ex. Semper nisi aliquet tempus; facilisi rutrum praesent leo. Taciti quis aliquam aenean vivamus rhoncus pharetra orci erat. Lacinia magna accumsan suspendisse vulputate volutpat inceptos.
+
+Suscipit volutpat efficitur fringilla ullamcorper vulputate vivamus risus dictum etiam. Habitasse laoreet habitasse justo nisi laoreet luctus condimentum purus. Facilisis risus ullamcorper et potenti ridiculus ipsum lacus magnis. Nostra porta velit lectus nulla potenti pretium erat suscipit. Torquent mauris libero finibus himenaeos montes etiam tristique vel condimentum? Natoque pulvinar eget non eros sapien pretium nibh sodales. Lobortis metus rhoncus nascetur hendrerit primis lobortis curae elit. Accumsan lobortis lorem nibh feugiat, senectus consequat natoque erat. Imperdiet habitasse ad pharetra rutrum et varius facilisi urna. Lorem facilisi elementum ad sit ultrices iaculis.
+
+Porta amet fermentum pharetra fusce enim aliquam. Convallis ac ac amet eu quisque. Massa ut vulputate aliquet auctor netus ultrices euismod aptent feugiat. Etiam mollis purus scelerisque vestibulum enim accumsan. Lectus dictumst torquent elit efficitur dolor cras erat pretium. Congue venenatis elementum posuere arcu platea rhoncus ligula.
+
+Ac mauris nostra donec sem volutpat lorem. Varius commodo proin class ac vitae. Imperdiet vulputate bibendum eu sollicitudin vulputate eu bibendum iaculis congue. Parturient facilisis interdum, faucibus potenti dictumst consectetur. Torquent adipiscing ex morbi nostra metus tincidunt vulputate. Mollis ultricies amet torquent metus; hac ante. Euismod tincidunt habitasse facilisis malesuada curabitur senectus ac eleifend. Ut augue magna inceptos tincidunt fermentum quam. Pharetra aliquet ornare augue sed quis eros lobortis semper.
+
+=== The Shell
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+Phasellus eleifend tincidunt accumsan lacus luctus lectus cursus. Mi in mi tincidunt penatibus tempor amet ut sociosqu. Nunc suspendisse vehicula ante molestie ligula turpis? Eros fames rhoncus cubilia sit curae ex. Semper nisi aliquet tempus; facilisi rutrum praesent leo. Taciti quis aliquam aenean vivamus rhoncus pharetra orci erat. Lacinia magna accumsan suspendisse vulputate volutpat inceptos.
+
+Suscipit volutpat efficitur fringilla ullamcorper vulputate vivamus risus dictum etiam. Habitasse laoreet habitasse justo nisi laoreet luctus condimentum purus. Facilisis risus ullamcorper et potenti ridiculus ipsum lacus magnis. Nostra porta velit lectus nulla potenti pretium erat suscipit. Torquent mauris libero finibus himenaeos montes etiam tristique vel condimentum? Natoque pulvinar eget non eros sapien pretium nibh sodales. Lobortis metus rhoncus nascetur hendrerit primis lobortis curae elit. Accumsan lobortis lorem nibh feugiat, senectus consequat natoque erat. Imperdiet habitasse ad pharetra rutrum et varius facilisi urna. Lorem facilisi elementum ad sit ultrices iaculis.
+
+Porta amet fermentum pharetra fusce enim aliquam. Convallis ac ac amet eu quisque. Massa ut vulputate aliquet auctor netus ultrices euismod aptent feugiat. Etiam mollis purus scelerisque vestibulum enim accumsan. Lectus dictumst torquent elit efficitur dolor cras erat pretium. Congue venenatis elementum posuere arcu platea rhoncus ligula.
+
+Ac mauris nostra donec sem volutpat lorem. Varius commodo proin class ac vitae. Imperdiet vulputate bibendum eu sollicitudin vulputate eu bibendum iaculis congue. Parturient facilisis interdum, faucibus potenti dictumst consectetur. Torquent adipiscing ex morbi nostra metus tincidunt vulputate. Mollis ultricies amet torquent metus; hac ante. Euismod tincidunt habitasse facilisis malesuada curabitur senectus ac eleifend. Ut augue magna inceptos tincidunt fermentum quam. Pharetra aliquet ornare augue sed quis eros lobortis semper.
+
+=== Fonts and Sizing
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+Phasellus eleifend tincidunt accumsan lacus luctus lectus cursus. Mi in mi tincidunt penatibus tempor amet ut sociosqu. Nunc suspendisse vehicula ante molestie ligula turpis? Eros fames rhoncus cubilia sit curae ex. Semper nisi aliquet tempus; facilisi rutrum praesent leo. Taciti quis aliquam aenean vivamus rhoncus pharetra orci erat. Lacinia magna accumsan suspendisse vulputate volutpat inceptos.
+
+Suscipit volutpat efficitur fringilla ullamcorper vulputate vivamus risus dictum etiam. Habitasse laoreet habitasse justo nisi laoreet luctus condimentum purus. Facilisis risus ullamcorper et potenti ridiculus ipsum lacus magnis. Nostra porta velit lectus nulla potenti pretium erat suscipit. Torquent mauris libero finibus himenaeos montes etiam tristique vel condimentum? Natoque pulvinar eget non eros sapien pretium nibh sodales. Lobortis metus rhoncus nascetur hendrerit primis lobortis curae elit. Accumsan lobortis lorem nibh feugiat, senectus consequat natoque erat. Imperdiet habitasse ad pharetra rutrum et varius facilisi urna. Lorem facilisi elementum ad sit ultrices iaculis.
+
+Porta amet fermentum pharetra fusce enim aliquam. Convallis ac ac amet eu quisque. Massa ut vulputate aliquet auctor netus ultrices euismod aptent feugiat. Etiam mollis purus scelerisque vestibulum enim accumsan. Lectus dictumst torquent elit efficitur dolor cras erat pretium. Congue venenatis elementum posuere arcu platea rhoncus ligula.
+
+Ac mauris nostra donec sem volutpat lorem. Varius commodo proin class ac vitae. Imperdiet vulputate bibendum eu sollicitudin vulputate eu bibendum iaculis congue. Parturient facilisis interdum, faucibus potenti dictumst consectetur. Torquent adipiscing ex morbi nostra metus tincidunt vulputate. Mollis ultricies amet torquent metus; hac ante. Euismod tincidunt habitasse facilisis malesuada curabitur senectus ac eleifend. Ut augue magna inceptos tincidunt fermentum quam. Pharetra aliquet ornare augue sed quis eros lobortis semper.
+
+=== The Command Prompt
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+Phasellus eleifend tincidunt accumsan lacus luctus lectus cursus. Mi in mi tincidunt penatibus tempor amet ut sociosqu. Nunc suspendisse vehicula ante molestie ligula turpis? Eros fames rhoncus cubilia sit curae ex. Semper nisi aliquet tempus; facilisi rutrum praesent leo. Taciti quis aliquam aenean vivamus rhoncus pharetra orci erat. Lacinia magna accumsan suspendisse vulputate volutpat inceptos.
+
+Suscipit volutpat efficitur fringilla ullamcorper vulputate vivamus risus dictum etiam. Habitasse laoreet habitasse justo nisi laoreet luctus condimentum purus. Facilisis risus ullamcorper et potenti ridiculus ipsum lacus magnis. Nostra porta velit lectus nulla potenti pretium erat suscipit. Torquent mauris libero finibus himenaeos montes etiam tristique vel condimentum? Natoque pulvinar eget non eros sapien pretium nibh sodales. Lobortis metus rhoncus nascetur hendrerit primis lobortis curae elit. Accumsan lobortis lorem nibh feugiat, senectus consequat natoque erat. Imperdiet habitasse ad pharetra rutrum et varius facilisi urna. Lorem facilisi elementum ad sit ultrices iaculis.
+
+Porta amet fermentum pharetra fusce enim aliquam. Convallis ac ac amet eu quisque. Massa ut vulputate aliquet auctor netus ultrices euismod aptent feugiat. Etiam mollis purus scelerisque vestibulum enim accumsan. Lectus dictumst torquent elit efficitur dolor cras erat pretium. Congue venenatis elementum posuere arcu platea rhoncus ligula.
+
+Ac mauris nostra donec sem volutpat lorem. Varius commodo proin class ac vitae. Imperdiet vulputate bibendum eu sollicitudin vulputate eu bibendum iaculis congue. Parturient facilisis interdum, faucibus potenti dictumst consectetur. Torquent adipiscing ex morbi nostra metus tincidunt vulputate. Mollis ultricies amet torquent metus; hac ante. Euismod tincidunt habitasse facilisis malesuada curabitur senectus ac eleifend. Ut augue magna inceptos tincidunt fermentum quam. Pharetra aliquet ornare augue sed quis eros lobortis semper.
+
+=== The Parts of a Command
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+Phasellus eleifend tincidunt accumsan lacus luctus lectus cursus. Mi in mi tincidunt penatibus tempor amet ut sociosqu. Nunc suspendisse vehicula ante molestie ligula turpis? Eros fames rhoncus cubilia sit curae ex. Semper nisi aliquet tempus; facilisi rutrum praesent leo. Taciti quis aliquam aenean vivamus rhoncus pharetra orci erat. Lacinia magna accumsan suspendisse vulputate volutpat inceptos.
+
+Suscipit volutpat efficitur fringilla ullamcorper vulputate vivamus risus dictum etiam. Habitasse laoreet habitasse justo nisi laoreet luctus condimentum purus. Facilisis risus ullamcorper et potenti ridiculus ipsum lacus magnis. Nostra porta velit lectus nulla potenti pretium erat suscipit. Torquent mauris libero finibus himenaeos montes etiam tristique vel condimentum? Natoque pulvinar eget non eros sapien pretium nibh sodales. Lobortis metus rhoncus nascetur hendrerit primis lobortis curae elit. Accumsan lobortis lorem nibh feugiat, senectus consequat natoque erat. Imperdiet habitasse ad pharetra rutrum et varius facilisi urna. Lorem facilisi elementum ad sit ultrices iaculis.
+
+Porta amet fermentum pharetra fusce enim aliquam. Convallis ac ac amet eu quisque. Massa ut vulputate aliquet auctor netus ultrices euismod aptent feugiat. Etiam mollis purus scelerisque vestibulum enim accumsan. Lectus dictumst torquent elit efficitur dolor cras erat pretium. Congue venenatis elementum posuere arcu platea rhoncus ligula.
+
+Ac mauris nostra donec sem volutpat lorem. Varius commodo proin class ac vitae. Imperdiet vulputate bibendum eu sollicitudin vulputate eu bibendum iaculis congue. Parturient facilisis interdum, faucibus potenti dictumst consectetur. Torquent adipiscing ex morbi nostra metus tincidunt vulputate. Mollis ultricies amet torquent metus; hac ante. Euismod tincidunt habitasse facilisis malesuada curabitur senectus ac eleifend. Ut augue magna inceptos tincidunt fermentum quam. Pharetra aliquet ornare augue sed quis eros lobortis semper.
+
+=== Single Line and Multi-Lined Commands
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+Phasellus eleifend tincidunt accumsan lacus luctus lectus cursus. Mi in mi tincidunt penatibus tempor amet ut sociosqu. Nunc suspendisse vehicula ante molestie ligula turpis? Eros fames rhoncus cubilia sit curae ex. Semper nisi aliquet tempus; facilisi rutrum praesent leo. Taciti quis aliquam aenean vivamus rhoncus pharetra orci erat. Lacinia magna accumsan suspendisse vulputate volutpat inceptos.
+
+Suscipit volutpat efficitur fringilla ullamcorper vulputate vivamus risus dictum etiam. Habitasse laoreet habitasse justo nisi laoreet luctus condimentum purus. Facilisis risus ullamcorper et potenti ridiculus ipsum lacus magnis. Nostra porta velit lectus nulla potenti pretium erat suscipit. Torquent mauris libero finibus himenaeos montes etiam tristique vel condimentum? Natoque pulvinar eget non eros sapien pretium nibh sodales. Lobortis metus rhoncus nascetur hendrerit primis lobortis curae elit. Accumsan lobortis lorem nibh feugiat, senectus consequat natoque erat. Imperdiet habitasse ad pharetra rutrum et varius facilisi urna. Lorem facilisi elementum ad sit ultrices iaculis.
+
+<<<
+=== Command Line Interfaces are Awesome!
+
+- freedom
+- secret functionality
+- quantum leaps in productivity
+- empowerment
+- free yourself
+- magic portal
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+Phasellus eleifend tincidunt accumsan lacus luctus lectus cursus. Mi in mi tincidunt penatibus tempor amet ut sociosqu. Nunc suspendisse vehicula ante molestie ligula turpis? Eros fames rhoncus cubilia sit curae ex. Semper nisi aliquet tempus; facilisi rutrum praesent leo. Taciti quis aliquam aenean vivamus rhoncus pharetra orci erat. Lacinia magna accumsan suspendisse vulputate volutpat inceptos.
+
+Suscipit volutpat efficitur fringilla ullamcorper vulputate vivamus risus dictum etiam. Habitasse laoreet habitasse justo nisi laoreet luctus condimentum purus. Facilisis risus ullamcorper et potenti ridiculus ipsum lacus magnis. Nostra porta velit lectus nulla potenti pretium erat suscipit. Torquent mauris libero finibus himenaeos montes etiam tristique vel condimentum? Natoque pulvinar eget non eros sapien pretium nibh sodales. Lobortis metus rhoncus nascetur hendrerit primis lobortis curae elit. Accumsan lobortis lorem nibh feugiat, senectus consequat natoque erat. Imperdiet habitasse ad pharetra rutrum et varius facilisi urna. Lorem facilisi elementum ad sit ultrices iaculis.
+
+Porta amet fermentum pharetra fusce enim aliquam. Convallis ac ac amet eu quisque. Massa ut vulputate aliquet auctor netus ultrices euismod aptent feugiat. Etiam mollis purus scelerisque vestibulum enim accumsan. Lectus dictumst torquent elit efficitur dolor cras erat pretium. Congue venenatis elementum posuere arcu platea rhoncus ligula.
+
+Ac mauris nostra donec sem volutpat lorem. Varius commodo proin class ac vitae. Imperdiet vulputate bibendum eu sollicitudin vulputate eu bibendum iaculis congue. Parturient facilisis interdum, faucibus potenti dictumst consectetur. Torquent adipiscing ex morbi nostra metus tincidunt vulputate. Mollis ultricies amet torquent metus; hac ante. Euismod tincidunt habitasse facilisis malesuada curabitur senectus ac eleifend. Ut augue magna inceptos tincidunt fermentum quam. Pharetra aliquet ornare augue sed quis eros lobortis semper.
