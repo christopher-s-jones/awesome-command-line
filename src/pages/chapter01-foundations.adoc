@@ -83,11 +83,13 @@ That's it! You should see a window open similar to _Figure 2_, althought the def
 
 image::chapter-01-macos-terminal-window.png[title="A terminal window example on macOS.",pdfwidth=100%]
 
-If you are in Dark Mode, you'll likely see a dark window, and in Light Mode you should see a light window.  To finalize your setup, adjust the font size in your terminal so that you can comfortably see the text.  You can also change the font family, but be sure to use a _fixed width_ font since the terminal expects it for layout purposes.  In order to change the font size, select the _Terminal_ menu item and choose the _Settings ..._ item.  In the Terminal.app Settings window, select the _Basic_ (Default) Profile, and the _Text_ tab in the window panel.  Use the _Change ..._ button to change the font size, as shown in _Figure 3._
+If you are in Dark Mode, you'll likely see a dark window, and in Light Mode you should see a light window.  In your Dock at the bottom of your screen, you can kbd:[Control]+_click_ on the Terminal icon (or use your _secondary-click_) to bring up the icon menu, and choose _Options_ > _Keep in Dock_ to add it permanently to your Dock.  
+
+To finalize your setup, adjust the font size in your terminal so that you can comfortably see the text.  You can also change the font family, but be sure to use a _fixed width_ font since the terminal expects it for layout purposes.  In order to change the font size, select the _Terminal_ menu item and choose the _Settings ..._ item.  In the Terminal.app Settings window, select the _Basic_ (Default) Profile, and the _Text_ tab in the window panel.  Use the _Change ..._ button to change the font size, as shown in _Figure 3._
 
 image::chapter-01-macos-terminal-settings.png[title="Change the font size as needed in the Terminal.app settings.",pdfwidth=100%]
 
-You are all set! It's that simple to get configured to use the command line on macOS.  You can continue on to the section entitled _The Shell_ to become acquainted with the command line.
+You are all set! It's that simple to get configured to use the command line on macOS.  You can continue on to the section entitled _The Shell_ to become more acquainted with the command line.
 
 ==== Setup For Linux
 
@@ -95,10 +97,19 @@ Getting set up on Linux is quite easy as well.  On Ubuntu 24.04, the default des
 
 NOTE: If you are on a Windows-branded machine, the kbd:[Super] key may have the Windows logo on it.  It's also called the kbd:[System] key.  If you have Linux installed on Mac hardware, this is the kbd:[Command] key.
 
-In the search box, type "terminal" (without the quotes), and the default Terminal application icon should be in view.  Click on that icon to open the application.  You're all set! Once open, you may want to right click on the icon in the _Dash_ (i.e. the Application Dock), and choose the _Pin to Dash_ menu item so that you have quick access to the Terminal application.
+In the search box, type "terminal" (without the quotes), and the default Terminal application icon should be in view.  Click on that icon to open the application.  You're all set! Once open, you may want to right click on the icon in the _Dash_ (i.e. the Application Dock), and choose the _Pin to Dash_ menu item so that you have quick access to the Terminal application.  See _Figure 4_ showing how to search for applications on the Linux Desktop.
 
 image::chapter-01-linux-terminal-search.png[title="Search for the Terminal application on Ubuntu Linux.", pdfwidth=100%]
 
+Great, now that you have the Terminal application running, you should see a window similar to _Figure 5_.  Your colors may be different depending on your Appearance settings, but you will either see a Light Mode or Dark Mode window.
+
+image::chapter-01-linux-terminal-window.png[title="A terminal window example on Ubuntu Linux.", pdfwidth=100%]
+
+To finalize your setup, adjust the font size in your terminal so that you can comfortably see the text.  You can also change the font family, but be sure to use a _fixed width_ font since the terminal expects it for layout purposes.  In order to change the font size, select the menu button in the top window bar and choose the _Preferences_ item.  In the Terminal Preferences window, select the _Unnamed_ (Default) Profile, and the _Text_ tab in the window panel.  Use the _Custom font_ checkbox and then the font button to change the font size, as shown in _Figure 6._
+
+image::chapter-01-linux-terminal-preferences.png[title="Change the font size as needed in the Terminal preferences.", pdfwidth=100%]
+
+That's it!  It's that simple to get set up to use the command line on Ubuntu Linux.  You can continue on to the section entitled _The Shell_ to become more acquainted with the command line.
 
 ==== Setup For Windows
 
