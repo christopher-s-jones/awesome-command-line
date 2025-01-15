@@ -193,12 +193,27 @@ This opens a dialog that allows you to change the font size as needed. See the e
 
 image::chapter-01-windows-terminal-settings-ubuntu-change-font.png[title="Adjust the font size as needed, and click on the Save button to save the profile changes.", pdfwidth=100%]
 
-Congratulations!  You are ready to continue with your command line journey in the next section to learn about the concept of a shell!
+Congratulations!  You are ready to continue with your command line journey in the next section to learn about the concept of _The Shell_!
 
 <<<
 === The Shell
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+Now that you have set up a working terminal application, you are well on your way to using the command line with ease!  To help with some of the terminology, let's first discuss what a _shell_ is.  In the course of your work, someone may say "Open up a terminal", "Open up a console", or "Open up a shell".  As we mentioned before, these terms are often used interchangeably.  However, let's touch on the idea of a shell in more detail.
+
+When you open your terminal application, a number of things happen in the background to set up your environment, such as loading your default settings profile.  As part of this process, the terminal will start another process called a _shell interpreter_, which is a program, running invisibly in the background, that is waiting for your command to be typed. When you do type the command and hit the kbd:[Return] key, the shell program kicks into gear, interprets all of the text that you entered, and runs the command like a programming language.  In fact, you are actually writing commands in what is called a _shell language_!
+
+Here's the same example as _Example 1_, but with a comment added to the command:
+
+.Issuing the `pwd` command with a comment
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir ~ % pwd # Issue the pwd command
+/Users/chris
+----
+
+Notice that the `+pwd+` characters are followed by a space, then a `+#+` hashtag symbol, and then another space and the comment sentence.  The shell interpreter evaluates everything in the command, and validates it based on the shell language rules.  In this case, we just learned that you can issue a command, followed by a `+#+` character and any other written comment, and the shell will ignore them because it knows they are a comment and will proceed to give you back a result.
+
+The take home message here is that the shell interpreter is doing the heavy lifting behind the scenes, and there are many variants of these interpreters. The earliest shell interpreter is attributed to Louis Pouzin in 1964 for the CTSS/Multics operating systemfootnote:[See https://multicians.org/shell.html].Since 1979 the UNIX operating system included the default shell interpreter called `+sh+`, and a free version of it is still the default on Linux and macOS.  That said, there has been immense improvements to shell programming languages since the 1970s, and many different interpreters, with new features, have been written and shipped with various operating systems.  To name a few, there is `+ksh+`, `+csh+`, `+bash+`, and `+zsh+`{empty}footnote:[The Bourne shell (sh) was wriiten by Stephen Bourne at Bell Labs for UNIX and was released in 1979.  Also at Bell Labs, David Korn created Korn Shell (ksh) which was released in 1983 for UNIX. An alternative for sh called CShell (csh) was written by Bill Joy at the University of California Berkeley for BSD Unix, and Brian Fox wrote the Bourne Again Shell (bash), which is an open source rewrite of the Bourne Shell.  In 1990, Paul Falstad released zsh as an open source program.].  On modern versions of Linux, the default shell tends to be `+bash+`, and on macOS it is now `+zsh+`.  For the purposes of this handbook, we'll see that they all work similarly if not identically in some cases.  In the next section, we'll take a closer look at the _command prompt_, but know that the shell interpreter is workhorse behind your magic commands!
 
 === The Command Prompt
 
