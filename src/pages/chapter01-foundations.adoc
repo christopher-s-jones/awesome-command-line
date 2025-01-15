@@ -69,13 +69,14 @@ In the remainder of Chapter 1, we will get started with setting up a terminal ap
 
 === Terminal Applications
 
-A computer _terminal_ is merely a way to send input to a computer and receive the output results.  You might also hear the word _console_ used interchangeably with terminal, but the latter is a bit more specific in that it was usually a screen device and keyboard connected directly to a mainframe computer and used by the operators.  Terminals, on the other hand, were historically connected to computers remotely on a network.  We now of course have terminal applications that are considered _virtual terminals_ that emulate these older terminals.  See _A History of Modern Computing_ (2003) by Paul E. Ceruzzi {empty}footnote:[Ceruzzi, Paul E.. A History of Modern Computing. United Kingdom: February, 2003. https://mitpress.mit.edu/9780262532037/a-history-of-modern-computing/] for more background.  There are many alternative applications, but we will start with the basics on each operating system in order to get set up.  For macOS 14, the default application is called _Terminal.app_, and on Windows 11 we will focus on the default _Windows Terminal_.  If you are using Linux, there are of course many distributions available, but we will focus on Ubuntu 24.04 and the _Gnome Terminal_ that comes packaged with it.  So, skip to the next section below that is pertinent to you, and we'll get started with a terminal application!
+A computer _terminal_ is merely a way to send input to a computer and receive the output results.  You might also hear the word _console_ used interchangeably with terminal, but the latter is a bit more specific in that it was usually a screen device and keyboard connected directly to a mainframe computer and used by the operators.  Terminals, on the other hand, were historically connected to computers remotely on a network.  We now of course have terminal applications that are considered _virtual terminals_ that emulate these older terminals.  See _A History of Modern Computing_ (2003) by Paul E. Ceruzzi {empty}footnote:[Ceruzzi, Paul E.. A History of Modern Computing. United Kingdom: February, 2003. https://mitpress.mit.edu/9780262532037/a-history-of-modern-computing/] for more background.  There are many alternative applications, but we will start with the basics on each operating system in order to get set up.  For macOS 14, the default application is called _Terminal.app_, and on Windows 11 we will focus on the default _Windows Terminal_.  If you are using Linux, there are of course many distributions available, but we will focus on Ubuntu(R){empty}footnote:[Ubuntu and Canonical are registered trademarks of Canonical Ltd.] 24.04 and the _Gnome Terminal_ that comes packaged with it.  So, skip to the next section that is pertinent to you for your operating system--one of _Setup For macOS_, _setup For Linux_, or _Setup For Windows_&#8212;and we'll get started with a terminal application!
 
+<<<
 ==== Setup For macOS
 
 If you are on a Mac, Apple has included the Terminal.app since it introduced Mac OS X in 2001, so it has had many years of refinement.  You can search for "Terminal.app" using Apple's Spotlight search by pressing the kbd:[Command]+kbd:[Spacebar] keys at the same time and typing "terminal" (without the quotes) in the search bar. Alternatively you can open a _Finder_ window and navigate to the _Applications_ > _Utilities_ folder to find the Terminal application, as shown in _Figure 1_.  Double click the icon to open the application.
 
-image::chapter-01-macos-choose-terminal-flow.svg[title="Open the Terminal.app in the menu:Applications[Utilities] folder.",pdfwidth=100%]
+image::chapter-01-macos-choose-terminal-flow.png[title="Open the Terminal.app in the Applications > Utilities folder.",pdfwidth=100%]
 
 ===== Adjust the Font Size
 
@@ -83,7 +84,7 @@ That's it! You should see a window open similar to _Figure 2_, althought the def
 
 image::chapter-01-macos-terminal-window.png[title="A terminal window example on macOS.",pdfwidth=100%]
 
-If you are in Dark Mode, you'll likely see a dark window, and in Light Mode you should see a light window.  In your Dock at the bottom of your screen, you can kbd:[Control]+_click_ on the Terminal icon (or use your _secondary-click_) to bring up the icon menu, and choose _Options_ > _Keep in Dock_ to add it permanently to your Dock.  
+If you are in Dark Mode, you'll likely see a dark window, and in Light Mode you should see a light window.  In your Dock at the bottom of your screen, you can kbd:[Control] + _click_ on the Terminal icon (or use your _secondary-click_) to bring up the icon menu, and choose _Options_ > _Keep in Dock_ to add it permanently to your Dock.  
 
 To finalize your setup, adjust the font size in your terminal so that you can comfortably see the text.  You can also change the font family, but be sure to use a _fixed width_ font since the terminal expects it for layout purposes.  In order to change the font size, select the _Terminal_ menu item and choose the _Settings ..._ item.  In the Terminal.app Settings window, select the _Basic_ (Default) Profile, and the _Text_ tab in the window panel.  Use the _Change ..._ button to change the font size, as shown in _Figure 3._
 
@@ -91,6 +92,7 @@ image::chapter-01-macos-terminal-settings.png[title="Change the font size as nee
 
 You are all set! It's that simple to get configured to use the command line on macOS.  You can continue on to the section entitled _The Shell_ to become more acquainted with the command line.
 
+<<<
 ==== Setup For Linux
 
 Getting set up on Linux is quite easy as well.  On Ubuntu 24.04, the default desktop manager is Gnome. To search for applications, similar to Apple's Spotlight function, press the kbd:[Super] key next to the kbd:[Alt] key on your keyboard.
@@ -101,9 +103,11 @@ In the search box, type "terminal" (without the quotes), and the default Termina
 
 image::chapter-01-linux-terminal-search.png[title="Search for the Terminal application on Ubuntu Linux.", pdfwidth=100%]
 
-Great, now that you have the Terminal application running, you should see a window similar to _Figure 5_.  Your colors may be different depending on your Appearance settings, but you will either see a Light Mode or Dark Mode window.
+Great! Now that you have the Terminal application running, you should see a window similar to _Figure 5_.  Your colors may be different depending on your Appearance settings, but you will either see a Light Mode or Dark Mode window.
 
 image::chapter-01-linux-terminal-window.png[title="A terminal window example on Ubuntu Linux.", pdfwidth=100%]
+
+===== Adjust the Font Size
 
 To finalize your setup, adjust the font size in your terminal so that you can comfortably see the text.  You can also change the font family, but be sure to use a _fixed width_ font since the terminal expects it for layout purposes.  In order to change the font size, select the menu button in the top window bar and choose the _Preferences_ item.  In the Terminal Preferences window, select the _Unnamed_ (Default) Profile, and the _Text_ tab in the window panel.  Use the _Custom font_ checkbox and then the font button to change the font size, as shown in _Figure 6._
 
@@ -111,18 +115,87 @@ image::chapter-01-linux-terminal-preferences.png[title="Change the font size as 
 
 That's it!  It's that simple to get set up to use the command line on Ubuntu Linux.  You can continue on to the section entitled _The Shell_ to become more acquainted with the command line.
 
+<<<
 ==== Setup For Windows
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+The Microsoft Windows operating system has a rich history, but one that is diiferent from the Unix-like operating systems of macOS and Linux.  Because of the low-level differences in the systems, Microsoft has created a component called the _Windows Subsytem for Linux_, otherwise known as _WSL_.  WSL provides those of us using Windows an integrated system with a full Linux command line environment.  In this section, we will complete the following list:
 
-Phasellus eleifend tincidunt accumsan lacus luctus lectus cursus. Mi in mi tincidunt penatibus tempor amet ut sociosqu. Nunc suspendisse vehicula ante molestie ligula turpis? Eros fames rhoncus cubilia sit curae ex. Semper nisi aliquet tempus; facilisi rutrum praesent leo. Taciti quis aliquam aenean vivamus rhoncus pharetra orci erat. Lacinia magna accumsan suspendisse vulputate volutpat inceptos.
+[sidebar]
+--
 
-Suscipit volutpat efficitur fringilla ullamcorper vulputate vivamus risus dictum etiam. Habitasse laoreet habitasse justo nisi laoreet luctus condimentum purus. Facilisis risus ullamcorper et potenti ridiculus ipsum lacus magnis. Nostra porta velit lectus nulla potenti pretium erat suscipit. Torquent mauris libero finibus himenaeos montes etiam tristique vel condimentum? Natoque pulvinar eget non eros sapien pretium nibh sodales. Lobortis metus rhoncus nascetur hendrerit primis lobortis curae elit. Accumsan lobortis lorem nibh feugiat, senectus consequat natoque erat. Imperdiet habitasse ad pharetra rutrum et varius facilisi urna. Lorem facilisi elementum ad sit ultrices iaculis.
+. Open the Windows Terminal application as an Administrator.
+. Install the Windows Subsystem for Linux component.
+- Install a distribution of Ubuntu Linux.
+- Restart the computer.
+. Enable the Windows Subsystem for Linux required features.
+- Restart the computer.
+. Set up Ubuntu Linux in Windows Terminal
+- Open the Windows Terminal application.
+- Open an Ubuntu Linux tab.
+- Create a Linux user and password.
+. Adjust the terminal font size as needed.
 
-Porta amet fermentum pharetra fusce enim aliquam. Convallis ac ac amet eu quisque. Massa ut vulputate aliquet auctor netus ultrices euismod aptent feugiat. Etiam mollis purus scelerisque vestibulum enim accumsan. Lectus dictumst torquent elit efficitur dolor cras erat pretium. Congue venenatis elementum posuere arcu platea rhoncus ligula.
+--
 
-Ac mauris nostra donec sem volutpat lorem. Varius commodo proin class ac vitae. Imperdiet vulputate bibendum eu sollicitudin vulputate eu bibendum iaculis congue. Parturient facilisis interdum, faucibus potenti dictumst consectetur. Torquent adipiscing ex morbi nostra metus tincidunt vulputate. Mollis ultricies amet torquent metus; hac ante. Euismod tincidunt habitasse facilisis malesuada curabitur senectus ac eleifend. Ut augue magna inceptos tincidunt fermentum quam. Pharetra aliquet ornare augue sed quis eros lobortis semper.
+After the Windows Subsystem for Linux installation, the Windows Terminal application will have built-in support and integration for WSL, and will give you a full Linux environment to work with.  So let's get started!
 
+===== Open the Windows Terminal Application
+
+Windows Subsystem for Linux is considered a developer tool, and as such, the recommended way to install it is by issuing a command in the terminal application as an Administrator of the computer.  To get started, click on the Windows Start menu icon in the Windows Taskbar, or press the kbd:[Super] key on your keyboard.
+
+NOTE: As mention before, the kbd:[Super] key may have the Windows logo on it, and is usually next to the kbd:[Alt] key.
+
+In the search bar, type "Terminal" (without the quotes).  You should see a search result with the Windows Terminal icon.  As shown in _Figure 7_, choose the _Run as Administrator_ option in the details pane for the Terminal application.
+
+image::chapter-01-windows-search-terminal.png[title="Search for Windows Terminal application and run it as an administrator.", pdfwidth=100%]
+
+When run as an Administrator, you will see a dialog asking you to make changes to your system, so be sure to choose "Yes" to continue.  A terminal window should open and look similar to the window in Figure 8, although the colors may be different depending on your Appearance settings.  The Terminal "Powershell" profile usually defaults to a dark background color.  To keep this application readily available, _right-click_ on the Windows Terminal icon you see in the taskbar, and choose the _Pin to taskbar_ menu item.
+
+===== Install Windows Subsystem for Linux
+
+To install WSL using Windows Terminal, click inside the terminal window and type `wsl --install`, where there is a single space between the `wsl` and the `--install` parts, and press the kbd:[Return] key, as shown in _Figure 8_.  By running this command, Windows will first download the latest version of the Windows Subsystem for Linux component, and will install the component.  It will also install files that are part of the Virtual Machine Platform component that WSL needs for integrating with the operating system.  Once finished, it will prompt you to restart your machine, so do that now.
+
+image::chapter-01-windows-install-wsl.png[title="Run the `wsl --install` command in the Windows Terminal application.", pdfwidth=100%]
+
+===== Enable the Windows Subsystem for Linux Required Features
+
+Once rebooted, you will need to ensure that the WSL components are enabled.  To do so, click on the Windows Start menu icon in the Windows Taskbar, or press the kbd:[Super] key on your keyboard.  In the search bar, type "Turn Windows features" (without the quotes).  As shown in _Figure 9_, you should see a search result with a Control Panel option for "Turn Windows features on or off".  Click on this option to open the features dialog, and scroll down in the dialog toward the bottom.
+
+image::chapter-01-windows-search-features.png[title="Use Windows Search to open the 'Turn Windows Features on or off' Control Panel.", pdfwidth=100%]
+
+As shown in _Figure 10_, ensure that the "Virtual Machine Platform" and the "Windows Subsystem for Linux" items are checked.  After closing this dialog box, Windows will enable these components, and will prompt you to restart your machine.
+
+[.center]
+image::chapter-01-windows-enable-features.png[title="Enable the Virtual Machine Platform and Windows Subsystem for Linux components in the Control Panel.", pdfwidth=75%] 
+
+===== Set up Ubuntu Linux in Windows Terminal
+
+Great, the underlying components are now installed! It's now time to set up Ubuntu Linux using the Windows Terminal application.  So, open the Windows Terminal application again, either from your taskbar or the Windows Start menu.  By default, it will open with a Windows PowerShell profile tab.  As shown in _Figure 11_, click on the down-arrow icon next to the '+' icon at the top of the window to open a new tab, and select the Ubuntu profile item.  
+
+[.center]
+image::chapter-01-windows-terminal-choose-ubuntu-profile.png[title="Open an Ubuntu Linux profile using the drop-down icon in the Windows Terminal tab bar (next to the + sign.)", pdfwidth=75%] 
+
+This will initiate the Windows Subsystem for Linux, and will start Ubuntu Linux.  It will take a few minutes to initialize, but will then prompt you to create a UNIX username (i.e. Linux username). You can use the same name as your Windows user name, or a different one.  After entering your name, and pressing the kbd:[Return] key, it will then prompt you for a password.  Type in a password of your choosing, and also write it down.
+
+NOTE: As you type in the password field, your typing will not be visible, which is typical behavior for command line password entry.
+
+Confirm your password a second time when prompted, and your Linux environment will be set up for you! Once the text has stopped scrolling in the window, you will have a fully-functional Linux command line, similar to what is shown in _Figure 12_.
+
+image::chapter-01-windows-configure-ubuntu-linux.png[title="A complete Linux command line running within Windows.", pdfwidth=100%]
+
+====== Adjust the Font Size
+
+To finalize your setup, adjust the font size in your terminal so that you can comfortably see the text. You can also change the font family, but be sure to use a fixed width font since the terminal expects it for layout purposes. In order to change the font size, click on the drop-down icon in the tab bar again, and choose the _Settings_ item in the menu.  This opens a new tab in the Windows Terminal with the settings for the application, and the settings for each profile, including the Ubuntu profile.  In the sidebar on the left, scroll down and click on the Ubuntu profile, as shown in _Figure 13_. The Ubuntu profile settings will appear in the right window pane.  Scroll down in this pane, and choose the _Appearance_ section. 
+
+image::chapter-01-windows-terminal-choose-ubuntu-appearance.png[title="To change the font size, first open the Terminal Settings and choose the Ubuntu profile's Appearance section.", pdfwidth=100%]
+
+This opens a dialog that allows you to change the font size as needed. See the example in _Figure 14_ for changing the font size.  Once finished, close the Appearance dialog and click the _Save_ button at the bottom of the Settings tab, as shown in _Figure 14_, and then close the Settings tab.
+
+image::chapter-01-windows-terminal-settings-ubuntu-change-font.png[title="Adjust the font size as needed, and click on the Save button to save the profile changes.", pdfwidth=100%]
+
+Congratulations!  You are ready to continue with your command line journey in the next section to learn about the concept of a shell!
+
+<<<
 === The Shell
 
 Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
@@ -186,6 +259,3 @@ Suscipit volutpat efficitur fringilla ullamcorper vulputate vivamus risus dictum
 Porta amet fermentum pharetra fusce enim aliquam. Convallis ac ac amet eu quisque. Massa ut vulputate aliquet auctor netus ultrices euismod aptent feugiat. Etiam mollis purus scelerisque vestibulum enim accumsan. Lectus dictumst torquent elit efficitur dolor cras erat pretium. Congue venenatis elementum posuere arcu platea rhoncus ligula.
 
 Ac mauris nostra donec sem volutpat lorem. Varius commodo proin class ac vitae. Imperdiet vulputate bibendum eu sollicitudin vulputate eu bibendum iaculis congue. Parturient facilisis interdum, faucibus potenti dictumst consectetur. Torquent adipiscing ex morbi nostra metus tincidunt vulputate. Mollis ultricies amet torquent metus; hac ante. Euismod tincidunt habitasse facilisis malesuada curabitur senectus ac eleifend. Ut augue magna inceptos tincidunt fermentum quam. Pharetra aliquet ornare augue sed quis eros lobortis semper.
-pages/chapter01-foundations.adoc:==== The Command Line Metaphor
-pages/chapter01-foundations.adoc:=== The Command Prompt
-pages/chapter01-foundations.adoc:=== The Parts of a Command
