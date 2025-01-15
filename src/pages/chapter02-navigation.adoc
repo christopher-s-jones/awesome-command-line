@@ -1,0 +1,62 @@
+== Navigation Commands
+
+=== Getting Around in Your File System
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+=== The `pwd` Command--Print the Working Directory (Folder)
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+=== Understanding File Paths
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+=== The `man` Command--Accessing the Manual for Any Command
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+=== The `clear` Command--Keeping It Tidy
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+=== The `cd` Command--Changing Directories (Folders)
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+=== Understanding Tab Completion
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+=== The `ls` Command--Listing Files and Folders
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
+image::chapter-02-figure-home-directory-window.png[title="The home folder on Linux showing the sub-folders."]
+
+.Using the `ls` command to produce a long listing (`-l`) with human readable sizes (`-h`)
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ ls -lh
+total 36K <1>
+drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Desktop
+drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Documents
+drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Downloads
+drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Music
+drwxr-xr-x 3 chris chris 4.0K Jan 10 10:11 Pictures  <2>
+drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Public
+drwx------ 3 chris chris 4.0K Jan 10 10:01 snap
+drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Templates
+drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Videos
+----
+<1> A technical total of the number of disk blocks used in the current folder
+<2> The listing of items in _chris'_ home folder with accompanying details
+
+
+image::chapter-02-figure-long-listing.svg[title="Understanding the columns of the long listing output.",pdfwidth=100%]
+
+<<<
+=== Command Line Navigation is Awesome!
+
+Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+
