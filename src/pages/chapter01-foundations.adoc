@@ -153,7 +153,7 @@ When run as an Administrator, you will see a dialog asking you to make changes t
 
 ==== Install Windows Subsystem for Linux
 
-To install WSL using Windows Terminal, click inside the terminal window and type [.nobreak]#`wsl --install`#, where there is a single space between the `wsl` and the `--install` parts, and press the kbd:[Return] key, as shown in _Figure 8_.  By running this command, Windows will first download the latest version of the Windows Subsystem for Linux component, and will install the component.  It will also install files that are part of the Virtual Machine Platform component that WSL needs for integrating with the operating system.  Once finished, it will prompt you to restart your machine, so do that now.
+To install WSL using Windows Terminal, click inside the terminal window and type `wsl --install`, where there is a single space between the `wsl` and the `--install` parts, and press the kbd:[Return] key, as shown in _Figure 8_.  By running this command, Windows will first download the latest version of the Windows Subsystem for Linux component, and will install the component.  It will also install files that are part of the Virtual Machine Platform component that WSL needs for integrating with the operating system.  Once finished, it will prompt you to restart your machine, so do that now.
 
 image::chapter-01-windows-install-wsl.png[title="Run the `wsl --install` command in the Windows Terminal application.", pdfwidth=100%]
 
