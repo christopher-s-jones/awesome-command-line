@@ -90,7 +90,7 @@ To finalize your setup, adjust the font size in your terminal so that you can co
 
 image::chapter-01-macos-terminal-settings.png[title="Change the font size as needed in the Terminal.app settings.",pdfwidth=100%]
 
-You are all set! It's that simple to get configured to use the command line on macOS.  You can continue on to the section entitled _The Shell_ to become more acquainted with the command line.
+You are all set! It's that simple to get configured to use the command line on macOS.  You can continue on to the section entitled _The Shell_ to become more acquainted with the command line.  Thank you for focusing your power on the magic of the command line!
 
 <<<
 ==== Setup For Linux
@@ -99,7 +99,7 @@ Getting set up on Linux is quite easy as well.  On Ubuntu 24.04, the default des
 
 NOTE: If you are on a Windows-branded machine, the kbd:[Super] key may have the Windows logo on it.  It's also called the kbd:[System] key.  If you have Linux installed on Mac hardware, this is the kbd:[Command] key.
 
-In the search box, type "terminal" (without the quotes), and the default Terminal application icon should be in view.  Click on that icon to open the application.  You're all set! Once open, you may want to right click on the icon in the _Dash_ (i.e. the Application Dock), and choose the _Pin to Dash_ menu item so that you have quick access to the Terminal application.  See _Figure 4_ showing how to search for applications on the Linux Desktop.
+In the search box, type "terminal" (without the quotes), and the default Terminal application icon should be in view.  Click on that icon to open the application.  You're all set! Once open, you may want to right click on the icon in the _Dash_ (i.e. the Application Dock), and choose the _Pin to Dash_ menu item so that you have quick access to the Terminal application.  See _Figure 4_ showing how to search for applications on the Ubuntu Linux Desktop.
 
 image::chapter-01-linux-terminal-search.png[title="Search for the Terminal application on Ubuntu Linux.", pdfwidth=100%]
 
@@ -113,7 +113,7 @@ To finalize your setup, adjust the font size in your terminal so that you can co
 
 image::chapter-01-linux-terminal-preferences.png[title="Change the font size as needed in the Terminal preferences.", pdfwidth=100%]
 
-That's it!  It's that simple to get set up to use the command line on Ubuntu Linux.  You can continue on to the section entitled _The Shell_ to become more acquainted with the command line.
+That's it!  It's that simple to get set up to use the command line on Ubuntu Linux.  You can continue on to the section entitled _The Shell_ onto become more acquainted with the command line.  Thank you for taking the next step as a command line magician!
 
 <<<
 ==== Setup For Windows
@@ -193,7 +193,7 @@ This opens a dialog that allows you to change the font size as needed. See the e
 
 image::chapter-01-windows-terminal-settings-ubuntu-change-font.png[title="Adjust the font size as needed, and click on the Save button to save the profile changes.", pdfwidth=100%]
 
-Congratulations!  You are ready to continue with your command line journey in the next section to learn about the concept of _The Shell_!
+Congratulations!  You are ready to continue with your command line journey in the next section to learn about the concept of _The Shell_!  Thank you for building your magic command line skills!
 
 <<<
 === The Shell
