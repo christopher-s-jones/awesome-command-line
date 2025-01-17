@@ -291,12 +291,6 @@ Now, when you press the final kbd:[Return] key without a `+\+` backslash charact
 <<<
 === Command Line Interfaces are Awesome!
 
-- freedom
-- secret functionality
-- quantum leaps in productivity
-- empowerment
-- free yourself
-- magic portal
+Our computers are wonderful tools for creativity, particularly due to the graphical user interface metaphor that helps us navigate our machines.  And now, as we familiarize ourselves with the command line interface, we see that the terminal application can become your trusty friend and addition that helps you uncover seemingly secret functionality on your computer by using text-based commands to orchestrate your work in a concise and effective manner.  In this chapter we have learned how to access a terminal application on macOS, Linux, and Windows.  We now have a solid understanding of a shell interpreter that handles the commands we type, what a command prompt is, and how to construct a command with command arguments and the various styles of command options.  These concepts set the foundation for the upcoming chapters where we learn individual commands that enable us to navigate our computers, create and manage files and folders, and work with our data files in ways that are often impossible with a graphical approach.  The command line is truly a tool of empowerment, and a magic portal into your machine.  In Chapter 2, we will get hands on experience with navigation commands, and will begin to traverse our files and folders with ease, while getting to know the structure of our storage file systems in better detail.  Let's go!
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
 
