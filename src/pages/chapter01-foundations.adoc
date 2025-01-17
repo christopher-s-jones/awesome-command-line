@@ -48,11 +48,11 @@ This book serves as an introduction to the command line and how to get started w
 
 Each chapter builds on the previous, and we learn a few key concepts that make using the command line ever more powerful.  These concepts include _file paths_, _redirection_, _expansion_, and _pipes_.  However, let's first take a step back and think about the metaphors we use to interact with our computers.
 
-==== The Graphical Desktop Metaphor
+==== The graphical desktop metaphor
 
 When we turn on our computers, we are greeted with beautiful desktop images, icons, windows, menus, a pointer, and other _graphical_ symbols that help us navigate our system and enable our digital creativity.  Collectively, these components are known as the _graphical user interface_, or _GUI_ for short.  We predominantly work with our computers in this manner, and for good reason--it works really well!  So think of the graphical user interface as an analogy, or metaphor, that helps us work with the underlying hardware of our machines--processors, storage drives, memory, etc. For instance, a _folder_ icon on your Desktop represents a collection of _files_, and a _file_ icon represents some data stored on your computer's drive. These metaphors are highly intuitive, but there are times when graphical tools slow us down--usually when you need to work on something repeatedly, remotely, when working with complex or large amounts of data, or when there is currently no way to do what you want using the graphical interface.
 
-==== The Command Line Metaphor
+==== The command line metaphor
 
 A _command line interface_, or _CLI_, is also a way to work with your computer by means of a metaphor, but in this case we use plain text words and other combinations of characters as symbols to indicate to the computer what you want to accomplish.  Sometimes they resemble English words, other times they are shortened versions of words, or acronyms of multiple words.  For example, a command that we cover in Chapter 2 is `pwd`.  This is just a three-character command that stands for "print working directory".  Here's a quick example:
 
@@ -72,13 +72,13 @@ In the remainder of Chapter 1, we will get started with setting up a terminal ap
 A computer _terminal_ is merely a way to send input to a computer and receive the output results.  You might also hear the word _console_ used interchangeably with terminal, but the latter is a bit more specific in that it was usually a screen device and keyboard connected directly to a mainframe computer and used by the operators.  Terminals, on the other hand, were historically connected to computers remotely on a network.  We now of course have terminal applications that are considered _virtual terminals_ that emulate these older terminals.  See _A History of Modern Computing_ (2003) by Paul E. Ceruzzi {empty}footnote:[Ceruzzi, Paul E.. A History of Modern Computing. United Kingdom: February, 2003. https://mitpress.mit.edu/9780262532037/a-history-of-modern-computing/] for more background.  There are many alternative applications, but we will start with the basics on each operating system in order to get set up.  For macOS 14, the default application is called _Terminal.app_, and on Windows 11 we will focus on the default _Windows Terminal_.  If you are using Linux, there are of course many distributions available, but we will focus on Ubuntu(R){empty}footnote:[Ubuntu and Canonical are registered trademarks of Canonical Ltd.] 24.04 and the _Gnome Terminal_ that comes packaged with it.  So, skip to the next section that is pertinent to you for your operating system--one of _Setup For macOS_, _setup For Linux_, or _Setup For Windows_&#8212;and we'll get started with a terminal application!
 
 <<<
-==== Setup For macOS
+==== Setup for macOS
 
 If you are on a Mac, Apple has included the Terminal.app since it introduced Mac OS X in 2001, so it has had many years of refinement.  You can search for "Terminal.app" using Apple's Spotlight search by pressing the kbd:[Command]+kbd:[Spacebar] keys at the same time and typing "terminal" (without the quotes) in the search bar. Alternatively you can open a _Finder_ window and navigate to the _Applications_ > _Utilities_ folder to find the Terminal application, as shown in _Figure 1_.  Double click the icon to open the application.
 
 image::chapter-01-macos-choose-terminal-flow.png[title="Open the Terminal.app in the Applications > Utilities folder.",pdfwidth=100%]
 
-===== Adjust the Font Size
+==== Adjust the font size
 
 That's it! You should see a window open similar to _Figure 2_, althought the default color may be different based on the Appearance settings on your Mac.
 
@@ -93,7 +93,7 @@ image::chapter-01-macos-terminal-settings.png[title="Change the font size as nee
 You are all set! It's that simple to get configured to use the command line on macOS.  You can continue on to the section entitled _The Shell_ to become more acquainted with the command line.  Thank you for focusing your power on the magic of the command line!
 
 <<<
-==== Setup For Linux
+==== Setup for Linux
 
 Getting set up on Linux is quite easy as well.  On Ubuntu 24.04, the default desktop manager is Gnome. To search for applications, similar to Apple's Spotlight function, press the kbd:[Super] key next to the kbd:[Alt] key on your keyboard.
 
@@ -107,7 +107,7 @@ Great! Now that you have the Terminal application running, you should see a wind
 
 image::chapter-01-linux-terminal-window.png[title="A terminal window example on Ubuntu Linux.", pdfwidth=100%]
 
-===== Adjust the Font Size
+==== Adjust the font size
 
 To finalize your setup, adjust the font size in your terminal so that you can comfortably see the text.  You can also change the font family, but be sure to use a _fixed width_ font since the terminal expects it for layout purposes.  In order to change the font size, select the menu button in the top window bar and choose the _Preferences_ item.  In the Terminal Preferences window, select the _Unnamed_ (Default) Profile, and the _Text_ tab in the window panel.  Use the _Custom font_ checkbox and then the font button to change the font size, as shown in _Figure 6._
 
@@ -116,7 +116,7 @@ image::chapter-01-linux-terminal-preferences.png[title="Change the font size as 
 That's it!  It's that simple to get set up to use the command line on Ubuntu Linux.  You can continue on to the section entitled _The Shell_ onto become more acquainted with the command line.  Thank you for taking the next step as a command line magician!
 
 <<<
-==== Setup For Windows
+==== Setup for Windows
 
 The Microsoft Windows operating system has a rich history, but one that is diiferent from the UNIX-like operating systems of macOS and Linux.  Because of the low-level differences in the systems, Microsoft has created a component called the _Windows Subsytem for Linux_, otherwise known as _WSL_.  WSL provides those of us using Windows an integrated system with a full Linux command line environment.  In this section, we will complete the following list:
 
@@ -139,7 +139,7 @@ The Microsoft Windows operating system has a rich history, but one that is diife
 
 After the Windows Subsystem for Linux installation, the Windows Terminal application will have built-in support and integration for WSL, and will give you a full Linux environment to work with.  So let's get started!
 
-===== Open the Windows Terminal Application
+==== Open the Windows Terminal application
 
 Windows Subsystem for Linux is considered a developer tool, and as such, the recommended way to install it is by issuing a command in the terminal application as an Administrator of the computer.  To get started, click on the Windows Start menu icon in the Windows Taskbar, or press the kbd:[Super] key on your keyboard.
 
@@ -151,13 +151,13 @@ image::chapter-01-windows-search-terminal.png[title="Search for Windows Terminal
 
 When run as an Administrator, you will see a dialog asking you to make changes to your system, so be sure to choose "Yes" to continue.  A terminal window should open and look similar to the window in Figure 8, although the colors may be different depending on your Appearance settings.  The Terminal "Powershell" profile usually defaults to a dark background color.  To keep this application readily available, _right-click_ on the Windows Terminal icon you see in the taskbar, and choose the _Pin to taskbar_ menu item.
 
-===== Install Windows Subsystem for Linux
+==== Install Windows Subsystem for Linux
 
-To install WSL using Windows Terminal, click inside the terminal window and type `wsl --install`, where there is a single space between the `wsl` and the `--install` parts, and press the kbd:[Return] key, as shown in _Figure 8_.  By running this command, Windows will first download the latest version of the Windows Subsystem for Linux component, and will install the component.  It will also install files that are part of the Virtual Machine Platform component that WSL needs for integrating with the operating system.  Once finished, it will prompt you to restart your machine, so do that now.
+To install WSL using Windows Terminal, click inside the terminal window and type [.nobreak]#`wsl --install`#, where there is a single space between the `wsl` and the `--install` parts, and press the kbd:[Return] key, as shown in _Figure 8_.  By running this command, Windows will first download the latest version of the Windows Subsystem for Linux component, and will install the component.  It will also install files that are part of the Virtual Machine Platform component that WSL needs for integrating with the operating system.  Once finished, it will prompt you to restart your machine, so do that now.
 
 image::chapter-01-windows-install-wsl.png[title="Run the `wsl --install` command in the Windows Terminal application.", pdfwidth=100%]
 
-===== Enable the Windows Subsystem for Linux Required Features
+==== Enable the Windows Subsystem for Linux required features
 
 Once rebooted, you will need to ensure that the WSL components are enabled.  To do so, click on the Windows Start menu icon in the Windows Taskbar, or press the kbd:[Super] key on your keyboard.  In the search bar, type "Turn Windows features" (without the quotes).  As shown in _Figure 9_, you should see a search result with a Control Panel option for "Turn Windows features on or off".  Click on this option to open the features dialog, and scroll down in the dialog toward the bottom.
 
@@ -168,7 +168,7 @@ As shown in _Figure 10_, ensure that the "Virtual Machine Platform" and the "Win
 [.center]
 image::chapter-01-windows-enable-features.png[title="Enable the Virtual Machine Platform and Windows Subsystem for Linux components in the Control Panel.", pdfwidth=75%] 
 
-===== Set up Ubuntu Linux in Windows Terminal
+==== Set up Ubuntu Linux in Windows Terminal
 
 Great, the underlying components are now installed! It's now time to set up Ubuntu Linux using the Windows Terminal application.  So, open the Windows Terminal application again, either from your taskbar or the Windows Start menu.  By default, it will open with a Windows PowerShell profile tab.  As shown in _Figure 11_, click on the down-arrow icon next to the '+' icon at the top of the window to open a new tab, and select the Ubuntu profile item.  
 
@@ -183,7 +183,7 @@ Confirm your password a second time when prompted, and your Linux environment wi
 
 image::chapter-01-windows-configure-ubuntu-linux.png[title="A complete Linux command line running within Windows.", pdfwidth=100%]
 
-====== Adjust the Font Size
+==== Adjust the font size
 
 To finalize your setup, adjust the font size in your terminal so that you can comfortably see the text. You can also change the font family, but be sure to use a fixed width font since the terminal expects it for layout purposes. In order to change the font size, click on the drop-down icon in the tab bar again, and choose the _Settings_ item in the menu.  This opens a new tab in the Windows Terminal with the settings for the application, and the settings for each profile, including the Ubuntu profile.  In the sidebar on the left, scroll down and click on the Ubuntu profile, as shown in _Figure 13_. The Ubuntu profile settings will appear in the right window pane.  Scroll down in this pane, and choose the _Appearance_ section. 
 
@@ -213,7 +213,7 @@ chris@ophir ~ % pwd # Issue the pwd command
 
 Notice that the `+pwd+` characters are followed by a space, then a `+#+` hashtag symbol, and then another space and the comment sentence.  The shell interpreter evaluates everything in the command, and validates it based on the shell language rules.  In this case, we just learned that you can issue a command, followed by a `+#+` character and any other written comment, and the shell will ignore any characters to the right of the hashtag because it knows it is a comment, and will proceed to give you back a result.
 
-The take home message here is that the shell interpreter is doing the heavy lifting behind the scenes, and there are many variants of these interpreters. The earliest shell interpreter is attributed to Louis Pouzin in 1964 for the CTSS/Multics operating system{empty}footnote:[See https://multicians.org/shell.html].  Since 1979 the UNIX operating system included the default shell interpreter called `+sh+`, and a free version of it is still the default on Linux and macOS.  That said, there has been immense improvements to shell programming languages since the 1970s, and many different interpreters, with new features, have been written and shipped with various operating systems.  To name a few, there is `+ksh+`, `+csh+`, `+bash+`, and `+zsh+`{empty}footnote:[The Bourne shell (sh) was wriiten by Stephen Bourne at Bell Labs for UNIX and was released in 1979.  Also at Bell Labs, David Korn created Korn Shell (ksh) which was released in 1983 for UNIX. An alternative for sh called CShell (csh) was written by Bill Joy at the University of California Berkeley for BSD UNIX, and Brian Fox wrote the Bourne Again Shell (bash), which is an open source rewrite of the Bourne Shell.  In 1990, Paul Falstad released zsh as an open source program.].  On modern versions of Linux, the default shell tends to be `+bash+`, and on macOS it is now `+zsh+`.  For the purposes of this handbook, we'll see that these shells all work similarly if not identically in some cases.  In the next section, we'll take a closer look at the _command prompt_, but know that the shell interpreter is the workhorse behind your magic commands!
+The take home message here is that the shell interpreter is doing the heavy lifting behind the scenes, and there are many variants of these interpreters. The earliest shell interpreter is attributed to Louis Pouzin in 1964 for the CTSS/Multics operating system.{empty}footnote:[See https://multicians.org/shell.html]  Since 1979 the UNIX operating system included the default shell interpreter called `+sh+`, and a free version of it is still the default on Linux and macOS.  That said, there has been immense improvements to shell programming languages since the 1970s, and many different interpreters, with new features, have been written and shipped with various operating systems.  To name a few, there is `+ksh+`, `+csh+`, `+bash+`, and `+zsh+`.{empty}footnote:[The Bourne shell (sh) was wriiten by Stephen Bourne at Bell Labs for UNIX and was released in 1979.  Also at Bell Labs, David Korn created Korn Shell (ksh) which was released in 1983 for UNIX. An alternative for sh called CShell (csh) was written by Bill Joy at the University of California Berkeley for BSD UNIX, and Brian Fox wrote the Bourne Again Shell (bash), which is an open source rewrite of the Bourne Shell.  In 1990, Paul Falstad released zsh as an open source program.]  On modern versions of Linux, the default shell tends to be `+bash+`, and on macOS it is now `+zsh+`.  For the purposes of this handbook, we'll see that these shells all work similarly if not identically in some cases.  In the next section, we'll take a closer look at the _command prompt_, but know that the shell interpreter is the workhorse behind your magic commands!
 
 === The Command Prompt
 
@@ -249,7 +249,7 @@ In the previous sections we've had a brief look at a very simple command called 
 
 image::chapter-01-command-parts.png[title="The labeled parts of a command and the command arguments, including a subcommand, option, long option, option value, and operand.", pdfwidth=100%]
 
-We start with the _command name_ itself, `+catdb+`.  To be able to run this command, it has to be installed on your system, and located in a folder that is well-known to your shell interpreter{empty}footnote:[Shell interpreters have a concept of a PATH variable, which contains a list of folders that it will consult in order to find the command you want to run.].  Let's assume that our `+catdb+` command is installed correctly.  Next, notice that there is a _space_ character after the command itself, and in between the other parts of the full command.  This is very important, because the space character acts as a boundary between the command parts, and the shell interpreter will parse the command parts based on these spaces.  If you have two or more consecutive spaces between command parts, the shell interpreter treats them as a single space combined, so don't worry about having extra spaces. But yes, be sure to use a space between the parts of a command.
+We start with the _command name_ itself, `+catdb+`.  To be able to run this command, it has to be installed on your system, and located in a folder that is well-known to your shell interpreter.{empty}footnote:[Shell interpreters have a concept of a PATH variable, which contains a list of folders that it will consult in order to find the command you want to run.]  Let's assume that our `+catdb+` command is installed correctly.  Next, notice that there is a _space_ character after the command itself, and in between the other parts of the full command.  This is very important, because the space character acts as a boundary between the command parts, and the shell interpreter will parse the command parts based on these spaces.  If you have two or more consecutive spaces between command parts, the shell interpreter treats them as a single space combined, so don't worry about having extra spaces. But yes, be sure to use a space between the parts of a command.
 
 NOTE:  When working with file names that have spaces in the name, use either double-quote or single-quote characters around the file name to tell the shell to treat the spaces as part of the file name.  For instance, use "the best cats.txt" or 'kittens are awesome.jpg' if there are spaces in the file name.
 

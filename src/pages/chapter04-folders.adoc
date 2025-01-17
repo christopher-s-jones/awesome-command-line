@@ -12,9 +12,9 @@ Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant males
 
 Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
 
-==== Brace Expansion
+==== Brace expansion
 
-==== File Name Generation (globbing)
+==== File name generation (globbing)
 
 === The rmdir Command--Deleting Directories (Folders)
 
