@@ -272,7 +272,7 @@ A lot of commands can be short and sweet, like the `+pwd+` command we've seen in
 .A long command example with many options that wraps to the second line.
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
-chris@ophir ~ %  catdb search -v --only-kittens=true --breeds "Maine Coon, Persian, Siamese, Domestic Shorthair, Bengal" -o kittens.txt█
+chris@ophir ~ %  catdb search -v --only-kittens=true --breeds "Maine Coon, Persian, Siamese, Domestic Shorthair, Bengal" -o kittens.txt
 ----
 
 Having the command wrap to the next line can work just fine, and will only be executed when you press the kbd:[Return] key.  But there are times when the command gets very long and complex, and you just want to clean it up.  We have the power! You can use a `+\+` backslash character followed by the `kbd:[Return]` key which is used as an _escape character_ by the shell interpreter so it will ignore the kbd:[Return] keypress.  You can use the `+\+` backslash character as many times as needed to make you single-line command a _multi-line command_, as is shown in _Example 5_.
@@ -283,14 +283,25 @@ Having the command wrap to the next line can work just fine, and will only be ex
 chris@ophir ~ %  catdb search -v \
 --only-kittens=true \
 --breeds "Maine Coon, Persian, Siamese, Domestic Shorthair, Bengal" \
--o kittens.txt█
+-o kittens.txt
 ----
 
 Now, when you press the final kbd:[Return] key without a `+\+` backslash character, your command will execute.  Show all the cats!
 
+When you are working with commands, you will notice that your mouse pointer has no effect on the position of your command line cursor, which takes a little getting used to!  For very long commands, either as single line or multi-line commands, there are times when you need to go back and edit a portion of the command that may have been mistyped, or you may want to change an option.  You can use your keyboard's kbd:[&nbsp;◂&nbsp;] left arrow and kbd:[&nbsp;▸&nbsp;] right arrow keys to move the cursor to the left and right, and the kbd:[Delete] key will delete characters at the cursor.  Take some time to familiarize yourself with moving left and right along your command.
+
+Of course, this can become tedious when you have a very long command and need to edit an option that is close to the beginning of the command, and your cursor is near the end.  But wait, there's a handy trick!  You can use the kbd:[Control]+kbd:[a] key combination to skip the cursor to the beginning of your command!  So while holding the kbd:[Control] key, also type the kbd:[a] key, and zoom--your cursor has raced to the beginning of the command!  Likewise,
+you can use the kbd:[Control]+kbd:[e] key combination to skip the cursor back to the end of your command.  These two keyboard sequences can really speed up your command editing, when your commands get noticeably long.
+
+TIP: Some shells also support the kbd:[Option]+kbd:[&nbsp;◂&nbsp;] left arrow key combination (or kbd:[Alt]+kbd:[&nbsp;◂&nbsp;]) to move the cursor word-by-word to the left, and the kbd:[Option]+kbd:[&nbsp;▸&nbsp;] right arrow key combination (or kbd:[Alt]+kbd:[&nbsp;▸&nbsp;]) to move the cursor word-by-word to the right.
+
+As we type and execute commands with the return key, we inevitably issue a command that wasn't quite what we meant, but it was close!  Perhaps there was a single typo in the middle of the command.  Instead of re-typing the very long command again, you can use the kbd:[&nbsp;▴&nbsp;] up arrow key to scroll up to your previous command, and then edit it.  Yes! It's so easy!  In fact you can use the kbd:[&nbsp;▴&nbsp;] up arrow key multiple times to scroll through your command history, and can use the kbd:[&nbsp;▾&nbsp;] down arrow key multiple times to scroll back to your more recent commands. Amazing!
+
+All of these key combinations can be a game changer with command line productivity, so practice using them often, and they will become second nature.  With dedication and repetition, using the command line will become extremely familiar, and you'll notice how rapidly you can get things accomplished without leaving your keyboard.  We're just getting started!
+
 <<<
 === Command Line Interfaces are Awesome!
 
-Our computers are wonderful tools for creativity, particularly due to the graphical user interface metaphor that helps us navigate our machines.  And now, as we familiarize ourselves with the command line interface, we see that the terminal application can become your trusty friend and addition that helps you uncover seemingly secret functionality on your computer by using text-based commands to orchestrate your work in a concise and effective manner.  In this chapter we have learned how to access a terminal application on macOS, Linux, and Windows.  We now have a solid understanding of a shell interpreter that handles the commands we type, what a command prompt is, and how to construct a command with command arguments and the various styles of command options.  These concepts set the foundation for the upcoming chapters where we learn individual commands that enable us to navigate our computers, create and manage files and folders, and work with our data files in ways that are often impossible with a graphical approach.  The command line is truly a tool of empowerment, and a magic portal into your machine.  In Chapter 2, we will get hands on experience with navigation commands, and will begin to traverse our files and folders with ease, while getting to know the structure of our storage file systems in better detail.  Let's go!
+Our computers are wonderful tools for creativity, particularly due to the graphical user interface metaphor that helps us navigate our machines.  And now, as we familiarize ourselves with the command line interface, we see that the terminal application can become our trusty friend and addition that helps us uncover seemingly secret functionality on our computers by using text-based commands to orchestrate our work in a concise and effective manner.  In this chapter we have learned how to access a terminal application on macOS, Linux, and Windows.  We now have a solid understanding of a shell interpreter that handles the commands we type, what a command prompt is, and how to construct a command with command arguments and the various styles of command options.  These concepts set the foundation for the upcoming chapters where we learn individual commands that enable us to navigate our computers, create and manage files and folders, and work with our data files in ways that are often impossible with a graphical approach.  The command line is truly a tool of empowerment, and a magic portal into your machine.  In Chapter 2, we will get hands on experience with navigation commands, and will begin to traverse our files and folders with ease, while getting to know the structure of our storage file systems in better detail.  Let's go!
 
 
