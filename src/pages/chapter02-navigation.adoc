@@ -24,7 +24,7 @@ As we've seen in _Chapter 1. Foundations_, opening up a terminal application pre
 chris@ophir ~ % pwd
 /Users/chris <1>
 ----
-<1> The result of issuing the `+pwd+` command is shown on the second line of the terminal
+<1> The result of issuing the `+pwd+` command is shown on the second line of the terminal.
 
 Awesome!  While we've seen this before, this is our first successful command!  You can see that the result that printed to the terminal window is, in my case, `+/Users/chris+`, which should look familiar now that we have a better understanding of the UNIX-like file system hierarchy.  Your command should show `+/Users/<your-username>+` if you are on macOS.  This command is telling you that the _working directory_, meaning the current directory location of your command line terminal is your home directory, located at `/Users/<your-username>` in the file system.
 
@@ -45,7 +45,7 @@ Likewise, if you are on Windows with Ubuntu Linux integrated with WSL, you will 
 chris@DESKTOP-L7H0RFS:~$ pwd
 /home/chris <1>
 ----
-<1> Note that the home directory under WSL Linux is different than the Windows home directory of `+C:\\Users\chris+`, explained later
+<1> Note that the home directory under WSL Linux is different than the Windows home directory of `+C:\\Users\chris+`, explained later.
 
 We can see some differences across macOS, Linux, and Windows in the results of the `+pwd+` command, but they all show that the current working directory is the user's home directory.  We'll explain the difference between the Windows user home directory and the WSL Linux user's home directly shortly, but suffice it to say that the `+pwd+` command shows that we all begin our journey on the command line in our account's home folder.
 
