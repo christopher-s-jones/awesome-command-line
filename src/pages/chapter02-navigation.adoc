@@ -2,15 +2,59 @@
 
 === Getting Around in Your File System
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+In _Chapter 1. Foundations_, we set up our terminal application environment, familiarized ourselves with command line concepts and syntax, and now know how to write and edit commands by controlling our cursor.  In this chapter, we begin to put these skills to work by using the command line to navigate and view the files and folders that we have on our computers.  We are all very familiar with opening a Finder window on macOS, or an Explorer window on Windows or Linux, and viewing our folders and files.  These are the bread-and-butter tools of the graphical user interface.  In the command line world, we have commensurate ways to view our folders and files, which we will explore in the following sections.  Taken as a whole, the folders and files on your computer's storage drives are organized in a _file system_, which is a means of associating folder and file names with physical hardware locations.  For modern _solid state drives_ (_SSDs_) and USB sticks, file and folder data are stored on flash-based memory chips, and for older magnetic _hard drives_ (_HDDs_), they are stored on spinning magnetic plates.  On Windows computers, each physical drive is usually represented by a drive letter like `+C:+`.  A USB drive mounted under Windows may show up as the `+D:+` drive.  Therefore, on Windows, there are multiple top-level drive names, and each have their own file system for organizing folders and files.
 
-=== The pwd Command--Print the Working Directory (Folder)
+On UNIX-like operating systems like macOS and Linux, there is a single top-level folder, and all physical drives are represented as a subfolder in this type of file system.  The top-level folder is called the _root directory_, and is denoted by a single `+/+` forward slash character.  
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+NOTE: In computing terminology, a _directory_ is synonymous with a _folder_, and it is common to use the word "directory" when using the command line.
 
-=== Understanding File Paths
+When talking about this root directory, it is usually referred to as _slash_ (a shorthand for forward slash).  _Figure 17_ shows the root directory and the immediate sub-directories on a typical macOS installation.
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+image::chapter-02-macOS-top-level-folders.png[title="The root directory (called slash) and its immediate sub-directories shown on macOS.", pdfwidth=100%]
+
+You can see that everything is organized under a single directory, and we'll be discussing this directory hierarchy in the coming sections.  _Figure 17_ depicts what first-level sub-directories are shown in the graphical user interface, but in reality there are a number of other sub-directories at this level that can be shown in the command line interface, and we will explore that shortly.  But first, let's have a look at our first command that we briefly introduced in previous sections called `+pwd+`.  This command can help us illustrate a location in the file system hierarchy, so let's have a look!
+
+=== The pwd Command--Print the Working Directory
+
+As we've seen in _Chapter 1. Foundations_, opening up a terminal application presents us with a command line prompt in a surprisingly empty window.  Let's put that window to use and execute our first command, `+pwd+`, which is an acronym that stands for "print working directory".  In the command line world, the term "print" here means "show the results in the terminal window", as opposed to physically printing the results to paper as was the case on historical computers.  Open your terminal and type the `+pwd+` command, followed by the kbd:[Return] key.  _Example 6_ shows the `+pwd+` command on macOS and the result printed on the second line of the terminal.
+
+.Issuing the `+pwd+` command on macOS.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir ~ % pwd
+/Users/chris <1>
+----
+<1> The result of issuing the `+pwd+` command is shown on the second line of the terminal
+
+Awesome!  While we've seen this before, this is our first successful command!  You can see that the result that printed to the terminal window is, in my case, `+/Users/chris+`, which should look familiar now that we have a better understanding of the UNIX-like file system hierarchy.  Your command should show `+/Users/<your-username>+` if you are on macOS.  This command is telling you that the _working directory_, meaning the current directory location of your command line terminal is your home directory, located at `/Users/<your-username>` in the file system.
+
+And if you are on Linux, you will see a similar result.  _Example 7_ shows the same command on Linux.
+
+.Issuing the `+pwd+` command on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ pwd
+/home/chris 
+----
+
+Likewise, if you are on Windows with Ubuntu Linux integrated with WSL, you will also see a simlar result.  _Example 8_ shows the same command on Windows.
+
+.Issuing the `+pwd+` command on Windows using Windows Subsytem for Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@DESKTOP-L7H0RFS:~$ pwd
+/home/chris <1>
+----
+<1> Note that the home directory under WSL Linux is different than the Windows home directory of `+C:\\Users\chris+`, explained later
+
+We can see some differences across macOS, Linux, and Windows in the results of the `+pwd+` command, but they all show that the current working directory is the user's home directory.  We'll explain the difference between the Windows user home directory and the WSL Linux user's home directly shortly, but suffice it to say that the `+pwd+` command shows that we all begin our journey on the command line in our account's home folder.
+
+=== Understanding File and Directory Paths
+
+We've been discussing the results of the `+pwd+` command, and this is a good time to define what those characters really represent, which is a _directory path_.  A directory path is a concise way to represent the path through the hierarchy of the file system tree to a given directory.  And likewise, a _file path_ is a concise representation of a path through the file system tree to a given file.  _Figure 18_ depicts the directory path represented by `+/Users/chris+`.
+
+image::chapter-02-macOS-directory-path.png[title="The path from the root directory to the home directory of the user chris on macOS.", pdfwidth=100%]
+
 
 === The man Command--Accessing the Manual for Any Command
 
@@ -21,6 +65,8 @@ Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant males
 Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
 
 === The cd Command--Changing Directories (Folders)
+
+, and they not only illustrate the slight differences in locations, but we can also see that on Windows, the result of `/home/chris+` is different than the Windows user home directory of `+C:\\Users\chris+`.  The WSL Linux user account is different from the Windows user account, but you do have access to all of your files.  As we mentioned earlier, UNIX-like operating systems have a root directory with everything underneath it, whereas Windows has multiple top-level drives (`+C:+`,`+D:+`, etc.)  To integrate the Windows filesystem into Linux, the `+C:+` drive is mapped to `+/mnt/c+` under Linux, which places it into the single file system hierarchy.  But why would it be called `+/mnt+`?  In 
 
 Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
 
