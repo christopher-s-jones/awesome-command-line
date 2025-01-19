@@ -4,7 +4,7 @@
 
 In _Chapter 1. Foundations_, we set up our terminal application environment, familiarized ourselves with command line concepts and syntax, and now know how to write and edit commands by controlling our cursor.  In this chapter, we begin to put these skills to work by using the command line to navigate and view the files and folders that we have on our computers.  We are all very familiar with opening a Finder window on macOS, or an Explorer window on Windows or Linux, and viewing our folders and files.  These are the bread-and-butter tools of the graphical user interface.  In the command line world, we have commensurate ways to view our folders and files, which we will explore in the following sections.  Taken as a whole, the folders and files on your computer's storage drives are organized in a _file system_, which is a means of associating folder and file names with physical hardware locations.  For modern _solid state drives_ (_SSDs_) and USB sticks, file and folder data are stored on flash-based memory chips, and for older magnetic _hard drives_ (_HDDs_), they are stored on spinning magnetic plates.  On Windows computers, each physical drive is usually represented by a drive letter like `+C:+`.  A USB drive mounted under Windows may show up as the `+D:+` drive.  Therefore, on Windows, there are multiple top-level drive names, and each have their own file system for organizing folders and files.
 
-On UNIX-like operating systems like macOS and Linux, there is a single top-level folder, and all physical drives are represented as a subfolder in this type of file system.  The top-level folder is called the _root directory_, and is denoted by a single `+/+` forward slash character.  
+On UNIX-like operating systems like macOS and Linux, there is a single top-level folder, and all physical drives are represented as a subfolder in this type of file system.  The top-level folder is called the _root directory_, and is denoted by a single `+/+` (forward slash) character.  
 
 NOTE: In computing terminology, a _directory_ is synonymous with a _folder_, and it is common to use the word "directory" when using the command line.
 
@@ -51,10 +51,39 @@ We can see some differences across macOS, Linux, and Windows in the results of t
 
 === Understanding File and Directory Paths
 
-We've been discussing the results of the `+pwd+` command, and this is a good time to define what those characters really represent, which is a _directory path_.  A directory path is a concise way to represent the path through the hierarchy of the file system tree to a given directory.  And likewise, a _file path_ is a concise representation of a path through the file system tree to a given file.  _Figure 18_ depicts the directory path represented by `+/Users/chris+`.
+We've been discussing the results of the `+pwd+` command, and this is a good time to define what those characters really represent, which is a _directory path_.  A directory path is a concise way to represent the path through the hierarchy of the file system tree to a given directory with just text characters.  And likewise, a _file path_ is a concise representation of a path through the file system tree to a given file.  Directory and file paths use the `+/+` (forward slash) character to separate folder and file names in the path.  This, unsurprisingly, is called the _path separator_.  _Figure 18_ depicts the directory path represented by `+/Users/chris+`.  
 
-image::chapter-02-macOS-directory-path.png[title="The path from the root directory to the home directory of the user chris on macOS.", pdfwidth=100%]
+image::chapter-02-macOS-directory-path.png[title="The path from the root directory (slash) to the home directory of the user chris on macOS, shown as a dashed line.", pdfwidth=100%]
 
+Now more specifically, the directory path of `+/Users/chris+` is considered an _absolute path_.  It is absolute because it begins with the root directory `+/+` (slash).  On the command line, it can be helpful to refer to files and folders as absolute paths, but it can also be overly verbose, and there is a great shortcut we can use, called a _relative path_.  A relative path is the path to a file or directory in the filesystem, but originating from the current directory.  But how do we represent what the current directory is, similar to what the `+pwd+` command produces?  Oh, we have the magic!  On UNIX-like systems, the current directory is represented as a single `+.+` (period) character.  Wait, what? Just a period?  Yes, surprisingly, just a period.  To provide an example, let's say that I have downloaded a file from the Internet called `+funny-cats.jpg+`, and I saved it to my `+Downloads+` folder in my home directory.  On the command line I can refer to this file as a relative path from my current working directory of `+/Users/chris+` with the following syntax: `./Downloads/funny-cats.jpg`.  As we'll see later in _Chapter 3. File Commands_, we can work with files by referring to them with this relative path format.  The `+.+` (period) character tells the shell interpreter to start from my current directory and traverse into my `+Downloads+` directory to precisely locate my cat photo. To reiterate, the same file can be referenced as an absolute path with `+/Users/chris/Downloads/funny-cats.jpg+`.  Again, we save some keystrokes by using the relative path format, and when you happen to be located deep in nested folders, it can save a lot of typing.
+
+NOTE: The shell also interprets `+Downloads/funny-cats.jpg+` as a relative path with no `+./+` characters at the beginning.  Using the `+./+` (dot slash) syntax is just slightly more explicit.
+
+One last very helpful shorthand symbol for creating relative paths is the `+~+` (tilda) character.  This character indicates your home directory, so if I am logged in as `+chris+`, `+~+` is equivalent to `+/Users/chris+` on macOS, or `+/home/chris+` on Linux and Windows WSL.  If you want to refer to another user's home directory, you can use `+~venus+` or `+~leo+`.
+
+So far we have discussed relative paths from the current directory that are downstream in subdirectories.  But what if we want to refer to a file in a directory that is not below our current directory, but up and in another path altogether? Yes, we have the power! By using the syntax of a parent directory, which is represented by `+..+` (double periods), we can construct a relative path into any other directory in the file system.  For example, let's say my teammate, Venus, also has an account on my machine, and has downloaded a really fun cat photo into her `+Pictures+` directory in her home directory.  With her permission, I can refer to this file with the following relative path: `+../venus/Pictures/supercat.jpg+`.  Since her home directory is `+/Users/venus+`, I can point to my current parent directory of `+/Users+` using the `+..+` syntax, and then into Venus' `+Pictures+` directory from there.  The `+..+` parent directory syntax is very powerful, because you can chain them together. For instance, from the current directory of `+/Users/chris+`, I can refer up two parents with `+../../+`, which is the equivalent of the `+/+` root directory (up one to `+Users+`, and up another to `+/+`).
+
+_Table 2_ summarizes the common file and directory path components we've discussed in this section.
+
+.Examples of absolute and relative directory and file paths.
+[%header,cols="^60m,^~m"]
+|===
+|Absolute Paths | Relative Paths
+
+|/home/leo
+|../leo
+
+|/Users/Pictures/venus
+|./Pictures/supercat.jpg
+
+|/Users/chris/Downloads/funny-cats.jpg
+|Downloads/funny-cats.jpg
+
+| /Users/venus
+| ~venus
+|===
+
+We'll see more of the relative and absolute paths as we get familiar with more commands.  But for now, let's take a look at how we learn to use any command in the next section on the `+man+` command.
 
 === The man Command--Accessing the Manual for Any Command
 
