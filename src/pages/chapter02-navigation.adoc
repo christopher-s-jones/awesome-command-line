@@ -96,55 +96,80 @@ We now have a solid understanding of how to reference file system locations usin
 - Examples of how to use the command.
 - Historical information about the authors and other details.
 
+==== Viewing a manual page
+
 In order to access these manual pages, we will introduce another command, called `+man+`.  Yes, it is shorthand for "manual page"!  So when we need to know what a command does, what the options and other arguments are for the command, we use the following syntax: `+man <command-name>+`, where `+<command-name>+` is the name of the command that we need guidance on.
-Let's just begin with an example using the `+pwd+` command, since it is very simple.  Go ahead and type `+man pwd+` and you should see output in your terminal that is similar to _Example 9_.
+Let's begin with an example using the `+pwd+` command, since it is very simple.  Go ahead and type `+man pwd+` and you should see output in your terminal that is similar to _Figure 19_.
 
-.Issuing the `+man pwd+` command on Linux.
-[source, console, caption="Example {counter:listing-counter}: "]
-----
-chris@nuthatch:~$ man pwd
-PWD(1)                       User Commands                      PWD(1)
 
-NAME
-       pwd - print name of current/working directory <1>
+image::chapter-02-linux-manual-page-example.png[title="Issuing the `+man pwd+` command on Linux.", pdfwidth=100%]
 
-SYNOPSIS
-       pwd [OPTION]... <2>
 
-DESCRIPTION
-       Print the full filename of the current working directory.
+// <1> The quick definition of a command shows at the top of the manual.
+// <2> The synopsis shows the syntax--bracketed arguments are optional, non-bracketed arguments are required.
+// <3> The last line in your terminal shows the paging help and instructions
 
-       -L, --logical
- Manual page pwd(1) line 30/52 (END) (press h for help or q to quit) <3>
-----
+Let's discuss the four items highlighted in _Figure 19_.
 
-<1> The quick definition of a command shows at the top of the manual.
-<2> The synopsis shows the syntax--bracketed arguments are optional, non-bracketed arguments are required.
-<3> The last line in your terminal shows the paging help and instructions
+[.calloutnumber]##❶## Name:: You will first see that there is name a quick definition of the command toward the top of the manual page. 
 
-You will first see that there is a quick definition of the command at the top, followed by the synopsis, which shows the syntax rules for using the command.  Square brackets around a command argument means that they are optional, and arguments without square brackets are required.  In the case of the `+pwd+` command, there are no required arguments.  The word `+OPTION+` means any of the short or long options  are placed in this position when using the command.
+[.calloutnumber]##➋## Synopsis:: The synopsis shows the syntax rules for using the command.  Square brackets around a command argument means that they are optional, and arguments without square brackets are required.  In the case of the `+pwd+` command, there are no required arguments.  The word `+OPTION+` in this context means any of the short or long options are placed in this position when using the command.
 
-Also, notice that while the output is printed directly in your terminal window, and based on the size of your window, only a portion of the manual page is shown.  Modern versions of the `+man+` command use a paging mechanism that let's you scroll through the rest of the details, but it is different than scrolling with your mouse.  Since manual pages can be very long, navigating them is an art in and of itself, and we will highlight some of the most useful ways to find the information that you need.
+[.calloutnumber]##❸## Description:: The description gives all of the details about the command, and will define each of the short and long options that are available.
+
+[.calloutnumber]##❹## Paging Information:: Notice that while the output is printed directly in your terminal window based on the size of your window, only a portion of the manual page is shown, discussed below.
+
+Modern versions of the `+man+` command use a paging mechanism that let's you scroll through the rest of the details, but it is different than scrolling with your mouse.  Since manual pages can be very long, navigating them is an art in and of itself, and we will highlight some of the most useful ways to find the information that you need in the following sections.
 
 NOTE: If you are on macOS, the output that you see will be slightly different because the origins of many macOS commands are slightly different than Linux commands.{empty}footnote:[The origins of macOS stem from the NeXTSTEP operating system (acquired by Apple) and the FreeBSD operating system.  The latter is a free and open source version of the Berkeley Software Distribution (BSD) Unix, developed at the University of California Berkeley campus. See https://developer.apple.com/library/archive/documentation/Darwin/Conceptual/KernelProgramming/BSD/BSD.html]
 
-Next, have a look at the last line of the output in _Example 9_, which states `+Manual page pwd(1) line 30/52 (END) (press h for help or q to quit)+`.  That line is part of the paging mechanism, and is showing you how many lines are showing out of the total number of lines in the manual page.  It also lets you know that there is an internal help system to the paging mechanism (by typing an `+h+` character), and that you can exit the manual page viewer by typing the `+q+` character (shorthand for quit).
+==== Moving around in a manual page
 
-Thank you manual page creators!  Inside of that help menu (if you type `+h+`), you'll see many ways to scroll up and down through the information in the guide, but let's just summarize a few of the most useful ways to navigate.
+Look at the last line of the output in _Figure 9_, which states `+Manual page pwd(1) line 1 (press h for help or q to quit)+`.  This line with the dark background is part of the paging mechanism, and is showing you what line number you are viewing in the manual page.  It also lets you know that there is an internal help system to the paging mechanism (by typing an `+h+` character), and that you can exit the manual page viewer by typing the `+q+` character (shorthand for quit).
 
-The most direct way to see more of the manual page information is to press the kbd:[Spacebar] key, which scrolls through the paged content.  This is a quick way to scan through the manual, and it moves you forward one window's worth of the page at a time.  Likewise, the kbd:[&nbsp;▴&nbsp;] (up arrow) and the kbd:[&nbsp;▾&nbsp;] (down arrow) keys let you scroll up and down through the window one line at a time to find just what you're looking for.  When you are finished reading the manual page, you can use the kbd:[q] key to quit the viewer.
+Thank you manual page creators!  Let's just summarize a few of the most useful ways to navigate a manual page that are listed in the help section, because there are a lot of key combinations shortcuts listed in the help.
 
-But there are times when a manual page is very long, and you scroll down through the page to scan for what you are looking for, but then you want to head back up to re-read something that was important, but was high up in the manual.  The line-by-line kbd:[&nbsp;▴&nbsp;] (up arrow) is just too slow--we need to scroll page by page, backward through the manual.  Yes, we have the power!  If you type just the kbd:[b] key, it will scroll "backward" one page at a time.  Give it a try while viewing the `+man pwd+` output.  In fact, this is part of four helpful keyboard shortcuts for traversing the contents of a manual page: kbd:[f] (forward one window page), kbd:[b] (backward one window page), kbd:[j] (forward one line), and kbd:[k] (backward one line).  These little gems are right at your fingertips and get you exactly where you want to go in the manual.  _Figure 19_ shows some of the useful keys for navigating a manual page.
+Spacebar:: The most direct way to see more of the manual page information is to press the kbd:[Spacebar] key, which scrolls through the paged content.  This is a quick way to scan through the manual, and it moves you forward one window's worth of the page at a time.  
+
+Arrow keys:: Likewise, the kbd:[&nbsp;▴&nbsp;] (up arrow) and the kbd:[&nbsp;▾&nbsp;] (down arrow) keys let you scroll up and down through the window one line at a time to find just what you're looking for.  
+
+Quit Viewing:: When you are finished reading the manual page, you can use the kbd:[q] key to quit the viewer.
+
+Now, there are times when a manual page is very long, and you scroll down through the page to scan for what you are looking for. If you have scrolled past the section you are interested in, how do you scroll back up?  The line-by-line kbd:[&nbsp;▴&nbsp;] (up arrow) is just too slow--we need to scroll page by page, backward through the manual.  With letter keys, we have the power!
+
+Letter keys:: 
+* kbd:[f]{emdash}Scroll forward one window page.
+* kbd:[b]{emdash}Scroll backward one window page.
+* kbd:[j]{emdash}Scroll forward one line.
+* kbd:[k]{emdash}Scroll backward one line.
+
+So the kbd:[b] key lets us scroll by page back up!  These little gems are right at your fingertips and get you exactly where you want to go in the manual.  _Figure 19_ shows the useful keys we've highlighted.
 
 image::chapter-02-man-command-keyboard-shortcuts.svg[title="Useful keyboard shortcuts when viewing a manual page, including the spacebar (forward page-by-page); down and up arrows (forward and backward line-by-line); f and b keys (forward and backward page-by-page); j&nbsp;and&nbsp;k (forward and backward line-by-line), and q (quit the viewer).", pdfwidth=100%]
 
-Great! You now have the tools to navigate any manual page for any command.  As you work with commands over and over, you will remember the some of short and long options that are available because you will use them regularly.  The repetition is your friend! But there are some options that you will use infrequently, and may forget what they mean and how to use them.  You may need to open the manual page, and search for the exact option you want to use, so you can re-read the details.  This is possible too!  Let's use the `+man pwd+` command output as an example again.  When you type that command, you will see there is a `+-L+` short option for the `+pwd+` command. To keep things simple in this section, we won't discuss the option itself, but will cover the concept of _symbolic links_ in a later section.  If you want to search within a manual page, first type the `+/+` slash key on your keyboard while you are viewing the manual page, which indicates to the paging mechanism that you want to search.  Your cursor will show at the very bottom-left corner of your window.  Immediately after the `+/+`, type `+-L+`, so it looks like `+/-L+`, and press the kbd:[Return] key.  Whoosh!  The manual page scrolls directly to the first instance of the `+-L+` characters.  This shortcut can save a lot of time when you generally know what you are looking for.  It can be helpful to use `+/EXAMPLES+` to jump directly to the `EXAMPLES` section, if it exists for the command.  If not, it will tell you "Pattern not found".
+Great! You now have the tools to navigate any manual page for any command.  As you work with commands repeatedly, you will remember many of the short and long options that are available because you use them regularly.  Repetition is your friend! 
 
-There are times when the word or option name you are searching for shows up many times throughout the manual page, and to scroll to each instance, use the lowercase kbd:[n] key.  To scroll back to earlier instances of your search pattern, use the uppercase `+N+` key.
+==== Searching within a manual page
+
+There are some command options that you will use infrequently, so to refresh your memory on how to use them, you can search within the manual page for the exact option you want to use.  To do so, use the kbd:[/] (slash) key followed by what you want to find.
+
+Let's use the `+man pwd+` command output as an example again.  When you type that command, you will see there is a `+-P+` short option for the `+pwd+` command. Let's search for it.  Typing the kbd:[/] slash key on your keyboard while you are viewing the manual page tells the paging mechanism that you want to search.  _Example 10_ shows how to search for the `+-P+` option.
+
+.While viewing a manual page, a single `+/+` (slash) key invokes a search, followed by what you want to find.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+/-P
+----
+
+Give it a try!  Your cursor will show at the very bottom-left corner of your window.  Anything that you type after the kbd:[/] (slash) character is considered your _search pattern_.  When you press the kbd:[Return] key,{emdash}Whoosh!{emdash}The manual page scrolls directly to the first instance of the `+-P+` characters.  This shortcut can save a lot of time when you know what you are looking for.  
+
+Another example would be to search for the EXAMPLES section of the manual page by typing `+/EXAMPLES+` and the kbd:[Return] key. If this section exists for the command it will jump right to it, or it will tell you "Pattern not found".
 
 TIP: The navigation keys that are useful when viewing a manual page are derived from the functionality of the `+less+` command, which we explore in _Chapter 6. Utilities_.  So these keyboard shortcuts will come in handy elsewhere.
 
-Okay, we now have a good sense of how to read the manual pages for our commands, and how to navigate the manual page viewer.  These skills become second-nature as you practice using commands.  It is very common, however, to mistype a command on the command line, and get a very unexpected result!  Let's purposefully insert a typo into our command and type `+mane pwd+`.  Try it yourself!  _Example 10_ shows the output from the shell interpreter.
+==== Occassional mistakes
+
+Okay, we now have a good sense of how to read the manual pages for our commands, and how to navigate the manual page viewer.  These skills become second-nature as you practice using commands.  It is very common, however, to mistype a command on the command line, and get a very unexpected result!  Let's purposefully insert a typo into our command and type `+mane pwd+`.  Try it yourself!  _Example 11_ shows the output from the shell interpreter.
 
 .Demonstrating an incorrect command by issuing `+mane pwd+` on Linux.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -163,19 +188,23 @@ See 'snap info <snapname>' for additional versions.
 <1> Mistakenly typing `+mane+` instead of `+man+`
 <2> Some helpful information points you to similar command names
 
-Hah! It's easy to make mistakes--they happen all of the time.  The shell interpreter prints out a response that lets you know that it didn't recognize the command that you typed, and provides you with a number of possible alternatives that are similar to what you typed.  Thanks for tip!  Now you can correct your mistake by re-typing the command. That said, sometimes commands can be very long, and re-typing them can be tedious. In the next section where we introduce the `+clear+` command, we'll also touch on a wonderful shortcut where you don't have to re-type an entire command, but rather summon it back like magic!
+Hah! It's easy to make mistakes--they happen all of the time.  The shell interpreter prints out a response that lets you know that it didn't recognize the command that you typed, and provides you with a number of possible alternatives that are similar to what you typed.  Thanks for tip!  Now you can correct your mistake by re-typing the command. That said, sometimes commands can be very long, and re-typing them can be tedious. In the next section where we introduce the `+clear+` command, we'll also revisit the wonderful shortcut where you can summon a command back like magic!
 
 === The clear Command--Keeping It Tidy
 
-In the previous section, we described how to view and navigate a manual page for any command, and when you pressed the `+q+` key on the keyboard, the contents of the manual page dissapeared.  That is because the viewer has built in functionality to clear the screen for you to help you get back directly to your work.  However, the output from each of our commands generally stays in the terminal window, and scrolls up and out of view as we type.  This is known as your _session history_.  Our command prompt always shows back up after the output of the previous command, ready for our next command.  But as you can see from our mistakenly-typed `+mane+` command, the output may be useful in the moment, but it would also be nice to just clear the screen and start anew.  Yes, it's so easy!  As you probably guessed, the `+clear+` command does just that--it clears the contents of the terminal window, resets the prompt to the top of the window, and sets us up for our unobstructed next command.  Keep it tidy!
+In the previous section, we described how to view and navigate a manual page for any command, and when you pressed the `+q+` key on the keyboard, the contents of the manual page dissapeared.  That is because the viewer has built in functionality to clear the screen, which helps you get directly back to your work.  However, the output from most of our commands generally stays in the terminal window, and scrolls up and out of view as we type.  This is known as your _session history_.  Our command prompt always shows back up after the output of the previous command, ready for our next command.  But as you can see from our mistakenly-typed `+mane+` command, the output may be useful in the moment, but it would also be nice to just clear the screen and start anew.  Yes, it's so easy!  As you probably guessed, the `+clear+` command does just that--it clears the contents of the terminal window, resets the prompt to the top of the window, and sets us up for our unobstructed next command.  Keep it tidy!
 
 Feel free to type `+clear+` to clear your terminal window at any time that you feel that things are getting cluttered.  When you do so, the command usually clears the visible part of your window. There is also a concept of a _scrollback buffer_, which is the in-memory record of your terminal session from previously typed commands and their output.  To scroll back and view your terminal session history, you can use your mouse, trackpad, or mouse wheel.    Most terminal applications let you configure the number of lines of scrollback that it maintains in memory so you can scroll back and review or copy any output.  
 
-Feel free to use the `+man clear+` command to read the manual page for the `+clear+` command.  There are slight differences between the macOS and Linux versions of the command, but they both clear the active window.
+Use the `+man clear+` command to read the manual page for the `+clear+` command.  There are slight differences between the macOS and Linux versions of the command, but they both clear the active window.
 
 TIP: On macOS, you can use the kbd:[Command] + kbd:[ K ] key combination to clear the entire scrollback buffer.  In Linux and Windows Subsystem for Linux, the `+clear+` command clears the full buffer, unless you include the `+-x+` option.
 
-Now that we are able to clear the slate and start with a fresh command prompt at the top of our terminal window, we can re-type our command after making a minor mistake.  But let's assume we issued a very long command that would take a while to type again.  Our _command history_ is our friend!  As we briefly mentioned in _Chapter 1. Foundations_, the shell interpreter keeps a history of all of the commands that we run, up to a configurable number of commands.  So getting back to them is super easy.  At the command prompt, just press the kbd:[&nbsp;▴&nbsp;] (up arrow) key once, and your previous command will show up on the command line.  It's like magic!  This is one of the most useful shortcuts ever made and is worth repeating here.  While using the command line is all about typing, using the modern command line is all about typing the minimum amount to get the job done quickly.
+==== Revisiting the command history
+
+Now that we are able to clear the slate and start with a fresh command prompt at the top of our terminal window, we can re-type our command after making a minor mistake from the previous section  when we typed `+mane pwd+`.  But let's assume we issued a very long command that would take a while to type again.  Our _command history_ is our friend!  As we briefly mentioned in _Chapter 1. Foundations_, the shell interpreter keeps a history of all of the commands that we run, up to a configurable number of commands.  So getting back to them is super easy.  
+
+At the command prompt, just press the kbd:[&nbsp;▴&nbsp;] (up arrow) key once, and your previous command will show up on the command line.  It's like magic!  This is one of the most useful shortcuts ever made and is worth repeating here.  While using the command line is all about typing, using the modern command line is all about typing the minimum amount to get the job done quickly.
 
 You can now move your cursor left and right to edit you last command, and the kbd:[Return] key to re-issue it.  So helpful!  I'm sure you're wondering about even earlier commands, yes?  They are also available!  As we've mentioned earlier, pressing the kbd:[&nbsp;▴&nbsp;] (up arrow) multiple times will walk you through your command history one command at a time, so you can always get back to your most useful commands.  If you pass by a command while arrowing up, you can use the kbd:[&nbsp;▾&nbsp;] (down arrow) key to walk forward to your more recent commands.  Such a gem!
 
