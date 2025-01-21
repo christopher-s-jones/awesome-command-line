@@ -30,4 +30,4 @@ This icon indicates a time to be very careful with a command or action. It could
 === Getting the Command Line Examples
 
 The examples in this book are accessible for download from a link on the
-book release page [{bookurl}].  The entire book source code is released as open source under the {license} license, and may be used under those terms.
+book release page [{bookurl}].  The entire book source code is released as an open source project under the {license} license, and may be used under those terms.
