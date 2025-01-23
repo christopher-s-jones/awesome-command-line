@@ -143,7 +143,7 @@ After the Windows Subsystem for Linux installation, the Windows Terminal applica
 
 Windows Subsystem for Linux is considered a developer tool, and as such, the recommended way to install it is by issuing a command in the terminal application as an Administrator of the computer.  To get started, click on the Windows Start menu icon in the Windows Taskbar, or press the kbd:[Super] key on your keyboard.
 
-NOTE: As mention before, the kbd:[Super] key may have the Windows logo on it, and is usually next to the kbd:[Alt] key.
+NOTE: As mentioned before, the kbd:[Super] key may have the Windows logo on it, and is usually next to the kbd:[Alt] key.
 
 In the search bar, type "Terminal" (without the quotes).  You should see a search result with the Windows Terminal icon.  As shown in _Figure 7_, choose the _Run as Administrator_ option in the details pane for the Terminal application.
 
