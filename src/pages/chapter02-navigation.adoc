@@ -192,7 +192,9 @@ Hah! It's easy to make mistakes--they happen all of the time.  The shell interpr
 
 === The clear Command--Keeping It Tidy
 
-In the previous section, we described how to view and navigate a manual page for any command, and when you pressed the `+q+` key on the keyboard, the contents of the manual page dissapeared.  That is because the viewer has built in functionality to clear the screen, which helps you get directly back to your work.  However, the output from most of our commands generally stays in the terminal window, and scrolls up and out of view as we type.  This is known as your _session history_.  Our command prompt always shows back up after the output of the previous command, ready for our next command.  But as you can see from our mistakenly-typed `+mane+` command, the output may be useful in the moment, but it would also be nice to just clear the screen and start anew.  Yes, it's so easy!  As you probably guessed, the `+clear+` command does just that--it clears the contents of the terminal window, resets the prompt to the top of the window, and sets us up for our unobstructed next command.  Keep it tidy!
+In the previous section, we described how to view and navigate a manual page for any command, and when you pressed the `+q+` key on the keyboard, the contents of the manual page dissapeared.  That is because the viewer has built in functionality to clear the screen, which helps you get directly back to your work.  However, the output from most of our commands generally stays in the terminal window, and scrolls up and out of view as we type.  This is known as your _session history_.  Our command prompt always shows back up after the output of the previous command, ready for our next command.  But as you can see from our mistakenly-typed `+mane+` command, the output may be useful in the moment, but it would also be nice to just clear the screen and start anew.  Yes, it's so easy!  As you probably guessed, the `+clear+` command does just that--it clears the contents of the terminal window, resets the prompt to the top of the window, and sets us up for our unobstructed next command.  Keep it tidy!  _Figure 20_ shows the results of the `+clear+` command on macOS.
+
+image::chapter-02-macOs-clear-command.png[title="Results of using the `+clear+` command to tidy up your terminal window.", pdfwidth=100%]
 
 Feel free to type `+clear+` to clear your terminal window at any time that you feel that things are getting cluttered.  When you do so, the command usually clears the visible part of your window. There is also a concept of a _scrollback buffer_, which is the in-memory record of your terminal session from previously typed commands and their output.  To scroll back and view your terminal session history, you can use your mouse, trackpad, or mouse wheel.    Most terminal applications let you configure the number of lines of scrollback that it maintains in memory so you can scroll back and review or copy any output.  
 
@@ -212,40 +214,251 @@ Now that we are familiar with issuing commands, viewing our current directory, r
 
 === The cd Command--Changing Directories
 
-, and they not only illustrate the slight differences in locations, but we can also see that on Windows, the result of `/home/chris+` is different than the Windows user home directory of `+C:\\Users\chris+`.  The WSL Linux user account is different from the Windows user account, but you do have access to all of your files.  As we mentioned earlier, UNIX-like operating systems have a root directory with everything underneath it, whereas Windows has multiple top-level drives (`+C:+`,`+D:+`, etc.)  To integrate the Windows filesystem into Linux, the `+C:+` drive is mapped to `+/mnt/c+` under Linux, which places it into the single file system hierarchy.  But why would it be called `+/mnt+`?  In 
+We understand that when we open our terminal application, the shell automatically locates us in our home directory as the starting point.  In fact the command prompt tells us this by showing us the `+~+` (tilda) character, which as we learned is a shorthand for the user's home directory.
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+In order to move around the file system, we use a very simple command called `+cd+` which stands for "change directory".  It takes one argument--where you want to go!  A very simple example would be to change directories to the root directory (+/+) which is the top-level folder.  _Example 11_ shows us running this command, followed by the `+pwd+` command to confirm which folder is the current directory.
+
+.Using the `+cd+` command to change directories on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ cd /
+chris@nuthatch:/$ pwd
+/
+----
+
+Notice that there's no output for the `+cd+` command, but that the shell has updated the command prompt to reflect our current location, which is now `+/+` (slash).  We confirmed this using the `+pwd+` command as well.  Perfect!
+
+And now, what if we want to return back to the previous directory we were in?  The `+cd+` command has a helpful little shortcut using a single `+-+` (dash) argument.  _Example 12_ shows how to return to your previous directory.
+
+.Using the `+cd -+` command to toggle back to the previous directory on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ cd -  <1>
+chris@nuthatch:~$ pwd
+/home/chris
+----
+<1> The `+-+` (dash) argument means "return to the previous current directory"
+
+This handy little trick can be helpful when you are working in two different directories and want to toggle back and forth between them.  Using `+cd -+` repeatedly will do so.  Give it a try!
+
+With no arguments at all, the `+cd+` command will send you directly back to your home directory.  This can be helpful as a reset to get you re-oriented.  _Example 13_ shows the `+cd+` command with no argument.
+
+.Using the `+cd+` command to return to your home directory on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ cd /
+chris@nuthatch:/$ pwd
+/
+chris@nuthatch:/$ cd  <1>
+chris@nuthatch:~$ pwd
+/home/chris
+----
+<1> The `+cd+` command with no argument gets you home
+
+If you are on Windows using Windows Subsystem for Linux, you'll notice that
+the result of `+/home/chris+` is different than the Windows user home directory of `+C:\\Users\chris+`.  The WSL Linux user account is different from the Windows user account, but you do have access to all of your files.  As we mentioned earlier, UNIX-like operating systems have a root directory with everything underneath it, whereas Windows has multiple top-level drives (`+C:+`,`+D:+`, etc.)  To integrate the Windows filesystem into Linux, the `+C:+` drive is mapped to `+/mnt/c+` under Linux, which places it into the single file system hierarchy.  But why would it be called `+/mnt+`?  In UNIX-like operating systems, external drives and other filesystems are _mounted_ to a directory name in order to access it.  This is known as a _mount point_.  So in Linux, these mount points conventionally are located in the `+/mnt+` directory.
+
+NOTE: On macOS and Linux, drives are called _volumes_, and on macOS they are mounted in the `+/Volumes+` directory instead of `+/mnt+`.
+
+As such, the Windows `+C:+` drive has been mounted into the Linux file system at the `+/mnt/c+` mount point, and you can access all of your Windows files from your Windows home directory within that drive.  So if you are using WSL, go ahead and change directories into your Windows home directory.  _Example 14_ demonstrates this.
+
+.In Windows Subsysyem for Linux, changing directories into the Windows user (chris) home directory.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@DESKTOP-L7H0RFS:~$ cd /mnt/c/Users/chris  <1>
+chris@DESKTOP-L7H0RFS:/mnt/c/Users/chris$ pwd
+/mnt/c/Users/chris
+----
+<1> The `+/mnt/c/Users/chris+` directory is the same as the `+C:\\Users\chris+` home directory for the Windows chris user account.
+
+Let's next change directories into a subdirectory, and in this case, let's move into the `+Pictures+` directory in our home directory.  _Example 15_ shows the syntax for this command.
+
+.Changing into the Pictures subdirectory from a user home directory in Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ cd ./Pictures
+chris@nuthatch:Pictures$ pwd
+/home/chris/Pictures  <1>
+----
+<1> The current directory is now `+~/Pictures+`
+
+For Windows WSL users, you'll need to already be in your `+/mnt/c/Users/<username>+` directory to be able to change directories into `+./Pictures+` since the WSL installation doesn't automatically add these folders in your Linux home directory in `+/home/<username>+`.
 
 === Understanding Tab Completion
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+Great!  We now understand how to change directories using the `+cd+` command with both relative and absolute directory paths. Let's now look at a scenario where we have a very deeply nested set of directories within our `+Pictures+` folder.  In our example, I have stored awesome cat and dog photos taken in cities around the world, organized by country, city, and year.  Yay pets!  But this directory tree is very large, so I would like to traverse it interactively.  We can do so using a shell feature called _tab completion_.  Tab completion works with the `+cd+` command.  Type `+cd+` on the command line followed by a space, and then press the kbd:[Tab] key twice.  If there are subdirectories inside of your current directory, it will list them for you automatically!  _Example 16_ illustrates this with our pet photo directories from around there world.
 
+.Using the `+cd+` command with tab completion to show potential subdirectories to traverse in Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~/Pictures$ cd ⇒⇒ <1>
+Australia/      France/         Russia/
+Canada/         Japan/          United-Kingdom/
+China/          New-Zealand/    United-States/
+chris@nuthatch:~/Pictures$ cd
+----
+<1> Pressing the kbd:[Tab] key twice shows subdirectories of the current directory path.
+
+Wow!  We instantly see what subdirectory choices there are, and because the shell returns our incomplete `+cd+` command below the list, we can just start typing one of the subdirectory names to add it to our command.  But let's highlight one more feature of tab completion.  Let's say from the choices we want to change into the `+United-Kingdom+` directory.  So let's now type the first two characters of that name (just `+Un+`), and press the kbd:[Tab] key again, as shown in _Example 17_.
+
+.Typing a partial subdirectory name using tab completion in Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~/Pictures$ cd ⇒⇒
+Australia/      France/         Russia/
+Canada/         Japan/          United-Kingdom/
+China/          New-Zealand/    United-States/
+chris@nuthatch:~/Pictures$ cd Un ⇒ <1>
+----
+<1> Pressing the kbd:[Tab] key once completes the subdirectory to the point where there are multiple matching options.
+
+Ah! So the shell has now filled in the command to be `+cd United-+` because it knew we wanted to enter a subdirectory that begins with the letters `+Un+`.  But it encountered a fork (between `+United-Kingdom+` and `+United-States+`), and has stopped until we give it guidance.  We can type the single `+K+` character that is part of the `+United-Kingdom+` directory name, and then press kbd:[Tab] key again to let the shell auto-complete the directory name, as seen in _Example 18_.
+
+.Resolving multiple choices in tab completion by providing a unique path direction (the `+K+` character) in Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~/Pictures$ cd ⇒⇒
+Australia/   France/        Russia/
+Canada/      Japan/         United-Kingdom/
+China/       New-Zealand/   United-States/
+chris@nuthatch:~/Pictures$ cd United-K ⇒ <1>
+chris@nuthatch:~/Pictures$ cd United-Kingdom/
+----
+<1> Pressing the kbd:[Tab] key once completes the subdirectory to the point where there are multiple matching options.
+
+Tab completion is a massive time saver, and it takes just a little practice to consistently use the kbd:[Tab] key to let the shell do as much of the typing work as possible.  This allows you to drill down into deeply nested folders very quickly, by building a long path on the command line using the tab completion feature.  _Example 19_ shows how we can use tab completion to build a long directory path interactively.
+
+.A long directory path built using the tab completion mechanism in Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~/Pictures$ cd ⇒⇒  <1>
+Australia/      France/         Russia/
+Canada/         Japan/          United-Kingdom/
+China/          New-Zealand/    United-States/
+chris@nuthatch:~/Pictures$ cd United-Kingdom/London/20 ⇒⇒ <2>
+2010/ 2012/ 2014/ 2016/ 2018/ 2020/ 2022/ 2024/
+2011/ 2013/ 2015/ 2017/ 2019/ 2021/ 2023/ 2025/
+chris@nuthatch:~/Pictures$ cd United-Kingdom/London/202 ⇒⇒ <3>
+2020/ 2021/ 2022/ 2023/ 2024/ 2025/
+chris@nuthatch:~/Pictures$ cd United-Kingdom/London/2024/Awesome- ⇒⇒ <4>
+Awesome-Cats/ Awesome-Dogs/
+chris@nuthatch:~/Pictures$ cd United-Kingdom/London/2024/Awesome-Cats/
+chris@nuthatch:~/Pictures/United-Kingdom/London/2024/Awesome-Cats$ pwd
+/home/chris/Pictures/United-Kingdom/London/2024/Awesome-Cats
+----
+<1> Use double kbd:[Tab] keys to interactively see subdirectory options for countries
+<2> Do it again when there are still multiple subdirectory options for years
+<3> And again for years in the 2020s
+<4> And one last time to find cats versus dog photos
+
+You can see that we can use the kbd:[Tab] key to quickly build the relative directory path in the command `+cd United-Kingdom/London/2024/Awesome-Cats/+`.  When we finally press the kbd:[Return] key, we are whooshed into that directory.
+
+This rounds out our tour of the `+cd+` command and the magic tab completion feature that makes you a turbo-typer.  Go ahead and practice these techniques in the folders of your home directory to get a solid feel for changing directories.  Next, we have a look at ways to view file and directory information in more detail using the `+ls+` command. See you there!
+
+<<<
 === The ls Command--Listing Files and Folders
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+In the previous section, we have seen that it is very easy to move anywhere within the file system on the command line.  In fact, if you need to get somewhere quickly, the tab completion feature will get you there the fastest.  But once we have arrived at a given directory, we certainly want to know what files and folders are present, and other information about them.  When we're using our graphical tools, we will open up a Finder window on macOS, or a File Explorer on Linux and Windows.  These are of course great tools!  We're shown either a list view or an icon view of the contents of the directory, along with some item details like modification dates and file sizes.  _Figure 22_ shows a typical file explorer view in Linux showing the subdirectories and files in the home directory.
 
-image::chapter-02-figure-home-directory-window.png[title="The home folder on Linux showing the sub-folders."]
+image::chapter-02-linux-home-directory-window.png[title="The home folder on Linux showing the sub-folders and files."]
 
-.Using the `ls` command to produce a long listing (`-l`) with human readable sizes (`-h`)
+To list files and folders on the command line in a similar, but very concise fashion, we use the `+ls+` command, which is a very small but powerful command that means "list directory contents".  We will start with the simplest use of the command, which is to issue it without any arguments.  _Example 20_ shows the results.
+
+<<<
+.Using the `ls` command to show the contents of the home folder on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos  weekly-data.csv
+----
+
+Very simple!  You'll notice that the directories are listed in alphabetical order horizontally across the terminal window if your window is wide enough to accommodate all of the names on a single row.  If not, they are listed in vertical columns alphabetically. In _Example 20_, the item names in the directory wrap to a second line, so your output may look slightly different.  Give it a try!
+
+As you can see, unmodified `+ls+` command output works well for having a quick look at a directory's contents, but when there are dozens or hundreds of items in a directory, it can be a bit unwieldy.  To tidy up the output, we can add a `+-1+` (numeral one) option to the command, which tells `+ls+` to list the contents in a single column.  _Example 21_ shows the results of an `+ls -1+` command.
+
+.Using the `ls` command to produce a single column listing (`-1`).
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ ls -1 <1>
+Desktop
+Documents
+Downloads
+Music
+Pictures
+Public
+Templates
+Videos
+weekly-data.csv
+----
+<1> The `-1` option produces a single column of directory items
+
+Excellent! That is very tidy, and gives us an alphabetical listing in a single column.  Try this command for yourself as well.  The repetition will start to train your muscle-memory!
+
+Now, if you use the `+man ls+` command to read about the avaiable options, you will notice that there are a lot of options for such a tiny command!  _Example 22_ shows the manual page synopsis on macOS.
+
+.The many options available to the `+ls+` command on macOS.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir ~ % man ls
+LS(1)          General Commands Manual          LS(1)
+
+NAME
+     ls – list directory contents
+
+SYNOPSIS
+     ls [-@ABCFGHILOPRSTUWabcdefghiklmnopqrstuvwxy1%,]  <1>
+        [--color=when] [-D format] [file ...]
+----
+<1> Wow! So many options to choose from
+
+We will be highlighting a few of the most useful options for the `+ls+` command, since it really is indispensible for quickly viewing the contents of your folders.  The most common option is the `+-l+` (lowercase letter l) option, which produces what is called a _long listing_ of your directory.  It is popular because it packs a lot of critical information into a small space, but when you first look at it, it may seem a bit foreign!  So we will learn how to read a long listing in the next section.
+
+==== How to read a directory long listing
+
+_Example 23_ shows the results of the `+ls -lh+` command on Linux, where the `+-h+` option produces human-readable file sizes.  Notice that you can combine short options with a single dash, like `+-lh+`.
+
+.Using the `ls` command to produce a long listing (`-l`) with human readable sizes (`-h`) on Linux.
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
 chris@nuthatch:~$ ls -lh
-total 36K <1>
-drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Desktop
-drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Documents
-drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Downloads
-drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Music
-drwxr-xr-x 3 chris chris 4.0K Jan 10 10:11 Pictures  <2>
-drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Public
-drwx------ 3 chris chris 4.0K Jan 10 10:01 snap
-drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Templates
-drwxr-xr-x 2 chris chris 4.0K Jan 10 10:01 Videos
+total 26M
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Desktop
+drwxr-xr-x  2 chris chris 4.0K Jan 15 11:41 Documents
+drwxr-xr-x  2 chris chris 4.0K Jan 21 17:03 Downloads
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Music
+drwxr-xr-x 11 chris chris 4.0K Jan 22 12:05 Pictures          <1>
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Public
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Templates
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Videos
+-rw-rw-r--  1 chris chris  26M Jan 22 05:08 weekly-data.csv
 ----
-<1> A technical total of the number of disk blocks used in the current folder
-<2> The listing of items in _chris'_ home folder with accompanying details
+<1> The listing of items in _chris'_ home folder with accompanying details
 
+Okay--that's looking packed full!  The long listing provides not only a vertical list of folder and file names that are alphabetically sorted by default, but every line also provides technical details for each item in the list.  _Figure 23_ explains each of the columns of detail, and highlights the far right column with the subdirectory and file names.
 
-image::chapter-02-figure-long-listing.svg[title="Understanding the columns of the long listing output.",pdfwidth=100%]
+image::chapter-02-linux-ls-long-listing.svg[title="Understanding the columns of the long listing output.",pdfwidth=100%]
+
+[.calloutnumber]##❶## The type and permissions of the file or folder
+
+[.calloutnumber]##➋## The number of items (called links) for the file or folder
+
+[.calloutnumber]##❸## The name of the file or folder's owner (username)
+
+[.calloutnumber]##❹## The name of the file or folder's group
+
+[.calloutnumber]##❺## The size of the file or folder in bytes (B or K, M, G)
+
+[.calloutnumber]##❻## The date and time the file or folder was last modified
+
+[.calloutnumber]##❼## The name of the file or folder
+
+Give this command a try for yourself in your home directory.  When you're looking at the output, it is helpful to envision it as columns, with the 7th column being the most important (the folder and file names).  However, the 6th column--modification dates--can be very helpful when you're interested when you've last worked on a given file or folder.  Likewise, the size of the file or folder in column 5 is useful, and common in graphical interface listings too.  Because we used the `+-h+` option, file sizes in bytes are converted to Kilobytes (K), Megabytes (M), and Gigabytes (G) to make the large numbers more readable.  But what about the first four columns?  Let's discuss those.
+
+Because UNIX-like operating systems can have multiple user accounts, every file or directory has a set of permissions and a type that are assigned to it, which are shown in column 1.  We'll return to those in a moment.  Column two is showing how many items are "linked" to the given file or directory in the given row.  For instance, the `+Pictures+` directory has 11 direct children, which are the country folders for our cat and dog photos!
+
+NOTE: While the long listing shows an 11, in reality there are 9 subdirectories.  The other 2 links are made up the the `.` (period) which is the directory itself, and the `+..+` (double period) which is the parent directory.  These two hidden directory names are associated with the Pictures folder as well.
+
+To the right of the item count in Column 3, we see that the _chris_ username is the owner of each file.  Likewise, there is also a group named _chris_ on the system, and all of these rows are associated with that group in Column 4.  But let's now take a look at the most condensed of all of the columns, the permissions and types in Column 1.
 
 <<<
 === Command Line Navigation is Awesome!
