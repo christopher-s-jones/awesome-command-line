@@ -365,7 +365,7 @@ image::chapter-02-linux-home-directory-window.png[title="The home folder on Linu
 To list files and folders on the command line in a similar, but very concise fashion, we use the `+ls+` command, which is a very small but powerful command that means "list directory contents".  We will start with the simplest use of the command, which is to issue it without any arguments.  _Example 20_ shows the results.
 
 <<<
-.Using the `ls` command to show the contents of the home folder on Linux.
+.Using the `+ls+` command to show the contents of the home folder on Linux.
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
 chris@nuthatch:~$ ls
@@ -374,9 +374,9 @@ Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos  weekl
 
 Very simple!  You'll notice that the directories are listed in alphabetical order horizontally across the terminal window if your window is wide enough to accommodate all of the names on a single row.  If not, they are listed in vertical columns alphabetically. In _Example 20_, the item names in the directory wrap to a second line, so your output may look slightly different.  Give it a try!
 
-As you can see, unmodified `+ls+` command output works well for having a quick look at a directory's contents, but when there are dozens or hundreds of items in a directory, it can be a bit unwieldy.  To tidy up the output, we can add a `+-1+` (numeral one) option to the command, which tells `+ls+` to list the contents in a single column.  _Example 21_ shows the results of an `+ls -1+` command.
+As you can see, an unmodified `+ls+` command works well for having a quick look at a directory's contents, but when there are dozens or hundreds of items in a directory, it can be a bit unwieldy.  To tidy up the output, we can add a `+-1+` (numeral one) option to the command, which tells `+ls+` to list the contents in a single column.  _Example 21_ shows the results of an `+ls -1+` command.
 
-.Using the `ls` command to produce a single column listing (`-1`).
+.Using the `+ls+` command to produce a single column listing (`+-1+`).
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
 chris@nuthatch:~$ ls -1 <1>
@@ -396,7 +396,7 @@ Excellent! That is very tidy, and gives us an alphabetical listing in a single c
 
 Now, if you use the `+man ls+` command to read about the avaiable options, you will notice that there are a lot of options for such a tiny command!  _Example 22_ shows the manual page synopsis on macOS.
 
-.The many options available to the `+ls+` command on macOS.
+.The many options available to the `+ls+` command on macOS and Linux.
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
 chris@ophir ~ % man ls
@@ -409,7 +409,7 @@ SYNOPSIS
      ls [-@ABCFGHILOPRSTUWabcdefghiklmnopqrstuvwxy1%,]  <1>
         [--color=when] [-D format] [file ...]
 ----
-<1> Wow! So many options to choose from
+<1> Wow--so many options to choose from!
 
 We will be highlighting a few of the most useful options for the `+ls+` command, since it really is indispensible for quickly viewing the contents of your folders.  The most common option is the `+-l+` (lowercase letter l) option, which produces what is called a _long listing_ of your directory.  It is popular because it packs a lot of critical information into a small space, but when you first look at it, it may seem a bit foreign!  So we will learn how to read a long listing in the next section.
 
@@ -417,7 +417,7 @@ We will be highlighting a few of the most useful options for the `+ls+` command,
 
 _Example 23_ shows the results of the `+ls -lh+` command on Linux, where the `+-h+` option produces human-readable file sizes.  Notice that you can combine short options with a single dash, like `+-lh+`.
 
-.Using the `ls` command to produce a long listing (`-l`) with human readable sizes (`-h`) on Linux.
+.Using the `+ls+` command to produce a long listing (`+-l+`) with human readable sizes (`+-h+`) on Linux.
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
 chris@nuthatch:~$ ls -lh
@@ -432,9 +432,9 @@ drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Templates
 drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Videos
 -rw-rw-r--  1 chris chris  26M Jan 22 05:08 weekly-data.csv
 ----
-<1> The listing of items in _chris'_ home folder with accompanying details
+<1> The long listing of items in _chris'_ home folder with accompanying details
 
-Okay--that's looking packed full!  The long listing provides not only a vertical list of folder and file names that are alphabetically sorted by default, but every line also provides technical details for each item in the list.  _Figure 23_ explains each of the columns of detail, and highlights the far right column with the subdirectory and file names.
+Okay--that's looking packed full!  The long listing provides not only a vertical listing of folder and file names that are alphabetically sorted by default, but every line also provides technical details for each item in the list.  _Figure 23_ explains the output table with each of the columns of detail, and highlights the far right column with the subdirectory and file names.
 
 image::chapter-02-linux-ls-long-listing.svg[title="Understanding the columns of the long listing output.",pdfwidth=100%]
 
@@ -452,16 +452,123 @@ image::chapter-02-linux-ls-long-listing.svg[title="Understanding the columns of 
 
 [.calloutnumber]##❼## The name of the file or folder
 
-Give this command a try for yourself in your home directory.  When you're looking at the output, it is helpful to envision it as columns, with the 7th column being the most important (the folder and file names).  However, the 6th column--modification dates--can be very helpful when you're interested when you've last worked on a given file or folder.  Likewise, the size of the file or folder in column 5 is useful, and common in graphical interface listings too.  Because we used the `+-h+` option, file sizes in bytes are converted to Kilobytes (K), Megabytes (M), and Gigabytes (G) to make the large numbers more readable.  But what about the first four columns?  Let's discuss those.
+Give this command a try for yourself in your home directory.  When you're looking at the output, it is helpful to envision it as a table, with the 7th column being the most important (the folder and file names).  The 6th column--modification dates--can be very helpful as well when you're interested in when you've last worked on a given file or folder.  Likewise, the size of the file or folder in column 5 is useful, and is common in graphical interface listings too, as we see in _Figure 22_.  Because we used the `+-h+` option, file sizes that are normally shown in bytes are converted to Kilobytes (K), Megabytes (M), and Gigabytes (G) to make the large numbers more readable.  But what about the first four columns?  Let's discuss those.
 
-Because UNIX-like operating systems can have multiple user accounts, every file or directory has a set of permissions and a type that are assigned to it, which are shown in column 1.  We'll return to those in a moment.  Column two is showing how many items are "linked" to the given file or directory in the given row.  For instance, the `+Pictures+` directory has 11 direct children, which are the country folders for our cat and dog photos!
+Because UNIX-like operating systems can have multiple user accounts, every file or directory has a set of permissions and a type that are assigned to it, which are shown in column 1.  We'll return to those in a moment.  Column two is showing how many items are "linked" to the given file or directory in the given row.  For instance, the `+Pictures+` directory has 11 direct items inside of it, which are the country folders for our cat and dog photos!
 
-NOTE: While the long listing shows an 11, in reality there are 9 subdirectories.  The other 2 links are made up the the `.` (period) which is the directory itself, and the `+..+` (double period) which is the parent directory.  These two hidden directory names are associated with the Pictures folder as well.
+NOTE: While the long listing shows 11 items in the Pictures directory, in reality there are 9 subdirectories.  The other 2 links are made up of the `.` (period) item which is the directory itself, and the `+..+` (double period) item which is the parent directory.  These two hidden directory names are associated with the Pictures folder as well.
 
-To the right of the item count in Column 3, we see that the _chris_ username is the owner of each file.  Likewise, there is also a group named _chris_ on the system, and all of these rows are associated with that group in Column 4.  But let's now take a look at the most condensed of all of the columns, the permissions and types in Column 1.
+To the right of the item count, Column 3 shows that the _chris_ user is the owner of each file or directory.  Likewise, Column 4 shows a group named _chris_ on the system, and all of these files and directories are associated with that group name.  But let's now take a look at the most condensed of all of the columns, the permissions and types in Column 1.
+
+==== Understanding file and directory permissions and types
+
+In the long listing output from the `+ls -lh+` command shown in _Figure 23_, Column 1 shows the file or directory type and permissions for every row of the table.  This is packed full of information!  Let's break this information down  and explain each part so we can read it at quick glance.  _Figure 24_ highlights the last two rows of the table and shows the type and permission information for the `+Videos+` directory and the `+weekly-data.csv+` text file.
+
+First, notice that the information is presented in 10 slots of text characters, where the first slot represents the _type_ of the listed item, and the remaining nine slots represent the _permissions_ associated with the file or directory item.
+
+Now notice that the `+Videos+` row has a `+d+` for the type, which means it is a directory.  The `+weekly-data.csv+` file has a `+-+` (dash) for the type, which means it is a regular file.  These are the most common types you will see.{empty}footnote:[There are file types other than regular files and directories in UNIX-like operating systems.  More information can be found in the manual pages for the `+ls+` and `+chmod+` commands.]
+
+Let's now look at the next nine slots, which hold information about the permissions for the directory or file in that row.  Notice that the permissions are divided into three categories--for the _user_ (owner) of the file, for the _group_ the file is associated with, and _other_ (all other accounts on the system).  Packed into each category are four possible permissions{empty}footnote:[There are also more possible permissions on UNIX-like operating systems.  See the manual page for the `+chmod+` command for more details.]{emdash} _read_, _write_, _execute_, or _none_{emdash}represented by an `+r+`, `+w+`, `+x+`, or `+-+` character, respectively.
+
+image::chapter-02-linux-file-permissions.svg[title="Understanding file and directory permissions and types for `+ls -l+` command long listings.  Examples include the Videos directory and weekly-data.csv file.  Permissions for each file or directory are categorized by user, group, and other accounts in the operating system.  Read, write, and execute permissions are assigned to each category of accounts.",pdfwidth=100%]
+
+With this knowledge, we can interpret the permissions for the `+Videos+` directory and the `+weekly-data.csv+` file that are shown in  _Figure 24_ as the following:
+
+Videos directory:: 
+- The user _chris_ (the owner of the directory) can read the contents of the directory, write into the directory (add or change files and folders), and can execute (change into) the directory.
+- Anyone in the _chris_ group can read the contents of the directory, _cannot_ write into the directory (add or change files or folders), and can execute (change into) the directory.
+- All _other_ accounts on the system can read the contents of the directory, _cannot_ write into the directory (add or change files or folders), and _cannot_ execute (change into) the directory.{empty}footnote:[While read permissions set for other accounts indicate they can read contents of the Pictures folder, the permissions set on the parent directory may restrict any access by other users.  This is commonly the case for home directory folders.]
+
+weekly-data.csv file:: 
+- The user _chris_ (the owner of the file) can read the contents of the file, can write or change the file, and _cannot_ execute the file (run it a script or program).
+- Anyone in the _chris_ group can read the contents of the file, can write or change the file, and _cannot_ execute the file (run it a script or program).
+- All _other_ accounts on the system can read the contents of the file, _cannot_ write or change the file, and _cannot_ execute the file (run it a script or program).
+
+Wow! That is an immense amount of information packed into the long listing output of the `+ls -lh+` command.  While it takes some practice to to interpret the file permissions, it does become second-nature.  We've discussed four of the most useful options for the `+ls+` command (`+-1+`,`+-l+`, and `+-h+`), but what if we want to sort the long listing output in ways other than alphabetically ascending?  Let's explore those common options next.
+
+==== Sorting directory listings
+
+Having the long listing output sorted by default in alphabetically ascending order is often exactly what we need.  But there are times when the directory has a lot of items, and we want to reverse the direction of the sorting algorithm.  We have the magic!  We can add a `+-r+` short option or `--reverse` long option to our command in order to invert the sorting.  _Example 24_ demonstrates this in the home directory of the `+chris+` user.
+
+.Using the `+ls+` command to produce a reverse-sorted (`+-r+`) long listing (`+-l+`) with human readable sizes (`+-h+`) on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ ls -lhr
+total 26M
+-rw-rw-r--  1 chris chris  26M Jan 22 05:08 weekly-data.csv
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Videos
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Templates
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Public
+drwxr-xr-x 11 chris chris 4.0K Jan 22 12:05 Pictures
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Music
+drwxr-xr-x  2 chris chris 4.0K Jan 21 17:03 Downloads
+drwxr-xr-x  2 chris chris 4.0K Jan 15 11:41 Documents
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Desktop
+----
+
+It's that easy.  We now have a long listing in alphabetically _descending_ order.  Let's also try the reverse ordering, but instead of defaulting to an alphabetical sorting, let's sort based on the modification time, using the `+-t+` option.  This is a super useful trick!  When you have a lot of files in your working directory, and just want to see what you added or changed most recently when your files scroll by in the listing, you can do a reverse-chronological sorting, as is shown in _Example 25_.
+
+.Using the `+ls+` command to produce a chronological (`+-t+`), reverse-sorted (`+-r+`) long listing (`+-l+`) with human readable sizes (`+-h+`) on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ ls -lhrt
+total 26M
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Videos
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Templates
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Public
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Music
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Desktop
+drwxr-xr-x  2 chris chris 4.0K Jan 15 11:41 Documents
+drwxr-xr-x  2 chris chris 4.0K Jan 21 17:03 Downloads
+-rw-rw-r--  1 chris chris  26M Jan 22 05:08 weekly-data.csv
+drwxr-xr-x 11 chris chris 4.0K Jan 22 12:05 Pictures
+----
+
+So easy!  You can see that the `+Pictures+` directory was the most recently updated and is at the bottom of the long listing output, and the oldest items are at the top.  There are many ways to sort the the output of the `+ls+` command, but one more way to sort that is worth noting is sorting by size.  We often accumulate many files in our home and other directories, and it's nice to see them by size, because perhaps we can delete some of the big ones to free up some space!  To sort by size, use the `+-S+` option.  Note that it is an uppercase letter `+S+`! _Example 26_ shows the same reverse listing as previously, but sorting by size instad of time.
+
+.Using the `+ls+` command to produce a file-size (`+-S+`) reverse-sorted (`+-r+`) long listing (`+-l+`) with human readable sizes (`+-h+`) on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ ls -lhrS
+total 3.1G
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Videos
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Templates
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Public
+drwxr-xr-x 11 chris chris 4.0K Jan 22 12:05 Pictures
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Music
+drwxr-xr-x  2 chris chris 4.0K Jan 21 17:03 Downloads
+drwxr-xr-x  2 chris chris 4.0K Jan 15 11:41 Documents
+drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Desktop
+-rw-rw-r--  1 chris chris 4.0M Jan 23 14:54 daily-data.csv
+-rw-rw-r--  1 chris chris  26M Jan 22 05:08 weekly-data.csv
+-rw-rw-r--  1 chris chris 3.0G Jan 23 14:53 yearly-data.csv
+----
+
+You can see that I added a couple of data files into the directory to highlight this point.  The files are sorted in ascending order when using the reverse option, and you can see the 3.0 Gigabyte `+yearly-data.csv+` file at the bottom of the listing.
+
+==== Viewing hidden files and folders
+
+UNIX-like operating systems like Linux and macOS use a convention to hide files from view, which is to begin the filename with a `+.+` (period, or _dot_).  This is very commonly used for configuration files, as we'll see in our directory.  You can add the `+-a+` option to your `+ls+` command to view your hidden files, as shown in _Example 27_.
+
+.Viewing hidden files using the `+ls -a+` command on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ ls -a
+.              daily-data.csv  Music      Videos
+..             Desktop         Pictures   .viminfo
+.bash_history  Documents       .profile   weekly-data.csv
+.bash_logout   Downloads       Public     yearly-data.csv
+.bashrc        .gnupg          .ssh
+.cache         .lesshst        Templates
+.config        .local          .var
+----
+
+That's quite a few hidden files and directories!  As mentioned above, this is a common way to store configuration data for your applications, and these are collectively know as your _dotfiles_.  Notice the `+.bash_history+` file--this is where the `+bash+` shell stores your command history, which we have discussed earlier and will explore more in _Chapter 7. Utilities_.  There is an equivalent `+.zsh_history+` file for macOS.  Also note the two directory entries named `+.+` (dot) and `+..+` (dot dot).  We mentioned previously that these represent the current directory and the parent directory, respectively.  And there they are, easy to see with a `+-a+` listing option!
+
+There are obviously many more options to explore with the `+ls+` command, so go ahead and try them out after reading the manual page using the `+man ls+` command. As you repeatedly use this command and the `+cd+` command, you'll find it blazingly fast to find your files.  When these commands are combined with the `+open+` command described in _Chapter 7. Utilities_, you will understand how productive this magic portal can be!
 
 <<<
 === Command Line Navigation is Awesome!
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+We've come such a long way in a short period of time when it comes to navigating your file system!  We are now familiar with the concepts of the current directory, absolute and relative paths.  
 
