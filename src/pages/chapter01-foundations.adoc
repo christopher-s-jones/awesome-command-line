@@ -1,4 +1,4 @@
-== Foundations
+== Command Line Is For Everyone
 
 ===  Getting Started With the Command Line
 
