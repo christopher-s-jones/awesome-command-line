@@ -458,7 +458,7 @@ Because UNIX-like operating systems can have multiple user accounts, every file 
 
 NOTE: While the long listing shows 11 items in the Pictures directory, in reality there are 9 subdirectories.  The other 2 links are made up of the `.` (period) item which is the directory itself, and the `+..+` (double period) item which is the parent directory.  These two hidden directory names are associated with the Pictures folder as well.
 
-To the right of the item count, Column 3 shows that the _chris_ user is the owner of each file or directory.  Likewise, Column 4 shows a group named _chris_ on the system, and all of these files and directories are associated with that group name.  But let's now take a look at the most condensed of all of the columns, the permissions and types in Column 1.
+To the right of the item count, Column 3 shows that the _chris_ user is the owner of each file or directory.  Likewise, Column 4 shows a group named _chris_ on the system, and all of these files and directories are associated with that group name.  But let's now take a look at the most condensed of all of the columns, the permissions and types in Column 1, and how they work in conjunction with the user and group names in Columns 3 and 4.
 
 ==== Understanding file and directory permissions and types
 
@@ -484,7 +484,7 @@ weekly-data.csv file::
 - Anyone in the _chris_ group can read the contents of the file, can write or change the file, and _cannot_ execute the file (run it a script or program).
 - All _other_ accounts on the system can read the contents of the file, _cannot_ write or change the file, and _cannot_ execute the file (run it a script or program).
 
-Wow! That is an immense amount of information packed into the long listing output of the `+ls -lh+` command.  While it takes some practice to to interpret the file permissions, it does become second-nature.  We've discussed four of the most useful options for the `+ls+` command (`+-1+`,`+-l+`, and `+-h+`), but what if we want to sort the long listing output in ways other than alphabetically ascending?  Let's explore those common options next.
+Wow! That is an immense amount of information packed into the long listing output of the `+ls -lh+` command.  While it takes some practice to interpret the file permissions, it does become second-nature.  We've discussed four of the most useful options for the `+ls+` command (`+-1+`,`+-l+`, and `+-h+`), but what if we want to sort the long listing output in ways other than alphabetically ascending?  Let's explore those common options next.
 
 ==== Sorting directory listings
 
@@ -563,9 +563,9 @@ chris@nuthatch:~$ ls -a
 .config        .local          .var
 ----
 
-That's quite a few hidden files and directories!  As mentioned above, this is a common way to store configuration data for your applications, and these are collectively know as your _dotfiles_.  Notice the `+.bash_history+` file--this is where the `+bash+` shell stores your command history, which we have discussed earlier and will explore more in _Chapter 7. Utilities_.  There is an equivalent `+.zsh_history+` file for macOS.  Also note the two directory entries named `+.+` (dot) and `+..+` (dot dot).  We mentioned previously that these represent the current directory and the parent directory, respectively.  And there they are, easy to see with a `+-a+` listing option!
+That's quite a few hidden files and directories!  As mentioned above, this is a common way to store configuration data for your applications, and these are collectively know as your _dotfiles_.  Notice the `+.bash_history+` file--this is where the `+bash+` shell stores your command history, which we have discussed earlier and will explore more in _Chapter 6. Utilities_.  There is an equivalent `+.zsh_history+` file for macOS.  Also note the two directory entries named `+.+` (dot) and `+..+` (dot dot).  We mentioned previously that these represent the current directory and the parent directory, respectively.  And there they are, easy to see with a `+-a+` listing option!
 
-There are obviously many more options to explore with the `+ls+` command, so go ahead and try them out after reading the manual page using the `+man ls+` command. As you repeatedly use this command and the `+cd+` command, you'll find it blazingly fast to find your files.  When these commands are combined with the `+open+` command described in _Chapter 7. Utilities_, you will understand how productive this magic portal can be!
+There are obviously many more options to explore with the `+ls+` command, so go ahead and try them out after reading the manual page using the `+man ls+` command. As you repeatedly use this command and the `+cd+` command, you'll find it blazingly fast to find your files.  When these commands are combined with the `+open+` command described in _Chapter 6. Utilities_, you will understand how productive this magic portal can be!
 
 <<<
 === Command Line Navigation is Awesome!
