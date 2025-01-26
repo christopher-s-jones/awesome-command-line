@@ -1,6 +1,6 @@
-== Text Data Commands
+== Text&nbsp;Data&nbsp;Commands: cat,&nbsp;head,&nbsp;tail,&nbsp;grep
 
-=== Working with Text Data
+=== Versatile Ways To Work With Text Data
 
 Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
 

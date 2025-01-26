@@ -1,4 +1,4 @@
-== Navigation Commands
+== Navigation&nbsp;Commands: pwd,&nbsp;man,&nbsp;clear,&nbsp;cd,&nbsp;ls
 
 === Getting Around in Your File System
 
