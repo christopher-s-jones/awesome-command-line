@@ -12,7 +12,7 @@
     - Single Line and Multi-Lined Commands
     - Command Line Interfaces are Awesome!
     - Summary
-. Navigation Commands
+. Core Commands
     - Getting Around in Your File System
     - The pwd Command — Print the Working Directory (Folder)
     - Understanding File Paths
@@ -21,7 +21,7 @@
     - The cd Command — Changing Directories (Folders)
     - Understanding Tab Completion
     - The ls Command — Listing Files and Folders
-    - Command Line Navigation is Awesome!
+    - Command Line Core Foundations Are Awesome!
     - Summary
 . File Commands
     - Working with Files 
