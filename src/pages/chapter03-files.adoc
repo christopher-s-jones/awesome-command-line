@@ -1,4 +1,4 @@
-== File&nbsp;Commands: echo, mv, cp, rm, nano
+== File Commands: echo, mv, cp, rm, nano
 
 === Powerful Ways To Work With Files
 
@@ -19,7 +19,7 @@ chris@DESKTOP-L7H0RFS:/mnt/c/Users/chris$ echo Our cat Luna is the ranch manager
 
 You just created your first real file from the command line!  We now have a file called `+herding-cats.txt+` in our home directory.  Let's take a minute to understand what is happening here.  
 
-We first see the `+echo+` command followed by our seven-word sentence "Our cat Luna is the ranch manager."  This means that seven arguments are passed to the `+echo+` command (with the period as part of the seventh argument).  Then, the `+>+` (greater-than) sign is telling the shell to send the output of the `+echo+` command into a file named `+herding-cats.txt+`, or create the file if it does not exist.  This is really powerful!  The `+>+` (greater-than) sign is acting as a _redirect operator_, which we will discuss below.  If you then open the `+herding-cats.txt+` file using a text editor application such as _TextEdit_ on macOS, _Text Editor_ on Linux, or _Notepad_ on Windows, you'll see the contents of the file, as shown in _Figure 25_.
+We first see the `+echo+` command followed by our seven-word sentence "Our cat Luna is the ranch manager."  This means that seven arguments are passed to the `+echo+` command (with the period as part of the seventh argument).  Then, the `+>+` (greater-than) sign is telling the shell to send the output of the `+echo+` command into a file named `+herding-cats.txt+`, or create the file if it does not exist.  This is really powerful!  The `+>+` (greater-than) sign is acting as a _redirect operator_, which we will discuss below.  If you then open the `+herding-cats.txt+` file using any common text editor application such as _TextEdit_ on macOS, _Text Editor_ on Linux, or _Notepad_ on Windows, you'll see the contents of the file, as shown in _Figure 25_.
 
 image::chapter-03-windows-echo-command-create-file.png[title="Viewing the herding-cats.txt file using a graphical text editor on Windows.",pdfwidth=100%]
 
