@@ -1,70 +1,132 @@
-== File&nbsp;Commands: echo,&nbsp;mv,&nbsp;cp,&nbsp;rm,&nbsp;nano
+== File&nbsp;Commands: echo, mv, cp, rm, nano
 
 === Powerful Ways To Work With Files
 
-In _Chapter 2. Navigation Commands_, we see how easy it is to change into any directory (with the appropriate permission) and to view our files.  So let's now explore how easy it is to work with files directly on the command line.  In the coming sections, we'll learn how to use the `+echo+` command to print anything we want to write directly back to the terminal screen.  We'll discuss how the terminal window functions as a special kind of resourse called a _file descriptor_, and what other common file descriptors are useful on the command line.  We'll also create our first regular file from the command line with just the `+echo+` command using the idea of _redirection_, which is one of those magical tricks that makes the command line so powerful!  This let's us then explore the commands for moving and renaming files, copying them, editing them, and of course deleting them.  In order to edit existing files directly in the terminal, we'll also  check into a simple command called `+nano+` that provides us with just the right amount of lightweight editing tools.  Let's have a look!
+In _Chapter 2. Core Commands_, we see how easy it is to change into any directory (with the appropriate permission) and to view our files.  So let's now explore how easy it is to work with files directly on the command line.  In the coming sections, we'll learn how to use the `+echo+` command to quickly create a file.  This is one of those magical tricks that makes the command line so powerful!  We'll then effortlessly append to that newly-created file, and will see just how simple command line file handling is.  By highlighting these common command patterns, we'll learn how they are made possible with the concept of _redirection_, and other useful constructs in Unix-like operating systems.  We'll also explore how to use the `+echo+` command to display text directly to the terminal screen, demonstrating the concepts of _standard input_, _output_, and _error_.  This let's us then consider the commands for moving and renaming files, copying them, editing them, and of course deleting them.  Finally, in order to edit existing files directly in the terminal, we'll also check out a simple command called `+nano+` that provides us with just the right amount of lightweight editing tools.  Let's have a look!
 
+<<<
 === The echo Command--Easily Creating Files
 
-The `+echo+` command is quite a simple command, but it really illustrates the ideas of _inputs_ and _outputs_ on the command line.  Looking at the manual pages on macOS and Linux, they differ slightly{emdash}"Write arguments to the standard output.", and "display a line of text", respectively.  Have a look at the manual page to get a feeling for the command.  But what is the _standard output_?  Let's first demonstrate the `+echo+` command so we can see how easy it is to use, and then we can work through the details.  _Example 28_ shows the `+echo+` command in action!
+The `+echo+` command is a simple command which really illustrates the ideas of _inputs_ and _outputs_ on the command line.  We'll discuss why it is called "echo" shortly, but let's first highlight the best part about this command--the fact that you can instantly create a file with it!  We'll start with _Example 28_, where we use the `+echo+` command to write a sentence into a file called `+herding-cats.txt+` on Windows.  If you're on macOS or Linux, give it a try from your home directory too.
+
+CAUTION: Note that creating files with the `+echo+` command will immediately overwrite a file if it exists, so be careful with this command.
+
+.Using the `+echo+` command to create a file on Windows WSL.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@DESKTOP-L7H0RFS:/mnt/c/Users/chris$ echo Our cat Luna is the ranch manager. > herding-cats.txt
+----
+
+You just created your first real file from the command line!  We now have a file called `+herding-cats.txt+` in our home directory.  Let's take a minute to understand what is happening here.  
+
+We first see the `+echo+` command followed by our seven-word sentence "Our cat Luna is the ranch manager."  This means that seven arguments are passed to the `+echo+` command (with the period as part of the seventh argument).  Then, the `+>+` (greater-than) sign is telling the shell to send the output of the `+echo+` command into a file named `+herding-cats.txt+`, or create the file if it does not exist.  This is really powerful!  The `+>+` (greater-than) sign is acting as a _redirect operator_, which we will discuss below.  If you then open the `+herding-cats.txt+` file using a text editor application such as _TextEdit_ on macOS, _Text Editor_ on Linux, or _Notepad_ on Windows, you'll see the contents of the file, as shown in _Figure 25_.
+
+image::chapter-03-windows-echo-command-create-file.png[title="Viewing the herding-cats.txt file using a graphical text editor on Windows.",pdfwidth=100%]
+
+===  Redirection, Standard Input, Output, and Error
+
+In Unix-like operating systems, there is the concept of _redirection_ that allows us to send the output of a command to other destinations, including into a file.  As we can see, this is super helpful!  There are a few characters that we use in our shell commands to enable this, and they are known as _redirect operators_.  We've already seen that the `+>+` (greater-than) sign will redirect the command output into a file specified on the right side of the operator, and it will create the file if it doesn't already exist.  You may be asking--What if you've already written something to a file, and you want to add to the file instead of overwrite it?  We have the magic!  A `+>>+` (double greater-than) sign acts as a redirect operator, but appends to the file instead.  Let's give that a try! _Example 29_ shows the append operator.
+
+.Using the `+echo+` command to append output to a file on Windows WSL.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@DESKTOP-L7H0RFS:/mnt/c/Users/chris$ echo She runs the show! >> herding-cats.txt
+----
+
+image::chapter-03-windows-echo-and-file-appending.png[title="Viewing the appended herding-cats.txt file using a graphical text editor on Windows.",pdfwidth=100%]
+
+Perfect, we now understand how easily redirection can be used to create, overwrite, or append to files, and that the command syntax is very simple.  But what happens when we issue this same command, but without any redirection?  Let's try it, this time on macOS, as shown in _Example 30_.
 
 .Using the `+echo+` command to display text in the terminal window on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
-chris@ophir ~ % echo Dogs and cats living together!
-Dogs and cats living together!
+chris@ophir ~ % echo Our cat Luna is the ranch manager.
+Our cat Luna is the ranch manager.
 ----
 
-Well that is very straight-forward! We're echo-ing whatever we type as arguments to the command in order to display it as output in the terminal window.  In this case we are passing five arguments to the command.  Let's also run it on Linux, but this time with quotes, seen in _Example 29_.
+Well that is very straight-forward! We're echo-ing whatever we type as arguments to the command in order to display it as output in the terminal window.  In this case we are passing those same seven arguments to the command.  Let's also run it on Linux, but this time with quotes, seen in _Example 31_.
 
 .Using the `+echo+` command to display quoted text in the terminal window on Linux.
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
-chris@nuthatch:~$ echo 'Dogs and cats living together!'
-Dogs and cats living together!
+chris@nuthatch:~$ echo 'Our cat Luna is the ranch manager.'
+Our cat Luna is the ranch manager.
 ----
 
 Hah, interesting!  We get the same output.  When we issued this second command with quotes, the shell interprets the text as a single argument being passed to the `+echo+` command.
 
 NOTE: In computer programming, a sequence of text-based characters is referred to as a _string_.  It can include numbers, punctuation, spaces, symbols, etc., and is treated as a single unit.
 
-Now we see that the output printed to the screen can be multiple arguments, or a single _string_.  Okay, very simple.  So let's answer our question about what standard output is.  When you open a terminal window and the shell interpreter initializes, it creates a few resources that are called _file descriptors_, which help with input and output operations.  These include _standard input_, _standard output_, and _standard error_.  As you can see, the terminal window itself acts as the device where the shell sends standard output.  If you make a mistake when typing your command, the messages that get written to standard error also show up in the terminal window by default.  We will discuss the idea of standard input in more detail shortly, but think of what you type on your keyboard as an example of standard input for the shell interpreter. Just know that these mechanisms represent the input source, output destination, and error destination when issuing a command.
+We see in the previous examples that the `+echo+` command sends output to the terminal window, which is very useful in scripts when you want to display progress as the script runs.{empty}footnote:[Commands like those we are learning about can be written into shell scripts, which are files that can be run like programs from the command line.  They are often named similar to `+somescript.sh+` where the `+.sh+` file ending indicates that the file uses the shell programming language.]  This is the reason why the command is named `+echo+`, but we are now aware of how powerful it is when combined with redirection.   
+
+Looking at the manual pages for the `+echo+` command on macOS and Linux, they differ slightly. They state "Write arguments to the standard output.", and "Display a line of text.", respectively.  Have a look at the manual page to get a feeling for the command.  But what is the _standard output_?
+
+When you open a terminal window and the shell interpreter starts up, it creates a few resources that are called _file descriptors_, which help with input and output operations.  These include _standard input_, _standard output_, and _standard error_.  As you can see, the terminal window itself acts as the device where the shell sends standard output (meaning the default output location).  If you make a mistake when typing your command, the messages that get written to standard error also show up in the terminal window by default.  We will discuss the idea of standard input in more detail shortly, but think of what you type on your keyboard as an example of standard input for the shell interpreter. Just know that these mechanisms represent the input source, output destination, and error destination when issuing a command.
 
 NOTE: You will often see these three file descriptors written as _stdin_, _stdout_, and _stderr_ respectively.
 
-We can visualize a typical flow of information on the command line as inputs to a _process_ and the outputs of that process, shown in _Figure 25_.  But also notice in the diagram that we potentially have output being redirected into files.  In the next section, we discuss exactly this--how you can send the results of an `+echo+` command directly into a file!
+We can visualize a typical flow of information on the command line as inputs to a _process_ and the outputs of that process, shown in _Figure 26_.  This diagram illustrates the flow of information as inputs and outputs whenever you issue a command.
 
-image::chapter-03-shell-input-and-output.svg[title="Visualizing inputs and outputs when issuing commands in an interactive terminal shell. Standard input from a keyboard is processed, and the standard output and standard error are displayed in the terminal window, but can be redirected into a file.",pdfwidth=100%]
+image::chapter-03-shell-input-and-output.svg[title="Visualizing inputs and outputs when issuing commands in an interactive terminal shell. Standard input from a keyboard is processed, and is sent by default to the terminal window as standard output and standard error. With redirection, the output can be redirected into a file.",pdfwidth=100%]
 
-=== Understanding Redirection, Standard Input, Output, and Error
-
-We see in the previous examples that the `+echo+` command sends output to the terminal window, which is very useful in scripts when you want to display progress as the script runs.{empty}footnote:[Commands like  those we are learning about can be written into shell scripts, which are files that can be run like programs from the command line.  They are often named similar to `+somescript.sh+` where the `+.sh+` file ending indicates that the file uses the shell programming language.]  In Unix-like operating systems, there is the concept of _redirection_ that allows us to send the output of the command to other destinations, including into a file.  Now that is helpful!  There are a few characters that we use with our shell commands to enable this, and they are known as _redirection operators_.  The first we'll look at is just a `+>+` (greater-than sign).  This tells the shell to send the output to the file name specified on the right side of the operator.  Let's give it a whirl!  _Example 30_ shows how to redirect into a file, this time in WSL on Windows while in the Windows home directory (`+/mnt/c/Users/chris+`) so we can open the file using a text editor. If you're on macOs or Linux, give it a go from your home directory.
-
-CAUTION: When redirecting output into a file, it will immediately overwrite the contents of the file.  So be careful with these redirect operators.
-
-.Using the `+echo+` command to redirect output to a file on Windows WSL.
-[source, console, caption="Example {counter:listing-counter}: "]
-----
-chris@DESKTOP-L7H0RFS:/mnt/c/Users/chris$ echo 'Dogs and cats living together!' > ghostbusters.txt
-----
-
-If you then open the `+ghostbusters.txt+` file using a text editor application such as _TextEdit_ on macOS, _gEdit_ on Linux, or _Notepad_ on Windows, you'll see the contents of the file, as shown in _Figure 26_.
-
-image::chapter-03-linux-echo-and-file-redirection.png[title="Viewing the ghostbusters.txt file using a graphical text editor on Linux.",pdfwidth=100%]
-
-There you have it, you just created your first real file from the command line! Yes!  As mentioned previously, the `+>+` redirect operator will overwrite anything currently in the file, so just be aware of how powerful this is.  But this brings up a good point--what if you've already written something to a file, and you want to add to the file instead of overwrite it?  We have the magic!  A `+>>+` (double greater-than sign) acts as a redirect operator, but appends to the file instead.  Let's give that a try! _Example 31_ shows the append operator.
-
-.Using the `+echo+` command to append output to a file on Windows WSL.
-[source, console, caption="Example {counter:listing-counter}: "]
-----
-chris@DESKTOP-L7H0RFS:/mnt/c/Users/chris$ echo 'Mass hysteria!' >> ghostbusters.txt
-----
-
-image::chapter-03-linux-echo-and-file-appending.png[title="Viewing the appended ghostbusters.txt file using a graphical text editor on Linux.",pdfwidth=100%]
+We now have a solid understanding of the `+echo+` command and how to use redirection on the command line to quickly create or append to a file.  We also see that the standard input, standard output, and standard error file descriptors help with input and output operations on the command line, and that the terminal iteself acts as both the standard output and standard error destination.  Let's now focus on working with the file that we created on the command line, to highlight how we can effortlessly move the file, copy it,delete it.
 
 === The mv Command--Renaming and Relocating Files
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+The `+mv+` command is part of a suite of file handling commands that allows us to move a file from one location to another in the file system.  If you use the `+mv+` command to move the file into the same directory but with a different name, you are effectively just renaming the file.  Let's try this with our newly-created `+herding-cats.txt+` file.  _Example 32_ demonstrates moving a file.
+
+.Using the `+mv+` command to rename a file on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ mv herding-cats.txt ranch-manager.txt  <1>
+chris@nuthatch:~$ ls -tr <2>
+Videos     Music      Downloads        weekly-data.csv
+Templates  Desktop    Pictures         daily-data.csv
+Public     Documents  yearly-data.csv  ranch-manager.txt
+----
+<1> Move `+herding-cats.txt+` to `ranch-manager.txt`.
+<2> List the files in reverse chronological order to show the renamed file.
+
+Excellent!  That is a quick way to rename a file!  Also notice that you can use tab completion when typing the `+herding-cats.txt+` file name to save you from typing it out completely.  Just type `+herd+` followed by the kbd:[Tab] key, and the file name will instantly fill in for you on the command line!  Tab completion is super helpful!  You then just need to type your destination file name.
+
+We now see a the `+ranch-manager.txt+` file, and can open it in a text editor application, showing that the contents are the same as the `+herding-cats.txt+` file, as shown in _Figure 27_.
+
+image::chapter-03-linux-move-file.png[title="Viewing the contents of the `+ranch-manager.txt+` file on Linux.",pdfwidth=100%]
+
+To build on our familiarity of the `+mv+` command, let's also move multiple files at the same time. In this example, we will first practice with the echo command to create two more files, and then move our three files into the `+Desktop+` directory.  On Windows, be sure to change directories into your Windows home directory where your `+Desktop+` directory is.  _Example 33_ shows how to move multiple files.
+
+.Using the `+mv+` command to move multiple files at once on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ echo 'Luna runs a tight ship.' > \
+ranch-manager-2.txt <1>
+chris@nuthatch:~$ echo 'The horses give Luna plenty of room.' > \
+ranch-manager-3.txt  <2>
+chris@nuthatch:~$ mv ranch-manager.txt ranch-manager-2.txt \
+ranch-manager-3.txt Desktop/  <3>
+chris@nuthatch:~$ ls -tr ./Desktop <4>
+ranch-manager.txt  ranch-manager-2.txt  ranch-manager-3.txt
+----
+<1> Create a second file using a multi-line command with the `+\+` backslash escape. This isn't required.
+<2> Create a third file.
+<3> Move the three files into the Desktop directory.
+<4> List the files in the `+Desktop+` directory 
+
+CAUTION: Using the `+mv+` command will overwrite any file with the same name in the destination directory, so be careful with this command.
+
+It is important to note that the `+mv+` command is equally as powerful as the `+echo+` command coupled with redirection.  If you are moving a file to another directory with the same file name, it will overwrite the file, no questions asked!  To be more cautious with this command, you can use the `+-i+` or `+--interactive+` options, which tells the `+mv+` command to prompt you for confirmation if it will end up overwriting an existing file.  Have a look at the manual page for the details and options for the `+mv+` command.  _Example 34_ shows how to move a file with the interactive option.
+
+.Using the `+mv+` command interactively to avoid overwriting an existing file on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ cd Desktop/
+chris@nuthatch:~/Desktop$ mv -i ranch-manager.txt ranch-manager-2.txt
+mv: overwrite 'ranch-manager-2.txt'? n  <1>
+chris@nuthatch:~/Desktop$
+----
+<1> Answering `+n+` or `+no+` will stop the `+mv+` command. Answering `+y+` or `+yes+` will continue with the command.
+
+Now that we know how to rename and move files, let's turn our attention to copying files, which is also very fast via the command line.  Let's go!
 
 === The cp Command--Copying Files
 
