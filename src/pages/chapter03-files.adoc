@@ -53,9 +53,9 @@ chris@nuthatch:~$ echo 'Our cat Luna is the ranch manager.'
 Our cat Luna is the ranch manager.
 ----
 
-Hah, interesting!  We get the same output.  When we issued this second command with quotes, the shell interprets the text as a single argument being passed to the `+echo+` command.
+Hah, interesting!  We get the same output.  When we issued this second command with quotes, the shell interprets the text as a single _string_ argument being passed to the `+echo+` command.
 
-NOTE: In computer programming, a sequence of text-based characters is referred to as a _string_.  It can include numbers, punctuation, spaces, symbols, etc., and is treated as a single unit.
+NOTE: In computer programming, a sequence of text-based characters is referred to as a _string_.  It can include letters, numbers, punctuation, spaces, symbols, etc., and is treated as a single unit.
 
 We see in the previous examples that the `+echo+` command sends output to the terminal window, which is very useful in scripts when you want to display progress as the script runs.{empty}footnote:[Commands like those we are learning about can be written into shell scripts, which are files that can be run like programs from the command line.  They are often named similar to `+somescript.sh+` where the `+.sh+` file ending indicates that the file uses the shell programming language.]  This is the reason why the command is named `+echo+`, but we are now aware of how powerful it is when combined with redirection.   
 
@@ -69,7 +69,7 @@ We can visualize a typical flow of information on the command line as inputs to 
 
 image::chapter-03-shell-input-and-output.svg[title="Visualizing inputs and outputs when issuing commands in an interactive terminal shell. Standard input from a keyboard is processed, and is sent by default to the terminal window as standard output and standard error. With redirection, the output can be redirected into a file.",pdfwidth=100%]
 
-We now have a solid understanding of the `+echo+` command and how to use redirection on the command line to quickly create or append to a file.  We also see that the standard input, standard output, and standard error file descriptors help with input and output operations on the command line, and that the terminal iteself acts as both the standard output and standard error destination.  Let's now focus on working with the file that we created on the command line, to highlight how we can effortlessly move the file, copy it,delete it.
+We now have a solid understanding of the `+echo+` command and how to use redirection on the command line to quickly create or append to a file.  We also see that the standard input, standard output, and standard error file descriptors help with input and output operations on the command line, and that the terminal iteself acts as both the standard output and standard error destination.  Let's now focus on working with the file that we created on the command line, to highlight how we can effortlessly move the file, copy it,and delete it.
 
 === The mv Command--Renaming and Relocating Files
 
@@ -126,19 +126,120 @@ chris@nuthatch:~/Desktop$
 ----
 <1> Answering `+n+` or `+no+` will stop the `+mv+` command. Answering `+y+` or `+yes+` will continue with the command.
 
-Now that we know how to rename and move files, let's turn our attention to copying files, which is also very fast via the command line.  Let's go!
+Now that we know how to rename and move files, let's turn our attention to copying files, which is also very fast via the command line.
 
 === The cp Command--Copying Files
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+In order to copy a file, we use the `+cp+` command, and yes, it is as simple as it sounds.  We copy one source file name to a destination file name, and _Example 35_ shows the simple syntax.
+
+.Using the `+cp+` command to copy a file on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ cd Desktop/
+chris@nuthatch:~/Desktop$ cp ranch-manager.txt ranch-manager-4.txt <1>
+chris@nuthatch:~/Desktop$ ls -tr
+ranch-manager.txt    ranch-manager-2.txt
+ranch-manager-3.txt  ranch-manager-4.txt
+----
+<1> Copy the source file name to a destination file name
+
+It's really that easy!  And like the `+mv+` command, there is also a `+-i+` interactive option to insure you are aware of overwriting any destination files because the `+cp+` command will otherwise immediately copy the file.  Very powerful!  In _Example 36_, we copy multiple files to another directory in order to create a backup of the files, and we do this interactively with a multi-line command to keep it tidy.
+
+CAUTION: The `+cp+` command is just as powerful as the `+mv+` command, and will overwrite any existing destination file names, so be careful with this command, and use the `+-i+` option to prompt before overwriting files.
+
+.Using the `+cp+` command to interactively copy multiple files on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~/Desktop$ cp -i ranch-manager.txt \
+> ranch-manager-2.txt ranch-manager-3.txt \
+> ranch-manager-4.txt ~/Downloads  <1>
+chris@nuthatch:~/Desktop$ ls -tr ~/Downloads
+ranch-manager.txt    ranch-manager-3.txt
+ranch-manager-4.txt  ranch-manager-2.txt
+----
+<1> Since the files didn't exist in the `+~/Downloads+` directory, we are not prompted about overwrites.
+
+Of course, there may be situations where the destination directory that you are copying to doesn't exist.  In this case, the `+cp+` command will print an error message to standard error, meaning it will show you in the terminal.  _Example 37_ shows a typical error when the destination directory is missing.
+
+.Showing the failure of a `+cp+` command when the destination directory doesn't exist on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~/Desktop$ cp ranch-manager.txt \
+> ranch-manager-2.txt \
+> ranch-manager-3.txt \
+> ranch-manager-4.txt \
+> ~/Backups
+cp: target '/home/chris/Backups': No such file or directory  <1>
+----
+<1> The shell lets you know the `+Backups+` directory doesn't exist
+
+In _Chapter 4. Folder Commands_ we will learn how to create a directory via the command line, which will solve our issue shown in _Example 37_, but just know that a destination directory needs to exist when copying multiple files.  Now, there is a curious edge-case that may happen when copying a single file to another directory when the directory doesn't exist.  Let's demonstrate this in _Example 38_.
+
+.Using the `+cp+` command to copy a file to a directory on Linux.  The result is a new file.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~/Desktop$ cp ranch-manager.txt ~/Backups
+chris@nuthatch:~/Desktop$ ls -lh ~/Backups
+-rw-rw-r-- 1 chris chris 54 Feb  2 14:52 /home/chris/Backups  <1>
+----
+<1> A file called `+Backups+` is created in the home directory
+
+Wait, what happened?  When the directory doesn't exist while copying a single file, the shell interprets the `+cp+` command as a file-to-file copy, rather than a file-to-directory copy!  While our intention was to create a backup of the file in the `+Backups+` directory in our home directory, it instead just created a file called `+Backups+`.  This just shows how the command line will do exactly what you tell it, even when you may have had a different intention!
+
+Speaking of intention, let's be very intentional in the next section on removing files, because the `+rm+` command is no joke!
 
 === The rm Command--Deleting Files
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+In this chapter we have learned how to create, move, and copy files thus far, and inevitably we will want to quickly and concisely remove files when we make a mistake, or when we just want to create more space for storage.  The `+rm+` command is your friend!  And like the `+echo+`, `+mv+`, and `+cp+` commands, it will dutifully delete whatever you tell it to delete, no questions asked.  Thankfully, the `+rm+` command also has the `+-i+` and `+--interactive+` options available to you, which certainly generates some peace of mind.  Go ahead and have a look at the manual page for the `+rm+` command to get a sense of the syntax, but it is mighty easy, as we can see in _Example 39_.
+
+CAUTION: The `+rm+` command is also very powerful, and will immediately delete the files you provide as arguments.  There is no concept of a _Trash_ can or _Recycle Bin_, so be careful with this command, and make it a habit to use the `+-i+` option to prompt before deleting files.
+
+.Removing a file with the `+rm+` command on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~/Desktop$ cd ~
+chris@nuthatch:~$ rm -i Backups
+rm: remove regular file 'Backups'? yes
+----
+
+Super easy!  There are many times that we download huge files from the Internet that we no longer need, or perhaps it was the wrong file afterall.  We may have thousands of camera image files, or huge video files that need to be deleted.  With a bit of mindfulness, the `+rm+` command can make your life much easier when it comes to cleaning up unwanted files quickly.  In _Chapter 4. Folder Commands_, we will see how we can remove directories as well with the `+rmdir+` command, but the `+-r+` option for the `+rm+` command will do the same.  To keep it simple here, we'll address folder removal in the next chapter.
+
+TIP: While we have organized the `+mv+`, `+cp+`, and `+rm+` commands in this chapter called _File Commands_, they can also be used with folders, which we will show in _Chapter 4. Folder Commands_.
+
+You are likely seeing a common pattern with each of these commands that we use to manage files--they work equally well on multiple files as they do on a single file.  This is no different when deleting files, and _Example 40_ just demonstrates how to remove multiple files quickly.  Remember from our earlier examples that you can always use tab completion to quickly build a list of files to delete.  As a refresher, just type a few of the beginning characters of a file name and then press the kbd:[Tab] key to let the shell complete the file name for you.  So efficient!
+
+.Removing a multiple files with the `+rm+` command on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ cd ~/Desktop/
+chris@nuthatch:~/Desktop$ rm -i ranch-manager-2.txt ranch-manager-3.txt ranch-manager-4.txt
+rm: remove regular file 'ranch-manager-2.txt'? yes
+rm: remove regular file 'ranch-manager-3.txt'? yes
+rm: remove regular file 'ranch-manager-4.txt'? yes
+chris@nuthatch:~/Desktop$ ls -tr
+ranch-manager.txt
+----
+
+Notice the interactive option confirms the removal of each file individually.  This works for a few files, but is untenable for hundreds or thousands of files.  In these cases, double check your command is correct, and forego the `+-i+` interactive option, and your files will be deleted instantly.  I'm sure you're wondering{emdash}_Do I have to type out my thousands of file names in order to delete them?_  Definitely not! In _Chapter 4. Folder Commands_, we will explore the concept of _expansion_ on the command line, where we can use wildcard characters and other tricks that allow us to use a pattern (for example, all files ending in `+.jpg+`) to create a list to delete, copy, or move.  For now, let's round out our file handling commands and learn how to edit files directly in a terminal window using the `+nano+` command.
 
 === The nano Command--Creating and Editing Files
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+At the beginning of this chapter we familiarized ourselves with the `+echo+` command and used redirection operators to create, overwrite, or append to a file.  This is great for quick file work, or for appending progress to a file, and similar lightweight work.  However, it's nice to have a little more flexibility while writing, particularly if you are writing a document or longer note{empty}footnote:[While most of the time it is easiest to use a graphical text editor such as TextEdit on macOS, Text Editor on Linux, or Notepad on Windows, there are sitations where having a terminal-based editor like `+nano+` is very helpful to have in your tool kit.].  This is where common editor commands like `+nano+` shine!  Let's explore the `+nano+` command first by editing our `+ranch-manager.txt+` file that remains in our `+Desktop+` directory.
+
+NOTE: While the `+nano+` command is available on macOS, Linux, and Windows WSL, the macOS version currently is an alias to the `+pico+` command.  They function close to identically, but the manual pages will be different. 
+
+.Editing a file with the `+nano+` command on Linux.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@nuthatch:~$ cd Desktop
+chris@nuthatch:~/Desktop$ nano ranch-manager.txt
+----
+
+By just passing the file name as an argument to the `+nano+` command and pressing the kbd:[Return] key, we are presented with an editor view that fills the terminal window.  Give this a try!  We will walk through the steps of how to edit a file with `+nano+`.  _Figure 28_ shows an example of editing a file.
+
+image::chapter-03-linux-nano-editor.png[title="Viewing the herding-cats.txt file using a graphical text editor on Windows.",pdfwidth=100%]
+
+You'll see that our terminal window turns into a small editor with a dark header section at the top, and a menu of command key combinations in the footer section at the bottom.  The blank space in the middle is where you write.
 
 <<<
 === Command Line File Handling is Awesome!
