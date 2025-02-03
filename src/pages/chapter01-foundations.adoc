@@ -65,9 +65,14 @@ In the remainder of Chapter 1, we will get started with setting up a terminal ap
 
 === Terminal Applications
 
-A computer _terminal_ is merely a way to send input to a computer and receive the output results.  You might also hear the word _console_ used interchangeably with terminal, but the latter is a bit more specific in that it was historically a screen device and keyboard connected directly to a mainframe computer and used by the operators.  Terminals, on the other hand, were connected to computers remotely on a network.  We now of course have terminal applications that are considered _virtual terminals_ that emulate these older physical terminals.  See _A History of Modern Computing_ (2003) by Paul E. Ceruzzi {empty}footnote:[Ceruzzi, Paul E.. A History of Modern Computing. United Kingdom: February, 2003. https://mitpress.mit.edu/9780262532037/a-history-of-modern-computing/] for more background.  There are many alternative terminal applications to choose from, but we will start with the default applications on each operating system in order to get set up.  For macOS 14, the default application is called _Terminal.app_, and on Windows 11 we will focus on the default _Windows Terminal_.  If you are using Linux, there are of course many distributions available, but we will focus on Ubuntu(R){empty}footnote:[Ubuntu and Canonical are registered trademarks of Canonical Ltd.] 24.04 and the _Gnome Terminal_ that comes packaged with it.  So, skip to the next section that is pertinent to you for your operating system--one of _Setup For macOS_, _setup For Linux_, or _Setup For Windows_{emdash}and we'll get started with a terminal application!
+A computer _terminal_ is merely a way to send input to a computer and receive the output results.  You might also hear the word _console_ used interchangeably with terminal, but the latter is a bit more specific in that it was historically a screen device and keyboard connected directly to a mainframe computer and used by the operators.  Terminals, on the other hand, were connected to computers remotely on a network.  We now of course have terminal applications that are considered _virtual terminals_ that emulate these older physical terminals.  See _A History of Modern Computing_ (2003) by Paul E. Ceruzzi {empty}footnote:[Ceruzzi, Paul E.. A History of Modern Computing. United Kingdom: February, 2003. https://mitpress.mit.edu/9780262532037/a-history-of-modern-computing/] for more background.  There are many alternative terminal applications to choose from, but we will start with the default applications on each operating system in order to get set up.  For macOS 14, the default application is called _Terminal.app_, and on Windows 11 we will focus on the default _Windows Terminal_.  If you are using Linux, there are of course many distributions available, but we will focus on Ubuntu(R){empty}footnote:[Ubuntu and Canonical are registered trademarks of Canonical Ltd.] 24.04 and the _Gnome Terminal_ that comes packaged with it.  Skip to the next section that is pertinent to you for your operating system and we'll get started with a terminal application! 
+
+* <<setup-for-macos>>
+* <<setup-for-linux>>
+* <<setup-for-windows>>
 
 <<<
+[#setup-for-macos]
 ==== Setup for macOS
 
 If you are on a Mac, Apple has included the Terminal.app since it introduced Mac OS X in 2001, so it has had many years of refinement.  You can search for "Terminal.app" using Apple's Spotlight search by pressing the kbd:[Command]+kbd:[Spacebar] keys at the same time and typing "terminal" (without the quotes) in the search bar. Alternatively you can open a _Finder_ window and navigate to the _Applications_ > _Utilities_ folder to find the Terminal application, as shown in _Figure 1_.  Double click the icon to open the application.
@@ -89,6 +94,7 @@ image::chapter-01-macos-terminal-settings.png[title="Use the File > Settings... 
 You are all set! It's that simple to get configured to use the command line on macOS.  You can continue on to the section entitled _The Shell_ to become more acquainted with the command line.  Thank you for focusing your power on the magic of the command line!
 
 <<<
+[#setup-for-linux]
 ==== Setup for Linux
 
 Getting set up on Linux is quite easy as well.  On Ubuntu 24.04, the default desktop manager is Gnome. To search for applications, similar to Apple's Spotlight function, press the kbd:[Super] key next to the kbd:[Alt] key on your keyboard.
@@ -112,6 +118,7 @@ image::chapter-01-linux-terminal-preferences.png[title="Change the font size as 
 That's it!  It's that simple to get set up to use the command line on Ubuntu Linux.  You can continue on to the section entitled _The Shell_ onto become more acquainted with the command line.  Thank you for taking the next step as a command line magician!
 
 <<<
+[#setup-for-windows]
 ==== Setup for Windows
 
 The Microsoft Windows operating system has a rich history, but one that is diiferent from the Unix-like operating systems of macOS and Linux.  Because of the low-level differences in the systems, Microsoft has created a component called the _Windows Subsytem for Linux_, otherwise known as _WSL_.  WSL provides those of us using Windows an integrated system with a full Linux command line environment.  In this section, we will complete the following list:
@@ -271,7 +278,7 @@ A lot of commands can be short and sweet, like the `+pwd+` command we've seen in
 chris@ophir ~ %  catdb search -v --only-kittens=true --breeds "Maine Coon, Persian, Siamese, Domestic Shorthair, Bengal" -o kittens.txt
 ----
 
-Having the command wrap to the next line can work just fine, and will only be executed when you press the kbd:[Return] key.  But there are times when the command gets very long and complex, and you just want to clean it up.  We have the power! You can use a `+\+` (backslash) character followed by the `kbd:[Return]` key which is used as an _escape character_ by the shell interpreter so it will ignore the kbd:[Return] keypress.  You can use the `+\+` (backslash) character as many times as needed to make you single-line command a _multi-line command_, as is shown in _Example 5_.
+Having the command wrap to the next line can work just fine, and will only be executed when you press the kbd:[Return] key.  But there are times when the command gets very long and complex, and you just want to clean it up.  We have the power! You can use a `+\+` (backslash) character followed by the `kbd:[Return]` key which is used as an _escape character_. The shell interpreter will ignore the kbd:[Return] keypress.  You can use the `+\+` (backslash) character as many times as needed to make your single-line command a tidy _multi-line command_, as is shown in _Example 5_.
 
 .A multi-line command example with options split across lines with a `+\+` (backslash) character.
 [source, console, caption="Example {counter:listing-counter}: "]
