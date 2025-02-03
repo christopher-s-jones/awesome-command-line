@@ -17,7 +17,7 @@ You can see that everything is organized under a single directory, and we'll be 
 
 === The pwd Command--Print the Working Directory
 
-As we've seen in _Chapter 1. The Command Line Is For Everyone_, opening up a terminal application presents us with a command line prompt in a surprisingly empty window.  Let's put that window to use and execute our first command, `+pwd+`, which is an acronym that stands for "print working directory".  In the command line world, the term "print" here means "show the results in the terminal window", as opposed to physically printing the results to paper as was the case on historical computers.  Open your terminal and type the `+pwd+` command, followed by the kbd:[Return] key.  _Example 6_ shows the `+pwd+` command on macOS and the result printed on the second line of the terminal.
+As we've seen in _Chapter 1. The Command Line Is For Everyone_, opening up a terminal application presents us with a command line prompt in a surprisingly empty window.  Let's put that window to use and execute our first command, `+pwd+`, which is an acronym that stands for "print working directory".  In the command line world, the term "print" here means "show the results in the terminal window".  Open your terminal and type the `+pwd+` command, followed by the kbd:[Return] key.  _Example 6_ shows the `+pwd+` command on macOS and the result printed on the second line of the terminal.
 
 .Issuing the `+pwd+` command on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
