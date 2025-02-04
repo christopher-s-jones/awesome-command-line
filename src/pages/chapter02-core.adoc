@@ -132,11 +132,11 @@ Thank you manual page creators!  Let's just summarize a few of the most useful w
 
 Spacebar:: The most direct way to see more of the manual page information is to press the kbd:[Spacebar] key, which scrolls through the paged content.  This is a quick way to scan through the manual, and it moves you forward one window's worth of the page at a time.  
 
-Arrow keys:: Likewise, the kbd:[&nbsp;▴&nbsp;] (up arrow) and the kbd:[&nbsp;▾&nbsp;] (down arrow) keys let you scroll up and down through the window one line at a time to find just what you're looking for.  
+Arrow keys:: Likewise, the kbd:[&nbsp;▲&nbsp;] (up arrow) and the kbd:[&nbsp;▼&nbsp;] (down arrow) keys let you scroll up and down through the window one line at a time to find just what you're looking for.  
 
 Quit Viewing:: When you are finished reading the manual page, you can use the kbd:[q] key to quit the viewer.
 
-Now, there are times when a manual page is very long, and you scroll down through the page to scan for what you are looking for. If you have scrolled past the section you are interested in, how do you scroll back up?  The line-by-line kbd:[&nbsp;▴&nbsp;] (up arrow) is just too slow--we need to scroll page by page, backward through the manual.  With letter keys, we have the power!
+Now, there are times when a manual page is very long, and you scroll down through the page to scan for what you are looking for. If you have scrolled past the section you are interested in, how do you scroll back up?  The line-by-line kbd:[&nbsp;▲&nbsp;] (up arrow) is just too slow--we need to scroll page by page, backward through the manual.  With letter keys, we have the power!
 
 Letter keys:: 
 * kbd:[f]{emdash}Scroll forward one window page.
@@ -207,9 +207,9 @@ TIP: On macOS, you can use the kbd:[Command] + kbd:[ K ] key combination to clea
 
 Now that we are able to clear the slate and start with a fresh command prompt at the top of our terminal window, we can re-type our command after making a minor mistake from the previous section  when we typed `+mane pwd+`.  But let's assume we issued a very long command that would take a while to type again.  Our _command history_ is our friend!  As we briefly mentioned in _Chapter 1. The Command Line Is For Everyone_, the shell interpreter keeps a history of all of the commands that we run, up to a configurable number of commands.  So getting back to them is super easy.  
 
-At the command prompt, just press the kbd:[&nbsp;▴&nbsp;] (up arrow) key once, and your previous command will show up on the command line.  It's like magic!  This is one of the most useful shortcuts ever made and is worth repeating here.  While using the command line is all about typing, using the modern command line is all about typing the minimum amount to get the job done quickly.
+At the command prompt, just press the kbd:[&nbsp;▲&nbsp;] (up arrow) key once, and your previous command will show up on the command line.  It's like magic!  This is one of the most useful shortcuts ever made and is worth repeating here.  While using the command line is all about typing, using the modern command line is all about typing the minimum amount to get the job done quickly.
 
-You can now move your cursor left and right to edit you last command, and the kbd:[Return] key to re-issue it.  So helpful!  I'm sure you're wondering about even earlier commands, yes?  They are also available!  As we've mentioned earlier, pressing the kbd:[&nbsp;▴&nbsp;] (up arrow) multiple times will walk you through your command history one command at a time, so you can always get back to your most useful commands.  If you pass by a command while arrowing up, you can use the kbd:[&nbsp;▾&nbsp;] (down arrow) key to walk forward to your more recent commands.  Such a gem!
+You can now move your cursor left and right to edit you last command, and the kbd:[Return] key to re-issue it.  So helpful!  I'm sure you're wondering about even earlier commands, yes?  They are also available!  As we've mentioned earlier, pressing the kbd:[&nbsp;▲&nbsp;] (up arrow) multiple times will walk you through your command history one command at a time, so you can always get back to your most useful commands.  If you pass by a command while arrowing up, you can use the kbd:[&nbsp;▼&nbsp;] (down arrow) key to walk forward to your more recent commands.  Such a gem!
 
 Now that we are familiar with issuing commands, viewing our current directory, reading the manual pages for commands, and clearing our terminal window, we are now empowered to dive into the two commands that are everyday staples on the command line--the `+cd+` and the `+ls+` commands.  These two commands are tiny but powerful!  Let's learn to travel around the file system and display it all with ease!
 
