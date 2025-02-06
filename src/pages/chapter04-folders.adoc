@@ -2,23 +2,159 @@
 
 === Lightning Fast Folder Management
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+Everything we create on a computer involves a folder in one way or another.  It is the quintessential means of organizing everything we store digitally.  In the previous chapters we have changed into directories using the `+cd+` command, listed directory contents using the `+ls+` command, and created files inside of directories with the `+echo+` and `+nano+` commands.  We've made incredible progress!  In this chapter, we will build our foundation even further by exploring the commands needed to manage directories.  In particular, we will use the `+mkdir+` command to make new directories, and the `+rmdir+` command to remove them.  We'll also explore the `+du+` command, which gives us a powerful tool to understand our disk usage, and where all of those huge files are that are taking up storage space on our computers.  Given our previous experience with managing files, we will see that these directory-level commands are just as easy to use, and are just as powerful!  In fact, we'll look at an interesting command line concept called _expansion_, which allows us to use special bracketing characters to generate directory or filenames, and wildcard characters to match file and directory name patterns.  These techniques make managing files and directories lightning fast, which is part of the magic of the command line.  We'll also revisit the `+cp+`, `+mv+`, and `+rm+` commands that we learned in _Chapter 3. File Commands_, because they are equally useful for directories!  Let's get organized!
 
 === The mkdir Command--Creating Directories
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+Let's jump right in because it doesn't get any easier to create a directory than with the `+mkdir+` command.  The synopsis in the manual page says it all{emdash}_make directories_!  _Example 43_ shows the simplest use of the `+mkdir+` command.
+
+.Making a directory with the `+mkdir+` command on macOS.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir ~ % mkdir Photography
+chris@ophir ~ % ls -tr
+Music		Library		Movies		data.txt	Desktop
+Public		Documents	Downloads	Pictures	Photography
+----
+
+That's it!  We've made our first directory called `+Photos+`, and because our current directory is our home directory, we see the `+Photos+` directory gets created right where we specified using a relative directory path.  But let's think a bit about how we need to get organized.  Let's say we have many hundreds of photos on our camera that we just imported into a single directory, and we want to categorize them by location and by date so we can work on them as daily shoots.  If we know the locations and the dates, we could begin to create our directory structure by adding the `+-p+` option to the `+mkdir+` command, which causes it to create intermediate subdirectories if they do not exist.  _Example 44_ demonstrates making a hierarchy of directories using a single command.
+
+.Making a hierarchy of directories with the `+mkdir+` command on macOS.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir ~ % mkdir -p Photography/Shoots/Utah/2024/07/04
+----
+
+With a one-line command, we have now created five more directories inside our `+Photography+` directory.  So easy!  _Figure 31_ shows the result using a Finder window on macOS.
+
+image::chapter-04-macos-make-directories.png[title="Showing the results of creating a directory hierarchy with the `+mkdir+` command on macOS.", pdfwidth=100%]
+
+This is a great example of how fast a command can be in accomplishing a lot of work.  However, what if you have photography shoots at dozens of locations and dates, and need to create all of the yearly, monthly, and daily subfolders for those sessions?  We have the magic!  In the next section, let's explore the concept of command line expansion, and how it will help us get the job done quickly.
 
 ===  Expansion
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+The terminal shell gives us a number of shorthand techniques to generate file and directory paths, and they generally fall under the topic of expansion.  To understand expansion, let's first review a type of expansion that we have already covered{emdash} _tilde expansion_.  We understand that a `+~+` (tilde) sign on the command line signifies "the user's home directory".  So if we type `+cd ~+`, the command expands to be `+cd /Users/<your-username>+` on macOS or `+/home/<your-username>+` on Linux and WSL.  Likewise, using `+~venus+` on the command line means "the username _venus_' home directory", which expands to `+/Users/venus+` or `/home/venus`, depending on the operating system. So expansion generally gives us shorthand syntax that expands to longer file or directory paths.  So let's first explore the concept of _brace expansion_ to help us with our photo organization project from above.
 
 ==== Brace expansion
 
-==== File name generation (globbing)
+Brace expansion allows us to define either a list or a sequence in our file or directory paths, and we'll cover both scenarios here.  Let's first explore brace expansion with a list.  The word _brace_ refers to the `+{}+` (curly brace) symbols that are used to bracket phrases or other content.  In our photography project, we have photos from multiple locations that we need to organize, and on multiple dates.  Let's first create the locations in the directory structure using brace expansion.  _Example 45_ demonstrates brace expansion by creating directories for four US states where the photo shoots took place in our existing Photography directory.
+
+.Using a list brace expansion with the `+mkdir+` command on macOS.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir ~ % mkdir -p Photography/Shoots/{Arizona,Colorado,New-Mexico,Utah}
+----
+
+Wow!  In a single command, we just created four directories within the `+Shoots+` subdirectory of our `+Photography+` directory.  Let's break this down.  Using the curly braces as the cue to the shell that we are going to use expansion, we provide a comma-separated list of directory names that we want to create.  These are expanded in the shelll to represent the following four paths:
+
+- `+Photography/Shoots/Arizona+`
+- `+Photography/Shoots/Colorado+`
+- `+Photography/Shoots/New-Mexico+`
+- `+Photography/Shoots/Utah+`
+
+Each path is passed as an argument to the `+mkdir command+` to create these directories.  And notice that while we are asking it to create the `+Utah+` folder in this command, the `+-p+` option will create directories that don't exist already, so it is skipped.  Very convenient!  _Figure 32_ shows the results of our command.
+
+image::chapter-04-macos-list-brace-expansion-results.png[title="Showing the results of creating a directory hierarchy with brace expansion on macOS.", pdfwidth=100%]
+
+Let's now continue with building our directory structure by generating folders for the dates of the photo shoots.  In _Example 44_ we created a directory structure for the photo shoot on July 4, 2024 in Utah, represented by the `+Photography/Shoots/Utah/2024/07/04+` directory path.  Assuming we have had photo shoots over the last five years in our four locations on different days of every month of the year, let's use expansion to generate the directories systematically.  _Example 46_ demonstrates how to use a _sequence expression_ within a brace expansion to create years, months, and days automatically.
+
+.Using list brace expansion and sequence expansion with the `+mkdir+` command on macOS.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir ~ % mkdir -p Photography/Shoots/{Arizona,Colorado,New-Mexico,Utah}/{2020..2025}/{01..12}/{01..31}
+----
+
+Whoa!  What just happened?  We just generated 9,246 directories that represent each day of each month of the years 2020 to 2025 for each of our photo shoots in the four corner states in the US.  Incredible!  Go ahead and browse the directory structure on your machine to see the results, and let's discuss the sequence expression syntax.  We first see the `+{2020..2025}+` part of the path.  This cues the shell to create a list of sequential numbers from `+2020+` to `+2025+` and generate sub-directories for each year.  The same syntax is used for the monthly directories, where the `+{01..12}+` sequence tells the shell to create a list of numbers from `+01+` to `+12+` representing the months of the year.  Notice that by adding the zero before the number one (`+01+`), the shell knows to zero-pad all of the single digit months so that all sub-directories are created with two digits.  And lastly, the `+{01..31}+` portion of the path tells the shell to generate a list of daily folders from `+01+` to `+31+` for each daily directory.  Now that is some lightning fast folder creation!
+
+We can now organize our photos into the appropriate directories for the given days and locations that they occured.  While obviously it would be impossible to have a photo shoot of every day of every month for five years, this is an exercise in demonstrating how easy it is to generate a directory structure that suits your needs with just a couple of expansion tools in your toolbox.  You probably also noticed that we generated too many days for many of the months that only have 28, 29, or 30 days in them, so let's have a look at efficiently removing directories in the next section on the `+rmdir+` command.
 
 === The rmdir Command--Deleting Directories
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+Removing directories is as easy as creating them, and as we've mentioned, the `+rmdir+` command is our tool of choice.  Go ahead and look at the manual page for the `+rmdir+` command to get to know the command options.  The synopsis states{emdash} "remove empty directories".  The convenient aspect of this command is that it cautiously removes directories, avoiding any directories that have files inside of them.  That can be invaluable!  In our photo shoot scenario, we've added JPEG photo files into the directories that coincide with the dates of our photography shoots.  These include the following locations and dates:
+
+.Our ficticious photography shoots from 2020 to 2025 in the four corners states.
+[%header,cols="^1m,^1m,^1m,^1m,^1m"]
+|===
+| Year
+| Arizona
+| Colorado
+| New-Mexico
+| Utah
+
+| 2020
+| Jan 01, 02
+| Feb 10, 11
+| Mar 16, 17
+| Apr 22, 23
+
+| 2021
+| May 30, 31
+| Jun 05, 06
+| Jul 13, 14
+| Aug 24, 25
+
+| 2022
+| Sep 29, 30
+| Oct 05, 06
+| Nov 14, 15
+| Dec 21, 22
+
+| 2023
+| Jan 03, 04
+| Feb 09, 10
+| Mar 17, 18
+| Apr 24, 25
+
+| 2024
+| May 01, 02
+| Jun 08, 09
+| Jul 16, 17
+| Aug 20, 21
+
+| 2025
+| Sep 27, 28
+| Oct 05, 06
+| Nov 13, 14
+| Dec 22, 23
+|===
+
+In our scenario, the shoots for 2025 are scheduled but not complete, and so I've created a file called `+reserved.txt+` in each of those date directories as placeholders.  
+
+If we tried to issue a command like `+rmdir Photography+`, based on our knowledge of the command, it wouldn't remove anything because it has sub-directories inside of it, some of which have photo files based on the dates in _Table 3_.  So we want to pass a list of all of the sub-directories as arguments to the `+rmdir+` command, and use the `+-p+` option to evaluate each sub-directory separately.  _Example 46_  uses the same brace expansion in our `+mkdir+` commands previously to generate a list.
+
+CAUTION: While the `+rmdir+` command only removes empty directories, it still permanently removes them.  Be sure of the directories you want to remove.
+
+.Using list brace expansion and sequence expansion with the `+rmdir+` command on macOS.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir ~ % rmdir -v -p Photography/Shoots/{Arizona,Colorado,New-Mexico,Utah}/{2020..2025}/{01..12}/{01..31}
+rmdir: Photography/Shoots/Arizona/2020/01/01: Directory not empty
+rmdir: Photography/Shoots/Arizona/2020/01/02: Directory not empty
+Photography/Shoots/Arizona/2020/01/03
+rmdir: Photography/Shoots/Arizona/2020/01: Directory not empty
+Photography/Shoots/Arizona/2020/01/04
+...
+----
+
+So magical!  Let's review what we did here.  First, we used the `+-v+` verbose option so we see which directories were deleted and which were passed over.  The `+-p+` option tells the `+rmdir+` command to evaluate every directory in the given list.  Since the directory path we passed to the command included brace expansion for the state location directories, and sequence expansion for the month and day directories, the `+rmdir+` command evaluated every directory we automatically created earlier with the `+mkdir+` command.  In the end, of the 9,246 directories we generated, it left 102 of them (those with files in them).  Even the directories with invalid days in the months were removed because they had no files in them.  The output in _Example 46_ is truncated for display purposes, but you can see how easy it is to remove empty directories in a very complex directory structure without much work at all.  Thank you `+rmdir+` authors!
+
+While the `+rmdir+` command is great for mindful removal of undesired directories, there are times when you just need to remove an entire directory completely, regardless of what is inside of it.  Of course, we have the power!  As mentioned in _Chapter 3. File Commands_, the `+rm+` command can be used to remove directories.  We are able to do this by using the `+-r+` or `+--recursive+` options, which tells the command to descend into the directory and delete all files and folders. Let's say that our photo shoot scheduled for November of 2025 in New Mexico was canceled, and we need to delete that directory wholesale.  _Example 47_ demonstrates a recursive removal of a directory with the `+rm+` command.
+
+CAUTION: The `+rm -r+` command will instantly delete everything within the directory that is passed in as an argument, so use extreme caution with this command.  Double check that the path is correct, and be aware of mistakes with absolute versus relative paths.
+
+.Recursively removing a directory and all its contents using the `+rm+` command on macOS.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir ~ % rm -r Photography/Shoots/New-Mexico/2025/
+----
+
+And just like that, the `+2025+` directory inside of the `+New-Mexico+` directory is permanently removed with all of its contents.  _Figure 33_ shows the results of this command.
+
+image::chapter-04-macos-remove-directory.png[title="Results of the removal of a sub-directory using the `+rm+` command on macOS.", pdfwidth=100%]
+
+==== Path expansion
+
+    
 
 === The du Command--Viewing Disk Usage
 
