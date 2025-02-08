@@ -200,11 +200,11 @@ There we go!  We can get back to our work.  In the next section, let's explore t
 
 ==== Pathname expansion
 
-We see how powerful the recursive use of the `+rm+` command can be, but with mindfullness, it is our trusty friend.  Instead of removing directories entirely, we also have the ability to specify patterns of files and folders to remove with a handy concept called _pathname expansion_.  Like brace expansion, the shell will generate a list for us, but in this case, we use special wildcard caharaters in our command.  These include the `+*+` (asterisk, or star), the `+[]+` (square bracket), and the `+?+` (question mark) characters, and are affectionately known as _glob operators_.  Let's discuss these individually.
+We see how powerful the recursive use of the `+rm+` command can be, and with mindfullness it is our trusty friend.  Instead of removing directories entirely, we also have the ability to specify patterns of files and folders to remove with a handy concept called _pathname expansion_.  Like brace expansion, the shell will generate a list for us, but in this case, we use special wildcard caharaters in our command.  These include the `+*+` (asterisk, or star), the `+[]+` (square bracket), and the `+?+` (question mark) characters, and are affectionately known as _glob operators_.  Let's discuss these individually.
 
 Let's say that while we were copying our photo files into our directory structure, we mistakenly copied photos taken in Utah from 2020 to 2023 into our `+Colorado+` directories, and that we now need to fix this and re-copy the correct photos into place.  We know our directory dates are correct, so we just need to selectively remove the JPEG files that are currently there.  Let's first use an `+*+` (star) to specify a file pattern to remove, shown in _Example 52_.
 
-CAUTION: Using wildcard patterns with the `*rm*` command will permanently delete the files matching the pattern.  Double check your work, and list the files with the same pattern before removing them.
+CAUTION: Using wildcard patterns with the `+rm+` command will permanently delete the files matching the pattern.  Double check your work, and list the files with the same pattern before removing them.
 
 .Using an `+*+` (star) wildcard to specify a file name pattern on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -252,10 +252,90 @@ There are many other ways to use the various expansion techniques on the command
 
 === The du Command--Viewing Disk Usage
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+We all have many different files we have created or downloaded and that are no longer needed.  When we look at the amount of space left on our storage drives, it seems like we can free up a lot of space if we knew where the unwanted files were located in our file system.  The `+du+` command lets us display our "disk usage" in a number of ways so we can discover where those huge files are located, or just get a sense of where a lot of smaller files are adding up.  Let's have a look at the `+du+` command in the context of our Photography directory.  Without a directory argument, the `+du+` command will calculate usage in your current working directory.  _Example 54_ demonstrates the command with only the `+-h+` option to tell it to print human-readable file and directory sizes.
 
-<<<
+.Using the `+du+` command to view disk usage on macOS.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir Photography % cd Photography
+chris@ophir Photography % du -h
+401M	./Shoots/New-Mexico/2023/03/18
+3.5G	./Shoots/New-Mexico/2023/03/17
+3.9G	./Shoots/New-Mexico/2023/03
+3.9G	./Shoots/New-Mexico/2023
+...
+  0B	./Shoots/Colorado/2025
+484M	./Shoots/Colorado/2024/06/09
+454M	./Shoots/Colorado/2024/06/08
+938M	./Shoots/Colorado/2024/06
+...
+458M	./Shoots/Utah/2022/12/21
+549M	./Shoots/Utah/2022/12/22
+1.0G	./Shoots/Utah/2022/12
+1.0G	./Shoots/Utah/2022
+...
+588M	./Shoots/Arizona/2021/05/31
+478M	./Shoots/Arizona/2021/05/30
+1.0G	./Shoots/Arizona/2021/05
+1.0G	./Shoots/Arizona/2021
+...
+ 19G	./Shoots
+ 19G	.
+----
+
+The listing in _Example 54_ has been truncated for display purposes, but we can see that the `+du+` command has traversed the entire `Photography` directory tree, and has calculated a total size of each sub-directory.  It's really fast!  We get a look at how big the directories are, and there is a grand total at the end for the `+.+` (dot) current directory.  We see that there are zero bytes in many of the Colorado directories because we recently deleted all of those files in years 2020 to 2023.  This command is perfect for directory trees that are moderately sized, but when you have deeply nested directories, you might want to look at a shorter summary to see where the biggest files are.  We have the magic!  _Example 55_ shows the `+du+` command with the `+-s+` option which will summarize the directories given as arguments.
+
+.Using the `+du+` command to view summary disk usage on macOS.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir Photography % du -sh ./Shoots/*
+5.1G	./Shoots/Arizona
+938M	./Shoots/Colorado
+8.3G	./Shoots/New-Mexico
+4.8G	./Shoots/Utah
+----
+
+Ah, so simple!  We used a `+*+` star wildcard in our relative directory path such that each sub-directory (the four corners states) would each be summarized.  We see that the `+./Shoots/Colorado+` directory is much smaller due to our previous deletions, and that the `+./Shoots/New-Mexico+` directory is the largest by quite a bit.  Let's investigate the daily directories in the `+New-Mexico+` directory to see where the biggest files are located.  _Example 56_ demonstrates this.
+
+.Using the `+du+` command to view summary disk usage in leaf directories on macOS.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir Photography % du -sh ./Shoots/New-Mexico/*/*/*
+533M	./Shoots/New-Mexico/2020/03/16
+529M	./Shoots/New-Mexico/2020/03/17
+587M	./Shoots/New-Mexico/2021/07/13
+730M	./Shoots/New-Mexico/2021/07/14
+521M	./Shoots/New-Mexico/2022/11/14
+497M	./Shoots/New-Mexico/2022/11/15
+3.5G	./Shoots/New-Mexico/2023/03/17
+401M	./Shoots/New-Mexico/2023/03/18
+522M	./Shoots/New-Mexico/2024/07/16
+672M	./Shoots/New-Mexico/2024/07/17
+----
+
+Interesting!  So the `+./Shoots/New-Mexico/2023/03/17+` is definitely an outlier compared to the rest of the sub-directories, so let's view the contents and see the files, as shown in _Example 57_.
+
+.Viewing a long listing of files in reverse size order on macOS.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir Photography % ls -lSrh ./Shoots/New-Mexico/2023/03/17
+total 7268952
+-rw-r--r--  1 chris  staff   2.0M Feb  6 14:00 IMG_180.jpg
+-rw-r--r--  1 chris  staff   7.0M Feb  6 14:00 IMG_179.jpg
+-rw-r--r--  1 chris  staff   7.0M Feb  6 14:00 IMG_172.jpg
+-rw-r--r--  1 chris  staff   9.0M Feb  6 14:00 IMG_174.jpg
+-rw-r--r--  1 chris  staff    16M Feb  6 14:00 IMG_175.jpg
+-rw-r--r--  1 chris  staff    44M Feb  6 14:00 IMG_177.jpg
+-rw-r--r--  1 chris  staff    59M Feb  6 14:00 IMG_178.jpg
+-rw-r--r--  1 chris  staff    73M Feb  6 14:00 IMG_171.jpg
+-rw-r--r--  1 chris  staff    90M Feb  6 14:00 IMG_176.jpg
+-rw-r--r--  1 chris  staff   100M Feb  6 14:00 IMG_173.jpg
+-rw-r--r--@ 1 chris  staff   3.1G Feb  7 11:12 DaVinci_Resolve.zip <1>
+----
+<1> An errant file downloaded into a deeply nested directory
+
+Ah hah!  It looks like there is a mistakenly downloaded Davinci Resolve application installer deep inside the `+Photography+` directory.  We can use the `+rm+` command to remove that file, as we learned about in _Chapter 3. File Commands_.  And with that, we've completed our short tour of the `+du+` command, which can be very helpful in discovering what exactly is buried in your file system.  Feel free to read the manual page for the `+du+` command since there are other useful options to help you with managing your directories.
+
 === Command Line Folder Handling is Awesome!
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
-
+While this chapter features only a few commands, they are a total power house when it comes to managing files and directories at lightning speeds.  We are now familiar with the ultra-handy `+mkdir+` command, which allows us to generate entire folder structures with a very compact syntax.  When we couple it with the concept of brace expansion, we can automatically generate directories with ease.  We are also now acquainted with its sister command of `+rmdir+`, which helps us keep our directories neat and free of unneccessary empty directories. The combination of these two commands allows us to organize our files in ways that are not possible using graphical tools, particularly when using our pathname wildcard expansion techniques.  In addition, we now know our power when it comes to wholesale deletion of directories using the recursive option of the `+rm+` command, and we have solid strategies to backup and restore our work using the `+cp+` and `+mv+` commands in the context of folder management.  The more we use our systems, the more chances there are for files that are unneeded or obsolete over time.  To that end, we've learned that the `+du+` command is a powerful way to understand what is taking up our disk space, and we now have the power to trim things down!  What a whirlwind!  In the next chapter we will continue to discover how command line file management is at our fingertips, with a focus on data-oriented commands that let us delve inside of files.  Let's go!
