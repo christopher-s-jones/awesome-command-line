@@ -66,6 +66,6 @@
 . Appendix A: Customizing Your Terminal. 
 . Appendix B: Using a Package Manager 
     - Expanding the Commands Available to You 
-    - Installing Homebrew for macOS 
+    - Installing Homebrew for Mac 
     - Using Built-In Linux Package Managers
     - Installing Chocolatey on Windows
