@@ -7,7 +7,7 @@ In _Chapter 2. Core Commands_, we see how easy it is to change into any director
 <<<
 === The echo Command--Easily Creating Files
 
-The `+echo+` command is a simple command which really illustrates the ideas of _inputs_ and _outputs_ on the command line.  We'll discuss why it is called "echo" shortly, but let's first highlight the best part about this command--the fact that you can instantly create a file with it!  We'll start with _Example 28_, where we use the `+echo+` command to write a sentence into a file called `+herding-cats.txt+` on Windows.  If you're on macOS or Linux, give it a try from your home directory too.
+The `+echo+` command is a simple command which really illustrates the ideas of _inputs_ and _outputs_ on the command line.  We'll discuss why it is called "echo" shortly, but let's first highlight the best part about this command--the fact that you can instantly create a file with it!  We'll start with _Example 28_, where we use the `+echo+` command to write a sentence into a file called `+herding-cats.txt+` on Windows.  If you're on Mac or Linux, give it a try from your home directory too.
 
 CAUTION: Note that creating files with the `+echo+` command will immediately overwrite a file if it exists, so be careful with this command.
 
@@ -19,7 +19,7 @@ chris@DESKTOP-L7H0RFS:/mnt/c/Users/chris$ echo Our cat Luna is the ranch manager
 
 You just created your first real file from the command line!  We now have a file called `+herding-cats.txt+` in our home directory.  Let's take a minute to understand what is happening here.
 
-We first see the `+echo+` command followed by our seven-word sentence{emdash}"Our cat Luna is the ranch manager."  This means that seven arguments are passed to the `+echo+` command (with the period as part of the seventh argument).  Then, the `+>+` (greater-than) sign is telling the shell to send the output of the `+echo+` command into a file named `+herding-cats.txt+`, or create the file if it does not exist.  This is really powerful!  The `+>+` (greater-than) sign is acting as a _redirect operator_, which we will discuss below.  If you then open the `+herding-cats.txt+` file using any common text editor application such as _TextEdit_ on macOS, _Text Editor_ on Linux, or _Notepad_ on Windows, you'll see the contents of the file, as shown in _Figure 25_.
+We first see the `+echo+` command followed by our seven-word sentence{emdash}"Our cat Luna is the ranch manager."  This means that seven arguments are passed to the `+echo+` command (with the period as part of the seventh argument).  Then, the `+>+` (greater-than) sign is telling the shell to send the output of the `+echo+` command into a file named `+herding-cats.txt+`, or create the file if it does not exist.  This is really powerful!  The `+>+` (greater-than) sign is acting as a _redirect operator_, which we will discuss below.  If you then open the `+herding-cats.txt+` file using any common text editor application such as _TextEdit_ on a Mac, _Text Editor_ on Linux, or _Notepad_ on Windows, you'll see the contents of the file, as shown in _Figure 25_.
 
 image::chapter-03-windows-echo-command-create-file.png[title="Viewing the herding-cats.txt file using a graphical text editor on Windows.",pdfwidth=100%]
 
@@ -35,9 +35,9 @@ chris@DESKTOP-L7H0RFS:/mnt/c/Users/chris$ echo She runs the show! >> herding-cat
 
 image::chapter-03-windows-echo-and-file-appending.png[title="Viewing the appended herding-cats.txt file using a graphical text editor on Windows.",pdfwidth=100%]
 
-Perfect, we now understand how easily redirection can be used to create, overwrite, or append to files, and that the command syntax is very simple.  But what happens when we issue this same command, but without any redirection?  Let's try it, this time on macOS, as shown in _Example 30_.
+Perfect, we now understand how easily redirection can be used to create, overwrite, or append to files, and that the command syntax is very simple.  But what happens when we issue this same command, but without any redirection?  Let's try it, this time on a Mac, as shown in _Example 30_.
 
-.Using the `+echo+` command to display text in the terminal window on macOS.
+.Using the `+echo+` command to display text in the terminal window on a Mac.
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
 chris@ophir ~ % echo Our cat Luna is the ranch manager.
@@ -59,7 +59,7 @@ NOTE: In computer programming, a sequence of text-based characters is referred t
 
 We see in the previous examples that the `+echo+` command sends output to the terminal window, which is very useful in scripts when you want to display progress as the script runs.{empty}footnote:[Commands like those we are learning about can be written into shell scripts, which are files that can be run like programs from the command line.  They are often named similar to `+myscript.sh+` where the `+.sh+` file ending indicates that the file uses the shell programming language.]  This is the reason why the command is named `+echo+`, but we are now aware of how powerful it is when combined with redirection.   
 
-Looking at the manual pages for the `+echo+` command on macOS and Linux, they differ slightly.  They state "Write arguments to the standard output.", and "Display a line of text.", respectively.  Have a look at the manual page to get a feeling for the command.  But what is the _standard output_?
+Looking at the manual pages for the `+echo+` command on Mac and Linux, they differ slightly.  They state "Write arguments to the standard output.", and "Display a line of text.", respectively.  Have a look at the manual page to get a feeling for the command.  But what is the _standard output_?
 
 When you open a terminal window and the shell interpreter starts up, it creates a few resources that are called _file descriptors_, which help with input and output operations.  These include _standard input_, _standard output_, and _standard error_.  As you can see, the terminal window itself acts as the device where the shell sends standard output (meaning the default output location).  If you make a mistake when typing your command, the messages that get written to standard error also show up in the terminal window by default.  We will discuss the idea of standard input in more detail shortly, but think of what you type on your keyboard as an example of standard input for the shell interpreter.  Just know that these mechanisms represent the input source, output destination, and error destination when issuing a command.
 
@@ -224,10 +224,10 @@ Notice the interactive option confirms the removal of each file individually.  T
 
 === The nano Command--Creating and Editing Files
 
-At the beginning of this chapter we familiarized ourselves with the `+echo+` command and used redirection operators to create, overwrite, and append to a file.  This is great for quick file work, or for appending progress lines to a file, and similar lightweight work.  However, it's nice to have more flexibility while writing, particularly if you are writing a document or editing a configuration file on a remote server.  This is where common editor commands like `+nano+` shine!  While most of the time it is easiest to use a graphical text editor such as TextEdit on macOS, Text Editor on Linux, or Notepad on Windows, there are sitations where a terminal-based editor like `+nano+` is a very helpful tool.  Let's explore the `+nano+` command first by editing our `+ranch-manager.txt+` file that remains in our `+Desktop+` directory.  _Example 41_ shows how to open a file with the `+nano+` command.
+At the beginning of this chapter we familiarized ourselves with the `+echo+` command and used redirection operators to create, overwrite, and append to a file.  This is great for quick file work, or for appending progress lines to a file, and similar lightweight work.  However, it's nice to have more flexibility while writing, particularly if you are writing a document or editing a configuration file on a remote server.  This is where common editor commands like `+nano+` shine!  While most of the time it is easiest to use a graphical text editor such as TextEdit on a Mac, Text Editor on Linux, or Notepad on Windows, there are sitations where a terminal-based editor like `+nano+` is a very helpful tool.  Let's explore the `+nano+` command first by editing our `+ranch-manager.txt+` file that remains in our `+Desktop+` directory.  _Example 41_ shows how to open a file with the `+nano+` command.
 
 
-NOTE: While the `+nano+` command is available on macOS, Linux, and Windows WSL, the macOS version currently is an alias to the `+pico+` command.  Typing `+nano+` on macOS will therefore open the `+pico+` editor.
+NOTE: While the `+nano+` command is available on Mac, Linux, and Windows WSL, the Mac version currently is an alias to the `+pico+` command.  Typing `+nano+` on a Mac will therefore open the `+pico+` editor.
 
 .Editing a file with the `+nano+` command on Linux.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -266,7 +266,7 @@ chris@nuthatch:~$ nano - << EOF
 
 Wow, that's a curious one!  Let's break this down.  We first have the `+nano+` command with a single `+-+` (dash) argument.  This is a `+nano+` option to read from the standard input, meaning anything that is typed on the keyboard.  The `+<<+` (double less-than) operator is redirecting what is called a _here-document_ (anything typed on the command line) until it encounters an `+EOF+` token (meaning end-of-file).  The two `+EOF+` tokens act as bookends to our here-document, and once we type the second `+EOF+` followed by the kbd:[Return] key, everything we type will be passed into the `+nano+` editor.  Now that is some magic!  
 
-NOTE: Similar to a multi-line command, the shell places `+>+` (greater-than) signs on the left of the terminal to indicate you are still typing a here-document.  Note that `+zsh+` on macOS will add a `+heredoc>+` indicator.
+NOTE: Similar to a multi-line command, the shell places `+>+` (greater-than) signs on the left of the terminal to indicate you are still typing a here-document.  Note that `+zsh+` on a Mac will add a `+heredoc>+` indicator.
 
 The result of our finished command is shown in _Figure 30_, where we can continue to edit the document in the `+nano+` editor.
 

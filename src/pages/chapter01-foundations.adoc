@@ -4,45 +4,25 @@
 
 The _command line_ is a tool of empowerment--a magic portal to your computer that helps you navigate, organize, create, and refine your files on your computer.  It also helps you automate and manage tasks running on your computer.  When repeatedly clicking and choosing with your mouse becomes tedious, the command line _prompt_ allows you to free yourself and just issue a powerful command that does all that you want, quickly and with ease, so you can get back to the creative side of your work.  You can turn complex tasks that require a series of many steps into one workflow that accomplishes what was once inconvenient.  Each of the major computer operating systems--including macOS, Linux, and Windows--all provide ways to use the command line{empty}footnote:[Before desktop computing arose, sending commands to a computer was the predominant way to work with them. The success of the UNIX operating system developed by AT&T Bell Laboratories inspired the development of Linux, the architecture of macOS, and later Windows Subsytem for Linux.  We focus on commands in these Unix-like systems.].  While it is an extremely helpful tool on your local desktop or laptop machine, the command line is essential for running remote services, such as a website.  This idea in itself is magical! The Internet predominantly runs on Linux-based servers in remote data centers around the world, and access to these servers largely happens through the command line.  Can you imagine that? Managing computers remotely around the world? Yes! Thank you command line!  We will be focusing on using the command line locally on your computer and how it can be a boost in your workflow, while laying the groundwork for you to expand your computing skills even further.
 
-This book serves as an introduction to the command line and how to get started with it.  We first get set up with the tools you need to use the command line--a _terminal_ application that knows how to handle your commands.  But wait, you say--What is a _command_?  What is a _terminal_? What is a _prompt_?  In this chapter we introduce these and other concepts in a step by step manner so you have a solid understanding of the terms and lingo needed to use this magic little gem that may be unfamiliar now, but will soon be your trusty friend at your side. In the subsequent chapters we dive in with hands-on learning by highlighting twenty-one essential commands that build your command line foundation.  _Table 1_ lists these commands by the categories covered in each chapter.
+This book serves as an introduction to the command line and how to get started with it.  We first get set up with the amazing tool you need to use the command line--a _terminal_ application that knows how to handle your commands.  But wait, you say--What is a _terminal_?  What is a _command_?  What is a _prompt_?  In this chapter we introduce these and other concepts in a step by step manner so you have a solid understanding of the terms and lingo needed to use this magic little gem that may be unfamiliar now, but will soon be your trusty friend at your side. In the subsequent chapters we dive in with hands-on learning by highlighting twenty-one essential commands that build your command line foundation.  Take a look at _Table 1_! It shows our road map of the commands we cover in each chapter.
 
-.The 21 commands covered in the book, by category.
+.The 21 commands covered in the book, by chapter and category.
 [%header,cols="^1m,^1m,^1m,^1m,^1m"]
 |===
-|Core{newline}Commands | File{newline}Commands | Folder{newline}Commands | Text Data{newline}Commands | Utility{newline}Commands
+| Chapter 2{newline}Core{newline}Commands 
+| Chapter 3{newline}File{newline}Commands 
+| Chapter 4{newline}Folder{newline}Commands 
+| Chapter 5{newline}Text Data{newline}Commands 
+| Chapter 6{newline}Utility{newline}Commands
 
-|pwd
-|echo
-|mkdir
-|cat
-|less
-
-|man
-|mv
-|rmdir
-|head
-|history
-
-|clear
-|cp
-|du
-|tail
-|open 
-
-|cd
-|rm
-|
-|grep
-|alias
-
-|ls
-|nano
-|
-|
-|
+|pwd   |echo  |mkdir |cat  |less
+|man   |mv    |rmdir |sort |history
+|clear |cp    |du    |head |open 
+|cd    |rm    |      |tail |
+|ls    |nano  |      |grep |
 |===
 
-Each chapter builds on the previous, and we learn a few key concepts that make using the command line ever more powerful.  These concepts include _file and directory paths_, _tab completion_, _redirection_, _expansion_, and _pipes_.  However, let's first take a step back and think about the metaphors we use to interact with our computers.
+Each chapter builds on the previous. In addition to each command, we learn key concepts along the way that make using the command line progressively more powerful.  These concepts include _file and directory paths_, _tab completion_, _redirection_, _expansion_, and _pipes_.  Before we get into the details, let's first take a step back and think about the metaphors we use to interact with our computers.
 
 ==== The graphical desktop metaphor
 
@@ -65,7 +45,7 @@ In the remainder of Chapter 1, we will get started with setting up a terminal ap
 
 === Terminal Applications
 
-A computer _terminal_ is merely a way to send input to a computer and receive the output results.  You might also hear the word _console_ used interchangeably with terminal, but the latter is a bit more specific in that it was historically a screen device and keyboard connected directly to a mainframe computer and used by the operators.  Terminals, on the other hand, were connected to computers remotely on a network.  We now of course have terminal applications that are considered _virtual terminals_ that emulate these older physical terminals.  See _A History of Modern Computing_ (2003) by Paul E. Ceruzzi {empty}footnote:[Ceruzzi, Paul E.. A History of Modern Computing. United Kingdom: February, 2003. https://mitpress.mit.edu/9780262532037/a-history-of-modern-computing/] for more background.  There are many alternative terminal applications to choose from, but we will start with the default applications on each operating system in order to get set up.  For macOS 14, the default application is called _Terminal.app_, and on Windows 11 we will focus on the default _Windows Terminal_.  If you are using Linux, there are of course many distributions available, but we will focus on Ubuntu(R){empty}footnote:[Ubuntu and Canonical are registered trademarks of Canonical Ltd.] 24.04 and the _Gnome Terminal_ that comes packaged with it.  Skip to the next section that is pertinent to you for your operating system and we'll get started with a terminal application! 
+A computer _terminal_ is merely a way to send input to a computer and receive the output results.  You might also hear the word _console_ used interchangeably with terminal, but the latter is a bit more specific in that it was historically a screen device and keyboard connected directly to a mainframe computer and used by the operators.  Terminals, on the other hand, were connected to computers remotely on a network.  We now of course have terminal applications that are considered _virtual terminals_ that emulate these older physical terminals.  See _A History of Modern Computing_ (2003) by Paul E. Ceruzzi {empty}footnote:[Ceruzzi, Paul E.. A History of Modern Computing. United Kingdom: February, 2003. https://mitpress.mit.edu/9780262532037/a-history-of-modern-computing/] for more background.  There are many alternative terminal applications to choose from, but we will start with the default applications on each operating system in order to get set up.  For Mac, the default application is called _Terminal.app_, and on Windows 11 we will focus on the default _Windows Terminal_.  If you are using Linux, there are many distributions available, but we will focus on Ubuntu(R){empty}footnote:[Ubuntu and Canonical are registered trademarks of Canonical Ltd.] 24.04 and the _Gnome Terminal_ that comes packaged with it.  Skip to the next section that is pertinent to you for your operating system and we'll get started with a terminal application! 
 
 * <<setup-for-macos>>
 * <<setup-for-linux>>
@@ -73,7 +53,7 @@ A computer _terminal_ is merely a way to send input to a computer and receive th
 
 <<<
 [#setup-for-macos]
-==== Setup for macOS
+==== Setup for Mac
 
 If you are on a Mac, Apple has included the Terminal.app since it introduced Mac OS X in 2001, so it has had many years of refinement.  You can search for "Terminal.app" using Apple's Spotlight search by pressing the kbd:[Command]+kbd:[Spacebar] keys at the same time and typing "terminal" (without the quotes) in the search bar. Alternatively you can open a _Finder_ window and navigate to the _Applications_ > _Utilities_ folder to find the Terminal application, as shown in _Figure 1_.  Double click the icon to open the application.
 
@@ -83,7 +63,7 @@ image::chapter-01-macos-choose-terminal-flow.png[title="Open the Terminal.app in
 
 That's it! You should see a window open similar to _Figure 2_, althought the default color may be different based on the Appearance settings on your Mac.
 
-image::chapter-01-macos-terminal-window.png[title="A terminal window example on macOS.",pdfwidth=100%]
+image::chapter-01-macos-terminal-window.png[title="A terminal window example on a Mac.",pdfwidth=100%]
 
 If you are in Dark Mode, you'll likely see a dark window, and in Light Mode you should see a light window.  In your Dock at the bottom of your screen, you can press kbd:[Control] + _click_ on the Terminal icon (or use your _secondary-click_ on your mouse) to bring up the icon menu, and choose _Options_ > _Keep in Dock_ to add it permanently to your Dock.  
 
@@ -91,7 +71,7 @@ To finalize your setup, adjust the font size in your terminal so that you can co
 
 image::chapter-01-macos-terminal-settings.png[title="Use the File > Settings... menu item to change the font size as needed in the Terminal.app settings.",pdfwidth=100%]
 
-You are all set! It's that simple to get configured to use the command line on macOS.  You can continue on to the section entitled _The Shell_ to become more acquainted with the command line.  Thank you for focusing your power on the magic of the command line!
+You are all set! It's that simple to get configured to use the command line on a Mac.  You can continue on to the section entitled _The Shell_ to become more acquainted with the command line.  Thank you for focusing your power on the magic of the command line!
 
 <<<
 [#setup-for-linux]
@@ -216,7 +196,7 @@ chris@ophir ~ % pwd # Issue the pwd command
 
 Notice that the `+pwd+` characters are followed by a space, then a `+#+` (hashtag) symbol, and then another space and the comment sentence.  The shell interpreter evaluates everything in the command, and validates it based on the shell language rules.  In this case, we just learned that you can issue a command, followed by a `+#+` (hashtag) character and any other written comment, and the shell will ignore any characters to the right of the hashtag because it knows it is a comment, and will proceed to give you back a result.
 
-The take home message here is that the shell interpreter is doing the heavy lifting behind the scenes, and there are many variants of these interpreters. The earliest shell interpreter is attributed to Louis Pouzin in 1964 for the CTSS/Multics operating system.{empty}footnote:[See https://multicians.org/shell.html]  Since 1979 the UNIX operating system included the default shell interpreter called `+sh+`, and a free version of it is still the default on Linux and macOS.  That said, there has been immense improvements to shell programming languages since the 1970s, and many different interpreters, with new features, have been written and shipped with various operating systems.  To name a few, there is `+ksh+`, `+csh+`, `+bash+`, and `+zsh+`.{empty}footnote:[The Bourne shell (sh) was wriiten by Stephen Bourne at Bell Labs for UNIX and was released in 1979.  Also at Bell Labs, David Korn created Korn Shell (ksh) which was released in 1983 for UNIX. An alternative for sh called CShell (csh) was written by Bill Joy at the University of California Berkeley for BSD UNIX, and Brian Fox wrote the Bourne Again Shell (bash), which is an open source rewrite of the Bourne Shell.  In 1990, Paul Falstad released zsh as an open source program.]  On modern versions of Linux, the default shell tends to be `+bash+`, and on macOS it is now `+zsh+`.  For the purposes of this handbook, we'll see that these shells all work similarly if not identically in some cases.  In the next section, we'll take a closer look at the _command prompt_, but know that the shell interpreter is the workhorse behind your magic commands!
+The take home message here is that the shell interpreter is doing the heavy lifting behind the scenes, and there are many variants of these interpreters. The earliest shell interpreter is attributed to Louis Pouzin in 1964 for the CTSS/Multics operating system.{empty}footnote:[See https://multicians.org/shell.html]  Since 1979 the UNIX operating system included the default shell interpreter called `+sh+`, and a free version of it is still the default on Linux and Mac.  That said, there has been immense improvements to shell programming languages since the 1970s, and many different interpreters, with new features, have been written and shipped with various operating systems.  To name a few, there is `+ksh+`, `+csh+`, `+bash+`, and `+zsh+`.{empty}footnote:[The Bourne shell (sh) was wriiten by Stephen Bourne at Bell Labs for UNIX and was released in 1979.  Also at Bell Labs, David Korn created Korn Shell (ksh) which was released in 1983 for UNIX. An alternative for sh called CShell (csh) was written by Bill Joy at the University of California Berkeley for BSD UNIX, and Brian Fox wrote the Bourne Again Shell (bash), which is an open source rewrite of the Bourne Shell.  In 1990, Paul Falstad released zsh as an open source program.]  On modern versions of Linux, the default shell tends to be `+bash+`, and on a Mac it is now `+zsh+`.  For the purposes of this handbook, we'll see that these shells all work similarly if not identically in some cases.  In the next section, we'll take a closer look at the _command prompt_, but know that the shell interpreter is the workhorse behind your magic commands!
 
 === The Command Prompt
 
@@ -304,6 +284,6 @@ All of these key combinations can be a game changer with command line productivi
 <<<
 === Command Line Interfaces are Awesome!
 
-Our computers are wonderful tools for creativity, particularly due to the graphical user interface metaphor that helps us navigate our machines.  And now, as we familiarize ourselves with the command line interface, we see that the terminal application can become our trusty friend and a powerful addition to our toolbox. The command line helps us uncover seemingly secret functionality on our computers by using text-based commands to orchestrate our work in a concise and effective manner.  In this chapter we have learned how to access a terminal application on macOS, Linux, and Windows.  We now have a solid understanding of a shell interpreter that handles the commands we type, what a command prompt is, and how to construct a command with command arguments and the various styles of command options.  We now know how to edit single and multi-line commands, and how to move our cursor within our commands with ease.  These concepts set the foundation for the upcoming chapters where we learn individual commands that enable us to navigate our computers, create and manage files and folders, and work with our data files in ways that are often impossible with a graphical approach.  The command line is truly a tool of empowerment, and a magic portal into your machine.  In _Chapter 2. Core Commands_, we will get hands on experience with navigation commands, and will begin to traverse our files and folders with ease, while getting to know the structure of our storage file systems in better detail.  Let's go!
+Our computers are wonderful tools for creativity, particularly due to the graphical user interface metaphor that helps us navigate our machines.  And now, as we familiarize ourselves with the command line interface, we see that the terminal application can become our trusty friend and a powerful addition to our toolbox. The command line helps us uncover seemingly secret functionality on our computers by using text-based commands to orchestrate our work in a concise and effective manner.  In this chapter we have learned how to access a terminal application on Mac, Linux, and Windows.  We now have a solid understanding of a shell interpreter that handles the commands we type, what a command prompt is, and how to construct a command with command arguments and the various styles of command options.  We now know how to edit single and multi-line commands, and how to move our cursor within our commands with ease.  These concepts set the foundation for the upcoming chapters where we learn individual commands that enable us to navigate our computers, create and manage files and folders, and work with our data files in ways that are often impossible with a graphical approach.  The command line is truly a tool of empowerment, and a magic portal into your machine.  In _Chapter 2. Core Commands_, we will get hands on experience with navigation commands, and will begin to traverse our files and folders with ease, while getting to know the structure of our storage file systems in better detail.  Let's go!
 
 

@@ -257,7 +257,7 @@ We all have many different files we have created or downloaded and that are no l
 .Using the `+du+` command to view disk usage on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
-chris@ophir Photography % cd Photography
+chris@ophir ~ % cd Photography
 chris@ophir Photography % du -h
 401M	./Shoots/New-Mexico/2023/03/18
 3.5G	./Shoots/New-Mexico/2023/03/17
@@ -307,11 +307,12 @@ chris@ophir Photography % du -sh ./Shoots/New-Mexico/*/*/*
 730M	./Shoots/New-Mexico/2021/07/14
 521M	./Shoots/New-Mexico/2022/11/14
 497M	./Shoots/New-Mexico/2022/11/15
-3.5G	./Shoots/New-Mexico/2023/03/17
+3.5G	./Shoots/New-Mexico/2023/03/17  <1>
 401M	./Shoots/New-Mexico/2023/03/18
 522M	./Shoots/New-Mexico/2024/07/16
 672M	./Shoots/New-Mexico/2024/07/17
 ----
+<1> The largest sub-directory is very apparent
 
 Interesting!  So the `+./Shoots/New-Mexico/2023/03/17+` is definitely an outlier compared to the rest of the sub-directories, so let's view the contents and see the files, as shown in _Example 57_.
 
@@ -338,4 +339,4 @@ Ah hah!  It looks like there is a mistakenly downloaded Davinci Resolve applicat
 
 === Command Line Folder Handling is Awesome!
 
-While this chapter features only a few commands, they are a total power house when it comes to managing files and directories at lightning speeds.  We are now familiar with the ultra-handy `+mkdir+` command, which allows us to generate entire folder structures with a very compact syntax.  When we couple it with the concept of brace expansion, we can automatically generate directories with ease.  We are also now acquainted with its sister command of `+rmdir+`, which helps us keep our directories neat and free of unneccessary empty directories. The combination of these two commands allows us to organize our files in ways that are not possible using graphical tools, particularly when using our pathname wildcard expansion techniques.  In addition, we now know our power when it comes to wholesale deletion of directories using the recursive option of the `+rm+` command, and we have solid strategies to backup and restore our work using the `+cp+` and `+mv+` commands in the context of folder management.  The more we use our systems, the more chances there are for files that are unneeded or obsolete over time.  To that end, we've learned that the `+du+` command is a powerful way to understand what is taking up our disk space, and we now have the power to trim things down!  What a whirlwind!  In the next chapter we will continue to discover how command line file management is at our fingertips, with a focus on data-oriented commands that let us delve inside of files.  Let's go!
+While this chapter features only a few commands, they are a total power house when it comes to managing files and directories at lightning speeds.  We are now familiar with the ultra-handy `+mkdir+` command, which allows us to generate entire folder structures with a very compact syntax.  When we couple it with the concept of brace expansion, we can automatically generate directory trees with ease.  We are also now acquainted with its sister command of `+rmdir+`, which helps us keep our directories neat and free of unneccessary empty directories. The combination of these two commands allows us to organize our files in ways that are not possible using graphical tools, particularly when using our pathname wildcard expansion techniques.  In addition, we now know our power when it comes to wholesale deletion of directories using the recursive option of the `+rm+` command.  As an insurance policy when using the recursive `+rm+` command, we now have solid strategies to backup and restore our work using the `+cp+` and `+mv+` commands.  The more we use our systems, the more chances there are for files that are unneeded or obsolete over time.  To that end, we've learned that the `+du+` command is a powerful way to understand what is taking up our disk space, and we now have the power to trim things down!  What a whirlwind!  In the next chapter we will continue to discover how command line file management is at our fingertips, with a focus on data-oriented commands that let us delve inside of files.  We're heading to the stars!
