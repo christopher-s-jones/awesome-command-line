@@ -1,28 +1,422 @@
-== Text Data Commands: cat, head, tail, grep
+== Text Data Commands: cat, sort, head, tail, grep
 
 === Versatile Ways To Work With Text Data
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+In the previous two chapters we have sharpened our skills in creating and managing files and folders, and we are now ready to explore working with data that you find inside of files.  In order to understand what we mean by _text data_ in this section, let's first discuss the nature of our files stored on our drives. This involves how our computers translate numbers into more useful information to us like text and images.
+
+We are all familiar with counting in the _decimal_ system, using combinations of the numbers zero through nine (`+0-9+`) to represent any number we can imagine, small to large.  Computers use a different counting system--the _binary_ system--for their internal processing.  The binary system only uses two numbers, zero through one (`+0-1+`), to encode the same numbers we are accustomed to as decimal numbers.  For example, what we know as the number `+144+`, can also be expressed in binary format as `+10010000+`.  Now, visualize flipping a light switch from on to off, and off to on, multiple times.  In computers, ones and zeros can correspond to a rapid sequence of _on_ (`+1+`) and _off_ (`+0+`) electrical states.  Electricity is the driving force that controls hardware, and computer processors are optimized to handle these ones and zeros efficiently.  This is part of the magic behind binary data!
+
+All files are stored as _binary data_, meaning that they are encoded as a set of ones and zeros.  We refer to files that contain human-readable content as _text data_ files, in that they encode written-language text.  Computer scientists have agreed on a few standards that map characters in a language to a corresponding number.  For instance, in the _ASCII_ standard{empty}footnote:[ASCII is an acronym that stands for the American Standard Code for Information Interchange.  For more details, see Mackenzie, Charles E.. Coded Character Sets: History and Development. Netherlands: Addison-Wesley Publishing Company, 1980. ISBN-13: 9780201144604], the English uppercase letter _A_ is represented as the decimal number _65_ inside of the file.  These numbers that represent letters are then stored as binary ones and zeros on disk.  Applications like the Terminal shell know how to read the binary-encoded number 65, look up what character it represents in the ASCII character set table, and present us with an English uppercase letter _A_ as text on the screen.
+
+NOTE: Text files are often encoded in one of a few different file formats, including ASCII and UTF-8.  You may hear files being referred to as ASCII files (pronounced _as-key_), or Unicode{empty}footnote:[The term Unicode refers to the international _Unicode Standard_ for encoding text.  For details, see Korpela, Jukka K.. Unicode Explained. Germany: O'Reilly Media,2006. ISBN-13: 9780596101213] files. The ASCII standard mostly represents American English characters and symbols. Unicode is the international standard that supports characters from languages around the world (UTF-8), including American English as well.
+
+There are also other file formats that are commonly used and are referred to as _binary data_ files, meaning that the data are encoded using standards that are not readable as written-language.  The binary-encoded bytes of data are certainly readable by programs that understand the format.  A good example is an image file format--for instance a Portable Network Graphics (PNG) file--that encodes a grid of numbers that represent a color (a mixture of red [R], green [G], and blue [B]) at the given location in the image.  Applications that can read the PNG file format will translate these RGB numbers to pixel colors on your screen when displaying the image.  For the purposes of this chapter, we will be focusing on everyday commands that are used to work with text data.  Our computers are full of text-based files!  But just know, there are hundreds of commands that are useful when working with binary data files as well.
+
+In the following sections, we will explore five commands that allow us to view, combine, sort, preview, and filter text-based files.  In particular, we will use a very simple command called `+cat+` to quickly view the contents of a file directly in the terminal.  We'll also use the `+cat+` command to combine many files together into one file.  As we become comfortable with the `+cat+` command, we'll then discuss the command line concept of _pipes_, which allow us to pass data between multiple commands.  This is cosmic magic!  We will apply our knowledge of pipes and use the `+sort+` command to arrange our data in the exact order we are interested in.  We'll then learn how to preview the beginning and ends of files using the `+head+` and `+tail+` commands, which is amazingly helpful when your files are extremely large, and you want to get a feeling for the contents.  We will wrap up the chapter with the `+grep+` command, which assists us in filtering the lines of text in a file, only returning the exact lines we are interested in.
+
+We will be working with some stellar data in this chapter.  And we mean stellar!  Our examples revolve around the 175 most prominent stars in the sky, and some fun facts about their locations, distances from us, and their brightness as we see them with the naked eye.  It's launch time!
 
 === The cat Command--Viewing and Combining Files
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+While we love cats and dogs alike, we really enjoy the `+cat+` command for its absolute simplicity.  It is a shorthand for the word _catenate_ (similar to _concatenate_), and was originally created to combine files together.  However, we'll first use it in its easiest form, which is to just display the contents of a file directly in the terminal window.  To do this, let's first have a look at a collection of files that help us illustrate these commands--files that contain lists of stars we see in the night sky. These files are organized by tropical zodiac signs and contain text data describing the most prominent stars aligned with each sign.  In _Example 58_ we change into the directory containing these files and list them to get a sense of what files we will be working with.
+
+.Listing the text files representing the twelve tropical zodiac signs and the Sun.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir ~ % cd examples/chapter-05/signs
+chris@ophir signs % ls
+Aquarius.txt    Gemini.txt  Sagittarius.txt  Virgo.txt
+Aries.txt       Leo.txt     Scorpio.txt
+Cancer.txt      Libra.txt   Sun.txt
+Capricorn.txt   Pisces.txt  Taurus.txt
+----
+
+Great!  We see that we have twelve files--plus a thirteenth for the Sun--that are named after the signs of the tropical zodiac, each representing a thirty degree area of the sky along the path of the Sun.  Let's take a look inside one of the files using the `+cat+` command, shown in  _Example 59_.
+
+.Using the `+cat+` command to view a file's contents in the terminal window on a Mac.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir constellations % cat Cancer.txt
+Sirius             	14°26'-Cancer      	white-dwarf        	0008ly 	-1.46
+Canopus            	15°19'-Cancer      	white-bright-giant 	0309ly 	-0.74
+Procyon            	26°08'-Cancer      	yellow-sub-giant   	0011ly 	+0.37
+Pollux             	23°33'-Cancer      	orange-giant       	0034ly 	+1.14
+Adhara             	21°07'-Cancer      	blue-bright-giant  	0405ly 	+1.50
+Castor-A           	20°35'-Cancer      	white-dwarf        	0051ly 	+1.58
+Wezen              	23°45'-Cancer      	yellow-super-giant 	1600ly 	+1.84
+Menkalinan         	00°15'-Cancer      	white-dwarf        	0081ly 	+1.90
+Alhena             	09°27'-Cancer      	white-sub-giant    	0109ly 	+1.92
+Mirzam             	07°32'-Cancer      	blue-bright-giant  	0493ly 	+1.97
+Aludra             	29°53'-Cancer      	blue-super-giant   	2000ly 	+2.45
+Tejat              	05°39'-Cancer      	red-giant          	0232ly 	+2.87
+Gomeisa            	22°32'-Cancer      	blue-dwarf         	0162ly 	+2.89
+Castor-B           	20°35'-Cancer      	white-dwarf        	0051ly 	+2.90
+Tau-Puppis         	28°05'-Cancer      	orange-giant       	0182ly 	+2.90
+Mebsuta            	10°17'-Cancer      	yellow-super-giant 	0845ly 	+2.98
+Furud              	07°43'-Cancer      	blue-dwarf         	0362ly 	+2.99
+----
+
+Awesome!  We chose to use the `+Cancer.txt+` file as a single argument, and the `+cat+` command read the contents of the file and printed them directly to standard out, displaying the contents directly in the terminal.  Since there is only a single file argument, there is no "concatenation" taking place in this example, but rather just the display.  This is part of the magic of the `+cat+` command--it is super simple to see the contents of a file with very little effort!
+
+Now that we know how to view the contents of a file, let's take a minute to understand what we are viewing.  Each file shows a list of stars, one per line of the file.  The first line of this text file lists the star named _Sirius_, which is a beautiful and colorful star, emitting dominantly white light back to Earth.  _Figure 36_ shows an image of Sirius and how intensely bright it is, even from a distance of 8 light years away--47 trillion miles or 75 trillion kilometers!{empty}footnote:[The term _light year_ is a measure of distance, defined by how long it takes light to travel in a one-year period.  This equates to 5.88 trillion miles, or 9.46 trillion kilometers.  Wow! For details, see Seidelmann, P. Kenneth. Explanatory Supplement to the Astronomical Almanac. United Kingdom: University Science Books, 1992. ISBN-13: 9781891389856]
+
+image::chapter-05-sirius-star.png[title="An image of Sirius, a white dwarf star 8 light years away from the Earth!  Image credit Akira Fujii.",pdfwidth=100%]
+
+We're now getting a sense of what the data in these files represent, based on the image in _Figure 36_.  It's stellar!  Let's dig a little deeper so we understand the information on each line of the file and what each column of data represents.  A line of a text file is a single horizontal row, followed by an invisible, non-printing _line ending_ character.  This is also known as a _record delimiter_.
+
+TIP: Text-based data files have a magical framework used for formatting and display that includes invisible characters.  These characters provide cues to applications rendering the data. For instance, in ASCII and UTF-8 encodings, there are special non-visible characters in a file that designate a _line ending_.  In Unix-like systems (Mac and Linux) it is the _linefeed_ character, also know as a _newline_ character.  It is often written as `+LF+` or as `+\n+` when conveying the invisible character.  For Windows text files, there are two special characters used as a line ending--a _carriage return_ character followed by a _linefeed_ character.  This is often written as `+CRLF+` or `\r\n`.
+
+Have a look at _Table 4_, which presents the same data from our `+cat+` command in _Example 59_.
+
+.The contents of the `+Cancer.txt+` file shown as a table with columns and rows, highlighting the orderly structure of the file.
+[%header,cols="^3m,^3m,^4m,^2m,^2m", stripes=even]
+|===
+|[.calloutnumber]##❶##{newline}Name
+|[.calloutnumber]##➋##{newline}Tropical&nbsp;Sign
+|[.calloutnumber]##❸##{newline}Spectral&nbsp;Class
+|[.calloutnumber]##❹##{newline}Distance
+|[.calloutnumber]##❺##{newline}Brightness
+
+<|Sirius              <|14°26'-Cancer       <|white-dwarf         |0008ly  |-1.46
+<|Canopus             <|15°19'-Cancer       <|white-bright-giant  |0309ly  |-0.74
+<|Procyon             <|26°08'-Cancer       <|yellow-sub-giant    |0011ly  |+0.37
+<|Pollux              <|23°33'-Cancer       <|orange-giant        |0034ly  |+1.14
+<|Adhara              <|21°07'-Cancer       <|blue-bright-giant   |0405ly  |+1.50
+<|Castor-A            <|20°35'-Cancer       <|white-dwarf         |0051ly  |+1.58
+<|Wezen               <|23°45'-Cancer       <|yellow-super-giant  |1600ly  |+1.84
+<|Menkalinan          <|00°15'-Cancer       <|white-dwarf         |0081ly  |+1.90
+<|Alhena              <|09°27'-Cancer       <|white-sub-giant     |0109ly  |+1.92
+<|Mirzam              <|07°32'-Cancer       <|blue-bright-giant   |0493ly  |+1.97
+<|Aludra              <|29°53'-Cancer       <|blue-super-giant    |2000ly  |+2.45
+<|Tejat               <|05°39'-Cancer       <|red-giant           |0232ly  |+2.87
+<|Gomeisa             <|22°32'-Cancer       <|blue-dwarf          |0162ly  |+2.89
+<|Castor-B            <|20°35'-Cancer       <|white-dwarf         |0051ly  |+2.90
+<|Tau-Puppis          <|28°05'-Cancer       <|orange-giant        |0182ly  |+2.90
+<|Mebsuta             <|10°17'-Cancer       <|yellow-super-giant  |0845ly  |+2.98
+<|Furud               <|07°43'-Cancer       <|blue-dwarf          |0362ly  |+2.99
+|===
+
+_Table 4_ really shows us the structure of the file, which is similar to a spreadsheet.  Each line of the file represents a row in the table with characteristics of the star in each column of the table.  We see that this file in our dataset contains seventeen of the most prominent stars aligned with the tropical sign of Cancer, one per row.  
+
+[.calloutnumber]##❶## Column 1 lists the star name.
+
+[.calloutnumber]##➋## Column 2 shows the location of the star as degrees and minutes within a tropical sign of the zodiac.
+
+[.calloutnumber]##❸## Column 3 of the table, the spectral class, is a short description of the quality of the light being emitted by the star and the relative size of the star.  
+
+[.calloutnumber]##❹## Column 4 shows how far away the star is in light years (ly). 
+
+[.calloutnumber]##❺## Column 5 shows the brightness magnitude of the star as we experience them visually from Earth.
+
+Note that brightness is on an inverse scale, so the smaller the number, the brighter the star looks in the sky.  Let's compare two of the stars in the sign of Cancer.  At `+-1.46+`, Sirius is considered a "minus-one-magnitude" star (super bright) compared to its celestial companion, Furud.  At `+2.99+`, Furud is a second-magnitude star, and super close to being a third-magnitude star.  It is still very bright, but four magnitudes less bright than Sirius, almost five.
+
+_Table 4_ gives us a good feel for the data in the `+Cancer.txt+` file, but what about the rest of the files?  Let's first combine the `+Cancer.txt+` file with `+Sun.txt+` file for a little more comparison.  We can do so by passing the two file names as arguments to the `+cat+` command, as shown in _Example 60_.
+
+.Using the `+cat+` command to concatenate the contents of two files and display the results in the terminal window on a Mac.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir signs % cat Cancer.txt Sun.txt
+Sirius             	14°26'-Cancer      	white-dwarf        	0008ly 	-1.46
+Canopus            	15°19'-Cancer      	white-bright-giant 	0309ly 	-0.74
+Procyon            	26°08'-Cancer      	yellow-sub-giant   	0011ly 	+0.37
+Pollux             	23°33'-Cancer      	orange-giant       	0034ly 	+1.14
+Adhara             	21°07'-Cancer      	blue-bright-giant  	0405ly 	+1.50
+Castor-A           	20°35'-Cancer      	white-dwarf        	0051ly 	+1.58
+Wezen              	23°45'-Cancer      	yellow-super-giant 	1600ly 	+1.84
+Menkalinan         	00°15'-Cancer      	white-dwarf        	0081ly 	+1.90
+Alhena             	09°27'-Cancer      	white-sub-giant    	0109ly 	+1.92
+Mirzam             	07°32'-Cancer      	blue-bright-giant  	0493ly 	+1.97
+Aludra             	29°53'-Cancer      	blue-super-giant   	2000ly 	+2.45
+Tejat              	05°39'-Cancer      	red-giant          	0232ly 	+2.87
+Gomeisa            	22°32'-Cancer      	blue-dwarf         	0162ly 	+2.89
+Castor-B           	20°35'-Cancer      	white-dwarf        	0051ly 	+2.90
+Tau-Puppis         	28°05'-Cancer      	orange-giant       	0182ly 	+2.90
+Mebsuta            	10°17'-Cancer      	yellow-super-giant 	0845ly 	+2.98
+Furud              	07°43'-Cancer      	blue-dwarf         	0362ly 	+2.99
+Sun                	Varies             	yellow-dwarf       	0000ly 	-26.7
+----
+
+So easy!  We've just combined the two files together, sending the results to standard output where it is displayed in the terminal.  Notice that the Sun has a visual magnitude of `+-26.7+`, obviously the brightest star in the sky!  Both Sirius and the Sun are considered dwarf stars, and the Sun is as close as it gets! It is listed as zero light years away, but in actuality it takes around eight minutes for the Sun's light to reach us, and it is 93 million miles away, or close to 150 million kilometers.  That of course is a huge distance, but as we'll see shortly, some of the stars we see in the sky are so amazingly far away, we have to use our imagination just to comprehend the vastness of the cosmos!
+
+Now that we know how to combine files, let's explore the data and answer some questions{emdash} _What are the brightest stars in the sky?_  _In fact, what are the 21 brightest stars?_ _Of the brightest stars, which are the most distant?_  To answer these and other questions, let's combine all of the tropical zodiac files together into one big list, and then sort them by visual brightness, and grab the brightest 21 stars.  We'll then sort the results by distance, and have a look at the most distant, but super bright stars.  They must be really big!  To complete our work, we will need the `+sort+` command and the `+head+` command, which we will explore. But first we need to learn about command line pipes, which we discuss in the next section.  Let's dive into the stars!
+
+===  Pipes
+
+In _Chapter 3. File Commands_, we learned how to use redirection to send the output of a command into a file using the `+>+` (greater-than) and `+>>+` (double-greater-than) operators.  In Unix-like systems, there is another similar concept called _pipes_, which allow you to send the output from one command into another command.  This is one of the most powerful and magical tools in our toolbox!  To do this, we use a different symbol from the keyboard--the `+|+` (pipe) symbol, which is sometimes referred to as a vertical bar.  When we chain commands together using the pipe symbol, collectively it is called a _pipeline_.  Have a look at _Figure 37_ which shows the parts of a pipeline with three commands.
+
+image::chapter-05-command-pipeline.svg[title="The parts of a command pipeline, where each command is separated by the pipe symbol.",pdfwidth=100%]
+
+It is super easy, and super powerful!  Let's take a moment to understand what is going on.  The principle is that you run the first command and send its results to the second command.  It in turn processes what it received, and sends its output to the third command.  And lastly, the third command processes what it received and produces the final results of the pipeline.  For instance in our star data pipeline, you will combine the data files with the `+cat+` command, and pipe the results to the `+sort+` command.  The results of the sorting will later be piped to the `+head+` command, where you will filter the sorted list and show just the 21 brightest stars. To see a visual depiction of a pipeline, have a look at _Figure 38_, which shows the data being passed from left to right through the command pipeline.
+
+image::chapter-05-command-pipeline-inputs-outputs.svg[title="Visualizing a command pipeline.  Command1 (c1) output becomes input for command2 (c2).  Command2 output becomes input for command3 (c3).  Command3 produces the final output of the pipeline.",pdfwidth=100%]
+
+This is absolutely amazing!  By using pipelines, we can chain together as many commands as we need to get the job done.  Let's give this a try in the next section where we concatenate all of our star files organized by tropical sign into a big list, and then sort that list.
+
+=== The sort Command--Sorting the Contents of a File
+
+In order to answer our questions about what are the brightest stars in the night sky, we'll need to be able to sort our data.  And yes, we have the magic!  The `+sort+` command is a super useful tool for reordering data.  We can use it as a standalone command by passing in a file name as an argument to sort the contents.  However, in our case we are going to use it in a pipeline where we sort the output of the previous `+cat+` command.  Have a look at _Example 61_ where we concatenate all of our tropical sign files that contain star information into one large output, and we send it to the `+sort+` command with a `+|+` (pipe) symbol.
+
+.Using the `+cat+` command in a command pipeline to concatenate the contents of all text files in a directory and then sort the lines.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir signs % cat *txt | sort
+Achernar           	15°39'-Pisces      	blue-dwarf         	0140ly 	+0.46
+Acrab              	03°32'-Sagittarius 	blue-dwarf         	0404ly 	+2.50
+Acrux-A            	12°12'-Scorpio     	blue-subgiant      	0322ly 	+1.34
+Beta-Arae          	24°33'-Sagittarius 	orange-super-giant 	0646ly 	+2.80
+Beta-Hydri         	01°17'-Aquarius    	yellow-sub-giant   	0024ly 	+2.80
+Canopus            	15°19'-Cancer      	white-bright-giant 	0309ly 	-0.74
+Deneb              	05°39'-Pisces      	white-super-giant  	2600ly 	+1.25
+Elnath             	22°55'-Gemini      	blue-giant         	0134ly 	+1.65
+Fang               	03°17'-Sagittarius 	blue-dwarf         	0586ly 	+2.91
+Gacrux             	07°05'-Scorpio     	red-giant          	0089ly 	+1.64
+Hadar              	24°08'-Scorpio     	blue-giant         	0392ly 	+0.58
+Imai               	06°01'-Scorpio     	blue-sub-giant     	0345ly 	+2.75
+Kakkab             	23°51'-Scorpio     	blue-giant         	0465ly 	+2.29
+...
+Lang-Exster        	10°01'-Aquarius    	orange-giant       	0200ly 	+2.85
+Mahasim            	29°57'-Pisces      	white-dwarf        	0166ly 	+2.62
+Naos               	18°54'-Leo         	blue-super-giant   	1100ly 	+2.25
+Okab               	20°08'-Capricorn   	white-dwarf        	0083ly 	+2.99
+Paikauhale         	11°48'-Sagittarius 	blue-dwarf         	0474ly 	+2.81
+Rasalhague         	22°47'-Sagittarius 	white-giant        	0049ly 	+2.07
+Sirius             	14°26'-Cancer      	white-dwarf        	0008ly 	-1.46
+Sun                	Varies             	yellow-dwarf       	0000ly 	-26.7
+Tarazed            	01°16'-Aquarius    	orange-bright-giant	0395ly 	+2.72
+Unukalhai          	22°25'-Scorpio     	orange-giant       	0074ly 	+2.63
+Vathorz-Posterior  	29°11'-Libra       	blue-dwarf         	0456ly 	+2.84
+Wezen              	23°45'-Cancer      	yellow-super-giant 	1600ly 	+1.84
+Xamididamura       	16°30'-Sagittarius 	blue-dwarf         	0501ly 	+3.00
+Yed-Prior          	02°38'-Sagittarius 	red-giant          	0171ly 	+2.75
+Zaurak             	24°13'-Taurus      	red-giant          	0203ly 	+2.94
+----
+
+Wow! Sorting is that easy!  Try it for yourself, since the output in _Example 61_ was truncated for display purposes.  We see that when we use the `+cat+` command and pass it all of the thirteen files ending in `+txt+` (using a `+*+` (star) wildcard to expand the file names), there are 175 lines of output, one line for each star.  We then pipe the results from the `+cat+` command into the `+sort+` command, and the final result is a listing of all lines within those files, sorted with the default sort criteria.  Notice that the results printed to the terminal screen are in the default _alphabetical_ sort order, based on the text content of each line.  This doesn't quite help us with our question about which stars are the brightest, so let's discuss sorting data numerically rather that alphabetically.
+
+==== Sorting numerically
+
+We're making progress! That was your first successful command pipeline! You can now modify your pipeline to sort the lines of text data in other ways than just alphabetical order.  Have a look at the manual page for the `+sort+` command to get a feeling for the command options.  One of the indispensable options for sorting text data as columns is the `+-k+` option, which lets us tell the command which field (column, or key) to use to sort the data.  Let's use this option to sort our star data, first by magnitude (brightness).
+
+Take a look at _Example 61_ and notice how the lines of data have blank spaces, and the data are visually arranged as columns and rows, as we highlighted in _Table 4_.  The brightness numbers are in the fifth column, which is also referred to as the fifth _field_.  The manual page tells us that the `+-k+` option takes one or more field numbers to sort by, and in our case we will use `+-k 5+` to sort by the fifth column.  We'll also use the `+-g+` option to do a "general numeric sort".  By using this option, the command will know how to handle the `+++` (plus) and `+-+` (minus) signs the prefix our brightness values.  Go ahead and give it a try!  _Example 62_ shows the results of our modified command pipeline.
+
+.Combining all star files using the `+cat+` command and piping the results to the `+sort+` command, sorting numerically on column 5.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir signs % cat *txt | sort -k 5 -g 
+Sun                	Varies             	yellow-dwarf       	0000ly 	-26.7
+Sirius             	14°26'-Cancer      	white-dwarf        	0008ly 	-1.46
+Canopus            	15°19'-Cancer      	white-bright-giant 	0309ly 	-0.74
+Arcturus           	24°34'-Libra       	orange-giant       	0037ly 	-0.05
+Rigil-Kentaurus    	29°47'-Scorpio     	yellow-dwarf       	0004ly 	+0.01
+...
+Pollux             	23°33'-Cancer      	orange-giant       	0034ly 	+1.14
+Fomalhaut          	04°12'-Pisces      	white-dwarf        	0025ly 	+1.16
+Deneb              	05°39'-Pisces      	white-super-giant  	2600ly 	+1.25
+...
+Diphda             	02°56'-Aries       	yellow-giant       	0096ly 	+2.00
+Hamal              	08°00'-Taurus      	orange-giant       	0066ly 	+2.01
+Polaris            	28°55'-Gemini      	yellow-super-giant 	0433ly 	+2.02
+Menkent            	12°39'-Scorpio     	orange-giant       	0059ly 	+2.05
+...
+Delta-Centauri     	27°29'-Libra       	blue-sub-giant     	0415ly 	+2.42
+Sabik              	18°18'-Sagittarius 	white-dwarf        	0088ly 	+2.42
+Scheat             	29°22'-Pisces      	red-giant          	0196ly 	+2.42
+...
+Yed-Prior          	02°38'-Sagittarius 	red-giant          	0171ly 	+2.75
+Zubenelgenubi      	15°25'-Scorpio     	white-sub-giant    	0076ly 	+2.75
+Beta-Lupi          	25°01'-Scorpio     	blue-giant         	0383ly 	+2.76
+...
+Castor-B           	20°35'-Cancer      	white-dwarf        	0051ly 	+2.90
+Tau-Puppis         	28°05'-Cancer      	orange-giant       	0182ly 	+2.90
+Fang               	03°17'-Sagittarius 	blue-dwarf         	0586ly 	+2.91
+...
+Beta-Triangulum    	12°42'-Taurus      	white-sub-giant    	0127ly 	+3.00
+Vathorz-Prior      	23°14'-Libra       	blue-super-giant   	1400ly 	+3.00
+Xamididamura       	16°30'-Sagittarius 	blue-dwarf         	0501ly 	+3.00
+----
+
+Perfect!  Just like that, you just did your first command line sort!  All 175 stars were displayed in the terminal, sorted based on their numeric brightness value in column five of the data.  For display purposes, the results in _Example 62_ have been truncated, but your results should be the fully sorted list of stars.  The list scrolls out of view quickly, so it's a challenge to see the brightest stars without scrolling up in the Terminal window, so let's go one step further in our pipeline and zone in on the top 21 brightest stars using the `+head+` command--because 21 is just an awesome number!
 
 === The head Command--Previewing the Top of a File
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+We will continue with some handy `+sort+` command features shortly, but let's turn our attention to the `+head+` command, so we can answer our question{emdash} _What are the 21 brightest stars in the sky?_  The `+head+` command is a very simple text handling command that helps you display just the lines at the top of a file, and by default it will show you the top 10 lines.  Conveniently, with the `+-n+` option, we can specify the exact number of lines we're interested in.  So go ahead and add the `+head+` command to your previous star exploration pipeline, and let's find those top 21 stars!  _Example 63_ shows the results of our pipeline.
+
+.Displaying the top 21 lines of text from a command pipeline using the `+head+` command.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir signs % cat *txt | sort -k 5 -g | head -n 21
+Sun                	Varies             	yellow-dwarf       	0000ly 	-26.7
+Sirius             	14°26'-Cancer      	white-dwarf        	0008ly 	-1.46
+Canopus            	15°19'-Cancer      	white-bright-giant 	0309ly 	-0.74
+Arcturus           	24°34'-Libra       	orange-giant       	0037ly 	-0.05
+Rigil-Kentaurus    	29°47'-Scorpio     	yellow-dwarf       	0004ly 	+0.01
+Vega               	15°39'-Capricorn   	white-dwarf        	0025ly 	+0.03
+Capella            	22°12'-Gemini      	yellow-giant       	0043ly 	+0.08
+Rigel              	17°11'-Gemini      	blue-super-giant   	0860ly 	+0.13
+Procyon            	26°08'-Cancer      	yellow-sub-giant   	0011ly 	+0.37
+Betelgeuse         	29°06'-Gemini      	red-super-giant    	0498ly 	+0.42
+Achernar           	15°39'-Pisces      	blue-dwarf         	0140ly 	+0.46
+Hadar              	24°08'-Scorpio     	blue-giant         	0392ly 	+0.58
+Altair             	02°07'-Aquarius    	white-dwarf        	0017ly 	+0.76
+Aldebaran          	10°08'-Gemini      	orange-giant       	0067ly 	+0.86
+Antares            	10°06'-Sagittarius 	red-super-giant    	0554ly 	+0.91
+Spica              	24°11'-Libra       	blue-subgiant      	0250ly 	+0.97
+Pollux             	23°33'-Cancer      	orange-giant       	0034ly 	+1.14
+Fomalhaut          	04°12'-Pisces      	white-dwarf        	0025ly 	+1.16
+Deneb              	05°39'-Pisces      	white-super-giant  	2600ly 	+1.25
+Mimosa             	11°59'-Scorpio     	blue-giant         	0279ly 	+1.25
+Toliman            	29°47'-Scorpio     	orange-dwarf       	0004ly 	+1.33
+----
+
+Ah, such tidy results!  By adding the `+head+` command to the pipeline, you just trimmed the results down to the top 21 lines of the output, zoning in on the brightest stars in the sky!  And have a look at _Example 63_, where the star Sirius, which aligns with the sign of Cancer, is the brightest star in the sky, second only of course to our very own Sun.  So cool!  We mentioned earlier in the chapter that Sirius is 8 light years away from Earth, or 47 trillion miles or 75 trillion kilometers.  Definitely take a look at Sirius as it rises in the eastern sky at night.  With a pair of binoculars or a telescope, you can see its colors dancing around like a disco ball!
+
+With a few short commands, we are seeing how easy it is to combine files, sort the contents, and extract some very enlightening information from the results.  What is even better is that these commands work equally well with files that have millions of lines of text, an enormous benefit from these small tools already present on your computer!
+
+But let's now continue exploring our commands and the stars, because we have more intriguing questions to answer.  In _Example 63_ we see Canopus, the third brightest star in the sky, with only Sirius and the Sun being brighter. Canopus is the brightest star in the southern hemisphere, and known as the Great Star of the South, it is 309 light years away from the Earth.  Wow!  That equates to approximately 1.8 quadrillion miles or 2.9 quadrillion kilometers.  Wait, what?!  That is very far away.  And despite this distance, Canopus shines brightly in the night sky, particularly for everyone in the southern hemisphere.  Its diameter is over 70 times greater than our Sun, and it is classified as a white bright giant.
+
+So this is interesting--we have some very bright, but very distant stars in our list of the 21 brightest stars, but _which is the most distant of these very bright stars in the sky_?  Now that we know how to sort by columns in a text file, we can answer this question by sorting by distance in our command pipeline.  But first, to get a better understanding of how all of our commands can recognize one column from the next, let's discuss the magical framework of both visible and invisible formatting character that are used to structure text data files.
+
+==== Formatting characters in text data
+
+When we glance at the lines of text in our previous _Example 63_, it's very easy for humans to see that the data are not only organized as lines (i.e. records or rows), but each line is also organized into vertical collections (i.e. fields or columns).  _Table 4_ highlights this structure.  But how do commands like `+sort+` process the files as rows and columns so readily?
+
+Text data files use a variety of both visible and invisible characters to format the contents, and collectively they provide a subtle yet powerful framework for organizing data.  When you create text files, you can also use these characters to keep things organized.
+
+As we discussed before, we know that the lines of star data in our text files have an invisible `+\n+` (newline) line ending character, which defines what a row is in the data table.  You may be asking{emdash} _What defines each of the columns?_ Part of the magical framework for formatting and display of text data includes a _field separator_.  Field separators are characters in the file that separate the text on a given line into fields (columns).  These characters can be anything, but are often comma, tab, or space characters.  Have a look at _Figure 39_, which depicts text files with both tabs and commas as field separators (column separators).
+
+image::chapter-05-text-data-delimiters.svg[title="Visualizing text file fields (columns) in two types of files.  Tab separated values (TSV) files use invisible tab characters between columns as a field separator.  Comma separated values (CSV) files use commas between columns as a field separator.  Both use invisible newline characters as the record delimiter (line ending).",pdfwidth=100%]
+
+The text is colored in _Figure 39_ to highlight the vertical columns of information.  Notice that in the top example the field separator is the tab keyboard character.  This is an invisible (non-printing) character that is used for indentation.  So _tab separated values_ files, or TSV files as a shorthand, have a tab character in between columns of data.  These file names often end in `+.tsv+` or `+.txt+`.  TSV files can be directly imported into spreadsheet applications.
+
+The second example in _Figure 39_ shows a `+,+` (comma) field separator.  Text data files with columns separated by a comma are often referred to as _comma separated values_ files, or "CSV" files as a shorthand.  These file names often end in `+.csv+`, and can also be directly imported into spreadsheet applications.
+
+NOTE: When viewing text files in the terminal application, the width of the terminal window may affect the display.  If the window is too narrow, lines of data will wrap to the next line, causing the data to look messy.  In this case, increase the width of your terminal application window, and the columns of text files should align appropriately.
+
+==== Sorting files based on field separators
+
+Given this knowledge about formatting characters used in text data files, let's continue to sort our star data based on each star's distance from us in light years.  Many commands take advantage of these invisible formatting characters when handling text files, and the `+sort+` command is one of them!  When you look at the manual page for the `+sort+` command, you will see that the `+-t+` option lets you tell the command what character to use to separate fields (columns).  As we mentioned earlier, our star data files use the invisible tab character to separate the columns, so we need to tell the sort command to use a tab as the field separator.  Let's give this a try!
+
+
+In our second sort command, we will use the `+-k 4+` option to specify the fourth field to sort by (distance).  We will sort numerically using the `+-n+` option, and will use the `+-t+` option to explicitly set the field sparator.  
+
+The command pipeline shown below includes the `+-t+` option followed by two consecutive doublequotes. The command is almost complete, but _how do we insert a tab character between the doublequotes?_  When you are typing this command and press the kbd:[Tab] key to insert a tab character in that location, the shell interprets the keypress as a desire to use the tab completion feature of the shell, which we don't want.  We want to insert an invisible tab character. _How do we solve this_?  There is a little gem of a key combination that lets us insert a tab character on the command line.
+
+image::chapter-05-command-line-tab-characters.svg[caption="", pdfwidth=100%]
+
+[.calloutnumber]##❶## Move your cursor directly after the first `+"+` (doublequote) character--the block cursor will be sitting on the second `+"+` (doublequote) character.  Then type the following key combination to insert a tab character{emdash} kbd:[Control] + kbd:[v] then kbd:[Tab].  This tells the shell to forego tab completion, and just insert the invisible character.  Ah, the magic!
+
+----
+cat *txt | sort -k 5 -g | head -n 21 | sort -k 4 -n -t "	"
+----
+
+We now have an invisible tab character between our doublequotes and are ready to sort our data!  Take a look at _Example 64_, which concatenates all of the star files and sorts them by visual brightness, grabs the top 21 lines, and then sorts those lines numerically by distance in light years with an explicit tab character field separator.
+
+.Sorting the output of the `+head+` command using a tab as the field separator (`+-t "    "+`) and the fourth field as the column key (`+-k 4+`) numerically (`+-n+`).  The example shows uses a `+\+` (backslash) character to create multi-line command for display purposes.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir signs % cat *txt | sort -k 5 -g | \
+head -n 21 | sort -k 4 -n -t "	" <1>
+Sun                	Varies             	yellow-dwarf       	0000ly 	-26.7
+Rigil-Kentaurus    	29°47'-Scorpio     	yellow-dwarf       	0004ly 	+0.01
+Toliman            	29°47'-Scorpio     	orange-dwarf       	0004ly 	+1.33
+Sirius             	14°26'-Cancer      	white-dwarf        	0008ly 	-1.46
+Procyon            	26°08'-Cancer      	yellow-sub-giant   	0011ly 	+0.37
+Altair             	02°07'-Aquarius    	white-dwarf        	0017ly 	+0.76
+Fomalhaut          	04°12'-Pisces      	white-dwarf        	0025ly 	+1.16
+Vega               	15°39'-Capricorn   	white-dwarf        	0025ly 	+0.03
+Pollux             	23°33'-Cancer      	orange-giant       	0034ly 	+1.14
+Arcturus           	24°34'-Libra       	orange-giant       	0037ly 	-0.05
+Capella            	22°12'-Gemini      	yellow-giant       	0043ly 	+0.08
+Aldebaran          	10°08'-Gemini      	orange-giant       	0067ly 	+0.86
+Achernar           	15°39'-Pisces      	blue-dwarf         	0140ly 	+0.46
+Spica              	24°11'-Libra       	blue-subgiant      	0250ly 	+0.97
+Mimosa             	11°59'-Scorpio     	blue-giant         	0279ly 	+1.25
+Canopus            	15°19'-Cancer      	white-bright-giant 	0309ly 	-0.74
+Hadar              	24°08'-Scorpio     	blue-giant         	0392ly 	+0.58
+Betelgeuse         	29°06'-Gemini      	red-super-giant    	0498ly 	+0.42
+Antares            	10°06'-Sagittarius 	red-super-giant    	0554ly 	+0.91
+Rigel              	17°11'-Gemini      	blue-super-giant   	0860ly 	+0.13
+Deneb              	05°39'-Pisces      	white-super-giant  	2600ly 	+1.25
+----
+<1> A quoted invisible tab character is used as the `+-t+` option value.
+
+Excellent!  You just completed your first command pipeline with multiple sorts!  The possibilites are endless when creating pipelines, and we can see that our results have reordered the 21 brigtest stars in ascending order according to the fourth field--the distance in light years from Earth.  You can see that the last four stars in the list are Betelgeuse, Antares, Rigel, and Deneb, and they are all categorized as super-giant stars.  Deneb, the brightest star in the constellation of Cygnus (the Swan), is therefore the most distant of the 21 brightest stars.  At an estimated 2600 light years away from Earth, Deneb is a massive and luminous star, approximately 200 times the diameter of our Sun!{empty}footnote:[For the physical measurements of Deneb, see the work by Schiller, F., Pryzbilla, N. "Quantitative spectroscopy of Deneb ^*,pass:[**]^". Astronomy and Astrophysics Volume 479, Number 3 (March 1 2008): 849-858. https://doi.org/10.1051/0004-6361:20078590]  Now we can see that these very distant stars--with Deneb being the equivalent of 15 quadrillion miles away (24 quadrillion kilometers)--are among the brightest stars in the sky because they are so incredibly large!  By using a few simple commands within a command pipeline, we are able to answer some interesting questions about our star data.  We discovered that Deneb is the most distant of the brightest 21 stars.  However, _of all 175 brightest stars in the sky, which is the most distant_?  Let's learn about the `+tail+` command and answer this question.
 
 === The tail Command--Previewing the Bottom of a File
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+We learned about the `+head+` command in a previous section, which displays the top of a file.  The `+tail+` command is very similar, but displays the end of a file, with a default value of ten lines.  This command is super useful when your command results are expected to be extremely long, and you are only interested in the last lines of the output.
+
+In our case, let's change our command pipeline where we sort the entire 175-star list using the distance field (column 4), and then return only the 10 most distant stars using the `+tail+` command.  Our command pipeline will be similar to _Example 64_, but a bit shorter:
+
+----
+cat *txt | sort -k 4 -n -t "	" | tail
+----
+
+Go ahead and try this command yourself, and remember to use the handy trick for inserting an invisible tab character on the command line{emdash} kbd:[Control] + kbd:[v] then kbd:[Tab].  _Example 65_ shows the results of this command.
+
+.Using the `+tail+` command to limit command output to the last ten lines.  All of the tropical sign star files are combined, sorted numerically by distance in light years, and filtered to show just the last ten lines of the result.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir signs % cat *txt | sort -k 4 -n -t "	" | tail 
+Almaaz             	19°11'-Gemini      	yellow-super-giant 	1400ly 	+2.99
+Vathorz-Prior      	23°14'-Libra       	blue-super-giant   	1400ly 	+3.00
+Wezen              	23°45'-Cancer      	yellow-super-giant 	1600ly 	+1.84
+Sadr               	25°10'-Aquarius    	yellow-super-giant 	1800ly 	+2.23
+Girtab             	27°52'-Sagittarius 	blue-giant         	1930ly 	+2.99
+Alnilam            	23°49'-Gemini      	blue-super-giant   	2000ly 	+1.69
+Aludra             	29°53'-Cancer      	blue-super-giant   	2000ly 	+2.45
+Arneb              	21°44'-Gemini      	yellow-super-giant 	2200ly 	+2.57
+Hatysa             	23°21'-Gemini      	blue-white-giant   	2300ly 	+2.77
+Deneb              	05°39'-Pisces      	white-super-giant  	2600ly 	+1.25
+----
+
+So easy!  The `+tail+` command is a go-to utility for grabbing the last lines of your output, and is particularly useful when the results are thousands of lines long and you are only interested in the last lines.  Another very common scenario for the tail command is to view the most recent lines being appended to log files on your computer.
+
+NOTE:  Computers applications and other processes running on your system regularly create files that are called _logs_.  These files are used to periodically append information about the running application, like status information, warnings, errors, and crashes.  These files often have a file extension of `+.log+`, for instance `+system.log+`, and are used for troubleshooting.
+
+In command line lingo, we use the phrase "tail a file", which means to use the `+tail+` command with the `+-f+` option.  This is another gem of a tool where you can monitor what is being added into a file in real time.  Let's set up a small example of how to use the `+tail -f+` option.  To do so, we'll need two terminal windows open--one to write lines to a file, and another to tail the file.  Choose which operating system you are using below for a reminder on opening new terminal windows.
+
+Mac:: (1) In the Terminal application, press the keyboard shortcut kbd:[Command] + kbd:[N]; or (2) Choose the Terminal application's _Shell > New Window > New Window with Profile - Basic_ menu item.
+
+Linux:: (1) In the Gnome Terminal application, press the keyboard shortcut kbd:[Command] + kbd:[Shift] + kbd:[N]; or (2) Click on the Gnome Terminal application's menu icon in the window title bar and choose _New Window_.
+
+Windows:: (1) In the Windows Terminal application, hold the the the keyboard + kbd:[Shift] button and click on the `+++` (plus) icon in the window title bar; or (2) Click on the Windows Terminal application's dropdown menu in the window's title bar, hold down the kbd:[Shift] button, and choose the _Ubuntu_ menu item.  
+
+Each of the graphical steps are shown in the screenshots in _Figure 40_.
+
+image::chapter-05-new-terminal-windows.png[title="Opening a new terminal window on Mac, Linux, and Windows, using each application's menu dropdown items.",pdfwidth=100%]
+
+Once you have two terminal windows open, arrange them side-by-side.  In the left terminal, issue the following command to redirect a line of text into a file called `+stars.log+`:
+
+----
+chris@ophir ~ % echo "The stars are aligning!" >> stars.log
+----
+
+Next, in the right terminal window, use the `+tail+` command with the `+-f+` option to view the `+stars.log+` file in real time:
+
+----
+chris@ophir ~ % tail -f stars.log
+----
+
+Finally, return to your left terminal window, and repeatedly re-issue the same `+echo+` command as before, three or four times:
+
+----
+chris@ophir ~ % echo "The stars are aligning!" >> stars.log
+chris@ophir ~ % echo "The stars are aligning!" >> stars.log
+chris@ophir ~ % echo "The stars are aligning!" >> stars.log
+chris@ophir ~ % echo "The stars are aligning!" >> stars.log
+----
+
+As you do, you'll see each of the lines of text show up in the right terminal window in real time.  Your terminals should look similar to what you see in _Figure 41_, which shows the results of tailing a file.
+
+image::chapter-05-macos-tailing-a-file.png[title="Using two terminal windows to demonstrate how to tail a file.  The left window echoes lines of text into a file.  The right window displays the content being appended in real time using `+tail -f+`.",pdfwidth=100%]
+
+This is a very simple example that demonstrates how the `+tail+` command can show what is being appended into a file, and shows how easy it is to monitor log files.  Both the `+head+` and the `+tail+` commands are useful for getting to information at the top and the bottom of files respectively.  You may be wondering{emdash} _How do you display lines from anywhere in a file?_  In the next section we will explore the `+grep+` command, which allows us to search all lines in a file, and find exactly what we're looking for.  Let's have a look!
 
 === The grep Command--Filtering Data
 
 Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
 
-===  Pipes
-
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
 
 <<<
 === Command Line Data Handling is Awesome!
