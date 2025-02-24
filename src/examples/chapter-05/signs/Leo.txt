@@ -1,0 +1,11 @@
+Dubhe              	15°33'-Leo         	orange-giant       	0123ly 	+1.79
+Regor              	27°21'-Leo         	wolf-rayet         	1100ly 	+1.83
+Alphard            	27°37'-Leo         	orange-giant       	0180ly 	+1.97
+Kochab             	13°41'-Leo         	orange-giant       	0231ly 	+2.08
+Naos               	18°54'-Leo         	blue-super-giant   	1100ly 	+2.25
+Aspidiske          	11°44'-Leo         	blue-super-giant   	0766ly 	+2.26
+Algieba            	29°58'-Leo         	orange-giant       	0130ly 	+2.37
+Merak              	19°47'-Leo         	white-dwarf        	0080ly 	+2.37
+Ahadi              	11°44'-Leo         	orange-super-giant 	0807ly 	+2.70
+Tureis             	11°44'-Leo         	yellow-super-giant 	0064ly 	+2.81
+Algenubi           	21°03'-Leo         	yellow-bright-giant	0247ly 	+2.95

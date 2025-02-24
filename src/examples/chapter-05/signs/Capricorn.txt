@@ -1,0 +1,10 @@
+Vega               	15°39'-Capricorn   	white-dwarf        	0025ly 	+0.03
+Kaus-Australis     	05°25'-Capricorn   	blue-giant         	0143ly 	+1.81
+Peacock            	24°09'-Capricorn   	blue-sub-giant     	0179ly 	+1.92
+Nunki              	12°43'-Capricorn   	blue-dwarf         	0228ly 	+2.07
+Ascella            	13°58'-Capricorn   	white-giant        	0088ly 	+2.59
+Kaus-Media         	04°55'-Capricorn   	orange-giant       	0348ly 	+2.67
+Kaus-Borealis      	06°39'-Capricorn   	orange-giant       	0078ly 	+2.81
+Albaldah           	16°86'-Capricorn   	yellow-bright-giant	0510ly 	+2.88
+Alnasl             	01°37'-Capricorn   	orange-giant       	0097ly 	+2.99
+Okab               	20°08'-Capricorn   	white-dwarf        	0083ly 	+2.99

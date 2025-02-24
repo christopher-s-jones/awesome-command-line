@@ -1,0 +1,4 @@
+Diphda             	02°56'-Aries       	yellow-giant       	0096ly 	+2.00
+Alpheratz          	14°39'-Aries       	blue-sub-giant     	0097ly 	+2.06
+Alderamin          	13°07'-Aries       	white-dwarf        	0049ly 	+2.46
+Algenib            	09°30'-Aries       	blue-sub-giant     	0469ly 	+2.84

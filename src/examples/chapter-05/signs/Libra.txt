@@ -1,0 +1,14 @@
+Arcturus           	24°34'-Libra       	orange-giant       	0037ly 	-0.05
+Spica              	24°11'-Libra       	blue-subgiant      	0250ly 	+0.97
+Alherem            	10°57'-Libra       	yellow-giant       	0117ly 	+2.10
+Delta-Centauri     	27°29'-Libra       	blue-sub-giant     	0415ly 	+2.42
+Izar               	28°27'-Libra       	orange-giant       	0203ly 	+2.45
+Kraz               	17°42'-Libra       	yellow-bright-giant	0146ly 	+2.64
+Muphrid            	19°41'-Libra       	yellow-sub-giant   	0037ly 	+2.68
+Athebyne           	14°52'-Libra       	yellow-giant       	0092ly 	+2.74
+Porrima            	10°30'-Libra       	bright-yellow-dwarf	0038ly 	+2.74
+Vindemiatrix       	10°17'-Libra       	yellow-giant       	0110ly 	+2.79
+Vathorz-Posterior  	29°11'-Libra       	blue-dwarf         	0456ly 	+2.84
+Algorab            	13°48'-Libra       	blue-dwarf         	0086ly 	+2.94
+Minkar             	12°01'-Libra       	orange-giant       	0318ly 	+2.98
+Vathorz-Prior      	23°14'-Libra       	blue-super-giant   	1400ly 	+3.00

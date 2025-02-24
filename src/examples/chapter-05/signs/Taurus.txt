@@ -1,0 +1,12 @@
+Hamal              	08°00'-Taurus      	orange-giant       	0066ly 	+2.01
+Mirach             	00°45'-Taurus      	red-giant          	0197ly 	+2.05
+Almach             	14°34'-Taurus      	orange-bright-giant	0355ly 	+2.10
+Algol              	26°31'-Taurus      	blue-dwarf         	0090ly 	+2.12
+Cih                	14°16'-Taurus      	blue-sub-giant     	0613ly 	+2.15
+Schedar            	08°08'-Taurus      	orange-giant       	0228ly 	+2.23
+Caph               	05°28'-Taurus      	bright-yellow-giant	0055ly 	+2.27
+Menkar             	14°40'-Taurus      	red-giant          	0249ly 	+2.53
+Sheratan           	04°19'-Taurus      	white-dwarf        	0059ly 	+2.65
+Ruchbah            	18°17'-Taurus      	white-sub-giant    	0095ly 	+2.68
+Zaurak             	24°13'-Taurus      	red-giant          	0203ly 	+2.94
+Beta-Triangulum    	12°42'-Taurus      	white-sub-giant    	0127ly 	+3.00

@@ -1,0 +1,17 @@
+Sirius             	14°26'-Cancer      	white-dwarf        	0008ly 	-1.46
+Canopus            	15°19'-Cancer      	white-bright-giant 	0309ly 	-0.74
+Procyon            	26°08'-Cancer      	yellow-sub-giant   	0011ly 	+0.37
+Pollux             	23°33'-Cancer      	orange-giant       	0034ly 	+1.14
+Adhara             	21°07'-Cancer      	blue-bright-giant  	0405ly 	+1.50
+Castor-A           	20°35'-Cancer      	white-dwarf        	0051ly 	+1.58
+Wezen              	23°45'-Cancer      	yellow-super-giant 	1600ly 	+1.84
+Menkalinan         	00°15'-Cancer      	white-dwarf        	0081ly 	+1.90
+Alhena             	09°27'-Cancer      	white-sub-giant    	0109ly 	+1.92
+Mirzam             	07°32'-Cancer      	blue-bright-giant  	0493ly 	+1.97
+Aludra             	29°53'-Cancer      	blue-super-giant   	2000ly 	+2.45
+Tejat              	05°39'-Cancer      	red-giant          	0232ly 	+2.87
+Gomeisa            	22°32'-Cancer      	blue-dwarf         	0162ly 	+2.89
+Castor-B           	20°35'-Cancer      	white-dwarf        	0051ly 	+2.90
+Tau-Puppis         	28°05'-Cancer      	orange-giant       	0182ly 	+2.90
+Mebsuta            	10°17'-Cancer      	yellow-super-giant 	0845ly 	+2.98
+Furud              	07°43'-Cancer      	blue-dwarf         	0362ly 	+2.99

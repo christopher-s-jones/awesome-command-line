@@ -1,0 +1,10 @@
+Altair             	02°07'-Aquarius    	white-dwarf        	0017ly 	+0.76
+Gruid              	22°19'-Aquarius    	red-giant          	0177ly 	+2.11
+Sadr               	25°10'-Aquarius    	yellow-super-giant 	1800ly 	+2.23
+Aljanah            	28°05'-Aquarius    	orange-giant       	0073ly 	+2.48
+Gienah             	28°05'-Aquarius    	orange-giant       	0073ly 	+2.58
+Tarazed            	01°16'-Aquarius    	orange-bright-giant	0395ly 	+2.72
+Beta-Hydri         	01°17'-Aquarius    	yellow-sub-giant   	0024ly 	+2.80
+Deneb-Algedi       	23°53'-Aquarius    	white-giant        	0039ly 	+2.83
+Lang-Exster        	10°01'-Aquarius    	orange-giant       	0200ly 	+2.85
+Fawaris            	16°34'-Aquarius    	blue-sub-giant     	0165ly 	+2.87

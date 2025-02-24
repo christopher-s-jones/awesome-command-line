@@ -1,0 +1,12 @@
+Regulus            	00°10'-Virgo       	blue-dwarf         	0079ly 	+1.40
+Alioth             	09°17'-Virgo       	white-dwarf        	0083ly 	+1.77
+Alsephina          	18°57'-Virgo       	white-dwarf        	0081ly 	+1.77
+Alkaid             	27°17'-Virgo       	blue-dwarf         	0104ly 	+1.86
+Avior              	23°28'-Virgo       	orange-giant       	0605ly 	+1.86
+Denebola           	21°57'-Virgo       	white-dwarf        	0036ly 	+2.13
+Suhail             	11°32'-Virgo       	orange-super-giant 	0545ly 	+2.21
+Mizar              	16°03'-Virgo       	white-dwarf        	0081ly 	+2.22
+Phecda             	00°50'-Virgo       	white-dwarf        	0083ly 	+2.44
+Markeb             	29°15'-Virgo       	blue-sub-giant     	0389ly 	+2.51
+Zosma              	11°40'-Virgo       	white-dwarf        	0058ly 	+2.53
+Cor-Caroli         	24°55'-Virgo       	bright-yellow-dwarf	0107ly 	+2.88

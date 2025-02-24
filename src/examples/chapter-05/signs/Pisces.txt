@@ -1,0 +1,12 @@
+Achernar           	15°39'-Pisces      	blue-dwarf         	0140ly 	+0.46
+Fomalhaut          	04°12'-Pisces      	white-dwarf        	0025ly 	+1.16
+Deneb              	05°39'-Pisces      	white-super-giant  	2600ly 	+1.25
+Ankaa              	15°50'-Pisces      	orange-giant       	0085ly 	+2.38
+Enif               	02°13'-Pisces      	orange-super-giant 	0690ly 	+2.39
+Scheat             	29°22'-Pisces      	red-giant          	0196ly 	+2.42
+Markab             	23°49'-Pisces      	blue-dwarf         	0133ly 	+2.48
+Mahasim            	29°57'-Pisces      	white-dwarf        	0166ly 	+2.62
+Alpha-Hydri        	12°27'-Pisces      	bright-yellow-giant	0072ly 	+2.85
+Sadalsuud          	03°44'-Pisces      	yellow-super-giant 	0537ly 	+2.89
+Sadalmelik         	03°41'-Pisces      	yellow-super-giant 	0524ly 	+2.94
+Matar              	26°03'-Pisces      	yellow-bright-giant	0238ly 	+2.95
