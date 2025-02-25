@@ -1,4 +1,4 @@
-== Utility Commands: less, history, open, alias
+== Utility Commands: less, history, open
 
 === Utilities That Make Your Life Easier
 
@@ -15,10 +15,6 @@ Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant males
 === The open Command--Opening Files and Folders
 
 https://superuser.com/questions/38984/linux-equivalent-command-for-open-command-on-mac-windows Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
-
-=== The alias Command--Creating Command Shortcuts
-
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
 
 <<<
 === Command Line Utilities are Awesome!
