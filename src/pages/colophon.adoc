@@ -5,8 +5,6 @@ by {author}
 
 Copyright (C) {pubyear} {author}. All rights reserved.
 
-Printing and binding by {printername}.  Printed in the {printerlocation}.
-
 Published by {publisher}, {pubaddress}
 
 The _Awesome Command Line_ series of books may be purchased for personal, educational, or business use.  See {bookurl} for details.
