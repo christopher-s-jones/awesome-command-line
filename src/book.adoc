@@ -22,6 +22,7 @@ endif::[]
 :sectnumlevels: 1
 :toc: macro
 :toc-title: Contents
+:docdir: .
 :doctype: book
 // :revnumber: 1.0
 // :revdate: {docdate}
