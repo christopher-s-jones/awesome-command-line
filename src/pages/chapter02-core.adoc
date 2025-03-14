@@ -11,7 +11,7 @@ NOTE: In computing terminology, a _directory_ is synonymous with a _folder_, and
 
 When talking about this root directory, it is usually referred to as _slash_ (a shorthand for forward slash).  _Figure 17_ shows the root directory and the immediate sub-directories on a typical Mac installation.
 
-image::chapter-02-macOS-top-level-folders.png[title="The root directory (called slash) and its immediate sub-directories shown on a Mac.", pdfwidth=100%]
+image::images/chapter-02-macOS-top-level-folders.png[title="The root directory (called slash) and its immediate sub-directories shown on a Mac.", pdfwidth=100%]
 
 You can see that everything is organized under a single directory, and we'll be discussing this directory hierarchy in the coming sections.  _Figure 17_ depicts what first-level sub-directories are shown in the graphical user interface, but in reality there are a number of other sub-directories at this level that can be shown in the command line interface, and we will explore that shortly.  But first, let's have a look at our first command that we briefly introduced in previous sections called `+pwd+`.  This command can help us illustrate a location in the file system hierarchy, so let's have a look!
 
@@ -54,7 +54,7 @@ We can see some differences across Mac, Linux, and Windows in the results of the
 
 We've been discussing the results of the `+pwd+` command (e.g. `+/Users/chris+`), and this is a good time to define what those characters really represent, which is a _directory path_.  A directory path is a concise way to represent the path through the hierarchy of the file system tree to a given directory with just text characters.  And likewise, a _file path_ is a concise representation of a path through the file system tree to a given file.  Directory and file paths use the `+/+` (forward slash) character to separate folder and file names in the path.  This, unsurprisingly, is called the _path separator_.  _Figure 18_ depicts the directory path represented by `+/Users/chris+`.  
 
-image::chapter-02-macOS-directory-path.png[title="The path from the root directory (slash) to the home directory of the user chris on a Mac, shown as a dashed line.", pdfwidth=100%]
+image::images/chapter-02-macOS-directory-path.png[title="The path from the root directory (slash) to the home directory of the user chris on a Mac, shown as a dashed line.", pdfwidth=100%]
 
 Now more specifically, the directory path of `+/Users/chris+` is considered an _absolute path_.  It is absolute because it begins with the root directory `+/+` (slash).  On the command line, it can be helpful to refer to files and folders as absolute paths, but it can also be overly verbose, and there is a great shortcut we can use, called a _relative path_.  A relative path is the path to a file or directory in the filesystem, but originating from the current directory.  But how do we represent what the current directory is, similar to what the `+pwd+` command produces?  Oh, we have the magic!  On Unix-like systems, the current directory is represented as a single `+.+` (period) character.  Wait, what? Just a period?  Yes, surprisingly, just a period!  This is the most succinct way to say "you are here"!  To provide an example, let's say that I have downloaded a file from the Internet called `+funny-cats.jpg+`, and I saved it to my `+Downloads+` folder in my home directory.  On the command line I can refer to this file as a relative path from my current working directory of `+/Users/chris+` with the following syntax: `./Downloads/funny-cats.jpg`.  As we'll see later in _Chapter 3. File Commands_, we can work with files by referring to them with this relative path format.  The `+.+` (period) character tells the shell interpreter to start from my current directory and traverse into my `+Downloads+` directory to precisely locate my cat photo. The same file can of course be referenced as an absolute path with `+/Users/chris/Downloads/funny-cats.jpg+`, but we save some keystrokes by using the relative path format, and when you happen to be located in deeply-nested folders, it can save a lot of typing.
 
@@ -103,7 +103,7 @@ In order to access these manual pages, we will introduce another command, called
 Let's begin with an example using the `+pwd+` command, since it is very simple.  Go ahead and type `+man pwd+` and you should see output in your terminal that is similar to _Figure 19_.
 
 
-image::chapter-02-linux-manual-page-example.png[title="Issuing the `+man pwd+` command on Linux.", pdfwidth=100%]
+image::images/chapter-02-linux-manual-page-example.png[title="Issuing the `+man pwd+` command on Linux.", pdfwidth=100%]
 
 
 // <1> The quick definition of a command shows at the top of the manual.
@@ -146,7 +146,7 @@ Letter keys::
 
 So the kbd:[b] key lets us scroll by page back up!  These little gems are right at your fingertips and get you exactly where you want to go in the manual.  _Figure 19_ shows the useful keys we've highlighted.
 
-image::chapter-02-man-command-keyboard-shortcuts.svg[title="Useful keyboard shortcuts when viewing a manual page, including the spacebar (forward page-by-page); down and up arrows (forward and backward line-by-line); f and b keys (forward and backward page-by-page); j&nbsp;and&nbsp;k (forward and backward line-by-line), and q (quit the viewer).", pdfwidth=100%]
+image::images/chapter-02-man-command-keyboard-shortcuts.svg[title="Useful keyboard shortcuts when viewing a manual page, including the spacebar (forward page-by-page); down and up arrows (forward and backward line-by-line); f and b keys (forward and backward page-by-page); j&nbsp;and&nbsp;k (forward and backward line-by-line), and q (quit the viewer).", pdfwidth=100%]
 
 Great! You now have the tools to navigate any manual page for any command.  As you work with commands repeatedly, you will remember many of the short and long options that are available because you use them regularly.  Repetition is your friend! 
 
@@ -195,7 +195,7 @@ Hah! It's easy to make mistakes--they happen all of the time.  The shell interpr
 
 In the previous section, we described how to view and navigate a manual page for any command, and when you pressed the `+q+` key on the keyboard, the contents of the manual page dissapeared.  That is because the viewer has built in functionality to clear the screen, which helps you get directly back to your work.  However, the output from most of our commands generally stays in the terminal window, and scrolls up and out of view as we type.  This is known as your _session history_.  Our command prompt always shows back up after the output of the previous command, ready for our next command.  But as you can see from our mistakenly-typed `+mane+` command, the output may be useful in the moment, but it would also be nice to just clear the screen and start anew.  Yes, it's so easy!  As you probably guessed, the `+clear+` command does just that--it clears the contents of the terminal window, resets the prompt to the top of the window, and sets us up for our unobstructed next command.  Keep it tidy!  _Figure 20_ shows the results of the `+clear+` command on a Mac.
 
-image::chapter-02-macOs-clear-command.png[title="Results of using the `+clear+` command to tidy up your terminal window.", pdfwidth=100%]
+image::images/chapter-02-macOs-clear-command.png[title="Results of using the `+clear+` command to tidy up your terminal window.", pdfwidth=100%]
 
 Feel free to type `+clear+` to clear your terminal window at any time that you feel that things are getting cluttered.  When you do so, the command usually clears the visible part of your window. There is also a concept of a _scrollback buffer_, which is the in-memory record of your terminal session from previously typed commands and their output.  To scroll back and view your terminal session history, you can use your mouse, trackpad, or mouse wheel.    Most terminal applications let you configure the number of lines of scrollback that it maintains in memory so you can scroll back and review or copy any output.  
 
@@ -361,7 +361,7 @@ This rounds out our tour of the `+cd+` command and the magic tab completion feat
 
 In the previous section, we have seen that it is very easy to move anywhere within the file system on the command line.  In fact, if you need to get somewhere quickly, the tab completion feature will get you there the fastest.  But once we have arrived at a given directory, we certainly want to know what files and folders are present, and other information about them.  When we're using our graphical tools, we will open up a Finder window on a Mac, or a File Explorer on Linux and Windows.  These are of course great tools!  We're shown either a list view or an icon view of the contents of the directory, along with some item details like modification dates and file sizes.  _Figure 22_ shows a typical file explorer view in Linux showing the sub-directories and files in the home directory.
 
-image::chapter-02-linux-home-directory-window.png[title="The home folder on Linux showing the sub-folders and files."]
+image::images/chapter-02-linux-home-directory-window.png[title="The home folder on Linux showing the sub-folders and files."]
 
 To list files and folders on the command line in a similar, but very concise fashion, we use the `+ls+` command, which is a very small but powerful command that means "list directory contents".  We will start with the simplest use of the command, which is to issue it without any arguments.  _Example 20_ shows the results.
 
@@ -437,7 +437,7 @@ drwxr-xr-x  2 chris chris 4.0K Jan 10 10:55 Videos
 
 Okay--that's looking packed full!  The long listing provides not only a vertical listing of folder and file names that are alphabetically sorted by default, but every line also provides technical details for each item in the list.  _Figure 23_ explains the output table with each of the columns of detail, and highlights the far right column with the sub-directory and file names.
 
-image::chapter-02-linux-ls-long-listing.svg[title="Understanding the columns of the long listing output.",pdfwidth=100%]
+image::images/chapter-02-linux-ls-long-listing.svg[title="Understanding the columns of the long listing output.",pdfwidth=100%]
 
 [.calloutnumber]##❶## The type and permissions of the file or folder
 
@@ -471,7 +471,7 @@ Now notice that the `+Videos+` row has a `+d+` for the type, which means it is a
 
 Let's now look at the next nine slots, which hold information about the permissions for the directory or file in that row.  Notice that the permissions are divided into three categories--for the _user_ (owner) of the file, for the _group_ the file is associated with, and _other_ (all other accounts on the system).  Packed into each category are four possible permissions{empty}footnote:[There are also more possible permissions on Unix-like operating systems.  See the manual page for the `+chmod+` command for more details.]{emdash} _read_, _write_, _execute_, or _none_{emdash}represented by an `+r+`, `+w+`, `+x+`, or `+-+` character, respectively.
 
-image::chapter-02-linux-file-permissions.svg[title="Understanding file and directory permissions and types for `+ls -l+` command long listings.  Examples include the Videos directory and weekly-data.csv file.  Permissions for each file or directory are categorized by user, group, and other accounts in the operating system.  Read, write, and execute permissions are assigned to each category of accounts.",pdfwidth=100%]
+image::images/chapter-02-linux-file-permissions.svg[title="Understanding file and directory permissions and types for `+ls -l+` command long listings.  Examples include the Videos directory and weekly-data.csv file.  Permissions for each file or directory are categorized by user, group, and other accounts in the operating system.  Read, write, and execute permissions are assigned to each category of accounts.",pdfwidth=100%]
 
 With this knowledge, we can interpret the permissions for the `+Videos+` directory and the `+weekly-data.csv+` file that are shown in  _Figure 24_ as the following:
 

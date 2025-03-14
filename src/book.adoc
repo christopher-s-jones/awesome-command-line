@@ -41,7 +41,7 @@ endif::[]
 :icontype: svg
 :lang: en
 :source-language: console
-:imagesdir: images
+// :imagesdir: images
 :pdf-fontsdir: styles/pdf/fonts
 :pdf-themesdir: styles/pdf
 :pdf-theme: print 

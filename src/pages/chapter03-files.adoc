@@ -21,7 +21,7 @@ You just created your first real file from the command line!  We now have a file
 
 We first see the `+echo+` command followed by our seven-word sentence{emdash}"Our cat Luna is the ranch manager."  This means that seven arguments are passed to the `+echo+` command (with the period as part of the seventh argument).  Then, the `+>+` (greater-than) sign is telling the shell to send the output of the `+echo+` command into a file named `+herding-cats.txt+`, or create the file if it does not exist.  This is really powerful!  The `+>+` (greater-than) sign is acting as a _redirect operator_, which we will discuss below.  If you then open the `+herding-cats.txt+` file using any common text editor application such as _TextEdit_ on a Mac, _Text Editor_ on Linux, or _Notepad_ on Windows, you'll see the contents of the file, as shown in _Figure 25_.
 
-image::chapter-03-windows-echo-command-create-file.png[title="Viewing the herding-cats.txt file using a graphical text editor on Windows.",pdfwidth=100%]
+image::images/chapter-03-windows-echo-command-create-file.png[title="Viewing the herding-cats.txt file using a graphical text editor on Windows.",pdfwidth=100%]
 
 ===  Redirection, Standard Input, Output, and Error
 
@@ -33,7 +33,7 @@ In Unix-like operating systems, there is the concept of _redirection_ that allow
 chris@DESKTOP-L7H0RFS:/mnt/c/Users/chris$ echo She runs the show! >> herding-cats.txt
 ----
 
-image::chapter-03-windows-echo-and-file-appending.png[title="Viewing the appended herding-cats.txt file using a graphical text editor on Windows.",pdfwidth=100%]
+image::images/chapter-03-windows-echo-and-file-appending.png[title="Viewing the appended herding-cats.txt file using a graphical text editor on Windows.",pdfwidth=100%]
 
 Perfect, we now understand how easily redirection can be used to create, overwrite, or append to files, and that the command syntax is very simple.  But what happens when we issue this same command, but without any redirection?  Let's try it, this time on a Mac, as shown in _Example 30_.
 
@@ -67,7 +67,7 @@ NOTE: You will often see these three file descriptors written as _stdin_, _stdou
 
 We can visualize a typical flow of information on the command line as inputs to a _process_ and the outputs of that process, shown in _Figure 26_.  This diagram illustrates the flow of information as inputs and outputs whenever you issue a command.
 
-image::chapter-03-shell-input-and-output.svg[title="Visualizing inputs and outputs when issuing commands in an interactive terminal shell.  Standard input from a keyboard is processed, and is sent by default to the terminal window as standard output and standard error.  With redirection, the output can be redirected into a file.",pdfwidth=100%]
+image::images/chapter-03-shell-input-and-output.svg[title="Visualizing inputs and outputs when issuing commands in an interactive terminal shell.  Standard input from a keyboard is processed, and is sent by default to the terminal window as standard output and standard error.  With redirection, the output can be redirected into a file.",pdfwidth=100%]
 
 We now have a solid understanding of the `+echo+` command and how to use redirection on the command line to quickly create or append to a file.  We also see that the standard input, standard output, and standard error file descriptors help with input and output operations on the command line, and that the terminal iteself acts as both the standard output and standard error destination.  Let's now focus on working with the file that we created on the command line, to highlight how we can effortlessly move the file, copy it,and delete it.
 
@@ -91,7 +91,7 @@ Excellent!  That is a quick way to rename a file!  Also notice that you can use 
 
 We now see a the `+ranch-manager.txt+` file, and can open it in a text editor application, showing that the contents are the same as the `+herding-cats.txt+` file, as shown in _Figure 27_.
 
-image::chapter-03-linux-move-file.png[title="Viewing the contents of the `+ranch-manager.txt+` file on Linux.",pdfwidth=100%]
+image::images/chapter-03-linux-move-file.png[title="Viewing the contents of the `+ranch-manager.txt+` file on Linux.",pdfwidth=100%]
 
 To build on our familiarity of the `+mv+` command, let's also move multiple files at the same time.  In this example, we will first practice with the echo command to create two more files, and then move our three files into the `+Desktop+` directory.  On Windows, be sure to change directories into your Windows home directory where your `+Desktop+` directory is.  _Example 33_ shows how to move multiple files.
 
@@ -238,11 +238,11 @@ chris@nuthatch:~/Desktop$ nano ranch-manager.txt
 
 By just passing the file name as an argument to the `+nano+` command and pressing the kbd:[Return] key, we are presented with an editor view that fills the terminal window.  Give this a try!  We will walk through the steps of how to edit a file with `+nano+`.  _Figure 28_ shows an example of editing a file.
 
-image::chapter-03-linux-nano-editor.png[title="Opening the `+ranch-manager.txt+` file using the `+nano+` command.",pdfwidth=100%]
+image::images/chapter-03-linux-nano-editor.png[title="Opening the `+ranch-manager.txt+` file using the `+nano+` command.",pdfwidth=100%]
 
 You'll see that our terminal window turns into a small editor with a dark header section at the top, and a menu of key combinations in the footer section at the bottom.  The blank space in the middle is where you write.  We are placed on the first line of the file, and we can just start typing!  Editing is that easy, and moving the cursor is intuitive with the four arrow keys on your keyboard{emdash}kbd:[&nbsp;◀&nbsp;] (left arrow), the kbd:[&nbsp;▶&nbsp;] (right arrow), the kbd:[&nbsp;▲&nbsp;] (up arrow), and the kbd:[&nbsp;▼&nbsp;] (down arrow).  After adding a couple of lines to the text file, let's save the file.  To do so, let's familiarize ourselves with the menu at the bottom of the editor.  Depending on how wide your terminal window is, you will see two rows of menu item shortcuts with a key combination next to the label.  The `+^+` (caret) symbol is shorthand for the kbd:[Control] key, and is used in combination with another letter, number, or symbol to do things like save the file, search in the file, cut, paste, etc.  So in our case, we'll press `^O` (kbd:[Control]+kbd:[O]) to "Write Out" the file (meaning save it to disk).  You can use lowercase or uppercase letters with these key combinations.  _Figure 29_ shows this menu item in progress.  Try it yourself!
 
-image::chapter-03-linux-nano-save-file.png[title="Saving a file using the `+nano+` `+^O+` menu item (kbd:[Control]+kbd:[O]) key combination.",pdfwidth=100%]
+image::images/chapter-03-linux-nano-save-file.png[title="Saving a file using the `+nano+` `+^O+` menu item (kbd:[Control]+kbd:[O]) key combination.",pdfwidth=100%]
 
 The editor will prompt you to confirm the file name you want to save to, defaulting to the current file name.  Just pressing the kbd:[Return] key will save the file.  It's that easy!  We've now edited our first file via the command line!
 
@@ -270,7 +270,7 @@ NOTE: Similar to a multi-line command, the shell places `+>+` (greater-than) sig
 
 The result of our finished command is shown in _Figure 30_, where we can continue to edit the document in the `+nano+` editor.
 
-image::chapter-03-linux-nano-here-document.png[title="Continuing to edit a here-document passed into the `+nano+` command editor.", pdfwidth=100%]
+image::images/chapter-03-linux-nano-here-document.png[title="Continuing to edit a here-document passed into the `+nano+` command editor.", pdfwidth=100%]
 
 Notice that the `+nano+` command read the three lines from _stdin_, and created a new in-memory buffer for our file, but the file is not saved to disk yet.  We can edit the file and save it normally from here.  Also note that the `+EOF+` tokens that act as beginning and ending delimiters to our here-document can be any single word, and `+EOF+` is just used as a convention.  If we wanted, we could use `+LunaIsHungry+` twice as a token to bookend our document.  Feed the cat!
 

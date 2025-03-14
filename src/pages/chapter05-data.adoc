@@ -60,7 +60,7 @@ Awesome!  We chose to use the `+Cancer.txt+` file as a single argument, and the 
 
 Now that we know how to view the contents of a file, let's take a minute to understand what we are viewing.  Each file shows a list of stars, one per line of the file.  The first line of this text file lists the star named _Sirius_, which is a beautiful and colorful star, emitting dominantly white light back to Earth.  _Figure 36_ shows an image of Sirius and how intensely bright it is, even from a distance of 8 light years away--47 trillion miles or 75 trillion kilometers!{empty}footnote:[The term _light year_ is a measure of distance, defined by how long it takes light to travel in a one-year period.  This equates to 5.88 trillion miles, or 9.46 trillion kilometers.  Wow! For details, see Seidelmann, P. Kenneth. Explanatory Supplement to the Astronomical Almanac. United Kingdom: University Science Books, 1992. ISBN-13: 9781891389856]
 
-image::chapter-05-sirius-star.png[title="An image of Sirius, a white dwarf star 8 light years away from the Earth!  Image credit Akira Fujii.",pdfwidth=100%]
+image::images/chapter-05-sirius-star.png[title="An image of Sirius, a white dwarf star 8 light years away from the Earth!  Image credit Akira Fujii.",pdfwidth=100%]
 
 We're now getting a sense of what the data in these files represent, based on the image in _Figure 36_.  It's stellar!  Let's dig a little deeper so we understand the information on each line of the file and what each column of data represents.  A line of a text file is a single horizontal row, followed by an invisible, non-printing _line ending_ character.  This is also known as a _record delimiter_.
 
@@ -144,11 +144,11 @@ Now that we know how to combine files, let's explore the data and answer some qu
 
 In _Chapter 3. File Commands_, we learned how to use redirection to send the output of a command into a file using the `+>+` (greater-than) and `+>>+` (double-greater-than) operators.  In Unix-like systems, there is another similar concept called _pipes_, which allow you to send the output from one command into another command.  This is one of the most powerful and magical tools in our toolbox!  To do this, we use a different symbol from the keyboard--the `+|+` (pipe) symbol, which is sometimes referred to as a vertical bar.  When we chain commands together using the pipe symbol, collectively it is called a _pipeline_.  Have a look at _Figure 37_ which shows the parts of a pipeline with three commands.
 
-image::chapter-05-command-pipeline.svg[title="The parts of a command pipeline, where each command is separated by the pipe symbol.",pdfwidth=100%]
+image::images/chapter-05-command-pipeline.svg[title="The parts of a command pipeline, where each command is separated by the pipe symbol.",pdfwidth=100%]
 
 It is super easy, and super powerful!  Let's take a moment to understand what is going on.  The principle is that you run the first command and send its results to the second command.  It in turn processes what it received, and sends its output to the third command.  And lastly, the third command processes what it received and produces the final results of the pipeline.  For instance in our star data pipeline, you will combine the data files with the `+cat+` command, and pipe the results to the `+sort+` command.  The results of the sorting will later be piped to the `+head+` command, where you will filter the sorted list and show just the 21 brightest stars. To see a visual depiction of a pipeline, have a look at _Figure 38_, which shows the data being passed from left to right through the command pipeline.
 
-image::chapter-05-command-pipeline-inputs-outputs.svg[title="Visualizing a command pipeline.  Command1 (c1) output becomes input for command2 (c2).  Command2 output becomes input for command3 (c3).  Command3 produces the final output of the pipeline.",pdfwidth=100%]
+image::images/chapter-05-command-pipeline-inputs-outputs.svg[title="Visualizing a command pipeline.  Command1 (c1) output becomes input for command2 (c2).  Command2 output becomes input for command3 (c3).  Command3 produces the final output of the pipeline.",pdfwidth=100%]
 
 This is absolutely amazing!  By using pipelines, we can chain together as many commands as we need to get the job done.  Let's give this a try in the next section where we concatenate all of our star files organized by tropical sign into a big list, and then sort that list.
 
@@ -284,7 +284,7 @@ Text data files use a variety of both visible and invisible characters to format
 
 As we discussed before, we know that the lines of star data in our text files have an invisible `+\n+` (newline) line ending character, which defines what a row is in the data table.  You may be asking{emdash} _What defines each of the columns?_ Part of the magical framework for formatting and display of text data includes a _field separator_.  Field separators are characters in the file that separate the text on a given line into fields (columns).  These characters can be anything, but are often comma, tab, or space characters.  Have a look at _Figure 39_, which depicts text files with both tabs and commas as field separators (column separators).
 
-image::chapter-05-text-data-delimiters.svg[title="Visualizing text file fields (columns) in two types of files.  Tab separated values (TSV) files use invisible tab characters between columns as a field separator.  Comma separated values (CSV) files use commas between columns as a field separator.  Both use invisible newline characters as the record delimiter (line ending).",pdfwidth=100%]
+image::images/chapter-05-text-data-delimiters.svg[title="Visualizing text file fields (columns) in two types of files.  Tab separated values (TSV) files use invisible tab characters between columns as a field separator.  Comma separated values (CSV) files use commas between columns as a field separator.  Both use invisible newline characters as the record delimiter (line ending).",pdfwidth=100%]
 
 The text is colored in _Figure 39_ to highlight the vertical columns of information.  Notice that in the top example the field separator is the tab keyboard character.  This is an invisible (non-printing) character that is used for indentation.  So _tab separated values_ files, or TSV files as a shorthand, have a tab character in between columns of data.  These file names often end in `+.tsv+` or `+.txt+`.  TSV files can be directly imported into spreadsheet applications.
 
@@ -301,7 +301,7 @@ In our second sort command, we will use the `+-k 4+` option to specify the fourt
 
 The command pipeline shown below includes the `+-t+` option followed by two consecutive doublequotes. The command is almost complete, but _how do we insert a tab character between the doublequotes?_  When you are typing this command and press the kbd:[Tab] key to insert a tab character in that location, the shell interprets the keypress as a desire to use the tab completion feature of the shell, which we don't want.  We want to insert an invisible tab character. _How do we solve this_?  There is a little gem of a key combination that lets us insert a tab character on the command line.
 
-image::chapter-05-command-line-tab-characters.svg[caption="", pdfwidth=100%]
+image::images/chapter-05-command-line-tab-characters.svg[caption="", pdfwidth=100%]
 
 [.calloutnumber]##❶## Move your cursor directly after the first `+"+` (doublequote) character--the block cursor will be sitting on the second `+"+` (doublequote) character.  Then type the following key combination to insert a tab character{emdash} kbd:[Control] + kbd:[v] then kbd:[Tab].  This tells the shell to forego tab completion, and just insert the invisible character.  Ah, the magic!
 
@@ -384,7 +384,7 @@ Windows:: (1) In the Windows Terminal application, hold the the the keyboard + k
 
 Each of the graphical steps are shown in the screenshots in _Figure 40_.
 
-image::chapter-05-new-terminal-windows.png[title="Opening a new terminal window on Mac, Linux, and Windows, using each application's menu dropdown items.",pdfwidth=100%]
+image::images/chapter-05-new-terminal-windows.png[title="Opening a new terminal window on Mac, Linux, and Windows, using each application's menu dropdown items.",pdfwidth=100%]
 
 Once you have two terminal windows open, arrange them side-by-side.  In the left terminal, issue the following command to redirect a line of text into a file called `+stars.log+`:
 
@@ -409,7 +409,7 @@ chris@ophir ~ % echo "The stars are aligning!" >> stars.log
 
 As you do, you'll see each of the lines of text show up in the right terminal window in real time.  Your terminals should look similar to what you see in _Figure 41_, which shows the results of tailing a file.
 
-image::chapter-05-macos-tailing-a-file.png[title="Using two terminal windows to demonstrate how to tail a file.  The left window echoes lines of text into a file.  The right window displays the content being appended in real time using `+tail -f+`.",pdfwidth=100%]
+image::images/chapter-05-macos-tailing-a-file.png[title="Using two terminal windows to demonstrate how to tail a file.  The left window echoes lines of text into a file.  The right window displays the content being appended in real time using `+tail -f+`.",pdfwidth=100%]
 
 This is a very simple example that demonstrates how the `+tail+` command can show what is being appended into a file, and shows how easy it is to monitor log files.  Both the `+head+` and the `+tail+` commands are useful for getting to information at the top and the bottom of files respectively.  You may be wondering{emdash} _How do you display lines from anywhere in a file?_  In the next section we will explore the `+grep+` command, which allows us to search all lines in a file, and find exactly what we're looking for.  Let's have a look!
 
