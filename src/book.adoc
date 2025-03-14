@@ -41,45 +41,45 @@ endif::[]
 :icontype: svg
 :lang: en
 :source-language: console
-// :imagesdir: images
+:imagesdir: images
 :pdf-fontsdir: styles/pdf/fonts
 :pdf-themesdir: styles/pdf
 :pdf-theme: print 
 :uuid: D84D94E4-907B-4B3B-8A5D-70A602CA7FD1
 :epub3-stylesdir: styles/epub
 
-include::./pages/colophon.adoc[]
+include::pages/colophon.adoc[]
 
-include::./pages/dedication.adoc[]
+include::pages/dedication.adoc[]
 
 ifdef::backend-pdf[]
 toc::[]
 endif::[]
 
-include::./pages/preface.adoc[]
+include::pages/preface.adoc[]
 
-include::./pages/acknowledgements.adoc[]
+include::pages/acknowledgements.adoc[]
 
-include::./pages/chapter01-foundations.adoc[]
+include::pages/chapter01-foundations.adoc[]
 
-include::./pages/chapter02-core.adoc[]
+include::pages/chapter02-core.adoc[]
 
-include::./pages/chapter03-files.adoc[]
+include::pages/chapter03-files.adoc[]
 
-include::./pages/chapter04-folders.adoc[]
+include::pages/chapter04-folders.adoc[]
 
-include::./pages/chapter05-data.adoc[]
+include::pages/chapter05-data.adoc[]
 
-include::./pages/chapter06-utilities.adoc[]
+include::pages/chapter06-utilities.adoc[]
 
-include::./pages/chapter07-next-steps.adoc[]
+include::pages/chapter07-next-steps.adoc[]
 
-include::./pages/appendix-customizing-your-terminal.adoc[]
+include::pages/appendix-customizing-your-terminal.adoc[]
 
-include::./pages/appendix-using-a-package-manager.adoc[]
+include::pages/appendix-using-a-package-manager.adoc[]
 
-include::./pages/bibliography.adoc[]
+include::pages/bibliography.adoc[]
 
-include::./pages/glossary.adoc[]
+include::pages/glossary.adoc[]
 
-include::./pages/index.adoc[]
+include::pages/index.adoc[]

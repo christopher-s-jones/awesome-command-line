@@ -27,7 +27,7 @@ chris@ophir ~ % mkdir -p Photography/Shoots/Utah/2024/07/04
 
 With a one-line command, we have now created five more directories inside our `+Photography+` directory.  So easy!  _Figure 32_ shows the result using a Finder window on macOS.
 
-image::images/chapter-04-macos-make-directories.png[title="Showing the results of creating a directory hierarchy with the `+mkdir+` command on macOS.", pdfwidth=100%]
+image::chapter-04-macos-make-directories.png[title="Showing the results of creating a directory hierarchy with the `+mkdir+` command on macOS.", pdfwidth=100%]
 
 This is a great example of how fast a command can be in accomplishing a lot of work.  However, what if you have photography shoots at dozens of locations and dates, and need to create all of the yearly, monthly, and daily sub-folders for those sessions?  We have the magic!  In the next section, let's explore the concept of command line expansion, and how it will help us get the job done quickly.
 
@@ -54,7 +54,7 @@ Wow!  In a single command, we just created four directories within the `+Shoots+
 
 Each path is passed as an argument to the `+mkdir+` command to create these directories.  And notice that while we are asking it to create the `+Utah+` folder in this command, the `+-p+` option will create directories that don't exist already, so it is skipped.  Very convenient!  _Figure 33_ shows the results of our command.
 
-image::images/chapter-04-macos-list-brace-expansion-results.png[title="Showing the results of creating a directory hierarchy with brace expansion on macOS.", pdfwidth=100%]
+image::chapter-04-macos-list-brace-expansion-results.png[title="Showing the results of creating a directory hierarchy with brace expansion on macOS.", pdfwidth=100%]
 
 Let's now continue with building our directory structure by generating folders for the dates of the photo shoots.  In _Example 44_ we created a directory structure for the photo shoot on July 4, 2024 in Utah, represented by the `+Photography/Shoots/Utah/2024/07/04+` directory path.  Assuming we have had photo shoots over the last five years in our four locations on different days of every month of the year, let's use expansion to generate the directories systematically.  _Example 46_ demonstrates how to use a _sequence expression_ within a brace expansion to create years, months, and days automatically.
 
@@ -173,7 +173,7 @@ chris@ophir ~ % rm -R Photography/Shoots/New-Mexico/2025
 
 And just like that, the `+2025+` directory inside of the `+New-Mexico+` directory is permanently removed with all of its contents.  _Figure 34_ shows the results of this command.
 
-image::images/chapter-04-macos-remove-directory.png[title="Results of the removal of a sub-directory using the `+rm+` command on macOS.", pdfwidth=100%]
+image::chapter-04-macos-remove-directory.png[title="Results of the removal of a sub-directory using the `+rm+` command on macOS.", pdfwidth=100%]
 
 The `+rm -R+` command that we see above can be unforgiving, so be sure use it judiciously!  You may unintentionally have a single character typo in your command which might drastically alter the outcome.  For instance, if we mistakenly introduced a single space character into our command, the result is quite devastating, as shown in _Example 50_.
 
@@ -242,7 +242,7 @@ chris@ophir ~ % rm Photography/Shoots/Colorado/202[0-3]/*/*/*jpg <2>
 
 Now that is some precise file name matching!  Let's walk through this command to understand what is happening.  _Figure 35_ illustrates the patterns matched in the command.
 
-image::images/chapter-04-path-expansion.png[title="Using pattern matching to enable path expansion in commands on macOS.", pdfwidth=100%]
+image::chapter-04-path-expansion.png[title="Using pattern matching to enable path expansion in commands on macOS.", pdfwidth=100%]
 
 In _Example 53_ we first use the `+ls+` command to list the files we want to match as a best practice before doing the removal.  The listing is truncated for display purposes, but it has matched eighty files across eight directories.  The bracketed range of `+[0-3]+` expands to the numbers `+0, 1, 2, 3+`, so the pattern matches directories named `+2020, 2021, 2022, 2023+`.  This pattern is followed by `+/*+` star wildcard which will match any directory name (the month directories).  This pattern is followed by another `+/*+` star wildcard which also matches any directory name (the daily directories).  Lastly, the `+*jpg+` star wildcard will match any file names ending in `+jpg+`.  That's it!  In one powerful command, we have removed the incorrect images from Utah that were placed into our Colorado directories, and we can now replace them with the correct images.
 

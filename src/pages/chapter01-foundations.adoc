@@ -57,19 +57,19 @@ A computer _terminal_ is merely a way to send input to a computer and receive th
 
 If you are on a Mac, Apple has included the Terminal.app since it introduced Mac OS X in 2001, so it has had many years of refinement.  You can search for "Terminal.app" using Apple's Spotlight search by pressing the kbd:[Command]+kbd:[Spacebar] keys at the same time and typing "terminal" (without the quotes) in the search bar. Alternatively you can open a _Finder_ window and navigate to the _Applications_ > _Utilities_ folder to find the Terminal application, as shown in _Figure 1_.  Double click the icon to open the application.
 
-image::images/chapter-01-macos-choose-terminal-flow.png[title="Open the Terminal.app in the Applications > Utilities folder.",pdfwidth=100%]
+image::chapter-01-macos-choose-terminal-flow.png[title="Open the Terminal.app in the Applications > Utilities folder.",pdfwidth=100%]
 
 ==== Adjust the font size
 
 That's it! You should see a window open similar to _Figure 2_, althought the default color may be different based on the Appearance settings on your Mac.
 
-image::images/chapter-01-macos-terminal-window.png[title="A terminal window example on a Mac.",pdfwidth=100%]
+image::chapter-01-macos-terminal-window.png[title="A terminal window example on a Mac.",pdfwidth=100%]
 
 If you are in Dark Mode, you'll likely see a dark window, and in Light Mode you should see a light window.  In your Dock at the bottom of your screen, you can press kbd:[Control] + _click_ on the Terminal icon (or use your _secondary-click_ on your mouse) to bring up the icon menu, and choose _Options_ > _Keep in Dock_ to add it permanently to your Dock.  
 
 To finalize your setup, adjust the font size in your terminal so that you can comfortably see the text.  You can also change the font family, but be sure to use a _fixed width_ font since the terminal expects it for layout purposes.  In order to change the font size, select the _Terminal_ menu item and choose the _Settings ..._ item.  In the Terminal.app Settings window, select the _Basic_ (Default) Profile, and the _Text_ tab in the window panel.  Use the _Change ..._ button to change the font size, as shown in _Figure 3._
 
-image::images/chapter-01-macos-terminal-settings.png[title="Use the File > Settings... menu item to change the font size as needed in the Terminal.app settings.",pdfwidth=100%]
+image::chapter-01-macos-terminal-settings.png[title="Use the File > Settings... menu item to change the font size as needed in the Terminal.app settings.",pdfwidth=100%]
 
 You are all set! It's that simple to get configured to use the command line on a Mac.  You can continue on to the section entitled _The Shell_ to become more acquainted with the command line.  Thank you for focusing your power on the magic of the command line!
 
@@ -83,17 +83,17 @@ NOTE: If you are on a Windows-branded machine, the kbd:[Super] key may have the 
 
 In the search box, type "terminal" (without the quotes), and the default Terminal application icon should be in view.  Click on that icon to open the application.  You're all set! Once open, you may want to right click on the icon in the _Dash_ (i.e. the Application Dock), and choose the _Pin to Dash_ menu item so that you have quick access to the Terminal application.  See _Figure 4_ showing how to search for applications on the Ubuntu Linux Desktop.
 
-image::images/chapter-01-linux-terminal-search.png[title="Search for the Terminal application on Ubuntu Linux.", pdfwidth=100%]
+image::chapter-01-linux-terminal-search.png[title="Search for the Terminal application on Ubuntu Linux.", pdfwidth=100%]
 
 Great! Now that you have the Terminal application running, you should see a window similar to _Figure 5_.  Your colors may be different depending on your Appearance settings, but you will either see a Light Mode or Dark Mode window.
 
-image::images/chapter-01-linux-terminal-window.png[title="A terminal window example on Ubuntu Linux.", pdfwidth=100%]
+image::chapter-01-linux-terminal-window.png[title="A terminal window example on Ubuntu Linux.", pdfwidth=100%]
 
 ==== Adjust the font size
 
 To finalize your setup, adjust the font size in your terminal so that you can comfortably see the text.  You can also change the font family, but be sure to use a _fixed width_ font since the terminal expects it for layout purposes.  In order to change the font size, select the menu button in the top window bar and choose the _Preferences_ item.  In the Terminal Preferences window, select the _Unnamed_ (Default) Profile, and the _Text_ tab in the window panel.  Use the _Custom font_ checkbox and then the font button to change the font size, as shown in _Figure 6._
 
-image::images/chapter-01-linux-terminal-preferences.png[title="Change the font size as needed in the Terminal preferences.", pdfwidth=100%]
+image::chapter-01-linux-terminal-preferences.png[title="Change the font size as needed in the Terminal preferences.", pdfwidth=100%]
 
 That's it!  It's that simple to get set up to use the command line on Ubuntu Linux.  You can continue on to the section entitled _The Shell_ onto become more acquainted with the command line.  Thank you for taking the next step as a command line magician!
 
@@ -130,7 +130,7 @@ NOTE: As mentioned before, the kbd:[Super] key may have the Windows logo on it, 
 
 In the search bar, type "Terminal" (without the quotes).  You should see a search result with the Windows Terminal icon.  As shown in _Figure 7_, choose the _Run as Administrator_ option in the details pane for the Terminal application.
 
-image::images/chapter-01-windows-search-terminal.png[title="Search for Windows Terminal application and run it as an administrator.", pdfwidth=100%]
+image::chapter-01-windows-search-terminal.png[title="Search for Windows Terminal application and run it as an administrator.", pdfwidth=100%]
 
 When run as an Administrator, you will see a dialog asking you to make changes to your system, so be sure to choose "Yes" to continue.  A terminal window should open and look similar to the window in Figure 8, although the colors may be different depending on your Appearance settings.  The Terminal "Powershell" profile usually defaults to a dark background color.  To keep this application readily available, _right-click_ on the Windows Terminal icon you see in the taskbar, and choose the _Pin to taskbar_ menu item.
 
@@ -138,25 +138,25 @@ When run as an Administrator, you will see a dialog asking you to make changes t
 
 To install WSL using Windows Terminal, click inside the terminal window and type `wsl --install`, where there is a single space between the `wsl` and the `--install` parts, and press the kbd:[Return] key, as shown in _Figure 8_.  By running this command, Windows will first download the latest version of the Windows Subsystem for Linux component, and will install the component.  It will also install files that are part of the Virtual Machine Platform component that WSL needs for integrating with the operating system.  Once finished, it will prompt you to restart your machine, so do that now.
 
-image::images/chapter-01-windows-install-wsl.png[title="Run the `wsl --install` command in the Windows Terminal application.", pdfwidth=100%]
+image::chapter-01-windows-install-wsl.png[title="Run the `wsl --install` command in the Windows Terminal application.", pdfwidth=100%]
 
 ==== Enable the Windows Subsystem for Linux required features
 
 Once rebooted, you will need to ensure that the WSL components are enabled.  To do so, click on the Windows Start menu icon in the Windows Taskbar, or press the kbd:[Super] key on your keyboard.  In the search bar, type "Turn Windows features" (without the quotes).  As shown in _Figure 9_, you should see a search result with a Control Panel option for "Turn Windows features on or off".  Click on this option to open the features dialog, and scroll down in the dialog toward the bottom.
 
-image::images/chapter-01-windows-search-features.png[title="Use Windows Search to open the 'Turn Windows Features on or off' Control Panel.", pdfwidth=100%]
+image::chapter-01-windows-search-features.png[title="Use Windows Search to open the 'Turn Windows Features on or off' Control Panel.", pdfwidth=100%]
 
 As shown in _Figure 10_, ensure that the "Virtual Machine Platform" and the "Windows Subsystem for Linux" items are checked.  After closing this dialog box, Windows will enable these components, and will prompt you to restart your machine.
 
 [.center]
-image::images/chapter-01-windows-enable-features.png[title="Enable the Virtual Machine Platform and Windows Subsystem for Linux components in the Control Panel.", pdfwidth=75%] 
+image::chapter-01-windows-enable-features.png[title="Enable the Virtual Machine Platform and Windows Subsystem for Linux components in the Control Panel.", pdfwidth=75%] 
 
 ==== Set up Ubuntu Linux in Windows Terminal
 
 Great, the underlying components are now installed! It's now time to set up Ubuntu Linux using the Windows Terminal application.  So, open the Windows Terminal application again, either from your taskbar or the Windows Start menu.  By default, it will open with a Windows PowerShell profile tab.  As shown in _Figure 11_, click on the down-arrow icon next to the '+' icon at the top of the window to open a new tab, and select the Ubuntu profile item.  
 
 [.center]
-image::images/chapter-01-windows-terminal-choose-ubuntu-profile.png[title="Open an Ubuntu Linux profile using the drop-down icon in the Windows Terminal tab bar (next to the + sign.)", pdfwidth=75%] 
+image::chapter-01-windows-terminal-choose-ubuntu-profile.png[title="Open an Ubuntu Linux profile using the drop-down icon in the Windows Terminal tab bar (next to the + sign.)", pdfwidth=75%] 
 
 This will initiate the Windows Subsystem for Linux, and will start Ubuntu Linux.  It will take a few minutes to initialize, but will then prompt you to create a UNIX username (i.e. Linux username). You can use the same name as your Windows user name, or a different one.  After entering your name, and pressing the kbd:[Return] key, it will then prompt you for a password.  Type in a password of your choosing, and also write it down.
 
@@ -164,17 +164,17 @@ NOTE: As you type in the password field, your typing will not be visible, which 
 
 Confirm your password a second time when prompted, and your Linux environment will be set up for you! Once the text has stopped scrolling in the window, you will have a fully-functional Linux command line, similar to what is shown in _Figure 12_.
 
-image::images/chapter-01-windows-configure-ubuntu-linux.png[title="A complete Linux command line running within Windows.", pdfwidth=100%]
+image::chapter-01-windows-configure-ubuntu-linux.png[title="A complete Linux command line running within Windows.", pdfwidth=100%]
 
 ==== Adjust the font size
 
 To finalize your setup, adjust the font size in your terminal so that you can comfortably see the text. You can also change the font family, but be sure to use a fixed width font since the terminal expects it for layout purposes. In order to change the font size, click on the drop-down icon in the tab bar again, and choose the _Settings_ item in the menu.  This opens a new tab in the Windows Terminal with the settings for the application, and the settings for each profile, including the Ubuntu profile.  In the sidebar on the left, scroll down and click on the Ubuntu profile, as shown in _Figure 13_. The Ubuntu profile settings will appear in the right window pane.  Scroll down in this pane, and choose the _Appearance_ section. 
 
-image::images/chapter-01-windows-terminal-choose-ubuntu-appearance.png[title="To change the font size, first open the Terminal Settings and choose the Ubuntu profile's Appearance section.", pdfwidth=100%]
+image::chapter-01-windows-terminal-choose-ubuntu-appearance.png[title="To change the font size, first open the Terminal Settings and choose the Ubuntu profile's Appearance section.", pdfwidth=100%]
 
 This opens a dialog that allows you to change the font size as needed. See the example in _Figure 14_ for changing the font size.  Once finished, close the Appearance dialog and click the _Save_ button at the bottom of the Settings tab, as shown in _Figure 14_, and then close the Settings tab.
 
-image::images/chapter-01-windows-terminal-settings-ubuntu-change-font.png[title="Adjust the font size as needed, and click on the Save button to save the profile changes.", pdfwidth=100%]
+image::chapter-01-windows-terminal-settings-ubuntu-change-font.png[title="Adjust the font size as needed, and click on the Save button to save the profile changes.", pdfwidth=100%]
 
 Congratulations!  You are ready to continue with your command line journey in the next section to learn about the concept of _The Shell_!  Thank you for building your magic command line skills!
 
@@ -202,7 +202,7 @@ The take home message here is that the shell interpreter is doing the heavy lift
 
 We are now familiar with opening a terminal application, which in turn spins up a shell interpreter to handle your commands behind the scenes.  Now let's familiarize ourselves with the idea of the _command prompt_, which is your go-to location for typing in commands.  Once your terminal application has opened, you are presented with an almost empty window, with a few characters written at the top. These characters are followed by the _cursor_, which is some sort of flashing--or not flashing--block character, underscore or other inviting symbol that ever so subtly evokes "type here".  Collectively, all of these characters are considered the command prompt--dutifully waiting for you to enter a command.  See _Figure 15_ for a labeled diagram of a typical command line.
 
-image::images/chapter-01-command-line-example.png[title="A typical command line, with an example of a default `+zsh+` command prompt, showing the username, the computer network hostname, the current folder (`+~+`), and the `+%+` sign, followed by a block cursor.", pdfwidth=100%]
+image::chapter-01-command-line-example.png[title="A typical command line, with an example of a default `+zsh+` command prompt, showing the username, the computer network hostname, the current folder (`+~+`), and the `+%+` sign, followed by a block cursor.", pdfwidth=100%]
 
 The command prompt on modern systems tend to include your username, followed by an `+@+` (at) symbol, followed by the network hostname of your computer.  There is usually some kind of delimiter character ( a space or colon), followed by a `+~+` (tilda) character (which, as we discuss later, represents your home folder). Lastly, you will see either a `+$+` (dollar sign) character (for `+bash+` shells) or a `+%+` (percent) character (for `+zsh+` shells).  See _Example 3_ for various command line prompt examples.
 
@@ -230,7 +230,7 @@ NOTE: On Unix-like operating systems like macOS and Linux, an account for the ad
 
 In the previous sections we've had a brief look at a very simple command called `+pwd+`, and we will discuss it further in _Chapter 2. Core Commands_.  But to learn about the parts of a command, and to get a feel for command line syntax, let's look at an imaginary command called `+catdb+`, which is shown in _Figure 16_.  The command stands for "cat database", and so you could imagine that we have a database of cat information stored within it, and the `+catdb+` command allows us to work with the database.  In fact, one way to work with it is to search the database and filter the results based on some criteria.  The command even has some built-in options to return very popular results, like only returning kitten records, and cute ones at that, given we are in the Internet Age.  The command can also save your search records to a file of your choosing, so you can share your kitten pictures and details with friends.  So, given our fictitious `+catdb+` command, let's discuss the parts of a typical command that are shown in _Figure 16_.
 
-image::images/chapter-01-command-parts.png[title="The labeled parts of a command and the command arguments, including a subcommand, option, long option, option value, and operand.", pdfwidth=100%]
+image::chapter-01-command-parts.png[title="The labeled parts of a command and the command arguments, including a subcommand, option, long option, option value, and operand.", pdfwidth=100%]
 
 We start with the _command name_ itself, `+catdb+`.  To be able to run this command, it has to be installed on your system, and located in a folder that is well-known to your shell interpreter.{empty}footnote:[Shell interpreters have a concept of a PATH variable, which contains a list of folders that it will consult in order to find the command you want to run.]  Let's assume that our `+catdb+` command is installed correctly.  Next, notice that there is a _space_ character after the command itself, and in between the other parts of the full command.  This is very important, because the space character acts as a boundary between the command parts, and the shell interpreter will parse the command parts based on these spaces.  If you have two or more consecutive spaces between command parts, the shell interpreter treats them as a single space combined, so don't worry about having extra spaces. But yes, be sure to use a space between the parts of a command.
 
