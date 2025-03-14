@@ -22,7 +22,6 @@ endif::[]
 :sectnumlevels: 1
 :toc: macro
 :toc-title: Contents
-:docdir: .
 :doctype: book
 // :revnumber: 1.0
 // :revdate: {docdate}
@@ -49,38 +48,38 @@ endif::[]
 :uuid: D84D94E4-907B-4B3B-8A5D-70A602CA7FD1
 :epub3-stylesdir: styles/epub
 
-include::{docdir}/pages/colophon.adoc[]
+include::./pages/colophon.adoc[]
 
-include::{docdir}/pages/dedication.adoc[]
+include::./pages/dedication.adoc[]
 
 ifdef::backend-pdf[]
 toc::[]
 endif::[]
 
-include::{docdir}/pages/preface.adoc[]
+include::./pages/preface.adoc[]
 
-include::{docdir}/pages/acknowledgements.adoc[]
+include::./pages/acknowledgements.adoc[]
 
-include::{docdir}/pages/chapter01-foundations.adoc[]
+include::./pages/chapter01-foundations.adoc[]
 
-include::{docdir}/pages/chapter02-core.adoc[]
+include::./pages/chapter02-core.adoc[]
 
-include::{docdir}/pages/chapter03-files.adoc[]
+include::./pages/chapter03-files.adoc[]
 
-include::{docdir}/pages/chapter04-folders.adoc[]
+include::./pages/chapter04-folders.adoc[]
 
-include::{docdir}/pages/chapter05-data.adoc[]
+include::./pages/chapter05-data.adoc[]
 
-include::{docdir}/pages/chapter06-utilities.adoc[]
+include::./pages/chapter06-utilities.adoc[]
 
-include::{docdir}/pages/chapter07-next-steps.adoc[]
+include::./pages/chapter07-next-steps.adoc[]
 
-include::{docdir}/pages/appendix-customizing-your-terminal.adoc[]
+include::./pages/appendix-customizing-your-terminal.adoc[]
 
-include::{docdir}/pages/appendix-using-a-package-manager.adoc[]
+include::./pages/appendix-using-a-package-manager.adoc[]
 
-include::{docdir}/pages/bibliography.adoc[]
+include::./pages/bibliography.adoc[]
 
-include::{docdir}/pages/glossary.adoc[]
+include::./pages/glossary.adoc[]
 
-include::{docdir}/pages/index.adoc[]
+include::./pages/index.adoc[]
