@@ -44,6 +44,7 @@
 . Text Data Commands. 
     - Working with Text Data 
     - The cat Command — Viewing the contents of a Text File 
+    - The sort Command — Sorting the Contents of a File 
     - The head Command — Previewing the Top of a File 
     - The tail Command — Previewing the Bottom of a File 
     - The grep Command — Filtering Text 
