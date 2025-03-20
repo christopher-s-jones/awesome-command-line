@@ -407,10 +407,9 @@ NAME
      ls – list directory contents
 
 SYNOPSIS
-     ls [-@ABCFGHILOPRSTUWabcdefghiklmnopqrstuvwxy1%,]  <1>
+     ls [-@ABCFGHILOPRSTUWabcdefghiklmnopqrstuvwxy1%,]
         [--color=when] [-D format] [file ...]
 ----
-<1> Wow--so many options to choose from!
 
 We will be highlighting a few of the most useful options for the `+ls+` command, since it really is indispensible for quickly viewing the contents of your folders.  The most common option is the `+-l+` (lowercase letter l) option, which produces what is called a _long listing_ of your directory.  It is popular because it packs a lot of critical information into a small space, but when you first look at it, it may seem a bit foreign!  So we will learn how to read a long listing in the next section.
 
@@ -476,14 +475,14 @@ image::chapter-02-linux-file-permissions.svg[title="Understanding file and direc
 With this knowledge, we can interpret the permissions for the `+Videos+` directory and the `+weekly-data.csv+` file that are shown in  _Figure 24_ as the following:
 
 Videos directory:: 
-- `+rwx+` The user _chris_ (the owner) can read the contents of the directory, write into the directory (add or change files and folders), and can execute (change into) the directory.
-- `+r-x+` Anyone in the _chris_ group can read the contents of the directory, _cannot_ write into the directory (add or change files or folders), and can execute (change into) the directory.
-- `+r-x+` All _other_ accounts on the system can read the contents of the directory, _cannot_ write into the directory (add or change files or folders), and _cannot_ execute (change into) the directory.{empty}footnote:[While read permissions set for other accounts indicate they can read contents of the Pictures folder, the permissions set on the parent directory may restrict any access by other users.  This is commonly the case for home directory folders.]
+- **user**: `+rwx+`  The user _chris_ (the owner) can read the contents of the directory, write into the directory (add or change files and folders), and can execute (change into) the directory.
+- **group**: `+r-x+`  Anyone in the _chris_ group can read the contents of the directory, _cannot_ write into the directory (add or change files or folders), and can execute (change into) the directory.
+- **other**: `+r-x+`  All _other_ accounts on the system can read the contents of the directory, _cannot_ write into the directory (add or change files or folders), and _cannot_ execute (change into) the directory.{empty}footnote:[While read permissions set for other accounts indicate they can read contents of the Pictures folder, the permissions set on the parent directory may restrict any access by other users.  This is commonly the case for home directory folders.]
 
 weekly-data.csv file:: 
-- `+rw-+` The user _chris_ (the owner) can read the contents of the file, can write or change the file, and _cannot_ execute the file (run it a script or program).
-- `+rw-+` Anyone in the _chris_ group can read the contents of the file, can write or change the file, and _cannot_ execute the file (run it a script or program).
-- `+r--+` All _other_ accounts on the system can read the contents of the file, _cannot_ write or change the file, and _cannot_ execute the file (run it a script or program).
+- **user**: `+rw-+`  The user _chris_ (the owner) can read the contents of the file, can write or change the file, and _cannot_ execute the file (run it a script or program).
+- **group**: `+rw-+`  Anyone in the _chris_ group can read the contents of the file, can write or change the file, and _cannot_ execute the file (run it a script or program).
+- **other**: `+r--+`  All _other_ accounts on the system can read the contents of the file, _cannot_ write or change the file, and _cannot_ execute the file (run it a script or program).
 
 Wow! That is an immense amount of information packed into the long listing output of the `+ls -lh+` command.  While it takes some practice to interpret the file permissions, it does become second-nature.  We've discussed four of the most useful options for the `+ls+` command (`+-1+`,`+-l+`, and `+-h+`), but what if we want to sort the long listing output in ways other than alphabetically ascending?  Let's explore those common options next.
 
