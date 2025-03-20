@@ -1,0 +1,124 @@
+[appendix]
+== Understanding Regular Expressions
+
+We can search the _distance_ field in all of our star files to find stars that are greater than 500 light years from Earth by using a regular expression with the `+grep+` command.  Notice in _Example 66_ that the distance field has four numbers followed by the letters "ly", meaning light years.  This example shows `+0545ly+`.  The sequence of numbers represent light years expressed with four-digits--with thousands, hundreds, tens, and ones digits.  So to search for numbers that are greater than 500, let's use a number range for each digit in our search pattern that we give to the `+grep+` command.  The regular expression `+[0-9][5-9][0-9][0-9]ly+` is a little recipe that matches "a number from zero through nine in the thousands digit, followed by a number from five through nine in the hundreds digit, followed by a number from zero through nine in the tens digit, followed by a number from zero through nine in the ones digit, followed by the letters ly".
+
+With this pattern defined, let's search all of the star files using an `+*+` (star) wildcard for file expansion.  When you search multiple files, by default the `+grep+` command displays which file the lines are found in, and in this case we use the `+-h+` option to hide the file names from being shown in the results.  Go ahead and give this a try!  Have a look at _Example 67_, which shows the `+grep+` command syntax and the sorted results.
+
+<<<
+.Using the `+grep+` command to search multiple files ending in `+txt+` using a regular expression (`+-E+`) pattern.  The results are sorted numerically by the fourth field, distance in light years.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir signs % grep -h -E "[0-9][5-9][0-9][0-9]ly" *txt | \ 
+sort -t "   " -k 4 -n
+Xamididamura       	16°30'-Sagittarius 	blue-dwarf         	0501ly 	+3.00
+Mirfak             	02°26'-Gemini      	yellow-super-giant 	0506ly 	+1.79
+Albaldah           	16°86'-Capricorn   	yellow-bright-giant	0510ly 	+2.88
+Sadalmelik         	03°41'-Pisces      	yellow-super-giant 	0524ly 	+2.94
+Sadalsuud          	03°44'-Pisces      	yellow-super-giant 	0537ly 	+2.89
+Suhail             	11°32'-Virgo       	orange-super-giant 	0545ly 	+2.21
+Antares            	10°06'-Sagittarius 	red-super-giant    	0554ly 	+0.91
+Shaula             	24°55'-Sagittarius 	blue-sub-giant     	0571ly 	+1.63
+Lesath             	24°21'-Sagittarius 	blue-sub-giant     	0576ly 	+2.65
+Fang               	03°17'-Sagittarius 	blue-dwarf         	0586ly 	+2.91
+Avior              	23°28'-Virgo       	orange-giant       	0605ly 	+1.86
+Adid-Australis     	06°01'-Gemini      	blue-dwarf         	0612ly 	+2.89
+Cih                	14°16'-Taurus      	blue-sub-giant     	0613ly 	+2.15
+Beta-Arae          	24°33'-Sagittarius 	orange-super-giant 	0646ly 	+2.80
+Saiph              	26°45'-Gemini      	blue-super-giant   	0647ly 	+2.06
+Enif               	02°13'-Pisces      	orange-super-giant 	0690ly 	+2.39
+Mintaka            	22°43'-Gemini      	blue-white-giant   	0692ly 	+2.41
+Alniyat            	08°09'-Sagittarius 	blue-dwarf         	0697ly 	+2.89
+Alnitak            	25°02'-Gemini      	blue-super-giant   	0736ly 	+1.77
+Menkhib            	03°28'-Gemini      	blue-super-giant   	0752ly 	+2.80
+Aspidiske          	11°44'-Leo         	blue-super-giant   	0766ly 	+2.26
+Ahadi              	11°44'-Leo         	orange-super-giant 	0807ly 	+2.70
+Mebsuta            	10°17'-Cancer      	yellow-super-giant 	0845ly 	+2.98
+Rigel              	17°11'-Gemini      	blue-super-giant   	0860ly 	+0.13
+Wezen              	23°45'-Cancer      	yellow-super-giant 	1600ly 	+1.84
+Sadr               	25°10'-Aquarius    	yellow-super-giant 	1800ly 	+2.23
+Girtab             	27°52'-Sagittarius 	blue-giant         	1930ly 	+2.99
+Deneb              	05°39'-Pisces      	white-super-giant  	2600ly 	+1.25
+----
+
+Stellar!  The `+grep+` command grabbed every line from each file that matched the pattern, and we sorted the results to help us see that there are twenty-eight stars in the dataset that are 500 or more light years away--from Xamididamura at `+501ly+` to Deneb at `+2600ly+`.
+
+To create this regular expression pattern, we used four number ranges followed by two alphabetical characters (`+[0-9][5-9][0-9][0-9]ly+`).  The syntax for regular expressions is described in a manual page called `+re_format+`  This manual page has all of the technical details, and we summarize many of the common special character recipes and rules used to create a regular expression pattern in _Table 5_.  Have a look at the table to get a sense of the format of these little tools that help you define patterns for searching text, and we will discuss the details.
+
+.Commonly used regular expression symbol sequences used to match patterns.
+[%header,cols="^1m,^5m", stripes=even]
+|===
+2+|Patterns
+
+<|abc...     <|All upper and lower letters and symbols
+<|123...     <|All number digits from zero to nine
+<|.          <|Any single character
+<|[abc]      <|Only a, b, or c (all characters can be bracketed)
+<|[^abc]     <|Not a, b, nor c (all characters can be bracketed)
+<|[A-Za-z]   <|Characters A to Z or a to z (a range of letters)
+<|[0-9]      <|Numbers zero to nine (a range of numbers)
+<|p1\|p2\|p3 <|Any of pattern 1 OR pattern 2 OR pattern 3
+<|(p)        <|A grouping of pattern p
+
+2+|**Pattern shorthands**
+<|\d         <|Any single number digit
+<|\D         <|Any non-digit character
+<|\t         <|A single tab character
+<|\n         <|A single newline character
+<|\r         <|A single carriage return character
+<|\s         <|A single whitespace character (space, tab, newline, carriage return)
+<|\S         <|A single non-whitespace character
+
+2+|**Pattern modifiers**
+<|p*          <|Zero or more repetitions of the preceding pattern p
+<|p+          <|One or more repetitions of the preceding pattern p
+<|p?          <|Zero or one of the preceding pattern p
+<|p{m}        <|m number of repetitions of the preceding pattern p
+<|p{m,n}      <|From m to n repetitions of the preceding pattern p
+|===
+
+Let's familiarize ourselves with some of these little regular expression syntax gems, beginning with the first section of of _Table 5_ labeled _Patterns_. The first two rows  show that any individual letter, symbol, or number can be used in a regular expression pattern.  These are referred to as _literal_ characters.  For instance, the pattern `+-Leo+` means "match a sequence of characters with a _dash_ followed by an uppercase letter _L_ followed by a lowercase letter _e_ followed by a lowercase letter _o_".
+
+Next, `+[]+` (square brackets) are used to create a list of matching characters where the order doesn't matter.  For example, the pattern `+[-Leo]+` means "match any _dash_, uppercase _L_, lowercase _e_, or lowercase _o_ characters, in any order".  This takes a little practice, but remember that square brackets create a list of characters, not a sequence of characters.  Also, when you start your square bracket list with a `+^+` (caret) symbol, it indicates you want to match any characters _not_ in your list.  For instance, the pattern `+[^Tt]+` means "match any character that is not an uppercase letter _T_ or a lowercase letter _t_".
+
+NOTE: When creating patterns with literal characters, you may at times need to match the special characters used in the regular expression syntax.  In these cases, use a `+\+` (backslash) character to "escape" the special meaning of the character.  For instance, `+\[+` (backslash with left square bracket) will match a literal `+[+` (left square bracket) instead of using it to define a list or range of characters.
+
+Next, using a `+|+` (pipe) symbol in between patterns lets you search for multiple patterns.  For instance, the pattern `+Leo|Aquarius+` means "match the sequence of letters _Leo_ OR the sequence of letters _Aquarius_".  You can use as many pipe symbols as needed to search for multiple patterns.
+
+NOTE: Regular expressions used with commands like `+grep+` need to be wrapped in `+""+` (double-quotes) so they are passed as an argument to the command.  This shields special characters like the `+|+` (pipe) symbol from being interpreted by the shell rather than being sent as an argument to the command.
+
+Lastly, you can wrap a pattern in `+()+` parentheses in order to create a pattern group.  This lets you treat whatever pattern is inside the parentheses as a single unit.  We'll demonstrate this when we discuss pattern modifiers shortly.
+
+Let's next discuss the pattern shorthands that are commonly used in regular expressions shown in the second section of _Table 5_.  These are helpful, particularly when you need to match invisible characters.  A `+\d+` will match a single number digit, and is the same as `+[0-9]+`.  Likewise, `+\D+` will match any single non-number digit, which is equivalent to `+[^0-9]+`.  Then, to cover each of the invisible characters possibly in text files, a `+\t+` matches a tab character, `+\n+` matches a newline character, and `+\r+` matches a carriage return.  These invisible characters are known as _whitespace_ (along with a space character).  You can use a `+\s+` as a catch-all to match any of these invisible characters.  Then on the flip side, you can use `+\S+` to match any non-whitespace characters (meaning any visible characters).
+
+As you can see, these little symbol combinations, when used together, let you build very powerful pattern matchers.  The third section of  _Table 5_ shows some of the handy modifers you can use with your patterns which help you define optional or repeating patterns.  Let's take the word `+Sagittarius+`.  If we use a `+*+` (star) symbol in the pattern, it will match zero or more of the pattern that precedes it.  For instance, let's use the pattern `+it*+`, which means "match a lowercase letter _i_ followed by zero or more lowercase letter _t_":
+
+----
+echo "Sagittarius" | grep -E "it*"  # matches "itt" and the second "i"
+Sagittarius
+----
+
+The `+*+` (star) means the `+t+` is optional, so this the pattern will match two places in the word `+Sagittarius+`, first the `+itt+`, and additionally the second `+i+` in the word:
+
+If we replace the `+*+` (star) with a `+++` (plus) sign, the letter `+t+` is required, so the pattern `+it++` means "match the lowercase letter _i_ followed by one or more lowercase letter _t_":
+
+----
+echo "Sagittarius" | grep -E "it+"  # matches the letters "itt"
+Sagittarius
+----
+
+If we use parentheses to group our two letter pattern with a `+(it)++`, this means "match one or more of a sequence with a lowecase letter _i_ and a lowercase letter _t_":
+
+----
+echo "Sagittarius" | grep -E "(it)+"  # matches the letter sequence "it"
+Sagittarius
+----
+
+If we want to indicate that a pattern is optional, we can use a `+?+` (question mark) symbol.  The pattern `+it?+` means "match a lowercase letter _i_ followed by zero or one lowecase letter _t_":
+
+----
+echo "Sagittarius" | grep -E "it?"  # matches the letters "it"
+Sagittarius
+----
+
+As you can see, each of these sequences of symbols give us an extremely flexible set of tools for finding patterns in text.  With practice, using these character symbol combinations becomes second-nature when searching for data.
