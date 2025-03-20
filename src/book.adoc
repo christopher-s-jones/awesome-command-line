@@ -78,6 +78,8 @@ include::pages/appendix-customizing-your-terminal.adoc[]
 
 include::pages/appendix-using-a-package-manager.adoc[]
 
+include::pages/appendix-regular-expressions.adoc[]
+
 include::pages/bibliography.adoc[]
 
 include::pages/glossary.adoc[]
