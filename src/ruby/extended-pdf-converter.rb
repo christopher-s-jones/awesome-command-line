@@ -30,6 +30,9 @@ class PDFConverterCustomChapterTitle < (Asciidoctor::Converter.for 'pdf')
     when /Appendix B/
       move_x = 141
       move_y = 162
+    when /Appendix C/
+      move_x = 70
+      move_y = 162
     when /Index/
       move_x = 321
       move_y = 161
