@@ -4,7 +4,7 @@
 
 In the previous two chapters we have sharpened our skills in creating and managing files and folders, and we are now ready to explore working with data that you find inside of files.  In order to understand what we mean by _text data_ in this section, let's first discuss the nature of our files stored on our drives. This involves how our computers translate numbers into more useful information to us like text and images.
 
-We are all familiar with counting in the _decimal_ system, using combinations of the numbers zero through nine (`+0-9+`) to represent any number we can imagine, small to large.  Computers use a different counting system--the _binary_ system--for their internal processing.  The binary system only uses two numbers, zero through one (`+0-1+`), to encode the same numbers we are accustomed to as decimal numbers.  For example, what we know as the number `+144+`, can also be expressed in binary format as `+10010000+`.  Now, visualize flipping a light switch from on to off, and off to on, multiple times.  In computers, ones and zeros can correspond to a rapid sequence of _on_ (`+1+`) and _off_ (`+0+`) electrical states.  Electricity is the driving force that controls hardware, and computer processors are optimized to handle these ones and zeros efficiently.  This is part of the magic behind binary data!
+We are all familiar with counting in the _decimal_ system, using combinations of the numbers zero through nine (`+0-9+`) to represent any number we can imagine, small to large.  Computers use a different counting system--the _binary_ system--for their internal processing.  The binary system only uses two numbers, zero through one (`+0-1+`), to encode the same numbers we are accustomed to as decimal numbers.  For example, what we know as the decimal number `+144+`, can also be expressed in binary format as `+10010000+`.  Now, visualize flipping a light switch from on to off, and off to on, multiple times.  In computers, ones and zeros can correspond to a rapid sequence of _on_ (`+1+`) and _off_ (`+0+`) electrical states.  Electricity is the driving force that controls hardware, and computer processors are optimized to handle these ones and zeros efficiently.  This is part of the magic behind binary data!
 
 All files are stored as _binary data_, meaning that they are encoded as a set of ones and zeros.  We refer to files that contain human-readable content as _text data_ files, in that they encode written-language text.  Computer scientists have agreed on a few standards that map characters in a language to a corresponding number.  For instance, in the _ASCII_ standard{empty}footnote:[ASCII is an acronym that stands for the American Standard Code for Information Interchange.  For more details, see Mackenzie, Charles E.. Coded Character Sets: History and Development. Netherlands: Addison-Wesley Publishing Company, 1980. ISBN-13: 9780201144604], the English uppercase letter _A_ is represented as the decimal number _65_ inside of the file.  These numbers that represent letters are then stored as binary ones and zeros on disk.  Applications like the Terminal shell know how to read the binary-encoded number 65, look up what character it represents in the ASCII character set table, and present us with an English uppercase letter _A_ as text on the screen.
 
@@ -415,87 +415,107 @@ This is a very simple example that demonstrates how the `+tail+` command can sho
 
 === The grep Command--Filtering Data
 
-As we've been learning, working with text files often involves line-based processing of the contents of a file.  This is very much the case when you want to search within a file or many files all at once.  To zone in on exactly what you want to find inside of files, the `+grep+` command is your friend!  Go ahead and have a look at the manual page for `+grep+`.  You'll see that it will "print lines that match patterns".  When we talk about using `+grep+` on the command line, it means we are searching for text-based patterns in one or more files, so the arguments you give to the command include at least those two things--a text pattern to search for, and a set of files to search within.  Let's begin with a common example where you want to see if a word is inside of a file.  Try searching for yourself inside of a file in our star files that are organized by tropical sign.  _Example 66_ shows how to do a simple search within the `+Virgo.txt+` file for the word `+super+`.
+As we've been learning, working with text files often involves line-based processing of the contents of a file.  This is very much the case when you want to search within a file or many files all at once.  To grab exactly what you want from inside of files, the `+grep+` command is your friend!  Go ahead and have a look at the manual page for `+grep+`.  You'll see that it will "print lines that match patterns".  When we talk about using `+grep+` on the command line, it means we are searching for text-based patterns in one or more files, so the arguments you give to the command include at least those two things--a text pattern to search for, and a set of files to search within.  Let's begin with a common example where you want to see if a word is inside of a file.   _Example 66_ shows how to do a simple search within the `+Virgo.txt+` file for the word `+super+`.  Try this search for yourself!
 
-.Using the `+grep+` command to search within a file for a single word.
+.Using the `+grep+` command to search within a file for a single word pattern.
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
 chris@ophir signs % grep super Virgo.txt
 Suhail             	11°32'-Virgo       	orange-super-giant 	0545ly 	+2.21
 ----
 
-Perfect!  You found one line of text in the `+Virgo.txt+` file that contains the word `+super+`.  So in this case, the pattern we're looking for is the word "super", and the file set we are searching is just the Virgo.txt file.  So easy!  We see that the star named Suhail is an orange super giant that is 545 light years away from us.  Very cool!
+Perfect!  You found one line of text in the `+Virgo.txt+` file that contains the word `+super+`.  So in this case, the pattern we're looking for is the word "super" (a sequence of characters), and the file set we are searching is just the Virgo.txt file.  So easy!  We see that the star named Suhail is an orange super giant that is 545 light years away from us.  Very cool!
 
-==== Regular expressions in commands
+The `+grep+` command is awesome for filtering large amounts of information to find just what you want.  At times, though, you may know what you _don't want_ to find more than you know what you _want_.  In this case, the `+grep+` command can exclude the lines you don't want to see by using the `+-v+` option.  This is a handy tool to view lines of a file that you may not even know are present.  For example, let's search the star files, and exclude lines that have the word `+giant+` in them.  Take a look at _Example 67_, which excludes giant stars from the list.
 
-Now, let's continue and search for a pattern across multiple files--all of our star files--but in this case, rather than a single word our search pattern will use what is called a _regular expression_ in computing.  Recall in _Chapter 4. Folder Commands_ where we learned about path expansion.  We used special characters like `+{}+` (curly braces) and `+[]+` (square brackets) to tell the shell we want a list or a sequence to be expanded.  Regular expressions are similar--they help you define a search pattern that represents the sequence of characters you are looking for in the text.  The `+grep+` command supports modern regular expressions using the `+-E+` command option.
-
-TIP:  In computing, regular expressions are used in most all modern programming languages to match text-based patterns of letters, numbers, and symbols.  Learning how to use regular expressions in command line commands is a skill that can be transferred over when learning to program.
-
-As an example, we can search the _distance_ field in our star files to find stars that are greater than 500 light years from Earth by using a regular expression with the `+grep+` command.  Notice that the distance field has four numbers followed by the letters "ly", meaning light years.  An example is `+0807ly+`.  The four numbers represent the thousands, hundreds, tens, and ones digits expressed in light years.  So to search for numbers that are greater than 500, let's use number ranges in our search pattern for each digit.  The pattern `+[0-9][5-9][0-9][0-9]ly+` defines any number matching zero through nine in the thousands digit, five through nine in the hundreds digit, and zero through nine in the tens and ones digits.  Those digits must also be followed by the text characters `+ly+`. 
-
-Go ahead and give this a try!  Let's search all of the star files using an `+*+` (star) wildcard for file expansion.  When you search multiple files, by default the `+grep+` command displays which file the lines are found in, and in this case we use the `+-h+` option to hide the file names from being shown in the results.  Have a look at _Example 67_, which shows the `+grep+` command syntax and the sorted results.
-
-.Using the `+grep+` command to search multiple files ending in `+txt+` using a regular expression (`+-E+`) pattern.  The results are sorted numerically by the fourth field, distance in light years.
+.Using the `+grep+` command to search files by excluding lines containg a word pattern with the `+-v+` option.
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
-chris@ophir signs % grep -h -E "[0-9][5-9][0-9][0-9]ly" *txt | \ 
-sort -t "   " -k 4 -n
-Xamididamura       	16°30'-Sagittarius 	blue-dwarf         	0501ly 	+3.00
-Mirfak             	02°26'-Gemini      	yellow-super-giant 	0506ly 	+1.79
-Albaldah           	16°86'-Capricorn   	yellow-bright-giant	0510ly 	+2.88
-Sadalmelik         	03°41'-Pisces      	yellow-super-giant 	0524ly 	+2.94
-Sadalsuud          	03°44'-Pisces      	yellow-super-giant 	0537ly 	+2.89
-Suhail             	11°32'-Virgo       	orange-super-giant 	0545ly 	+2.21
-Antares            	10°06'-Sagittarius 	red-super-giant    	0554ly 	+0.91
-Shaula             	24°55'-Sagittarius 	blue-sub-giant     	0571ly 	+1.63
-Lesath             	24°21'-Sagittarius 	blue-sub-giant     	0576ly 	+2.65
-Fang               	03°17'-Sagittarius 	blue-dwarf         	0586ly 	+2.91
-Avior              	23°28'-Virgo       	orange-giant       	0605ly 	+1.86
+chris@ophir signs % grep -h -v giant *txt                                             
+Altair             	02°07'-Aquarius    	white-dwarf        	0017ly 	+0.76
+Alderamin          	13°07'-Aries       	white-dwarf        	0049ly 	+2.46
+Sirius             	14°26'-Cancer      	white-dwarf        	0008ly 	-1.46
+Castor-A           	20°35'-Cancer      	white-dwarf        	0051ly 	+1.58
+Menkalinan         	00°15'-Cancer      	white-dwarf        	0081ly 	+1.90
+Gomeisa            	22°32'-Cancer      	blue-dwarf         	0162ly 	+2.89
+Castor-B           	20°35'-Cancer      	white-dwarf        	0051ly 	+2.90
+Furud              	07°43'-Cancer      	blue-dwarf         	0362ly 	+2.99
+Vega               	15°39'-Capricorn   	white-dwarf        	0025ly 	+0.03
+Nunki              	12°43'-Capricorn   	blue-dwarf         	0228ly 	+2.07
+Okab               	20°08'-Capricorn   	white-dwarf        	0083ly 	+2.99
 Adid-Australis     	06°01'-Gemini      	blue-dwarf         	0612ly 	+2.89
-Cih                	14°16'-Taurus      	blue-sub-giant     	0613ly 	+2.15
-Beta-Arae          	24°33'-Sagittarius 	orange-super-giant 	0646ly 	+2.80
-Saiph              	26°45'-Gemini      	blue-super-giant   	0647ly 	+2.06
-Enif               	02°13'-Pisces      	orange-super-giant 	0690ly 	+2.39
-Mintaka            	22°43'-Gemini      	blue-white-giant   	0692ly 	+2.41
+Regor              	27°21'-Leo         	wolf-rayet         	1100ly 	+1.83
+Merak              	19°47'-Leo         	white-dwarf        	0080ly 	+2.37
+Porrima            	10°30'-Libra       	bright-yellow-dwarf	0038ly 	+2.74
+Vathorz-Posterior  	29°11'-Libra       	blue-dwarf         	0456ly 	+2.84
+Algorab            	13°48'-Libra       	blue-dwarf         	0086ly 	+2.94
+Achernar           	15°39'-Pisces      	blue-dwarf         	0140ly 	+0.46
+Fomalhaut          	04°12'-Pisces      	white-dwarf        	0025ly 	+1.16
+Markab             	23°49'-Pisces      	blue-dwarf         	0133ly 	+2.48
+Mahasim            	29°57'-Pisces      	white-dwarf        	0166ly 	+2.62
+Sabik              	18°18'-Sagittarius 	white-dwarf        	0088ly 	+2.42
+Acrab              	03°32'-Sagittarius 	blue-dwarf         	0404ly 	+2.50
+Saik               	09°34'-Sagittarius 	blue-dwarf         	0366ly 	+2.56
+Alpha-Arae         	25°17'-Sagittarius 	blue-dwarf         	0267ly 	+2.80
+Paikauhale         	11°48'-Sagittarius 	blue-dwarf         	0474ly 	+2.81
+Gamma-Tri-Australis	09°44'-Sagittarius 	white-dwarf        	0184ly 	+2.85
 Alniyat            	08°09'-Sagittarius 	blue-dwarf         	0697ly 	+2.89
-Alnitak            	25°02'-Gemini      	blue-super-giant   	0736ly 	+1.77
-Menkhib            	03°28'-Gemini      	blue-super-giant   	0752ly 	+2.80
-Aspidiske          	11°44'-Leo         	blue-super-giant   	0766ly 	+2.26
-Ahadi              	11°44'-Leo         	orange-super-giant 	0807ly 	+2.70
-Mebsuta            	10°17'-Cancer      	yellow-super-giant 	0845ly 	+2.98
-Rigel              	17°11'-Gemini      	blue-super-giant   	0860ly 	+0.13
-Wezen              	23°45'-Cancer      	yellow-super-giant 	1600ly 	+1.84
-Sadr               	25°10'-Aquarius    	yellow-super-giant 	1800ly 	+2.23
-Girtab             	27°52'-Sagittarius 	blue-giant         	1930ly 	+2.99
-Deneb              	05°39'-Pisces      	white-super-giant  	2600ly 	+1.25
+Fang               	03°17'-Sagittarius 	blue-dwarf         	0586ly 	+2.91
+Xamididamura       	16°30'-Sagittarius 	blue-dwarf         	0501ly 	+3.00
+Rigil-Kentaurus    	29°47'-Scorpio     	yellow-dwarf       	0004ly 	+0.01
+Toliman            	29°47'-Scorpio     	orange-dwarf       	0004ly 	+1.33
+Alphecca           	12°38'-Scorpio     	white-dwarf        	0075ly 	+2.24
+Eta-Centauri       	20°14'-Scorpio     	blue-dwarf         	0306ly 	+2.31
+Zubeneschamali     	19°43'-Scorpio     	blue-dwarf         	0185ly 	+2.62
+Iota-Centauri      	03°28'-Scorpio     	white-dwarf        	0058ly 	+2.73
+Sun                	Varies             	yellow-dwarf       	0000ly 	-26.7
+Algol              	26°31'-Taurus      	blue-dwarf         	0090ly 	+2.12
+Sheratan           	04°19'-Taurus      	white-dwarf        	0059ly 	+2.65
+Regulus            	00°10'-Virgo       	blue-dwarf         	0079ly 	+1.40
+Alioth             	09°17'-Virgo       	white-dwarf        	0083ly 	+1.77
+Alsephina          	18°57'-Virgo       	white-dwarf        	0081ly 	+1.77
+Alkaid             	27°17'-Virgo       	blue-dwarf         	0104ly 	+1.86
+Denebola           	21°57'-Virgo       	white-dwarf        	0036ly 	+2.13
+Mizar              	16°03'-Virgo       	white-dwarf        	0081ly 	+2.22
+Phecda             	00°50'-Virgo       	white-dwarf        	0083ly 	+2.44
+Zosma              	11°40'-Virgo       	white-dwarf        	0058ly 	+2.53
+Cor-Caroli         	24°55'-Virgo       	bright-yellow-dwarf	0107ly 	+2.88
 ----
 
-.Regular expression patterns.
-[%header,cols="^1m,^4m", stripes=even]
-|===
-|Pattern | Meaning
+Interesting! Forty-eight of the brightest stars are labeled as non-giant stars, and we see many dwarf size stars in this list.  It's also very common to pipe the results of a `+grep+` command into another `+grep+` command for further filtering.  For instance, let's also filter out any dwarf stars from the resulting list, and see what we get.  Have a look at the results in _Example 68_.
 
-<|abc…     <|All upper and lower letters
-<|123…     <|All digits from zero to nine
-<|\d       <|Any single digit
-<|\D       <|Any non-digit character
-<|.        <|Any character
-<|[abc]    <|Only a, b, or c
-<|[^abc]   <|Not a, b, nor c
-<|[A-Za-z] <|Characters A to Z or a to z
-<|[0-9]    <|Numbers 0 to 9
-<|{m}      <|m repetitions of the preceding pattern
-<|{m,n}    <|m to n repetitions of the preceding pattern
-<|*        <|Zero or more repetitions of the preceding pattern
-<|+        <|One or more repetitions of the preceding pattern
-<|?        <|An optional character
-<|\s       <|Any whitespace (spaces, tabs, newline, carriage return)
-<|\S       <|Any Non-whitespace character
-|===
+.Piping the output of a `+grep+` command to another `+grep+` command, continuing to filter  with the `+-v+` option.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir signs % grep -h -v giant *txt | grep -v dwarf 
+Regor              	27°21'-Leo         	wolf-rayet         	1100ly 	+1.83
+----
+
+Ah hah! By filtering out lines that we are not interested in using the `+-v+` option, we have discovered that a single star, Regor, is not labeled as a giant or dwarf star, but rather it is classified as a "wolf-rayet" star.  Amazing!  This is like finding a needle in a hay stack when a lot of data are involved, and it demonstrates the power of the `+grep+` command.  Wolf-Rayet stars are very unique in that they are some of the hottest stars that have been observed, with a surface temperature above 50,000 degrees Kelvin. Regor actually is a massive star, with the qualities of a blue giant.  Its carbon-rich core is said to cause Wolf-Rayet stars to burn intensely during a relatively short lifespan, and then   they are thought to collapse and explode into massive nebulae.  _Figure 42_ shows Regor--such an amazing star!
+
+image::chapter-05-regor-star.png[title="An image of Regor, a highly luminous Wolf-Rayet class star 1100 light years away. Image credit: sky-map.org.",pdfwidth=100%]
+
+==== Using pattern matching in commands
+
+In the last few examples, we have searched for a pattern that have been single words--like _giant_ or _dwarf_.  When searching within text files, there are times when we want to find multiple different values that match a pattern rather than a single word (which is a sequence of characters, called a string).  Yes, we have the magic to do this!  Rather than a single word for our search pattern, we will use what is called a _regular expression_ in computing.  Regular expressions are little recipes of special characters and rules that define a pattern to search for.  Recall in _Chapter 4. Folder Commands_ where we learned about path expansion.  We used special characters like `+{}+` (curly braces) and `+[]+` (square brackets) to tell the shell we want a list or a sequence to be expanded.  Regular expressions are similar--they use special characters and some simple rules to help you define a search pattern that matches the sequence of characters you are looking for in the text.  An quick example would be the pattern `+[0-9]+`, which is a little shorthand gem that matches a range of numbers from zero to nine.  The `+grep+` command supports modern regular expressions using the `+-E+` command option.
+
+TIP:  In computing, regular expressions are used in most all modern programming languages to match text-based patterns of letters, numbers, and symbols.  Learning how to use regular expressions in command line commands is a skill that can be transferred over when learning to program.  The term is often shortened to _regex_.
+
+Let's start with an example using the `+grep+` command, where we can construct our previous command to filter out both dwarf and giant stars in a more concise way.  One of the special characters used in regular expression patterns is the `+|+` (pipe) symbol.  When used for pattern matching, the pipe symbol indicates an _OR operator_ {emdash}meaning that we can search for _pattern1{nbsp}{nbsp}OR{nbsp}{nbsp}pattern2{nbsp}{nbsp}OR{nbsp}{nbsp}pattern3_, etc.  Let's give this a try with the `+-E+` option for the `+grep+` command.  Also note that the `+|+` (pipe) symbol is also a special symbol for commands as we learned earlier--therefore we will wrap our pattern in `+""+` (double-quote) characters to shield it from being interpreted as a command line pipe.  Have a look at _Example 69_, showing the use of a regular expression in the `+grep+` command.
+
+.Filtering text data using a regular expression pattern with the `+-E+` option of the `+grep+` command.
+[source, console, caption="Example {counter:listing-counter}: "]
+----
+chris@ophir signs % grep -h -v -E "dwarf|giant" *txt      
+Regor              	27°21'-Leo         	wolf-rayet         	1100ly 	+1.83
+----
+
+Excellent!  You just searched for two different patterns at the same time using this particular matching syntax of `+"dwarf|giant"+` as the option value.  With the `+-E+` option, the `+grep+` command knew to treat the option value as a regular expression and split the two search terms apart based on the `+|+` (pipe) separator.  Using the `+-v+` option we learned about previously, the `+grep+` command excluded these terms from the results, and returned the same Wolf-Rayet star--Regor--as before, and this command is more concise than the command in _Example 68_.  Magical!
+
+Regular expressions can be used in many commands, not just `+grep+`.  We've seen two examples of pattern matching syntax so far--number ranges with brackets like `+[0-9]+` and the OR operator using a pipe symbol like `+"pattern1|pattern2"+`.  There are many more ways to match all sorts of letters, numbers, invisible characters, words, repeated patterns, and others.  Have a look at _Appendix C: Understanding Regular Expressions_ to learn about many of the common matching techniques and rules that help you find exactly what you are looking for!
 
 <<<
 === Command Line Data Handling is Awesome!
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. At penatibus habitant malesuada tortor ultrices erat. Justo ad fringilla lacus consequat, blandit ut montes. Phasellus turpis euismod fusce curabitur suspendisse taciti. Molestie nunc enim sociosqu ad nostra ex etiam vel parturient. Porta molestie tristique blandit accumsan, pretium egestas fusce. Lobortis eget tristique interdum, nullam primis porta platea.
+Wow! We've covered a lot of ground when it comes to handling text data files and the sheer vastness of the cosmos!  We've learned that all files are are stored and processed as binary data in computer systems, and that text files store human-readable written language by additionally encoding them the text with agreed-upon standards such as ASCII and UTF-8.  We are now familiar with five awesome commands that help us work with text files, and understand how to handle files--both small and large--with just a few command line options.  We've acquainted ourselves with the `+cat+` command which lets us quickly view files directly in the terminal window, and helps us combine potentially thousands of files together effortlessly.  In order to send the results of one command into another we learned about the concepts of pipes and pipelines, which are magical command line tools that open up a whole new world of flexibility for processing lines of data.  With these tools in our toolbox, we learned to use the `+sort+` command to order the results of our previous commands in multiple ways, including alphabetically and numerically.  We explored the concepts around text file formatting and how both visible and invisible characters are used to separate lines of a file with record delimiters, and columns of a file with field separators--all to keep our data tidy!  With the `+head+` and `+tail+` commands, we discovered how easy it is to view the tops and bottoms of data files, which helped us zone in on the brightest and most distant stars that we see in the sky.  And to round out our text data handling techniques, we familiarized ourselves with the awesome search capabilities of the `+grep+` command. With an introduction to matching patterns using regular expressions, we see how flexible it is to filter large datasets to find the gems.   Grab just the data you want, and only what you want!  There's more to explore with regular expressions in _Appendix C. Understanding Regular Expressions_, but let's next turn to some super handy utility commands that make our command line life as convenient as possible.  Onward!
 
