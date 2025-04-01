@@ -14,7 +14,7 @@ endif::[]
 :newline: &#x000A;
 :emdash: &#8212;
 // Asciidoc seems to compress multiple spaces to one space, or uses UTF-8 characters
-// with spaces of different width.  To Begin spaces with the equivalent of two spaces,
+// with spaces of different width.  To begin sentences with the equivalent of two spaces,
 // create a double space attribute with 3 non-breaking spaces, which seems to result
 // in a "wide" space equivalent to two spaces.
 :dblsp: &nbsp;&nbsp;&nbsp; 
