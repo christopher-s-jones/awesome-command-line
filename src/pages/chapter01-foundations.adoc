@@ -35,11 +35,11 @@ A _command line interface_, or _CLI_, is also a way to work with your computer b
 .Issuing the `pwd` command
 [source, console, caption="Example {counter:listing-counter}: "]
 ----
-chris@ophir ~ % pwd
+pwd
 /Users/chris
 ----
 
-What a little gem!  We'll go into the details of this command later, but you can see that it is a very simple command that shows you what directory (i.e. folder) you are currently working in.  So the combination of those three letters, when typed in an application that knows how to handle them (a terminal), will give you back a result that shows your current folder, all using text-based symbols.
+What a little gem!  We'll go into the details of this command later, but you can see that it is a very simple command that shows you what directory (i.e. folder) you are currently working in by dispaying the `+/Users/chris+` text below the command.  So the combination of those three letters, when typed in an application that knows how to handle them (a terminal), will give you back a result that shows your current folder, all using text-based symbols.
 
 In the remainder of Chapter 1, we will get started with setting up a terminal application  that provides a command line interface for your operating system (macOS, Linux, or Windows).  Once complete, we will open the terminal application, adjust the font family and size so that it is comfortably readable, and then introduce the various components--the _shell_, the _command line_, the _command prompt_, and the various parts of a _command_.  Let's get rolling!
 
