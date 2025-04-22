@@ -1,0 +1,83 @@
+= Awesome Command Line:21 Commands To Get You Started With Your Computer's Magic Portal!
+
+This book is a reminder that you have superpowers at your fingertips! We are all familiar with the ways that we interact with our computers on a daily basis — _click, drag, drop, scroll, touch, tap_. The graphical nature of our screens and applications are absolutely amazing and indispensible. In this book, we explore the secret little gems available on all operating systems with another familiar way to interact — _type_! And the best part is that the magical commands we explore are largely derived from the English words that describe them, so acquainting ourselves with these commands is straight-forward with a bit of guidance. Once you become familiar with this small set of essential commands, adding new commands to your toolbox is even easier. With some simple dedication and practice, you will be able to enhance your computing workflow to be even more efficient and powerful. You’ll manage your projects in ways that would otherwise be labor intensive when using your mouse. The intention of this book is to empower you in your creative journey by showing you how the command line is an awesome tool to get things done!
+
+== Book Chapters
+
+This book source code is written in AsciiDoc, and the text of the book is available in the `+src/pages/+` folder.
+It is organized as follows:
+
+.Colophon
+.Preface
+.Acknowledgements 
+.The Command Line Is For Everyone
+. Getting Started
+. Setup
+. Terminal Applications
+. The Shell
+. The Command Prompt
+. The Parts of a Command
+. Single Line and Multi-Lined Commands
+. Command Line Interfaces are Awesome!
+.Core Commands
+. Exploring Your File System
+. The pwd Command — Print the Working Directory
+. Understanding File Paths
+. The man Command — Accessing the Manual
+. The clear Command — Keeping It Tidy
+. The cd Command — Changing Directories
+. Understanding Tab Completion
+. The ls Command — Listing Files and Folders
+. Command Line Core Foundations Are Awesome!
+.File Commands
+. Working with Files 
+. The echo Command — Writing Text to Files 
+. Understanding Redirection 
+. The touch Command — Creating Files 
+. The mv Command — Renaming Files 
+. The cp Command — Copying Files 
+. The rm Command — Deleting Files 
+. Command Line File Handling is Awesome! 
+.Folder Commands 
+. Working with Folders 
+. The mkdir Command — Creating Directories (Folders) 
+. Understanding Expansion 
+. The rmdir Command — Deleting Directories (Folders) 
+. The du Command — Viewing Disk Usage 
+. Command Line Folder Handling is Awesome! 
+.Text Data Commands. 
+. Working with Text Data 
+. The cat Command — Viewing the contents of a Text File 
+. The sort Command — Sorting the Contents of a File 
+. The head Command — Previewing the Top of a File 
+. The tail Command — Previewing the Bottom of a File 
+. The grep Command — Filtering Text 
+. Understanding Pipes 
+. Command Line Text Data Handling is Awesome! 
+.Utility Commands
+. Working with Utilities
+. The less Command — Paging Output for Easy Viewing 
+. The history Command — Viewing You Command History 
+. The open Command — Opening Files and Folders 
+. Command Line Utilities are Awesome! 
+.Next Steps 
+. Practice Makes Perfect!
+. Upgrade Your Terminal Colors and Prompt
+. Explore the Universe of Commands
+. Congratulations!
+.Appendix A: Customizing Your Terminal. 
+.Appendix B: Using a Package Manager 
+. Expanding the Commands Available to You 
+. Installing Homebrew for Mac 
+. Using Built-In Linux Package Managers
+. Installing Chocolatey on Windows
+.Appendix C: Regular Expressions
+
+== Generating the book
+
+The book is a work in progress, in DRAFT form, with currently five out of seven chapters written.  To view a copy of the generated PDF, use the following command from within the `+src/+` directory:
+
+[source, console]
+----
+$ asciidoctor-pdf -v -r ./ruby/extended-pdf-converter.rb -o book.pdf book.adoc
+----
