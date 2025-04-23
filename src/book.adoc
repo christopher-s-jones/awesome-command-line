@@ -3,13 +3,13 @@ ifeval::["{backend}" ==  "epub3"]
 :title: Awesome Command Line: 21 Commands to Get You Started With Your Computer's Magic Portal!
 endif::[]
 :author: Christopher S. Jones
-:email: <csj@christopherjones.co>
+:email: <hello@christopherjones.co>
 :publisher: Christopher S. Jones
 :pubaddress: Post Office Box 7201, Boulder, CO 80306
 :pubyear: 2025
 :printername:
 :printerlocation: United States of America
-:bookurl: https://christopherjones.dev/awesome-command-line
+:bookurl: https://github.com/christopher-s-jones/awesome-command-line
 :license: Creative Commons Attribution-ShareAlike 4.0 International
 :newline: &#x000A;
 :emdash: &#8212;
@@ -42,6 +42,7 @@ endif::[]
 :lang: en
 :source-language: console
 :imagesdir: images
+:page-background-image: image:watermark.svg[pdfwidth=100%]
 :pdf-fontsdir: styles/pdf/fonts
 :pdf-themesdir: styles/pdf
 :pdf-theme: print 
@@ -58,7 +59,7 @@ endif::[]
 
 include::pages/preface.adoc[]
 
-include::pages/acknowledgements.adoc[]
+// include::pages/acknowledgements.adoc[]
 
 include::pages/chapter01-foundations.adoc[]
 
