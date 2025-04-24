@@ -1,0 +1,22 @@
+[appendix]
+== Using a Package Manager
+
+
+=== Expanding the Commands Available to You
+
+Lorem ipsum odor amet, consectetuer adipiscing elit.  At penatibus habitant malesuada tortor ultrices erat.  Justo ad fringilla lacus consequat, blandit ut montes.  Phasellus turpis euismod fusce curabitur suspendisse taciti.  Molestie nunc enim sociosqu ad nostra ex etiam vel parturient.  Porta molestie tristique blandit accumsan, pretium egestas fusce.  Lobortis eget tristique interdum, nullam primis porta platea.
+
+
+=== Installing Homebrew for Mac
+
+Lorem ipsum odor amet, consectetuer adipiscing elit.  At penatibus habitant malesuada tortor ultrices erat.  Justo ad fringilla lacus consequat, blandit ut montes.  Phasellus turpis euismod fusce curabitur suspendisse taciti.  Molestie nunc enim sociosqu ad nostra ex etiam vel parturient.  Porta molestie tristique blandit accumsan, pretium egestas fusce.  Lobortis eget tristique interdum, nullam primis porta platea.
+
+=== Using Built-In Linux Package Managers
+
+Lorem ipsum odor amet, consectetuer adipiscing elit.  At penatibus habitant malesuada tortor ultrices erat.  Justo ad fringilla lacus consequat, blandit ut montes.  Phasellus turpis euismod fusce curabitur suspendisse taciti.  Molestie nunc enim sociosqu ad nostra ex etiam vel parturient.  Porta molestie tristique blandit accumsan, pretium egestas fusce.  Lobortis eget tristique interdum, nullam primis porta platea.
+
+==== Installing wslu for Windows Subsystem for Linux
+
+Lorem ipsum odor amet, consectetuer adipiscing elit.  At penatibus habitant malesuada tortor ultrices erat.  Justo ad fringilla lacus consequat, blandit ut montes.  Phasellus turpis euismod fusce curabitur suspendisse taciti.  Molestie nunc enim sociosqu ad nostra ex etiam vel parturient.  Porta molestie tristique blandit accumsan, pretium egestas fusce.  Lobortis eget tristique interdum, nullam primis porta platea.
+
+
