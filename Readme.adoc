@@ -4,6 +4,8 @@ This book is a reminder that you have superpowers at your fingertips! We are all
 
 == Book Chapters
 
+The current link:./book-draft-copy.pdf[Draft Book PDF] is available.
+
 This book source code is written in AsciiDoc, and the text of the book is available in the `+src/pages/+` folder.
 It is organized as follows:
 
