@@ -32,11 +32,9 @@ When we turn on our computers, we are greeted with beautiful desktop images, ico
 
 A _command line interface_, or _CLI_, is also a way to work with your computer by means of a metaphor, but in this case we use plain text words and other combinations of characters as symbols to indicate to the computer what you want to accomplish.  Sometimes they resemble English words, other times they are shortened versions of words, or acronyms of multiple words.  For example, a command that we cover in Chapter 2 is `pwd`.  This is just a three-character command that stands for "print working directory".  Here's a quick example:
 
-.Issuing the `pwd` command
-[source, console, caption="Example {counter:listing-counter}: "]
 ----
-pwd
-/Users/chris
+pwd           <-- This is the command
+/Users/chris  <-- This is the result of the command
 ----
 
 What a little gem!  We'll go into the details of this command later, but you can see that it is a very simple command that shows you what directory (i.e. folder) you are currently working in by dispaying the `+/Users/chris+` text below the command.  So the combination of those three letters, when typed in an application that knows how to handle them (a terminal), will give you back a result that shows your current folder, all using text-based symbols.
