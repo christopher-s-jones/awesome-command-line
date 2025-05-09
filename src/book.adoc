@@ -3,7 +3,7 @@ ifeval::["{backend}" ==  "epub3"]
 :title: Awesome Command Line: 21 Commands to Get You Started With Your Computer's Magic Portal!
 endif::[]
 :author: Christopher S. Jones
-:email: <hello@christopherjones.co>
+:email: <heychris@christopherjones.co>
 :publisher: Christopher S. Jones
 :pubaddress: Post Office Box 7201, Boulder, CO 80306
 :pubyear: 2025
@@ -28,7 +28,7 @@ endif::[]
 // :revyear: 2025
 :experimental:
 :subject: Learning the command line computer interface
-:keywords: Command Line, Computers, CLI
+:keywords: Command Line, Computers, CLI, Sovereignty, Freedom
 :doctype: book
 :isbn: XXX-X-XXX-XXXXX-X
 :media: print
@@ -59,7 +59,7 @@ endif::[]
 
 include::pages/preface.adoc[]
 
-// include::pages/acknowledgements.adoc[]
+include::pages/acknowledgements.adoc[]
 
 include::pages/chapter01-foundations.adoc[]
 

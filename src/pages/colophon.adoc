@@ -12,7 +12,7 @@ The _Awesome Command Line_ series of books may be purchased for personal, educat
 // Define a two column edition table, no borders, half a page wide
 [cols="1,1", frame=none, grid=none, width=50%]
 |===
-| February 2025:
+| November 2025:
 | First Edition
 |===
 

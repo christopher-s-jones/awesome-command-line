@@ -1,4 +1,8 @@
-= Awesome Command Line:21 Commands To Get You Started With Your Computer's Magic Portal!
+= Awesome Command Line
+
+== 21 Commands To Get You Started With Your Computer's Magic Portal!
+
+image:../awesome-command-line/src/images/logo-1024x1280.svg[top=20%,align=left,width=25%]
 
 This book is a reminder that you have superpowers at your fingertips! We are all familiar with the ways that we interact with our computers on a daily basis — _click, drag, drop, scroll, touch, tap_. The graphical nature of our screens and applications are absolutely amazing and indispensible. In this book, we explore the secret little gems available on all operating systems with another familiar way to interact — _type_! And the best part is that the magical commands we explore are largely derived from the English words that describe them, so acquainting ourselves with these commands is straight-forward with a bit of guidance. Once you become familiar with this small set of essential commands, adding new commands to your toolbox is even easier. With some simple dedication and practice, you will be able to enhance your computing workflow to be even more efficient and powerful. You’ll manage your projects in ways that would otherwise be labor intensive when using your mouse. The intention of this book is to empower you in your creative journey by showing you how the command line is an awesome tool to get things done!
 
