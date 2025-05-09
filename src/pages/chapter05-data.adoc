@@ -140,7 +140,7 @@ So easy!  We've just combined the two files together, sending the results to sta
 
 Now that we know how to combine files, let's explore the data and answer some questions{emdash} _What are the brightest stars in the sky?_  _In fact, what are the 21 brightest stars?_ _Of the brightest stars, which are the most distant?_  To answer these and other questions, let's combine all of the tropical zodiac files together into one big list, and then sort them by visual brightness, and grab the brightest 21 stars.  We'll then sort the results by distance, and have a look at the most distant, but super bright stars.  They must be really big!  To complete our work, we will need the `+sort+` command and the `+head+` command, which we will explore. But first we need to learn about command line pipes, which we discuss in the next section.  Let's dive into the stars!
 
-===  Pipes
+===  Pipes--The Power Of Compound Commands
 
 In _Chapter 3. File Commands_, we learned how to use redirection to send the output of a command into a file using the `+>+` (greater-than) and `+>>+` (double-greater-than) operators.  In Unix-like systems, there is another similar concept called _pipes_, which allow you to send the output from one command into another command.  This is one of the most powerful and magical tools in our toolbox!  To do this, we use a different symbol from the keyboard--the `+|+` (pipe) symbol, which is sometimes referred to as a vertical bar.  When we chain commands together using the pipe symbol, collectively it is called a _pipeline_.  Have a look at _Figure 37_ which shows the parts of a pipeline with three commands.
 

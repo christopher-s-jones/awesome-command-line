@@ -31,7 +31,7 @@ image::chapter-04-macos-make-directories.png[title="Showing the results of creat
 
 This is a great example of how fast a command can be in accomplishing a lot of work.  However, what if you have photography shoots at dozens of locations and dates, and need to create all of the yearly, monthly, and daily sub-folders for those sessions?  We have the magic!  In the next section, let's explore the concept of command line expansion, and how it will help us get the job done quickly.
 
-===  Expansion
+=== Expansion--Powerful Techniques To Speed Up Your Commands
 
 The terminal shell gives us a number of shorthand techniques to generate file and directory paths, and they generally fall under the topic of _expansion_.  To understand expansion, let's first review a type of expansion that we have already covered{emdash} _tilde expansion_.  We understand that a `+~+` (tilde) sign on the command line signifies "the user's home directory".  So if we type `+cd ~+`, the command expands to be `+cd /Users/<your-username>+` on macOS or `+/home/<your-username>+` on Linux and WSL.  Likewise, using `+~venus+` on the command line means "the username _venus_' home directory", which expands to `+/Users/venus+` or `/home/venus`, depending on the operating system. So expansion generally gives us shorthand syntax that expands to longer file or directory paths.  So let's first explore the concept of _brace expansion_ to help us with our photo organization project from above.
 

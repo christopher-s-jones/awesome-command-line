@@ -285,7 +285,7 @@ chris@nuthatch:Pictures$ pwd
 
 For Windows WSL users, you'll need to already be in your `+/mnt/c/Users/<username>+` directory to be able to change directories into `+./Pictures+` since the WSL installation doesn't automatically add these folders in your Linux home directory in `+/home/<username>+`.
 
-===  Tab Completion
+===  Tab Completion--Give Your Fingers A Rest
 
 Great!  We now understand how to change directories using the `+cd+` command with both relative and absolute directory paths. Let's now look at a scenario where we have a very deeply nested set of directories within our `+Pictures+` folder.  In our example, I have stored awesome cat and dog photos taken in cities around the world, organized by country, city, and year.  Yay pets!  But this directory tree is very large, so I would like to traverse it interactively.  We can do so using a shell feature called _tab completion_.  Tab completion works with the `+cd+` command.  Type `+cd+` on the command line followed by a space, and then press the kbd:[Tab] key twice.  If there are sub-directories inside of your current directory, it will list them for you automatically!  _Example 16_ illustrates this with our pet photo directories from around there world.
 
