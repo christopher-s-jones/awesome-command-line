@@ -1,5 +1,5 @@
 [appendix]
-== Understanding Regular Expressions
+== Regular Expressions--Matching Patterns Like a Pro
 
 We can search the _distance_ field in all of our star files to find stars that are greater than 500 light years from Earth by using a regular expression with the `+grep+` command.  Notice in _Example 66_ that the distance field has four numbers followed by the letters "ly", meaning light years.  This example shows `+0545ly+`.  The sequence of numbers represent light years expressed with four-digits--with thousands, hundreds, tens, and ones digits.  So to search for numbers that are greater than 500, let's use a number range for each digit in our search pattern that we give to the `+grep+` command.  The regular expression `+[0-9][5-9][0-9][0-9]ly+` is a little recipe that matches "a number from zero through nine in the thousands digit, followed by a number from five through nine in the hundreds digit, followed by a number from zero through nine in the tens digit, followed by a number from zero through nine in the ones digit, followed by the letters ly".
 

@@ -7,8 +7,6 @@ Copyright (C) {pubyear} {author}. All rights reserved.
 
 Published by {publisher}, {pubaddress}
 
-The _Awesome Command Line_ series of books may be purchased for personal, educational, or business use.  See {bookurl} for details.
-
 // Define a two column edition table, no borders, half a page wide
 [cols="1,1", frame=none, grid=none, width=50%]
 |===

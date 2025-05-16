@@ -63,7 +63,7 @@ It is organized as follows:
 . Utility Commands
 * Working with Utilities
 * The less Command — Paging Output for Easy Viewing 
-* The history Command — Viewing You Command History 
+* The history Command — Viewing Your Command History 
 * The open Command — Opening Files and Folders 
 * Command Line Utilities are Awesome! 
 . Next Steps 
