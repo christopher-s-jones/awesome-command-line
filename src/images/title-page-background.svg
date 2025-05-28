@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="545px" height="710px" viewBox="0 0 545 710" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>title-page-background</title>
+    <defs>
+        <radialGradient cx="86.232619%" cy="85.6993339%" fx="86.232619%" fy="85.6993339%" r="108.066328%" gradientTransform="translate(0.8623, 0.857), scale(1, 0.7676), rotate(53.4711), scale(1, 1.6899), translate(-0.8623, -0.857)" id="radialGradient-1">
+            <stop stop-color="#86198F" offset="0%"></stop>
+            <stop stop-color="#4F46E5" offset="57.4551669%"></stop>
+            <stop stop-color="#020617" offset="100%"></stop>
+            <stop stop-color="#020617" offset="100%"></stop>
+            <stop stop-color="#020617" stop-opacity="0.944359839" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="title-page-background" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="url(#radialGradient-1)" x="0" y="0" width="545" height="710"></rect>
+    </g>
+</svg>
