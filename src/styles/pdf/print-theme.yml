@@ -99,7 +99,8 @@ title_page:
   align: right
   font_family: PT Sans Narrow
   font_style: bold
-  font_color: $base_font_color
+  font_color: E0E7FF # indigo-100
+  background_image: ../../images/title-page-background.svg
   logo:
     image: image:../../images/logo-1024x1280.svg[top=20%,align=left,pdfwidth=1.25in]
   title:
@@ -107,13 +108,13 @@ title_page:
     font_family: PT Sans Narrow
     font_style: bold
     font_size: 3.5em
-    font_color: $base_font_color
+    font_color: E0E7FF # indigo-100
     line_height: .9
   subtitle:
     font_family: PT Sans
     font_style: italic
     margin_top: 25
-    font_color: 44403C # stone-700
+    font_color: E0E7FF # indigo-100
     font_size: $heading_h3_font_size
     line_height: 1.15
     align: right
@@ -121,7 +122,7 @@ title_page:
     margin_top: 200
     font_family: EB Garamond
     font_style: italic
-    font_color: $base_font_color
+    font_color: C7D2FE # indigo-200
     font_size: $heading_h2_font_size
 block:
   margin_top: 0
@@ -154,7 +155,7 @@ quote:
 code:
   # font_color: $base_font_color
   font_family: $literal_font_family
-  font_size: $base_font_size_small * 0.95
+  font_size: $base_font_size_small
   padding: $code_font_size
   line_height: 1.25
   # background_color: F5F5F4 # stone-100
@@ -208,9 +209,8 @@ list:
   text_align: left
 table:
   background_color: $page_background_color
-  head_font_style: bold
+  head_font_style: normal
   head_font_family: MPLUS1p
-  head_font_size: .85em
   head_background_color: F9F9F9
   even_row_background_color: F9F9F9
   foot_background_color: F0F0F0
