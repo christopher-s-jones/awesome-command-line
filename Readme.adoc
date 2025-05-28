@@ -8,7 +8,7 @@ This book is a reminder that you have superpowers at your fingertips! We are all
 
 == Contributing
 
-This guide book is a work and progress, and we welcome feedback on the writing, content, examples, diagrams, etc.  To contribute to the project, please create an Issue in for the repository, and just describe your proposed changes.  It's helpful to hear about how effective the writing is from a beginner's perspective, and if anything is confusing, unclear, perhaps written a bit too technically.  All perspectives are welcome! Thank you for contributing.
+This guide book is a work and progress, and we welcome feedback on the writing, content, examples, diagrams, etc.  To contribute to the project, please create an Issue in the repository, and just describe your proposed changes.  It's helpful to hear about how effective the writing is from a beginner's perspective, and if anything is confusing, unclear, perhaps written a bit too technically.  All perspectives are welcome! Thank you for contributing.
 
 == Book Chapters
 
