@@ -24,7 +24,8 @@ This icon indicates an informational note.
 This icon indicates a tip, suggestion, or a point of awesomeness.
 
 [CAUTION]
-This icon indicates a time to be very careful with a command or action. It could be irreversible.
+This icon indicates a time to be very careful with a command or action. 
+Many commands are extremely powerful, and the results may be irreversible.
 
 [discrete]
 === Getting the Command Line Examples

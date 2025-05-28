@@ -59,7 +59,7 @@ endif::[]
 
 include::pages/preface.adoc[]
 
-include::pages/acknowledgements.adoc[]
+// include::pages/acknowledgements.adoc[]
 
 include::pages/chapter01-foundations.adoc[]
 
