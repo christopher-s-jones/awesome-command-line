@@ -21,67 +21,66 @@ It is organized as follows:
 . Preface
 . Acknowledgements 
 . The Command Line Is For Everyone
-* Getting Started
-* Setup
+*  Getting Started
 * Terminal Applications
 * The Shell
 * The Command Prompt
 * The Parts of a Command
 * Single Line and Multi-Lined Commands
 * Command Line Interfaces are Awesome!
-. Core Commands
-* Exploring Your File System
-* The pwd Command — Print the Working Directory
-* Understanding File Paths
-* The man Command — Accessing the Manual
-* The clear Command — Keeping It Tidy
-* The cd Command — Changing Directories
-* Understanding Tab Completion
-* The ls Command — Listing Files and Folders
-* Command Line Core Foundations Are Awesome!
-. File Commands
-* Working with Files 
-* The echo Command — Writing Text to Files 
-* Understanding Redirection 
-* The touch Command — Creating Files 
-* The mv Command — Renaming Files 
-* The cp Command — Copying Files 
-* The rm Command — Deleting Files 
-* Command Line File Handling is Awesome! 
-. Folder Commands 
-* Working with Folders 
-* The mkdir Command — Creating Directories (Folders) 
-* Understanding Expansion 
-* The rmdir Command — Deleting Directories (Folders) 
-* The du Command — Viewing Disk Usage 
-* Command Line Folder Handling is Awesome! 
-. Text Data Commands. 
-* Working with Text Data 
-* The cat Command — Viewing the contents of a Text File 
-* The sort Command — Sorting the Contents of a File 
-* The head Command — Previewing the Top of a File 
-* The tail Command — Previewing the Bottom of a File 
-* The grep Command — Filtering Text 
-* Understanding Pipes 
-* Command Line Text Data Handling is Awesome! 
-. Utility Commands
-* Working with Utilities
-* The less Command — Paging Output for Easy Viewing 
-* The history Command — Viewing Your Command History 
-* The open Command — Opening Files and Folders 
-* Command Line Utilities are Awesome! 
-. Next Steps 
+. Core Commands: pwd, man, clear, cd, ls
+* For the Love of Files and Folders
+* The pwd Command--Print the Working Directory
+*  File and Directory Paths
+* The man Command--Accessing the Manual
+* The clear Command--Keeping It Tidy
+* The cd Command--Changing Directories
+*  Tab Completion--Give Your Fingers A Rest
+* The ls Command--Listing Files and Folders
+* Core Commands Are Awesome!
+. File Commands: echo, mv, cp, rm, nano
+* Powerful Ways To Work With Files
+* The echo Command--Easily Creating Files
+*  Redirection, Standard Input, Output, and Error
+* The mv Command--Renaming and Relocating Files
+* The cp Command--Copying Files
+* The rm Command--Deleting Files
+* The nano Command--Creating and Editing Files
+* Command Line File Handling is Awesome!
+. Folder Commands: mkdir, rmdir, du
+* Lightning Fast Folder Management
+* The mkdir Command--Creating Directories
+* Expansion--Powerful Techniques To Speed Up Your Commands
+* The rmdir Command--Deleting Directories
+* The du Command--Viewing Disk Usage
+* Command Line Folder Handling is Awesome!
+. Text Data Commands: cat, sort, head, tail, grep
+* Versatile Ways To Work With Text Data
+* The cat Command--Viewing and Combining Files
+*  Pipes--The Power Of Compound Commands
+* The sort Command--Sorting the Contents of a File
+* The head Command--Previewing the Top of a File
+* The tail Command--Previewing the Bottom of a File
+* The grep Command--Filtering Data
+* Command Line Data Handling is Awesome!
+. Utility Commands: less, history, open
+* Utilities That Make Your Life Easier
+* The less Command--Paging Output for Easy Viewing
+* The history Command--Using Your Command History
+* The open Command--Opening Files and Folders
+* Command Line Utilities are Awesome!
+. Next Steps
 * Practice Makes Perfect!
 * Upgrade Your Terminal Colors and Prompt
 * Explore the Universe of Commands
 * Congratulations!
-. Appendix A: Customizing Your Terminal. 
-. Appendix B: Using a Package Manager 
-* Expanding the Commands Available to You 
-* Installing Homebrew for Mac 
-* Using Built-In Linux Package Managers
-* Installing Chocolatey on Windows
-. Appendix C: Regular Expressions
+* You Are Awesome!
+. Appendix A: Customizing Your Terminal
+. Appendix B: Regular Expressions--Matching Patterns Like a Pro
+. Appendix C: Using a Package Manager
+* Installing More Commands On Your Computer
+* For Mac--Installing Homebrew
+* For Windows and Linux--Using The Built-In Package Manager
 
 == Generating the book
 
