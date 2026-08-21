@@ -2,3 +2,5 @@ book.pdf
 src/book.pdf
 callout_numbers.adoc
 scratch.txt
+.env/
+.vscode/
