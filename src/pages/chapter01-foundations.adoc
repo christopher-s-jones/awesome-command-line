@@ -183,7 +183,7 @@ Now that you have set up a working terminal application, you are well on your wa
 
 When you open your terminal application, a number of things happen in the background to set up your environment, such as loading your default settings profile.  As part of this process, the terminal will start another process called a _shell interpreter_{emdash}which is a program running invisibly in the background--that is waiting for your command to be typed. When you do type the command and hit the kbd:[Return] key, the shell program kicks into gear, interprets all of the text that you entered, and runs the command like a programming language.  In fact, you are actually writing commands in what is called a _shell language_!
 
-Here's the same example as _Example 1_, but with a comment added to the command:
+Here's the same command we saw in the _Getting Started_ section, but with a comment added to the command:
 
 .Issuing the `pwd` command with a comment
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -202,7 +202,7 @@ We are now familiar with opening a terminal application, which in turn spins up 
 
 image::chapter-01-command-line-example.svg[title="A typical command line, with an example of a default `+zsh+` command prompt, showing the user name, the computer host name, the current folder (`+~+`), and the `+%+` sign, followed by a block cursor.", pdfwidth=100%]
 
-The command prompt on modern systems tend to include your user name, followed by an `+@+` (at) symbol, followed by the network host name of your computer.  There is usually some kind of delimiter character (a space or colon), followed by a `+~+` (tilda) character (which, as we discuss later, represents your home folder). Lastly, you will see either a `+$+` (dollar sign) character (for `+bash+` shells) or a `+%+` (percent) character (for `+zsh+` shells).  Command prompts can be customized to your liking--modern prompts can be very colorful and include a lot of information, or can be bare bones, depending on your preferences.  Take a look at _Example 3_ for various command line prompt examples.
+The command prompt on modern systems tend to include your user name, followed by an `+@+` (at) symbol, followed by the network host name of your computer.  There is usually some kind of delimiter character (a space or colon), followed by a `+~+` (tilda) character (which, as we discuss later, represents your home folder). Lastly, you will see either a `+$+` (dollar sign) character (for `+bash+` shells) or a `+%+` (percent) character (for `+zsh+` shells).  Command prompts can be customized to your liking--modern prompts can be very colorful and include a lot of information, or can be bare bones, depending on your preferences.  Take a look at _Example 2_ for various command line prompt examples.
 
 <<<
 .Examples of various command line prompts.
@@ -250,7 +250,7 @@ We have made it to the very end our command, where we see the kbd:[Return] key s
 
 === Single Line and Multi-Lined Commands
 
-A lot of commands can be short and sweet, like the `+pwd+` command we've seen in the previous sections.  But many commands have a lot of options available to modify the command and refine the results that are returned.  Some commands include dozens of options, and it may be helpful to use many of them at once.  So our command will often not fit on a single line of text available in your terminal window, unless you have a very large screen and can widen the terminal window.  So, we'll often see commands wrap to the second and third line of the window, as depicted in _Example 4_.
+A lot of commands can be short and sweet, like the `+pwd+` command we've seen in the previous sections.  But many commands have a lot of options available to modify the command and refine the results that are returned.  Some commands include dozens of options, and it may be helpful to use many of them at once.  So our command will often not fit on a single line of text available in your terminal window, unless you have a very large screen and can widen the terminal window.  So, we'll often see commands wrap to the second and third line of the window, as depicted in _Example 3_.
 
 .A long command example with many options that wraps to the second line.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -258,7 +258,7 @@ A lot of commands can be short and sweet, like the `+pwd+` command we've seen in
 chris@ophir ~ %  stardb search -v --only-giants=true --star-classes "bright-yellow-giant, orange-bright-giant, red-super-giant, white-super-giant, blue-super-giant" -o super-giants.txt
 ----
 
-Having the command wrap to the next line can work just fine, and will only be executed when you press the kbd:[Return] key.  But there are times when the command gets very long and complex, and you just want to clean it up.  We have the power! You can use a `+\+` (backslash) character followed by the `kbd:[Return]` key which is used as an _escape character_. The shell interpreter will ignore the kbd:[Return] keypress.  You can use the `+\+` (backslash) character as many times as needed to make your single-line command a tidy _multi-line command_, as is shown in _Example 5_.
+Having the command wrap to the next line can work just fine, and will only be executed when you press the kbd:[Return] key.  But there are times when the command gets very long and complex, and you just want to clean it up.  We have the power! You can use a `+\+` (backslash) character followed by the `kbd:[Return]` key which is used as an _escape character_. The shell interpreter will ignore the kbd:[Return] keypress.  You can use the `+\+` (backslash) character as many times as needed to make your single-line command a tidy _multi-line command_, as is shown in _Example 4_.
 
 <<<
 .A multi-line command example with options split across lines with a `+\+` (backslash) character.
@@ -266,7 +266,11 @@ Having the command wrap to the next line can work just fine, and will only be ex
 ----
 chris@nuthatch:~$ stardb search -v \
 > --only-giants=true \
-> --star-classes "red-super-giant, white-super-giant, blue-super-giant" \
+> --star-classes "bright-yellow-giant, \
+> orange-bright-giant, \
+> red-super-giant, \
+> white-super-giant, \
+> blue-super-giant" \
 > -o super-giants.txt
 ----
 

@@ -18,7 +18,7 @@ We will be working with some stellar data in this chapter.  And we mean stellar!
 
 === The cat Command--Viewing and Combining Files
 
-While we love cats and dogs alike, we really enjoy the `+cat+` command for its absolute simplicity.  It is a shorthand for the word _catenate_ (similar to _concatenate_), and was originally created to combine files together.  However, we'll first use it in its easiest form, which is to just display the contents of a file directly in the terminal window.  To do this, let's first have a look at a collection of files that help us illustrate these commands--files that contain lists of stars we see in the night sky. These files are organized by tropical zodiac signs and contain text data describing the most prominent stars aligned with each sign.  In _Example 58_ we change into the directory containing these files and list them to get a sense of what files we will be working with.
+While we love cats and dogs alike, we really enjoy the `+cat+` command for its absolute simplicity.  It is a shorthand for the word _catenate_ (similar to _concatenate_), and was originally created to combine files together.  However, we'll first use it in its easiest form, which is to just display the contents of a file directly in the terminal window.  To do this, let's first have a look at a collection of files that help us illustrate these commands--files that contain lists of stars we see in the night sky. These files are organized by tropical zodiac signs and contain text data describing the most prominent stars aligned with each sign.  In _Example 57_ we change into the directory containing these files and list them to get a sense of what files we will be working with.
 
 .Listing the text files representing the twelve tropical zodiac signs and the Sun.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -31,7 +31,7 @@ Cancer.txt      Libra.txt   Sun.txt
 Capricorn.txt   Pisces.txt  Taurus.txt
 ----
 
-Great!  We see that we have twelve files--plus a thirteenth for the Sun--that are named after the signs of the tropical zodiac, each representing a thirty degree area of the sky along the path of the Sun.  Let's take a look inside one of the files using the `+cat+` command, shown in  _Example 59_.
+Great!  We see that we have twelve files--plus a thirteenth for the Sun--that are named after the signs of the tropical zodiac, each representing a thirty degree area of the sky along the path of the Sun.  Let's take a look inside one of the files using the `+cat+` command, shown in  _Example 58_.
 
 .Using the `+cat+` command to view a file's contents in the terminal window on a Mac.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -110,7 +110,7 @@ _Table 4_ really shows us the structure of the file, which is similar to a sprea
 
 Note that brightness is on an inverse scale, so the smaller the number, the brighter the star looks in the sky.  Let's compare two of the stars in the sign of Cancer.  At `+-1.46+`, Sirius is considered a "minus-one-magnitude" star (super bright) compared to its celestial companion, Furud.  At `+2.99+`, Furud is a second-magnitude star, and super close to being a third-magnitude star.  It is still very bright, but four magnitudes less bright than Sirius, almost five.
 
-_Table 4_ gives us a good feel for the data in the `+Cancer.txt+` file, but what about the rest of the files?  Let's first combine the `+Cancer.txt+` file with `+Sun.txt+` file for a little more comparison.  We can do so by passing the two file names as arguments to the `+cat+` command, as shown in _Example 60_.
+_Table 4_ gives us a good feel for the data in the `+Cancer.txt+` file, but what about the rest of the files?  Let's first combine the `+Cancer.txt+` file with `+Sun.txt+` file for a little more comparison.  We can do so by passing the two file names as arguments to the `+cat+` command, as shown in _Example 59_.
 
 .Using the `+cat+` command to concatenate the contents of two files and display the results in the terminal window on a Mac.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -154,7 +154,7 @@ This is absolutely amazing!  By using pipelines, we can chain together as many c
 
 === The sort Command--Sorting the Contents of a File
 
-In order to answer our questions about what are the brightest stars in the night sky, we'll need to be able to sort our data.  And yes, we have the magic!  The `+sort+` command is a super useful tool for reordering data.  We can use it as a standalone command by passing in a file name as an argument to sort the contents.  However, in our case we are going to use it in a pipeline where we sort the output of the previous `+cat+` command.  Have a look at _Example 61_ where we concatenate all of our tropical sign files that contain star information into one large output, and we send it to the `+sort+` command with a `+|+` (pipe) symbol.
+In order to answer our questions about what are the brightest stars in the night sky, we'll need to be able to sort our data.  And yes, we have the magic!  The `+sort+` command is a super useful tool for reordering data.  We can use it as a standalone command by passing in a file name as an argument to sort the contents.  However, in our case we are going to use it in a pipeline where we sort the output of the previous `+cat+` command.  Have a look at _Example 60_ where we concatenate all of our tropical sign files that contain star information into one large output, and we send it to the `+sort+` command with a `+|+` (pipe) symbol.
 
 .Using the `+cat+` command in a command pipeline to concatenate the contents of all text files in a directory and then sort the lines.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -197,7 +197,7 @@ Wow! Sorting is that easy!  Try it for yourself, since the output in _Example 61
 
 We're making progress! That was your first successful command pipeline! You can now modify your pipeline to sort the lines of text data in other ways than just alphabetical order.  Have a look at the manual page for the `+sort+` command to get a feeling for the command options.  One of the indispensable options for sorting text data as columns is the `+-k+` option, which lets us tell the command which field (column, or key) to use to sort the data.  Let's use this option to sort our star data, first by magnitude (brightness).
 
-Take a look at _Example 61_ and notice how the lines of data have blank spaces, and the data are visually arranged as columns and rows, as we highlighted in _Table 4_.  The brightness numbers are in the fifth column, which is also referred to as the fifth _field_.  The manual page tells us that the `+-k+` option takes one or more field numbers to sort by, and in our case we will use `+-k 5+` to sort by the fifth column.  We'll also use the `+-g+` option to do a "general numeric sort".  By using this option, the command will know how to handle the `+++` (plus) and `+-+` (minus) signs the prefix our brightness values.  Go ahead and give it a try!  _Example 62_ shows the results of our modified command pipeline.
+Take a look at _Example 60_ and notice how the lines of data have blank spaces, and the data are visually arranged as columns and rows, as we highlighted in _Table 4_.  The brightness numbers are in the fifth column, which is also referred to as the fifth _field_.  The manual page tells us that the `+-k+` option takes one or more field numbers to sort by, and in our case we will use `+-k 5+` to sort by the fifth column.  We'll also use the `+-g+` option to do a "general numeric sort".  By using this option, the command will know how to handle the `+++` (plus) and `+-+` (minus) signs the prefix our brightness values.  Go ahead and give it a try!  _Example 61_ shows the results of our modified command pipeline.
 
 .Combining all star files using the `+cat+` command and piping the results to the `+sort+` command, sorting numerically on column 5.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -239,7 +239,7 @@ Perfect!  Just like that, you just did your first command line sort!  All 175 st
 
 === The head Command--Previewing the Top of a File
 
-We will continue with some handy `+sort+` command features shortly, but let's turn our attention to the `+head+` command, so we can answer our question{emdash} _What are the 21 brightest stars in the sky?_  The `+head+` command is a very simple text handling command that helps you display just the lines at the top of a file, and by default it will show you the top 10 lines.  Conveniently, with the `+-n+` option, we can specify the exact number of lines we're interested in.  So go ahead and add the `+head+` command to your previous star exploration pipeline, and let's find those top 21 stars!  _Example 63_ shows the results of our pipeline.
+We will continue with some handy `+sort+` command features shortly, but let's turn our attention to the `+head+` command, so we can answer our question{emdash} _What are the 21 brightest stars in the sky?_  The `+head+` command is a very simple text handling command that helps you display just the lines at the top of a file, and by default it will show you the top 10 lines.  Conveniently, with the `+-n+` option, we can specify the exact number of lines we're interested in.  So go ahead and add the `+head+` command to your previous star exploration pipeline, and let's find those top 21 stars!  _Example 62_ shows the results of our pipeline.
 
 .Displaying the top 21 lines of text from a command pipeline using the `+head+` command.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -309,7 +309,7 @@ image::chapter-05-command-line-tab-characters.svg[caption="", pdfwidth=100%]
 cat *txt | sort -k 5 -g | head -n 21 | sort -k 4 -n -t "	"
 ----
 
-We now have an invisible tab character between our double-quotes and are ready to sort our data!  Take a look at _Example 64_, which concatenates all of the star files and sorts them by visual brightness, grabs the top 21 lines, and then sorts those lines numerically by distance in light years with an explicit tab character field separator.
+We now have an invisible tab character between our double-quotes and are ready to sort our data!  Take a look at _Example 63_, which concatenates all of the star files and sorts them by visual brightness, grabs the top 21 lines, and then sorts those lines numerically by distance in light years with an explicit tab character field separator.
 
 .Sorting the output of the `+head+` command using a tab as the field separator (`+-t "    "+`) and the fourth field as the column key (`+-k 4+`) numerically (`+-n+`).  The example shows uses a `+\+` (backslash) character to create multi-line command for display purposes.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -352,7 +352,7 @@ In our case, let's change our command pipeline where we sort the entire 175-star
 cat *txt | sort -k 4 -n -t "	" | tail
 ----
 
-Go ahead and try this command yourself, and remember to use the handy trick for inserting an invisible tab character on the command line{emdash} kbd:[Control] + kbd:[v] then kbd:[Tab].  _Example 65_ shows the results of this command.
+Go ahead and try this command yourself, and remember to use the handy trick for inserting an invisible tab character on the command line{emdash} kbd:[Control] + kbd:[v] then kbd:[Tab].  _Example 64_ shows the results of this command.
 
 .Using the `+tail+` command to limit command output to the last ten lines.  All of the tropical sign star files are combined, sorted numerically by distance in light years, and filtered to show just the last ten lines of the result.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -415,7 +415,7 @@ This is a very simple example that demonstrates how the `+tail+` command can sho
 
 === The grep Command--Filtering Data
 
-As we've been learning, working with text files often involves line-based processing of the contents of a file.  This is very much the case when you want to search within a file or many files all at once.  To grab exactly what you want from inside of files, the `+grep+` command is your friend!  Go ahead and have a look at the manual page for `+grep+`.  You'll see that it will "print lines that match patterns".  When we talk about using `+grep+` on the command line, it means we are searching for text-based patterns in one or more files, so the arguments you give to the command include at least those two things--a text pattern to search for, and a set of files to search within.  Let's begin with a common example where you want to see if a word is inside of a file.   _Example 66_ shows how to do a simple search within the `+Virgo.txt+` file for the word `+super+`.  Try this search for yourself!
+As we've been learning, working with text files often involves line-based processing of the contents of a file.  This is very much the case when you want to search within a file or many files all at once.  To grab exactly what you want from inside of files, the `+grep+` command is your friend!  Go ahead and have a look at the manual page for `+grep+`.  You'll see that it will "print lines that match patterns".  When we talk about using `+grep+` on the command line, it means we are searching for text-based patterns in one or more files, so the arguments you give to the command include at least those two things--a text pattern to search for, and a set of files to search within.  Let's begin with a common example where you want to see if a word is inside of a file.   _Example 65_ shows how to do a simple search within the `+Virgo.txt+` file for the word `+super+`.  Try this search for yourself!
 
 .Using the `+grep+` command to search within a file for a single word pattern.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -426,7 +426,7 @@ Suhail             	11°32'-Virgo       	orange-super-giant 	0545ly 	+2.21
 
 Perfect!  You found one line of text in the `+Virgo.txt+` file that contains the word `+super+`.  So in this case, the pattern we're looking for is the word "super" (a sequence of characters), and the file set we are searching is just the Virgo.txt file.  So easy!  We see that the star named Suhail is an orange super giant that is 545 light years away from us.  Very cool!
 
-The `+grep+` command is awesome for filtering large amounts of information to find just what you want.  At times, though, you may know what you _don't want_ to find more than you know what you _want_.  In this case, the `+grep+` command can exclude the lines you don't want to see by using the `+-v+` option.  This is a handy tool to view lines of a file that you may not even know are present.  For example, let's search the star files, and exclude lines that have the word `+giant+` in them.  Take a look at _Example 67_, which excludes giant stars from the list.
+The `+grep+` command is awesome for filtering large amounts of information to find just what you want.  At times, though, you may know what you _don't want_ to find more than you know what you _want_.  In this case, the `+grep+` command can exclude the lines you don't want to see by using the `+-v+` option.  This is a handy tool to view lines of a file that you may not even know are present.  For example, let's search the star files, and exclude lines that have the word `+giant+` in them.  Take a look at _Example 66_, which excludes giant stars from the list.
 
 .Using the `+grep+` command to search files by excluding lines containg a word pattern with the `+-v+` option.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -482,7 +482,7 @@ Zosma              	11°40'-Virgo       	white-dwarf        	0058ly 	+2.53
 Cor-Caroli         	24°55'-Virgo       	bright-yellow-dwarf	0107ly 	+2.88
 ----
 
-Interesting! Forty-eight of the brightest stars are labeled as non-giant stars, and we see many dwarf size stars in this list.  It's also very common to pipe the results of a `+grep+` command into another `+grep+` command for further filtering.  For instance, let's also filter out any dwarf stars from the resulting list, and see what we get.  Have a look at the results in _Example 68_.
+Interesting! Forty-eight of the brightest stars are labeled as non-giant stars, and we see many dwarf size stars in this list.  It's also very common to pipe the results of a `+grep+` command into another `+grep+` command for further filtering.  For instance, let's also filter out any dwarf stars from the resulting list, and see what we get.  Have a look at the results in _Example 67_.
 
 .Piping the output of a `+grep+` command to another `+grep+` command, continuing to filter  with the `+-v+` option.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -501,7 +501,7 @@ In the last few examples, we have searched for a pattern that have been single w
 
 TIP:  In computing, regular expressions are used in most all modern programming languages to match text-based patterns of letters, numbers, and symbols.  Learning how to use regular expressions in command line commands is a skill that can be transferred over when learning to program.  The term is often shortened to _regex_.
 
-Let's start with an example using the `+grep+` command, where we can construct our previous command to filter out both dwarf and giant stars in a more concise way.  One of the special characters used in regular expression patterns is the `+|+` (pipe) symbol.  When used for pattern matching, the pipe symbol indicates an _OR operator_ {emdash}meaning that we can search for _pattern1{nbsp}{nbsp}OR{nbsp}{nbsp}pattern2{nbsp}{nbsp}OR{nbsp}{nbsp}pattern3_, etc.  Let's give this a try with the `+-E+` option for the `+grep+` command.  Also note that the `+|+` (pipe) symbol is also a special symbol for commands as we learned earlier--therefore we will wrap our pattern in `+""+` (double-quote) characters to shield it from being interpreted as a command line pipe.  Have a look at _Example 69_, showing the use of a regular expression in the `+grep+` command.
+Let's start with an example using the `+grep+` command, where we can construct our previous command to filter out both dwarf and giant stars in a more concise way.  One of the special characters used in regular expression patterns is the `+|+` (pipe) symbol.  When used for pattern matching, the pipe symbol indicates an _OR operator_ {emdash}meaning that we can search for _pattern1{nbsp}{nbsp}OR{nbsp}{nbsp}pattern2{nbsp}{nbsp}OR{nbsp}{nbsp}pattern3_, etc.  Let's give this a try with the `+-E+` option for the `+grep+` command.  Also note that the `+|+` (pipe) symbol is also a special symbol for commands as we learned earlier--therefore we will wrap our pattern in `+""+` (double-quote) characters to shield it from being interpreted as a command line pipe.  Have a look at _Example 68_, showing the use of a regular expression in the `+grep+` command.
 
 .Filtering text data using a regular expression pattern with the `+-E+` option of the `+grep+` command.
 [source, console, caption="Example {counter:listing-counter}: "]

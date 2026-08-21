@@ -6,7 +6,7 @@ Everything we create on a computer involves a folder in one way or another.  It 
 
 === The mkdir Command--Creating Directories
 
-Let's jump right in because it doesn't get any easier to create a directory than with the `+mkdir+` command.  The synopsis in the manual page says it all{emdash} "make directories"!  _Example 43_ shows the simplest use of the `+mkdir+` command.
+Let's jump right in because it doesn't get any easier to create a directory than with the `+mkdir+` command.  The synopsis in the manual page says it all{emdash} "make directories"!  _Example 42_ shows the simplest use of the `+mkdir+` command.
 
 .Making a directory with the `+mkdir+` command on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -17,7 +17,7 @@ Music		Library		Movies		data.txt	Desktop
 Public		Documents	Downloads	Pictures	Photography
 ----
 
-That's it!  We've made our first directory called `+Photography+`, and because our current directory is our home directory, we see the `+Photography+` directory gets created right where we specified using a relative directory path.  But let's think a bit about how we need to get organized.  Let's say we have many hundreds of photos on our camera that we just imported into a single directory, and we want to categorize them by location and by date so we can work on them as daily shoots.  If we know the locations and the dates, we could begin to create our directory structure by adding the `+-p+` option to the `+mkdir+` command, which causes it to create intermediate subdirectories if they do not exist.  _Example 44_ demonstrates making a hierarchy of directories using a single command.
+That's it!  We've made our first directory called `+Photography+`, and because our current directory is our home directory, we see the `+Photography+` directory gets created right where we specified using a relative directory path.  But let's think a bit about how we need to get organized.  Let's say we have many hundreds of photos on our camera that we just imported into a single directory, and we want to categorize them by location and by date so we can work on them as daily shoots.  If we know the locations and the dates, we could begin to create our directory structure by adding the `+-p+` option to the `+mkdir+` command, which causes it to create intermediate subdirectories if they do not exist.  _Example 43_ demonstrates making a hierarchy of directories using a single command.
 
 .Making a hierarchy of directories with the `+mkdir+` command on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -37,7 +37,7 @@ The terminal shell gives us a number of shorthand techniques to generate file an
 
 ==== Brace expansion
 
-Brace expansion allows us to define either a list or a sequence in our file or directory paths, and we'll cover both scenarios here.  Let's first explore brace expansion with a list.  The word _brace_ refers to the `+{}+` (curly brace) symbols that are used to bracket phrases or other content.  In our photography project, we have photos from multiple locations that we need to organize, and on multiple dates.  Let's first create the locations in the directory structure using brace expansion.  _Example 45_ demonstrates brace expansion by creating directories for four US states where the photo shoots took place in our existing `+Photography+` directory.
+Brace expansion allows us to define either a list or a sequence in our file or directory paths, and we'll cover both scenarios here.  Let's first explore brace expansion with a list.  The word _brace_ refers to the `+{}+` (curly brace) symbols that are used to bracket phrases or other content.  In our photography project, we have photos from multiple locations that we need to organize, and on multiple dates.  Let's first create the locations in the directory structure using brace expansion.  _Example 44_ demonstrates brace expansion by creating directories for four US states where the photo shoots took place in our existing `+Photography+` directory.
 
 .Using a list brace expansion with the `+mkdir+` command on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -56,7 +56,7 @@ Each path is passed as an argument to the `+mkdir+` command to create these dire
 
 image::chapter-04-macos-list-brace-expansion-results.png[title="Showing the results of creating a directory hierarchy with brace expansion on macOS.", pdfwidth=100%]
 
-Let's now continue with building our directory structure by generating folders for the dates of the photo shoots.  In _Example 44_ we created a directory structure for the photo shoot on July 4, 2024 in Utah, represented by the `+Photography/Shoots/Utah/2024/07/04+` directory path.  Assuming we have had photo shoots over the last five years in our four locations on different days of every month of the year, let's use expansion to generate the directories systematically.  _Example 46_ demonstrates how to use a _sequence expression_ within a brace expansion to create years, months, and days automatically.
+Let's now continue with building our directory structure by generating folders for the dates of the photo shoots.  In _Example 44_ we created a directory structure for the photo shoot on July 4, 2024 in Utah, represented by the `+Photography/Shoots/Utah/2024/07/04+` directory path.  Assuming we have had photo shoots over the last five years in our four locations on different days of every month of the year, let's use expansion to generate the directories systematically.  _Example 45_ demonstrates how to use a _sequence expression_ within a brace expansion to create years, months, and days automatically.
 
 .Using list brace expansion and sequence expansion with the `+mkdir+` command on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -122,7 +122,7 @@ In our photo shoot scenario, let's say we've added JPEG photo files into the dir
 
 In our scenario, the shoots for 2025 are scheduled but not complete, and so we've created a file called `+reserved.txt+` in each of those date directories as placeholders.
 
-It is a great practice to back up your work before issuing commands that could have big consequences.  As mentioned in _Chapter 3. File Commands_, the `+cp+` command can be used for directories because it has a `+-R+` recursive option.  Let's create a backup of our `+Photography+` directory for safe keeping.  _Example 47_ demonstrates this.
+It is a great practice to back up your work before issuing commands that could have big consequences.  As mentioned in _Chapter 3. File Commands_, the `+cp+` command can be used for directories because it has a `+-R+` recursive option.  Let's create a backup of our `+Photography+` directory for safe keeping.  _Example 46_ demonstrates this.
 
 
 .Using the `+cp+` command recursively to backup a directory on macOS.
@@ -141,7 +141,7 @@ Excellent!  We now have a pristine copy of our `Photography` directory saved to 
 
 Removing directories is as easy as creating them, and as we've mentioned, the `+rmdir+` command is our tool of choice.  Go ahead and look at the manual page for the `+rmdir+` command to get to know the command options.  The synopsis states{emdash} "remove empty directories".  The convenient aspect of this command is that it cautiously removes directories, avoiding any directories that have files inside of them.  That can be invaluable!
 
-If we tried to issue a command like `+rmdir Photography+`, based on our knowledge of the command, it wouldn't remove anything because it has sub-directories inside of it, some of which have photo files based on the dates in _Table 3_.  So we want to pass a list of all of the sub-directories as arguments to the `+rmdir+` command, and use the `+-p+` option to evaluate each sub-directory separately.  _Example 48_  uses the same brace expansion in our `+mkdir+` commands previously to generate a list.
+If we tried to issue a command like `+rmdir Photography+`, based on our knowledge of the command, it wouldn't remove anything because it has sub-directories inside of it, some of which have photo files based on the dates in _Table 3_.  So we want to pass a list of all of the sub-directories as arguments to the `+rmdir+` command, and use the `+-p+` option to evaluate each sub-directory separately.  _Example 47_  uses the same brace expansion in our `+mkdir+` commands previously to generate a list.
 
 CAUTION: While the `+rmdir+` command only removes empty directories, it still permanently removes them.  Be sure of the directories you want to remove.
 
@@ -161,7 +161,7 @@ So magical!  Let's review what we did here.  First, we used the `+-v+` verbose o
 
 ==== Know your power
 
-While the `+rmdir+` command is great for mindful removal of undesired empty directories, there are times when you just need to remove an entire directory completely, regardless of what is inside of it.  Of course, we have the power!  As mentioned in _Chapter 3. File Commands_, the `+rm+` command can be used to remove directories.  We are able to do this by using the `+-R+` option, which tells the command to descend into the directory and delete all files and folders. Let's say that our photo shoot scheduled for November of 2025 in New Mexico was canceled, and we need to delete that directory wholesale.  _Example 49_ demonstrates a recursive removal of a directory with the `+rm+` command.
+While the `+rmdir+` command is great for mindful removal of undesired empty directories, there are times when you just need to remove an entire directory completely, regardless of what is inside of it.  Of course, we have the power!  As mentioned in _Chapter 3. File Commands_, the `+rm+` command can be used to remove directories.  We are able to do this by using the `+-R+` option, which tells the command to descend into the directory and delete all files and folders. Let's say that our photo shoot scheduled for November of 2025 in New Mexico was canceled, and we need to delete that directory wholesale.  _Example 48_ demonstrates a recursive removal of a directory with the `+rm+` command.
 
 CAUTION: The `+rm -R+` command will instantly delete everything within the directory that is passed in as an argument, so use extreme caution with this command.  Double check that the path is correct, and be aware of mistakes with absolute versus relative paths, or with extra or missing characters.
 
@@ -175,7 +175,7 @@ And just like that, the `+2025+` directory inside of the `+New-Mexico+` director
 
 image::chapter-04-macos-remove-directory.png[title="Results of the removal of a sub-directory using the `+rm+` command on macOS.", pdfwidth=100%]
 
-The `+rm -R+` command that we see above can be unforgiving, so be sure use it judiciously!  You may unintentionally have a single character typo in your command which might drastically alter the outcome.  For instance, if we mistakenly introduced a single space character into our command, the result is quite devastating, as shown in _Example 50_.
+The `+rm -R+` command that we see above can be unforgiving, so be sure use it judiciously!  You may unintentionally have a single character typo in your command which might drastically alter the outcome.  For instance, if we mistakenly introduced a single space character into our command, the result is quite devastating, as shown in _Example 49_.
 
 .Beware of typos!  Inadvertantly removing a directory with a space character typo on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -188,7 +188,7 @@ The above command completed, and promptly removed the entire `+Photography+` dir
 
 ==== Restoring from a backup
 
-In the event that we did make the single space typo mistake shown in _Example 50_, we can then restore our work by moving our backup directory back to our working `+Photography+` directory, as shown in _Example 51_.
+In the event that we did make the single space typo mistake shown in _Example 50_, we can then restore our work by moving our backup directory back to our working `+Photography+` directory, as shown in _Example 50_.
 
 .Moving (renaming) a directory on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -202,7 +202,7 @@ There we go!  We can get back to our work.  In the next section, let's explore t
 
 We see how powerful the recursive use of the `+rm+` command can be, and with mindfullness it is our trusty friend.  Instead of removing directories entirely, we also have the ability to specify patterns of files and folders to remove with a handy concept called _pathname expansion_.  Like brace expansion, the shell will generate a list for us, but in this case, we use special wildcard caharaters in our command.  These include the `+*+` (asterisk, or star), the `+[]+` (square bracket), and the `+?+` (question mark) characters, and are affectionately known as _glob operators_.  Let's discuss these individually.
 
-Let's say that while we were copying our photo files into our directory structure, we mistakenly copied photos taken in Utah from 2020 to 2023 into our `+Colorado+` directories, and that we now need to fix this and re-copy the correct photos into place.  We know our directory dates are correct, so we just need to selectively remove the JPEG files that are currently there.  Let's first use an `+*+` (star) to specify a file pattern to remove, shown in _Example 52_.
+Let's say that while we were copying our photo files into our directory structure, we mistakenly copied photos taken in Utah from 2020 to 2023 into our `+Colorado+` directories, and that we now need to fix this and re-copy the correct photos into place.  We know our directory dates are correct, so we just need to selectively remove the JPEG files that are currently there.  Let's first use an `+*+` (star) to specify a file pattern to remove, shown in _Example 51_.
 
 CAUTION: Using wildcard patterns with the `+rm+` command will permanently delete the files matching the pattern.  Double check your work, and list the files with the same pattern before removing them.
 
@@ -217,7 +217,7 @@ chris@ophir ~ % rm Photography/Shoots/Colorado/2020/02/10/*jpg
 
 Wow! Let's figure out what happended here.  First, we see that there were ten JPEG images in the `+Photography/Shoots/Colorado/2020/02/10/+` directory.  We then used the `+rm+` command with the `+*jpg+` (star wildcard followed by the `+jpg+` file name ending).  This wildcard pattern means "any file name string that ends in jpg".  That is great, and we instantly deleted those ten files.  But we know we have incorrect JPEG images in all of the 2020 to 2023 Colorado sub-directories, so let's explore how we can use square brackets along with the star wildcard to specify the set of files we want to delete.
 
-The `+[]+` bracket syntax lets us specify a list of single characters to match, but if it includes a `+-+` (hyphen), it means a range of characters, and the shell will expand them accordingly.  _Example 53_ uses both the star wildcard and a range of numbers to specify the file paths we would like to remove.
+The `+[]+` bracket syntax lets us specify a list of single characters to match, but if it includes a `+-+` (hyphen), it means a range of characters, and the shell will expand them accordingly.  _Example 52_ uses both the star wildcard and a range of numbers to specify the file paths we would like to remove.
 
 .Using a `+[]+` character range and `+*+` star wildcards to specify a file name pattern on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -252,7 +252,7 @@ There are many other ways to use the various expansion techniques on the command
 
 === The du Command--Viewing Disk Usage
 
-We all have many different files we have created or downloaded and that are no longer needed.  When we look at the amount of space left on our storage drives, it seems like we can free up a lot of space if we knew where the unwanted files were located in our file system.  The `+du+` command lets us display our "disk usage" in a number of ways so we can discover where those huge files are located, or just get a sense of where a lot of smaller files are adding up.  Let's have a look at the `+du+` command in the context of our Photography directory.  Without a directory argument, the `+du+` command will calculate usage in your current working directory.  _Example 54_ demonstrates the command with only the `+-h+` option to tell it to print human-readable file and directory sizes.
+We all have many different files we have created or downloaded and that are no longer needed.  When we look at the amount of space left on our storage drives, it seems like we can free up a lot of space if we knew where the unwanted files were located in our file system.  The `+du+` command lets us display our "disk usage" in a number of ways so we can discover where those huge files are located, or just get a sense of where a lot of smaller files are adding up.  Let's have a look at the `+du+` command in the context of our Photography directory.  Without a directory argument, the `+du+` command will calculate usage in your current working directory.  _Example 53_ demonstrates the command with only the `+-h+` option to tell it to print human-readable file and directory sizes.
 
 .Using the `+du+` command to view disk usage on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -283,7 +283,7 @@ chris@ophir Photography % du -h
  19G	.
 ----
 
-The listing in _Example 54_ has been truncated for display purposes, but we can see that the `+du+` command has traversed the entire `Photography` directory tree, and has calculated a total size of each sub-directory.  It's really fast!  We get a look at how big the directories are, and there is a grand total at the end for the `+.+` (dot) current directory.  We see that there are zero bytes in many of the Colorado directories because we recently deleted all of those files in years 2020 to 2023.  This command is perfect for directory trees that are moderately sized, but when you have deeply nested directories, you might want to look at a shorter summary to see where the biggest files are.  We have the magic!  _Example 55_ shows the `+du+` command with the `+-s+` option which will summarize the directories given as arguments.
+The listing in _Example 53_ has been truncated for display purposes, but we can see that the `+du+` command has traversed the entire `Photography` directory tree, and has calculated a total size of each sub-directory.  It's really fast!  We get a look at how big the directories are, and there is a grand total at the end for the `+.+` (dot) current directory.  We see that there are zero bytes in many of the Colorado directories because we recently deleted all of those files in years 2020 to 2023.  This command is perfect for directory trees that are moderately sized, but when you have deeply nested directories, you might want to look at a shorter summary to see where the biggest files are.  We have the magic!  _Example 54_ shows the `+du+` command with the `+-s+` option which will summarize the directories given as arguments.
 
 .Using the `+du+` command to view summary disk usage on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -295,7 +295,7 @@ chris@ophir Photography % du -sh ./Shoots/*
 4.8G	./Shoots/Utah
 ----
 
-Ah, so simple!  We used a `+*+` star wildcard in our relative directory path such that each sub-directory (the four corners states) would each be summarized.  We see that the `+./Shoots/Colorado+` directory is much smaller due to our previous deletions, and that the `+./Shoots/New-Mexico+` directory is the largest by quite a bit.  Let's investigate the daily directories in the `+New-Mexico+` directory to see where the biggest files are located.  _Example 56_ demonstrates this.
+Ah, so simple!  We used a `+*+` star wildcard in our relative directory path such that each sub-directory (the four corners states) would each be summarized.  We see that the `+./Shoots/Colorado+` directory is much smaller due to our previous deletions, and that the `+./Shoots/New-Mexico+` directory is the largest by quite a bit.  Let's investigate the daily directories in the `+New-Mexico+` directory to see where the biggest files are located.  _Example 55_ demonstrates this.
 
 .Using the `+du+` command to view summary disk usage in leaf directories on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
@@ -314,7 +314,7 @@ chris@ophir Photography % du -sh ./Shoots/New-Mexico/*/*/*
 ----
 <1> The largest sub-directory is very apparent
 
-Interesting!  So the `+./Shoots/New-Mexico/2023/03/17+` is definitely an outlier compared to the rest of the sub-directories, so let's view the contents and see the files, as shown in _Example 57_.
+Interesting!  So the `+./Shoots/New-Mexico/2023/03/17+` is definitely an outlier compared to the rest of the sub-directories, so let's view the contents and see the files, as shown in _Example 56_.
 
 .Viewing a long listing of files in reverse size order on macOS.
 [source, console, caption="Example {counter:listing-counter}: "]
