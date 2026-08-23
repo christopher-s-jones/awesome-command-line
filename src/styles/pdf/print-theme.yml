@@ -36,7 +36,7 @@ font:
 base:
   align: justify
   font_color: 0C0A09 # stone-950
-  # font_color: FFFBEB # amber-50 for dark mode
+  # dark_font_color: FFFBEB # amber-50 for dark mode
   background_color: FFFFFF
   # background_color: 0C0A09 # stone-950 for dark mode
   font_family: EB Garamond
@@ -67,6 +67,7 @@ link:
 # literal is currently used for inline monospaced in prose and table cells
 codespan:
   font_color: $base_font_color
+  # font_color: $base_dark_font_color # for dark mode
   font_family: Source Code Pro
   font_size: .9em
   # background_color: F5F5F4 #stone-100
@@ -81,6 +82,7 @@ kbd:
   border-offset: 1
 heading:
   font_color: $base_font_color
+  # font_color: $base_dark_font_color # for dark mode
   font_family: PT Sans Narrow
   font_style: bold
   h1_font_size: floor($base_font_size * 2.6)
@@ -137,6 +139,7 @@ lead:
   line_height: 1.4
 abstract:
   font_color: $base_font_color
+  # font_color: $base_dark_font_color # for dark mode
   font_size: $lead_font_size
   line_height: $lead_line_height
   font_style: italic
@@ -146,6 +149,7 @@ admonition:
     min_width: 20
 quote:
   font_color: $base_font_color
+  # font_color: $base_dark_font_color # for dark mode
   font_size: $base_font_size_large
   border_color: $base_border_color
   border_width: 3.5
