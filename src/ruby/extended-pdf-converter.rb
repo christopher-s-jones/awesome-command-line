@@ -1,11 +1,19 @@
+require 'logger'
 
 class PDFConverterCustomChapterTitle < (Asciidoctor::Converter.for 'pdf')
     register_for 'pdf'
 
+  # Write the chapter title 
+  #
+  # Based on the width of each chapter title, place 
+  # the icon ornament correctly, and split the
+  # chapter signifier from the title text for reformatting
+  #
+  # @param node - the document section node
+  # @param title - the title chapter
+  # @param opts - the options hash
   def ink_chapter_title node, title, opts = {}
   
-    require 'logger'
-
     logger = Logger.new(STDOUT)
     logger.level = Logger::DEBUG
     logger.formatter = proc do |severity, datetime, progname, msg| 
@@ -13,7 +21,7 @@ class PDFConverterCustomChapterTitle < (Asciidoctor::Converter.for 'pdf')
     end
   
     # Conditionally set the amount to relocate the cursor
-    # based on the section title
+    # based on the section title length
     case title
     when /Preface/
       move_x = 326
@@ -42,6 +50,8 @@ class PDFConverterCustomChapterTitle < (Asciidoctor::Converter.for 'pdf')
       move_y = 162
     end
 
+    # By default, titles render with a period delimiter.
+    # Change the behavior to have more control over the title parts.
     title_array = title.split('.')
     if title_array[1] != nil
       title_array[1].index(':') != nil ? 
@@ -58,7 +68,6 @@ class PDFConverterCustomChapterTitle < (Asciidoctor::Converter.for 'pdf')
       },
     )
 
-    # "Chapter 2"
     logger.debug "BEGIN #{title} -----------------------"
     signifier = title_array[0].upcase
     logger.debug "Writing #{signifier}. Cursor is now: #{cursor}"
