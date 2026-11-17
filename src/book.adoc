@@ -5,8 +5,8 @@ endif::[]
 :author: Christopher S. Jones
 // :email: <heychris@christopherjones.co>
 :publisher: Christopher S. Jones
-:pubaddress: Boulder, CO
-:pubyear: 2026
+:pubaddress: Tampa, FL
+:pubyear: 2027
 :printername:
 :printerlocation: United States of America
 :bookurl: https://github.com/christopher-s-jones/awesome-command-line
